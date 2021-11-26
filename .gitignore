@@ -3,3 +3,4 @@ node_modules
 .cache
 docs/.vuepress/blog
 .idea
+package-lock.json

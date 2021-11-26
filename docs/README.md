@@ -6,8 +6,8 @@ actions:
 - text: 快速上手
   link: /quickstart/
   type: primary
-- text: 项目简介
-  link: /guide/
+- text: 目录结构
+  link: /directory/
   type: secondary
 
 features:
@@ -17,11 +17,16 @@ features:
   details: 无敌是多么寂寞。
 - title: 寂寞
   details: 找不到对手而忧伤。
-  footer: Apache-2.0 Licensed | Copyright © 2020
+
+footer: Apache-2.0 Licensed | Copyright © 2020
+
 ---
 
 
 ###  像数 1, 2, 3 一样容易
+
+:::: code-group
+::: code-group-item FOO
 ```java
 
     public static void main(String[] args) {
@@ -29,5 +34,22 @@ features:
     }
     
 ```
-123
+:::
+::: code-group-item BAR
+```c
+
+    public static void main(String[] args) {
+        System.out.println |
+    }
+    
 ```
+:::
+::::
+
+<br>
+
+::: tip 提示
+这是一个提示
+https://v2.vuepress.vuejs.org/zh/reference/default-theme/markdown.html#自定义容器
+:::
+

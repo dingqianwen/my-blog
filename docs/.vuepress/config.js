@@ -1,3 +1,4 @@
+// https://v2.vuepress.vuejs.org
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
@@ -24,12 +25,17 @@ module.exports = {
             {text: 'Gitee', link: 'https://gitee.com/qwding'},
             {text: 'Github', link: 'https://github.com/dingqianwen'},
         ],
-        sidebarDepth: 2,
         sidebar: {
             '/quickstart/': [
                 {
                     text: '快速入门',
                     children: ['/quickstart/README.md'],
+                },
+            ],
+            '/directory/': [
+                {
+                    text: '目录结构',
+                    children: ['/directory/README.md'],
                 },
             ],
             '/java/': [
