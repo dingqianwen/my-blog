@@ -3,7 +3,7 @@ home: true
 heroImage: logo.png
 
 actions:
-- text: 快速查找
+- text: 无所不能
   link: http://www.baidu.com
   type: primary
 - text: 目录结构

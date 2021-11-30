@@ -21,11 +21,55 @@ module.exports = {
     themeConfig: {
         logo: 'logo.png',  //网页顶端导航栏左上角的图标
         navbar: [
-            {text: 'Home', link: '/'},
-            {text: '后端', link: '/blogs/backend/java'},
-            {text: '前端', link: '/blogs/front/'},
-            {text: 'Gitee', link: 'https://gitee.com/qwding'},
-            {text: 'Github', link: 'https://github.com/dingqianwen'},
+            {text: '首页', link: '/'},
+            {
+                text: '后端',
+                children: [
+                    {
+                        text: 'Java',
+                        link: '/blogs/backend/java',
+                    },
+                    {
+                        text: 'Python',
+                        link: '/blogs/backend/python',
+                    },
+                ],
+            },
+            {
+                text: '前端',
+                children: [
+                    {
+                        text: 'Vue',
+                        link: '/blogs/front/vue',
+                    },
+                ],
+            },
+            {
+                text: '我的外链',
+                children: [
+                    {
+                        text: 'Gitee',
+                        link: 'https://gitee.com/qwding',
+                    },
+                    {
+                        text: 'Github',
+                        link: 'https://github.com/dingqianwen',
+                    },
+                ],
+            },
+            {
+                text: '友情链接',
+                children: [
+                    {
+                        text: '无敌牛牛',
+                        link: 'https://niucloud.net.cn ',
+                    },
+                    {
+                        text: '万能搜索',
+                        link: 'https://www.baidu.com ',
+                    },
+                ],
+            }
         ],
         sidebar: [
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
@@ -35,6 +79,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Java',
+                        link: '/blogs/backend/java',
                         children: [
                             '/blogs/backend/java/架构师成长之路.md',
                             '/blogs/backend/java/鉴于仓库不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取.md',
@@ -43,6 +88,7 @@ module.exports = {
                     },
                     {
                         text: 'Python',
+                        link: '/blogs/backend/python',
                         children: [
                             '/blogs/backend/python',
                         ],
@@ -55,6 +101,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Vue',
+                        link: '/blogs/front/vue',
                         children: [
                             '/blogs/front/vue/README.md',
                         ],
