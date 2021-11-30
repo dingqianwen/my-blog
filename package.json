@@ -11,6 +11,7 @@
   "author": "dingqianwen",
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/plugin-search": "^2.0.0-beta.27",
     "vuepress": "^2.0.0-beta.27"
   }
 }

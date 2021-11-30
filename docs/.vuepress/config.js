@@ -14,6 +14,7 @@ module.exports = {
             href: "logo.png"
         }]
     ],
+
     dest: './docs/.vuepress/blog',
     evergreen: true,
     themeConfig: {
@@ -25,26 +26,52 @@ module.exports = {
             {text: 'Gitee', link: 'https://gitee.com/qwding'},
             {text: 'Github', link: 'https://github.com/dingqianwen'},
         ],
-        sidebar: {
-            '/quickstart/': [
-                {
-                    text: '快速入门',
-                    children: ['/quickstart/README.md'],
-                },
-            ],
-            '/directory/': [
-                {
-                    text: '目录结构',
-                    children: ['/directory/README.md'],
-                },
-            ],
-            '/java/': [
-                {
-                    text: 'Java',
-                    children: ['/java/README.md', '/java/架构师成长之路.md'],
-                },
-            ],
-        }
+        sidebar: [
+            // SidebarItem
+            {
+                text: 'Java',
+                //link: '/foo/',
+                children: [
+                    // SidebarItem
+                    // {
+                    //     text: 'github',
+                    //     link: 'https://github.com',
+                    //     children: [],
+                    // },
+                    // 字符串 - 页面文件路径
+                    '/blogs/java/架构师成长之路.md',
+                ],
+            },
+            {
+                text: 'Python',
+                //link: '/foo/',
+                children: [
+                    // SidebarItem
+                    // {
+                    //     text: 'github',
+                    //     link: 'https://github.com',
+                    //     children: [],
+                    // },
+                    // 字符串 - 页面文件路径
+                    '/blogs/python/README.md',
+                ],
+            },
+        ],
     },
+    plugins: [
+        [
+            '@vuepress/plugin-search',
+            {
+                locales: {
+                    '/': {
+                        placeholder: 'Search',
+                    },
+                    '/zh/': {
+                        placeholder: '搜索',
+                    },
+                },
+            },
+        ],
+    ],
 };
 

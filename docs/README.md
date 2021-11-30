@@ -3,11 +3,11 @@ home: true
 heroImage: logo.png
 
 actions:
-- text: 快速上手
-  link: /quickstart/
+- text: 快速查找
+  link: http://www.baidu.com
   type: primary
 - text: 目录结构
-  link: /directory/
+  link: /blogs/java/
   type: secondary
 
 features:
