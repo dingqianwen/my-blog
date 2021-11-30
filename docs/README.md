@@ -7,7 +7,7 @@ actions:
   link: http://www.baidu.com
   type: primary
 - text: 目录结构
-  link: /blogs/java/
+  link: /blogs/backend
   type: secondary
 
 features:
