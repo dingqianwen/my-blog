@@ -1,4 +1,5 @@
 // https://v2.vuepress.vuejs.org
+const {path} = require('@vuepress/utils')
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
@@ -30,6 +31,7 @@ module.exports = {
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
             {
                 text: '后端',
+                link: '/blogs/backend/',
                 children: [
                     {
                         text: 'Java',
@@ -49,6 +51,7 @@ module.exports = {
             },
             {
                 text: '前端',
+                link: '/blogs/front/',
                 children: [
                     {
                         text: 'Vue',
@@ -60,6 +63,7 @@ module.exports = {
             },
             {
                 text: '个人日记',
+                link: '/blogs/diary/',
                 children: [
                     '/blogs/diary/README.md',
                 ],
@@ -69,15 +73,12 @@ module.exports = {
     plugins: [
         [
             '@vuepress/plugin-search',
+            {}
+        ],
+        [
+            '@vuepress/register-components',
             {
-                locales: {
-                    '/': {
-                        placeholder: 'Search',
-                    },
-                    '/zh/': {
-                        placeholder: '搜索',
-                    },
-                },
+                componentsDir: path.resolve(__dirname, './components'),
             },
         ],
     ],

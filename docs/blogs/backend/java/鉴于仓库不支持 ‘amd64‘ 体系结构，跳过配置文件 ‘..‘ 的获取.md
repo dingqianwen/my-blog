@@ -22,3 +22,6 @@ N: 鉴于仓库 'http://raspbian.raspberrypi.org/raspbian bullseye InRelease' �
 sudo dpkg --remove-architecture amd64
 sudo apt-get update
 ```
+
+
+<Valine></Valine>
