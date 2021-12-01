@@ -27,11 +27,11 @@ module.exports = {
                 children: [
                     {
                         text: 'Java',
-                        link: '/blogs/backend/java',
+                        link: '/blogs/backend/java/',
                     },
                     {
                         text: 'Python',
-                        link: '/blogs/backend/python',
+                        link: '/blogs/backend/python/',
                     },
                 ],
             },
@@ -40,7 +40,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Vue',
-                        link: '/blogs/front/vue',
+                        link: '/blogs/front/vue/',
                     },
                 ],
             },
@@ -79,7 +79,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Java',
-                        link: '/blogs/backend/java',
+                        link: '/blogs/backend/java/',
                         children: [
                             '/blogs/backend/java/架构师成长之路.md',
                             '/blogs/backend/java/鉴于仓库不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取.md',
@@ -88,9 +88,9 @@ module.exports = {
                     },
                     {
                         text: 'Python',
-                        link: '/blogs/backend/python',
+                        link: '/blogs/backend/python/',
                         children: [
-                            '/blogs/backend/python',
+                            '/blogs/backend/python/',
                         ],
                     },
                 ],
@@ -101,7 +101,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Vue',
-                        link: '/blogs/front/vue',
+                        link: '/blogs/front/vue/',
                         children: [
                             '/blogs/front/vue/README.md',
                         ],
