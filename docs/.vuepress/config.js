@@ -27,11 +27,11 @@ module.exports = {
                 children: [
                     {
                         text: 'Java',
-                        link: '/blogs/backend/java/',
+                        link: '/backend/java/',
                     },
                     {
                         text: 'Python',
-                        link: '/blogs/backend/python/',
+                        link: '/backend/python/',
                     },
                 ],
             },
@@ -40,7 +40,7 @@ module.exports = {
                 children: [
                     {
                         text: 'Vue',
-                        link: '/blogs/front/vue/',
+                        link: '/front/vue/',
                     },
                 ],
             },
@@ -75,44 +75,44 @@ module.exports = {
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
             {
                 text: '后端',
-                link: '/blogs/backend/',
+                link: '/backend/',
                 children: [
                     {
                         text: 'Java',
-                        link: '/blogs/backend/java/',
+                        link: '/backend/java/',
                         children: [
-                            '/blogs/backend/java/架构师成长之路.md',
-                            '/blogs/backend/java/鉴于仓库不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取.md',
-                            '/blogs/backend/java/XMLException发现了以元素process开头的无效内容.md',
+                            '/backend/java/架构师成长之路.md',
+                            '/backend/java/仓库不支持amd64体系结构，跳过配置文件..的获取.md',
+                            '/backend/java/发现了以元素process开头的无效内容.md',
                         ],
                     },
                     {
                         text: 'Python',
-                        link: '/blogs/backend/python/',
+                        link: '/backend/python/',
                         children: [
-                            '/blogs/backend/python/',
+                            '/backend/python/',
                         ],
                     },
                 ],
             },
             {
                 text: '前端',
-                link: '/blogs/front/',
+                link: '/front/',
                 children: [
                     {
                         text: 'Vue',
-                        link: '/blogs/front/vue/',
+                        link: '/front/vue/',
                         children: [
-                            '/blogs/front/vue/README.md',
+                            '/front/vue/README.md',
                         ],
                     },
                 ],
             },
             {
                 text: '个人日记',
-                link: '/blogs/diary/',
+                link: '/diary/',
                 children: [
-                    '/blogs/diary/README.md',
+                    '/diary/README.md',
                 ],
             },
         ],
