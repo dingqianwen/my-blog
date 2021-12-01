@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import 'gitalk/dist/gitalk.css'
+import '../styles/gitalk.css'
 import Gitalk from 'gitalk'
 
 export default {
@@ -20,7 +20,8 @@ export default {
       admin: ['dingqianwen'],
       id: decodeURI(location.pathname),
       distractionFreeMode: false,
-    }
+      language: 'zh-CN',
+  }
     const gitalk = new Gitalk(commentConfig);
     gitalk.render('gitalk-container');
   }
