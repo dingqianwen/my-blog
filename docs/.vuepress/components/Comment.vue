@@ -13,9 +13,9 @@ export default {
   name: 'comment',
   mounted() {
     const commentConfig = {
-      clientID: '5fed2d25f64a11c27c1b',
-      clientSecret: 'd834f6f2dc273b8dd2aca71ebc159e0036b5c5ca',
-      repo: 'my-blog-comments', // 仓库地址
+      clientID: '',
+      clientSecret: '',
+      repo: 'my-blog', // 仓库地址
       owner: 'dingqianwen',
       admin: ['dingqianwen'],
       id: md5(location.pathname)
