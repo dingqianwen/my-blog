@@ -731,7 +731,7 @@
 }
 
 .gt-container a {
-    color: #6190e8;
+    color: var(--c-text-accent);
 }
 
 .gt-container a:hover {
@@ -762,7 +762,7 @@
 .gt-container .gt-svg svg {
     width: 100%;
     height: 100%;
-    fill: #6190e8;
+    fill: var(--c-text-accent);
 }
 
 .gt-container .gt-ico {
@@ -803,7 +803,7 @@
     margin-left: -0.375em;
     border-radius: 50%;
     border: 1px solid #fff;
-    border-top-color: #6190e8;
+    border-top-color: var(--c-text-accent);
     -webkit-animation: gt-kf-rotate 0.6s linear infinite;
     animation: gt-kf-rotate 0.6s linear infinite;
 }
@@ -874,9 +874,9 @@
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
-    border: 1px solid #6190e8;
+    border: 1px solid var(--c-text-accent);
     border-radius: 5px;
-    background-color: #6190e8;
+    background-color: var(--c-text-accent);
     color: #fff;
     outline: none;
     font-size: 0.75em;
@@ -906,7 +906,7 @@
 
 .gt-container .gt-btn-preview {
     background-color: #fff;
-    color: #6190e8;
+    color: var(--c-text-accent);
 }
 
 .gt-container .gt-btn-preview:hover {
@@ -941,7 +941,7 @@
 }
 
 .gt-container .gt-link {
-    border-bottom: 1px dotted #6190e8;
+    border-bottom: 1px dotted var(--c-text-accent);
 }
 
 .gt-container .gt-link-counts,
@@ -1000,7 +1000,7 @@
 }
 
 .gt-container .gt-user .is--poping .gt-ico svg {
-    fill: #6190e8;
+    fill: var(--c-text-accent);
 }
 
 .gt-container .gt-version {
@@ -1039,7 +1039,7 @@
     content: '';
     width: 0.25em;
     height: 0.25em;
-    background: #6190e8;
+    background: var(--c-text-accent);
     position: absolute;
     left: 0.5em;
     top: 0.4375em;
@@ -1078,15 +1078,19 @@
     font-size: 0.875em;
     word-wrap: break-word;
     resize: vertical;
-    /*background-color: #f6f6f6;*/
+    background-color: #fff;
     outline: none;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
 
-.gt-container .gt-header-textarea:hover {
-    /*background-color: #fbfbfb;*/
+.gt-header-textarea {
+   color: black;
 }
+
+/*.gt-container .gt-header-textarea:hover {*/
+/*    background-color: #fff;*/
+/*}*/
 
 .gt-container .gt-header-preview {
     padding: 0.75em;
@@ -1118,7 +1122,7 @@
 
 .gt-container .gt-header-controls-tip {
     font-size: 0.875em;
-    color: #6190e8;
+    color: var(--c-text-accent);
     text-decoration: none;
     vertical-align: sub;
 }
@@ -1242,7 +1246,7 @@
 
 .gt-container .gt-comment-username {
     font-weight: 500;
-    color: #6190e8;
+    color: var(--c-text-accent);
     text-decoration: none;
 }
 
