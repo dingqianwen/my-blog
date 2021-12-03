@@ -905,6 +905,11 @@
     margin-right: 0;
 }
 
+.gt-container .gt-btn-login:hover {
+    background-color: var(--c-brand-light);
+    border-color: var(--c-brand);
+}
+
 .gt-container .gt-btn-preview {
     background-color: var(--c-bg);
     color: var(--c-brand);

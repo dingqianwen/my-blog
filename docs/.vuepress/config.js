@@ -121,6 +121,16 @@ module.exports = {
                             '/front/vue/README.md',
                         ],
                     },
+                    {
+                        text: 'JavaScript',
+                        link: '/front/js/',
+                        children: [
+                            '/front/js/JS对象数组深克隆.md',
+                            '/front/js/JS日期格式刚刚1分钟前等格式化.md',
+                            '/front/js/JS设置JSON对象默认值.md',
+                            '/front/js/JS格式化日期.md',
+                        ],
+                    },
                 ],
             },
             {
