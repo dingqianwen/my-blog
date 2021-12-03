@@ -736,8 +736,8 @@
 }
 
 .gt-container a:hover {
-    color: #81a6ed;
-    border-color: #81a6ed;
+    /*color: #81a6ed;*/
+    /*border-color: #81a6ed;*/
 }
 
 .gt-container a.is--active {
@@ -877,7 +877,7 @@
     cursor: pointer;
     border: 1px solid var(--c-text-accent);
     border-radius: 5px;
-    background-color: var(--c-text-accent);
+    background-color: var(--c-brand);
     color: #fff;
     outline: none;
     font-size: 0.75em;
@@ -906,18 +906,19 @@
 }
 
 .gt-container .gt-btn-preview {
-    background-color: #fff;
-    color: var(--c-text-accent);
+    background-color: var(--c-bg);
+    color: var(--c-brand);
+    border-color: var(--c-brand);
 }
 
 .gt-container .gt-btn-preview:hover {
-    background-color: #f2f2f2;
-    border-color: #81a6ed;
+    color: var(--c-bg);
+    background-color: var(--c-brand-light);
 }
 
 .gt-container .gt-btn-public:hover {
-    background-color: #81a6ed;
-    border-color: #81a6ed;
+    /*background-color: #81a6ed;*/
+    /*border-color: #81a6ed;*/
 }
 
 .gt-container .gt-error {
