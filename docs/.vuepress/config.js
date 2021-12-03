@@ -10,10 +10,25 @@ module.exports = {
     // }
     description: '这是丁乾文的博客🐮👃!',
     head: [
+        ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+
         ['link', {
             rel: 'icon',
             href: "logo.png"
-        }]
+        }],
+
+        // 添加百度统计
+        [
+            "script",
+            {},
+            `var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?2c62ea544d9e4e77ddc92a4b634a785f";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+              })();`
+        ]
     ],
 
     dest: './docs/.vuepress/blog',
@@ -128,6 +143,23 @@ module.exports = {
                 componentsDir: path.resolve(__dirname, './components'),
             },
         ],
+        [
+            '@vuepress/pwa'
+        ],
+        [
+            '@vuepress/plugin-pwa-popup',
+            {
+                locales: {
+                    '/': {
+                        message: 'New content is available.',
+                        buttonText: 'Refresh',
+                    },
+                    '/zh/': {
+                        message: '发现新内容可用',
+                        buttonText: '刷新',
+                    },
+                },
+            },
+        ],
     ],
 };
-

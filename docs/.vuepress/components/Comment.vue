@@ -11,6 +11,7 @@ import Gitalk from 'gitalk'
 export default {
   name: 'comment',
   mounted() {
+    //alert(process.env.VUE_APP_WEB_BASE_URL)
     // alert(decodeURI(location.pathname))
     const commentConfig = {
       clientID: '',
