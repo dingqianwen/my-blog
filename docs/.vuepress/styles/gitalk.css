@@ -741,12 +741,12 @@
 }
 
 .gt-container a.is--active {
-    color: #333;
+    color: var(--c-text);
     cursor: default !important;
 }
 
 .gt-container a.is--active:hover {
-    color: #333;
+    color: var(--c-text-accent);
 }
 
 .gt-container .hide {
