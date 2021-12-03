@@ -7,7 +7,7 @@
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     line-height: 1.5;
-    color: #24292e;
+    color: var(--c-text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.5;
@@ -30,7 +30,7 @@
 
 .markdown-body .pl-smi,
 .markdown-body .pl-s .pl-s1 {
-    color: #24292e;
+    color: var(--c-text);
 }
 
 .markdown-body .pl-ent {
@@ -641,8 +641,9 @@
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #f6f8fa;
+    background-color: var(--c-tip-bg);
     border-radius: 3px;
+    color: var(--c-text);
 }
 
 .markdown-body pre code {
@@ -1097,8 +1098,8 @@
 .gt-container .gt-header-preview {
     padding: 0.75em;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: #f6f6f6;
+    border: 1px solid var(--c-border);
+    background-color: var(--c-bg);
 }
 
 .gt-container .gt-header-controls {
