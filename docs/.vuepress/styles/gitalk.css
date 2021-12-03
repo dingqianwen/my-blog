@@ -430,7 +430,7 @@
 .markdown-body blockquote {
     padding: 0 1em;
     color: #6a737d;
-    border-left: 0.25em solid #dfe2e5;
+    border-left: 0.25em solid var(--c-border);
 }
 
 .markdown-body blockquote > :first-child {
@@ -953,7 +953,7 @@
     margin: 1.25em 0;
     padding: 1em 0;
     position: relative;
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid var(--c-border);
     font-size: 1em;
     position: relative;
     /*z-index: 10;*/
@@ -1010,7 +1010,7 @@
 
 .gt-container .gt-copyright {
     margin: 0 0.9375em 0.5em;
-    border-top: 1px solid #e9e9e9;
+    border-top: 1px solid var(--c-border);
     padding-top: 0.5em;
 }
 
@@ -1018,12 +1018,13 @@
     position: absolute;
     right: 0;
     top: 2.375em;
-    background: #fff;
+    background: var(--c-bg);
     display: inline-block;
-    border: 1px solid #e9e9e9;
+    border: 1px solid var(--c-border);
     padding: 0.625em 0;
     font-size: 0.875em;
     letter-spacing: 0.5px;
+    z-index: 10;
 }
 
 .gt-container .gt-popup .gt-action {
@@ -1074,18 +1075,19 @@
     min-height: 5.125em;
     max-height: 15em;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--c-border);
     font-size: 0.875em;
     word-wrap: break-word;
     resize: vertical;
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: var(--c-bg);
     outline: none;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
 
 .gt-header-textarea {
-   color: black;
+    color: var(--c-text);
 }
 
 /*.gt-container .gt-header-textarea:hover {*/
@@ -1205,7 +1207,8 @@
     flex: 1;
     margin-left: 1.25em;
     padding: 0.75em 1em;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
+    background-color: var(--c-bg);
     overflow: auto;
     -webkit-transition: all ease 0.25s;
     transition: all ease 0.25s;
@@ -1289,7 +1292,8 @@
 }
 
 .gt-container .gt-comment-body {
-    color: #333 !important;
+    /*color: #333 !important;*/
+    color: var(--c-text);
 }
 
 .gt-container .gt-comment-body .email-hidden-toggle a {
@@ -1327,7 +1331,8 @@
 }
 
 .gt-container .gt-comment-admin .gt-comment-content {
-    background-color: #f6f9fe;
+    background-color: var(--c-bg);
+    border: 1px solid var(--c-border);
 }
 
 @-webkit-keyframes gt-kf-rotate {
