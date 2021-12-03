@@ -917,8 +917,13 @@
 }
 
 .gt-container .gt-btn-public:hover {
-    /*background-color: #81a6ed;*/
-    /*border-color: #81a6ed;*/
+    background-color: var(--c-brand-light);
+    border-color: var(--c-brand);
+}
+
+.gt-container .gt-btn-loadmore:hover {
+    background-color: var(--c-brand-light);
+    border-color: var(--c-brand);
 }
 
 .gt-container .gt-error {
