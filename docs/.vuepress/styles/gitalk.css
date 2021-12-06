@@ -1373,14 +1373,8 @@
     }
 }
 
-.theme-default-content pre code, .theme-default-content pre[class*=language-] code {
+.gt-comment-body .snippet-clipboard-content pre code {
     color: var(--c-text);
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
-    overflow-wrap: unset;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
 }
 
 /*# sourceMappingURL=gitalk.css.map*/
