@@ -8,11 +8,13 @@ description: 页面的描述
 
 如果广大网友发现比我第二种方式还要更好的实现，我则删帖，不服来干！
 
-#### 如题要求：
+## 如题要求：
 
 <img :src="$withBase('images/backend/java/java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先/img.png')" alt="foo">
 
-##### 第一种实现：
+## 实现：
+
+### 第一种实现：
 刚看到群里有人发出了这个题，我第一个想法就是通过排序来处理，但是单纯通过Arrays.sort();排序的话并不能完成目的。后来初步写出了第一个实现方案如下：
 ```java
 		String str = "as3BfAisdD4kA1";
@@ -44,7 +46,7 @@ description: 页面的描述
 		}
 ```
 
-##### 第二种实现：
+### 第二种实现：
 今天吃饭途中想到，可以换一个思路实现，此思想目前发现应该是全网性能最高的存在，不服来干吧！
 ```java
         String str = "as3BfAisdD4kA1";
@@ -73,7 +75,7 @@ description: 页面的描述
         System.out.println(builder);
 ```
 
-##### 再优化（还有谁？）：
+### 再优化（还有谁？）：
 ```java
         String str = "as3BfAisdD4kA1";
         int[] max = new int[26];
