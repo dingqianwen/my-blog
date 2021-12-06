@@ -96,6 +96,7 @@ module.exports = {
                         text: 'Java',
                         link: '/backend/java/',
                         children: [
+                            '/backend/java/java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先.md',
                             '/backend/java/架构师成长之路.md',
                             '/backend/java/仓库不支持amd64体系结构，跳过配置文件..的获取.md',
                             '/backend/java/发现了以元素process开头的无效内容.md',
@@ -125,10 +126,10 @@ module.exports = {
                         text: 'JavaScript',
                         link: '/front/js/',
                         children: [
-                            '/front/js/JS对象数组深克隆.md',
-                            '/front/js/JS日期格式刚刚1分钟前等格式化.md',
-                            '/front/js/JS设置JSON对象默认值.md',
-                            '/front/js/JS格式化日期.md',
+                            '/front/js/对象数组深克隆.md',
+                            '/front/js/日期格式刚刚1分钟前等格式化.md',
+                            '/front/js/设置JSON对象默认值.md',
+                            '/front/js/格式化日期.md',
                         ],
                     },
                 ],
@@ -152,24 +153,6 @@ module.exports = {
             {
                 componentsDir: path.resolve(__dirname, './components'),
             },
-        ],
-        [
-            '@vuepress/pwa'
-        ],
-        [
-            '@vuepress/plugin-pwa-popup',
-            {
-                locales: {
-                    '/': {
-                        message: 'New content is available.',
-                        buttonText: 'Refresh',
-                    },
-                    '/zh/': {
-                        message: '发现新内容可用',
-                        buttonText: '刷新',
-                    },
-                },
-            },
-        ],
+        ]
     ],
 };

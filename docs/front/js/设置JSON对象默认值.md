@@ -1,10 +1,10 @@
 ---
 lang: zh-CN
-title: JS设置JSON对象默认值
+title: 设置JSON对象默认值
 description: 页面的描述
 ---
 
-# JS设置JSON对象默认值
+# js设置JSON对象默认值
 
 
 ```javascript

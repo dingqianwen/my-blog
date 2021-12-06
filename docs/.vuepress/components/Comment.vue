@@ -7,11 +7,11 @@
 <script>
 import '../styles/gitalk.css'
 import Gitalk from 'gitalk'
+import md5 from 'blueimp-md5'
 
 export default {
   name: 'comment',
   mounted() {
-    //alert(process.env.VUE_APP_WEB_BASE_URL)
     // alert(decodeURI(location.pathname))
     const commentConfig = {
       clientID: '',
@@ -19,7 +19,7 @@ export default {
       repo: 'my-blog', // 仓库地址
       owner: 'dingqianwen',
       admin: ['dingqianwen'],
-      id: decodeURI(location.pathname),
+      id: md5(location.pathname),
       distractionFreeMode: false,
       language: 'zh-CN',
   }
