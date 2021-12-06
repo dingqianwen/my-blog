@@ -760,6 +760,10 @@
     vertical-align: sub;
 }
 
+.gt-container .gt-ico-arrdown {
+    fill: var(--c-text);
+}
+
 .gt-container .gt-svg svg {
     width: 100%;
     height: 100%;
