@@ -10,7 +10,7 @@ import Gitalk from 'gitalk'
 import md5 from 'blueimp-md5'
 
 export default {
-  name: 'comment',
+  name: 'Comment',
   mounted() {
     // alert(decodeURI(location.pathname))
     const commentConfig = {
