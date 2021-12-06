@@ -10,7 +10,7 @@ module.exports = {
     // }
     description: '这是丁乾文的博客🐮👃!',
     head: [
-        ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+        ['meta', {name: 'theme-color', content: '#3eaf7c'}],
 
         ['link', {
             rel: 'icon',
@@ -90,7 +90,6 @@ module.exports = {
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
             {
                 text: '后端',
-                link: '/backend/',
                 children: [
                     {
                         text: 'Java',
@@ -113,7 +112,6 @@ module.exports = {
             },
             {
                 text: '前端',
-                link: '/front/',
                 children: [
                     {
                         text: 'Vue',
@@ -136,9 +134,14 @@ module.exports = {
             },
             {
                 text: '个人日记',
-                link: '/diary/',
                 children: [
                     '/diary/README.md',
+                ],
+            },
+            {
+                text: '消息',
+                children: [
+                    '/message/MessageBoard.md',
                 ],
             },
         ],

@@ -3,8 +3,8 @@ home: true
 heroImage: logo.png
 
 actions:
-- text: 无所不能
-  link: http://www.baidu.com
+- text: 留言板
+  link: /message/MessageBoard.md
   type: primary
 - text: 目录结构
   link: /backend/

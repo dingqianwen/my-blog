@@ -1228,6 +1228,7 @@
     overflow: auto;
     -webkit-transition: all ease 0.25s;
     transition: all ease 0.25s;
+    border: 1px solid var(--c-border);
 }
 
 .gt-container .gt-comment-content {
