@@ -22,7 +22,7 @@ export default {
       id: md5(location.pathname),
       distractionFreeMode: false,
       language: 'zh-CN',
-  }
+    }
     const gitalk = new Gitalk(commentConfig);
     gitalk.render('gitalk-container');
   }

@@ -48,6 +48,10 @@ module.exports = {
                         text: 'Python',
                         link: '/backend/python/',
                     },
+                    {
+                        text: 'HBase',
+                        link: '/backend/hbase/',
+                    },
                 ],
             },
             {
@@ -56,6 +60,10 @@ module.exports = {
                     {
                         text: 'Vue',
                         link: '/front/vue/',
+                    },
+                    {
+                        text: 'JavaScript',
+                        link: '/front/js/',
                     },
                 ],
             },
@@ -106,6 +114,13 @@ module.exports = {
                         link: '/backend/python/',
                         children: [
                             '/backend/python/',
+                        ],
+                    },
+                    {
+                        text: 'HBase',
+                        link: '/backend/hbase/',
+                        children: [
+                            '/backend/hbase/Centos安装HBase.md',
                         ],
                     },
                 ],
