@@ -52,6 +52,10 @@ module.exports = {
                         text: 'HBase',
                         link: '/backend/hbase/',
                     },
+                    {
+                        text: 'Redis',
+                        link: '/backend/redis/',
+                    },
                 ],
             },
             {
@@ -120,7 +124,14 @@ module.exports = {
                         text: 'HBase',
                         link: '/backend/hbase/',
                         children: [
-                            '/backend/hbase/Centos安装HBase.md',
+                            '/backend/hbase/CentOS安装HBase.md',
+                        ],
+                    },
+                    {
+                        text: 'Redis',
+                        link: '/backend/redis/',
+                        children: [
+                            '/backend/redis/CentOS安装Redis.md',
                         ],
                     },
                 ],
