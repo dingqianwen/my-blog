@@ -8,7 +8,7 @@ module.exports = {
     // alias  html/blog/;
     // index index.html;
     // }
-    description: '这是丁乾文的博客🐮👃!',
+    description: '这是dingqw的博客🐮👃!',
     head: [
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
 

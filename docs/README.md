@@ -26,7 +26,7 @@ footer: Apache-2.0 Licensed | Copyright © 2020
 ###  像数 1, 2, 3 一样容易
 
 :::: code-group
-::: code-group-item FOO
+::: code-group-item JAVA
 ```java
 
     public static void main(String[] args) {
@@ -35,21 +35,18 @@ footer: Apache-2.0 Licensed | Copyright © 2020
     
 ```
 :::
-::: code-group-item BAR
+::: code-group-item C
 ```c
 
-    public static void main(String[] args) {
-        System.out.println |
-    }
+  # include <stdio.h>
+  int main(void)
+  {
+      printf |
+  }
     
 ```
 :::
 ::::
 
 <br>
-
-::: tip 提示
-这是一个提示
-https://v2.vuepress.vuejs.org/zh/reference/default-theme/markdown.html#自定义容器
-:::
 
