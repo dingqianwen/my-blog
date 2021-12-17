@@ -1,14 +1,14 @@
 // https://v2.vuepress.vuejs.org
 const {path} = require('@vuepress/utils')
 module.exports = {
-    title: "My-Blog",
+    title: "My-Docs",
     base: "/blog/",
     // /blog/  nginx配置为
     // location /blog {
     // alias  html/blog/;
     // index index.html;
     // }
-    description: '这是dingqw的博客🐮👃!',
+    description: '这是dingqw的文档🐮👃!',
     head: [
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
 
