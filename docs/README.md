@@ -18,7 +18,11 @@ features:
 - title: 寂寞
   details: 找不到对手而忧伤。
 
-footer: Apache-2.0 Licensed | Copyright © 2020
+footer: "Apache-2.0 Licensed | Copyright © 2020 
+  <br>
+  <a href='http://beian.miit.gov.cn' target='_blank' style='color: var(--c-text-lighter);'>待备案号</a>"
+footerHtml: true
+ 
 
 ---
 

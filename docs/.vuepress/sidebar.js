@@ -44,7 +44,7 @@ module.exports = {
                     text: 'Vue',
                     link: '/front/vue/',
                     children: [
-                        '/front/vue/README.md',
+                        '/front/vue/VuePress增加备案号.md',
                     ],
                 },
                 {
