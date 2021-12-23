@@ -733,6 +733,7 @@
 
 .gt-container a {
     color: var(--c-text-accent);
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-container a:hover {
@@ -789,7 +790,7 @@
 }
 
 .gt-container .gt-ico-github svg {
-    fill: inherit;
+    fill: var(--c-text);
 }
 
 .gt-container .gt-spinner {
@@ -885,6 +886,7 @@
     color: #fff;
     outline: none;
     font-size: 0.75em;
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-container .gt-btn-text {
@@ -918,6 +920,7 @@
     background-color: var(--c-bg);
     color: var(--c-brand);
     border-color: var(--c-brand);
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-container .gt-btn-preview:hover {
@@ -970,6 +973,7 @@
     padding: 1em 0;
     position: relative;
     border-bottom: 1px solid var(--c-border);
+    transition: background-color var(--t-color),border-color var(--t-color);
     font-size: 1em;
     position: relative;
     /*z-index: 10;*/
@@ -1099,7 +1103,8 @@
     background-color: var(--c-bg);
     outline: none;
     -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;
+    /*transition: all 0.25s ease;*/
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-header-textarea {
