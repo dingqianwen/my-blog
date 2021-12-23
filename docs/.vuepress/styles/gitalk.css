@@ -12,7 +12,7 @@
     font-size: 16px;
     line-height: 1.5;
     word-wrap: break-word;
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .markdown-body .pl-c {
@@ -645,7 +645,7 @@
     background-color: var(--c-tip-bg);
     border-radius: 3px;
     color: var(--c-text);
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .markdown-body pre code {
@@ -735,7 +735,7 @@
 
 .gt-container a {
     color: var(--c-text-accent);
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .gt-container a:hover {
@@ -888,11 +888,15 @@
     color: #fff;
     outline: none;
     font-size: 0.75em;
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .gt-container .gt-btn-text {
     font-weight: 400;
+}
+
+.gt-header-controls .gt-btn-public .gt-btn-text {
+    color: var(--c-bg);
 }
 
 .gt-container .gt-btn-loading {
@@ -923,7 +927,7 @@
     background-color: var(--c-bg);
     color: var(--c-brand);
     border-color: var(--c-brand);
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .gt-container .gt-btn-preview:hover {
@@ -976,7 +980,7 @@
     padding: 1em 0;
     position: relative;
     border-bottom: 1px solid var(--c-border);
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
     font-size: 1em;
     position: relative;
     /*z-index: 10;*/
@@ -1048,6 +1052,7 @@
     font-size: 0.875em;
     letter-spacing: 0.5px;
     z-index: 10;
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-container .gt-popup .gt-action {
@@ -1107,7 +1112,7 @@
     outline: none;
     -webkit-transition: all 0.25s ease;
     /*transition: all 0.25s ease;*/
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .gt-header-textarea {
@@ -1236,7 +1241,7 @@
     overflow: auto;
     -webkit-transition: all ease 0.25s;
     border: 1px solid var(--c-border);
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color), border-color var(--t-color);
 }
 
 .gt-container .gt-comment-content {
