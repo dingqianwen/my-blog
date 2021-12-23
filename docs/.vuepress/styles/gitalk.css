@@ -12,6 +12,7 @@
     font-size: 16px;
     line-height: 1.5;
     word-wrap: break-word;
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .markdown-body .pl-c {
@@ -644,6 +645,7 @@
     background-color: var(--c-tip-bg);
     border-radius: 3px;
     color: var(--c-text);
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .markdown-body pre code {
@@ -909,6 +911,7 @@
 
 .gt-container .gt-btn-login {
     margin-right: 0;
+    color: var(--c-bg);
 }
 
 .gt-container .gt-btn-login:hover {
@@ -1232,8 +1235,8 @@
     background-color: var(--c-bg);
     overflow: auto;
     -webkit-transition: all ease 0.25s;
-    transition: all ease 0.25s;
     border: 1px solid var(--c-border);
+    transition: background-color var(--t-color),border-color var(--t-color);
 }
 
 .gt-container .gt-comment-content {
