@@ -980,7 +980,7 @@
     padding: 1em 0;
     position: relative;
     border-bottom: 1px solid var(--c-border);
-    transition: background-color var(--t-color), border-color var(--t-color);
+    transition: border-color var(--t-color);
     font-size: 1em;
     position: relative;
     /*z-index: 10;*/
@@ -1045,14 +1045,14 @@
     position: absolute;
     right: 0;
     top: 2.375em;
-    background: var(--c-bg);
-    display: inline-block;
+    background-color: var(--c-bg-navbar);
+    display: block!important;
     border: 1px solid var(--c-border);
     padding: 0.625em 0;
     font-size: 0.875em;
     letter-spacing: 0.5px;
     z-index: 10;
-    transition: background-color var(--t-color),border-color var(--t-color);
+    transition: background-color var(--t-color),border 1px solid var(--t-color);
 }
 
 .gt-container .gt-popup .gt-action {
