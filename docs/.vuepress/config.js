@@ -41,7 +41,16 @@ module.exports = {
     plugins: [
         [
             '@vuepress/plugin-search',
-            {}
+            {
+                locales: {
+                    '/': {
+                        placeholder: 'Search',
+                    },
+                    '/zh/': {
+                        placeholder: '搜索',
+                    },
+                },
+            }
         ],
         [
             '@vuepress/register-components',

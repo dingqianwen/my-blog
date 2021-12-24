@@ -45,6 +45,7 @@ module.exports = {
                     link: '/front/vue/',
                     children: [
                         '/front/vue/VuePress增加备案号.md',
+                        '/front/vue/清除缓存.md',
                     ],
                 },
                 {
