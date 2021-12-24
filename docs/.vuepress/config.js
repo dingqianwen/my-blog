@@ -50,6 +50,8 @@ module.exports = {
                         placeholder: '搜索',
                     },
                 },
+                // 允许搜索 Frontmatter 中的 `tags`
+                getExtraFields: (page) => [page.frontmatter.tags, page.content, page.filePath, page.path],
             }
         ],
         [
