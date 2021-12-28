@@ -53,11 +53,15 @@ module.exports = {
             children: [
                 {
                     text: '无敌牛牛',
-                    link: 'https://niucloud.net.cn ',
+                    link: 'https://niucloud.net.cn',
                 },
                 {
                     text: '万能搜索',
-                    link: 'https://www.baidu.com ',
+                    link: 'https://www.baidu.com',
+                },
+                {
+                    text: '苞米豆',
+                    link: 'https://baomidou.com/',
                 },
             ],
         }
