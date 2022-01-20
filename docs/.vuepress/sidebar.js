@@ -12,6 +12,7 @@ module.exports = {
                         '/backend/java/架构师成长之路.md',
                         '/backend/java/仓库不支持amd64体系结构，跳过配置文件..的获取.md',
                         '/backend/java/发现了以元素process开头的无效内容.md',
+                        '/backend/java/Feign @SpringQueryMap注解.md',
                     ],
                 },
                 {
