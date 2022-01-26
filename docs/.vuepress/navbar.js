@@ -35,22 +35,19 @@ module.exports = {
                 },
             ],
         },
+        {text: '音乐台', link: '/music/'},
+        {text: '留言板', link: '/message/MessageBoard'},
         {
-            text: '我的外链',
+            text: '外部链接',
             children: [
                 {
-                    text: 'Gitee',
+                    text: 'My Gitee',
                     link: 'https://gitee.com/qwding',
                 },
                 {
-                    text: 'Github',
+                    text: ' My Github',
                     link: 'https://github.com/dingqianwen',
                 },
-            ],
-        },
-        {
-            text: '友情链接',
-            children: [
                 {
                     text: '无敌牛牛',
                     link: 'https://niucloud.net.cn',

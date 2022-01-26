@@ -6,8 +6,8 @@ actions:
 - text: 留言板
   link: /message/MessageBoard.md
   type: primary
-- text: 目录结构
-  link: /backend/
+- text: 听点音乐
+  link: /music/
   type: secondary
 
 features:
