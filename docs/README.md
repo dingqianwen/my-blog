@@ -20,7 +20,7 @@ features:
 
 footer: "Apache-2.0 Licensed | Copyright © 2020 
   <br>
-  <a href='http://beian.miit.gov.cn' target='_blank' style='color: var(--c-text-lighter);'>京ICP备2020034246号-2</a>"
+  <a href='http://beian.miit.gov.cn' target='_blank' style='color: var(--c-text-lighter);font-family: var(--font-family);font-weight: 400;font-size: 14px;'>京ICP备2020034246号-2</a>"
 footerHtml: true
  
 
