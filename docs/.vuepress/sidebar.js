@@ -80,8 +80,15 @@ module.exports = {
         "/music": [
             {
                 children: [
-                    '/music/README.md',
-                ],
+                    {
+                        text: '音乐台',
+                        children: [
+                            '/music/天马座的幻想.md',
+                            '/music/Butter-Fly.md',
+                        ],
+                    }
+                ]
+
             },
         ]
     }
