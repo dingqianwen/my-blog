@@ -58,6 +58,7 @@ module.exports = {
                             '/front/js/日期格式刚刚1分钟前等格式化.md',
                             '/front/js/设置JSON对象默认值.md',
                             '/front/js/格式化日期.md',
+                            '/front/js/Must use import to load ES Module lodash-es.md',
                         ],
                     },
                 ],
