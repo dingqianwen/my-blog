@@ -1,6 +1,6 @@
 <template>
-  <div class="gitalk-container" style="min-width:500px">
-    <div id="gitalk-container" style="min-width: 500px"></div>
+  <div class="gitalk-container">
+    <div id="gitalk-container"></div>
   </div>
 </template>
 
