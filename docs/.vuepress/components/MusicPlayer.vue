@@ -4,10 +4,11 @@
     <div class="loading" v-if="isLoading">
       <Loading/>
     </div>
-<!--    {{viewAll}}-->
+    <!--    {{viewAll}}-->
     <div class="music_player">
 
-      <div class="left" v-if="!isLoading" v-show="viewAll||rightView" :style="viewAll?'padding: 80px 120px 0 15px;':'padding: 80px 0px 0 0px;margin: 0 auto;'">
+      <div class="left" v-if="!isLoading" v-show="viewAll||rightView"
+           :style="viewAll?'padding: 80px 120px 0 15px;':'padding: 80px 0px 0 0px;margin: 0 auto;'">
         <img class="point" src="./assets/img/point.png" alt="">
         <img :class="['bar', playing ? 'play': '']" src="./assets/img/bar.png" alt="">
         <div class="img-outer-container">
@@ -47,7 +48,7 @@
                   fill="#ffffff" p-id="2828"></path>
             </svg>
           </div>
-          <div class="btn switch" @click="show" title="切换面板">
+          <div class="btn switch" @click="show" title="切换面板" v-if="!viewAll">
             <!-- <svg t="1640501097351" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5847" width="20" height="20"><path d="M883.8 407.9H726.7v249.3c0 58.3-47.2 105.5-105.5 105.5h-179v86.8c0.1 40.2 32.6 72.7 72.8 72.8h368.9c40.2-0.1 72.7-32.6 72.8-72.8V480.7c0-19.3-7.6-37.9-21.3-51.5-13.7-13.7-32.3-21.3-51.6-21.3z m0 0" fill="#ffffff" p-id="5848" data-spm-anchor-id="a313x.7781069.0.i13" class="selected"></path><path d="M515 342.3h211.8V208.5c0-58.3-47.2-105.5-105.5-105.5H172.5C114.2 103 67 150.2 67 208.5v448.6c0 58.3 47.2 105.5 105.5 105.5h204.1V480.7c0.1-76.4 62-138.3 138.4-138.4z m0 0" fill="#ffffff" p-id="5849" data-spm-anchor-id="a313x.7781069.0.i14" class="selected"></path><path d="M726.7 657.2V407.9H515c-40.2 0.1-72.7 32.6-72.8 72.8v282h179c28 0 54.8-11.1 74.6-30.9 19.8-19.8 30.9-46.6 30.9-74.6z m0 0" fill="#ffffff" p-id="5850" data-spm-anchor-id="a313x.7781069.0.i15" class="selected"></path></svg> -->
             <svg t="1641741992711" class="icon" viewBox="0 0 1137 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  p-id="57234" width="20" height="20">
@@ -161,7 +162,8 @@ export default {
       contextAudio: null,
       analyserAudio: null,
       rightView: true,
-      viewAll: true
+      viewAll: true,
+      screenWidth: document.body.clientWidth
     }
   },
   props: {
@@ -190,11 +192,23 @@ export default {
   },
   mounted() {
     this.viewAll = !this.mobile();
-   // this.viewAll = false;
+    // this.viewAll = false;
     this.href = window.location.href;
     this.getSone()
+
+    window.onresize = () => {
+      return (() => {
+        window.screenWidth = document.body.clientWidth;
+        this.screenWidth = window.screenWidth;
+      })();
+    }
   },
   watch: {
+    /* 监听*/
+    screenWidth(val) {
+      this.screenWidth = val;
+      this.viewAll = val > 719;
+    },
     activeLyricIndex(newIndex, oldIndex) {
       if (
           newIndex !== oldIndex &&
