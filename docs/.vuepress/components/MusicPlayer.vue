@@ -163,7 +163,7 @@ export default {
       analyserAudio: null,
       rightView: true,
       viewAll: true,
-      screenWidth: document.body.clientWidth
+      screenWidth: null
     }
   },
   props: {
@@ -181,6 +181,7 @@ export default {
     },
   },
   created() {
+    this.screenWidth = document.body.clientWidth;
     this.lyricScrolling = {
       [WHEEL_TYPE]: false,
       [SCROLL_TYPE]: false

@@ -18,7 +18,7 @@ module.exports = {
             href: "logo.png"
         }],
         // 添加百度统计
-        [
+     /*   [
             "script",
             {},
             `var _hmt = _hmt || [];
@@ -28,7 +28,7 @@ module.exports = {
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
               })();`
-        ]
+        ]*/
     ],
 
     dest: './docs/.vuepress/blog',
