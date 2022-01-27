@@ -23,21 +23,21 @@
   width: 40px;
 }
 .bar {
- background: #e04960;
+  background: var(--c-brand);
   bottom: 1px;
   height: 3px;
   position: absolute;
-  width: 3px;      
+  width: 3px;
   animation: sound 0ms -800ms linear infinite alternate;
 }
 @keyframes sound {
   0% {
      opacity: .35;
-      height: 3px; 
+      height: 3px;
   }
   100% {
-      opacity: 1;       
-      height: 28px;        
+      opacity: 1;
+      height: 28px;
   }
 }
 .bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
