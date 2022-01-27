@@ -7,7 +7,7 @@
 
     <div class="music_player">
 
-      <div class="left" v-if="!isLoading" v-show="viewAll||rightView" :style="rightView?'margin: 0 auto;':''">
+      <div class="left" v-if="!isLoading" v-show="viewAll||rightView" :style="viewAll?'padding: 80px 120px 0 15px;':'padding: 80px 120px 0 120px;margin: 0 auto;'">
         <img class="point" src="./assets/img/point.png" alt="">
         <img :class="['bar', playing ? 'play': '']" src="./assets/img/bar.png" alt="">
         <div class="img-outer-container">
@@ -190,7 +190,7 @@ export default {
   },
   mounted() {
     this.viewAll = !this.mobile();
-   // this.viewAll = false;
+    //this.viewAll = false;
     this.href = window.location.href;
     this.getSone()
   },
