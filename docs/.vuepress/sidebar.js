@@ -48,6 +48,7 @@ module.exports = {
                         children: [
                             '/front/vue/VuePress增加备案号.md',
                             '/front/vue/清除缓存.md',
+                            '/front/vue/好用的技巧.md',
                         ],
                     },
                     {
