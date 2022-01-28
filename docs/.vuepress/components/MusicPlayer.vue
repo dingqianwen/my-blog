@@ -63,9 +63,7 @@
         </div>
       </div>
       <div v-show="viewAll||!rightView" v-if="!isLoading" @click.native="show" class="right">
-
-        <canvas id="canvas" :style="{transition: 'all .2s ease-in-out',opacity: !panelIsLyric ? 1 : 0}"></canvas>
-        <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: panelIsLyric ? 1 : 0}">
+        <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: 1}">
           <div class="music-name">
             <p>{{ title }}</p>
             <p>歌手：{{ signer }}&emsp;&emsp;专辑：{{ albumName }}</p>
@@ -154,7 +152,6 @@ export default {
       songReady: false,
       progress: '0%',
       totalTime: '',
-      panelIsLyric: true,
 
       httpEnd: true,
 
@@ -202,6 +199,18 @@ export default {
         window.screenWidth = document.body.clientWidth;
         this.screenWidth = window.screenWidth;
       })();
+    }
+    // 解决ios 无法播放问题
+    const userAgent = navigator.userAgent;
+    const isIOS = !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if (isIOS) {
+      const musicDom = document.getElementById('audio');
+      musicDom.load();
+      let that = this
+      // musicDom.onloadedmetadata = function () {
+      //   that.duration = musicDom.duration;
+      //   console.log('加载的匿名函数',that.duration);
+      // };
     }
   },
   watch: {
@@ -393,7 +402,6 @@ export default {
         // fftSize：快速傅里叶变换，信号样本的窗口大小，区间为32-32768，默认2048
         this.analyserAudio.fftSize = 512;
       }
-
       if (!this.sourceAudio) {
         // 创建音频源
         this.sourceAudio = this.contextAudio.createMediaElementSource(this.audio);
@@ -402,44 +410,6 @@ export default {
         // 分析器关联到输出设备（耳机、扬声器等）
         this.analyserAudio.connect(this.contextAudio.destination);
       }
-
-      // 获取频率数组
-      const bufferLength = this.analyserAudio.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
-      const canvas = document.getElementById("canvas");
-      canvas.width = 435;
-      canvas.height = 250;
-      const ctx = canvas.getContext("2d");
-      const WIDTH = canvas.width;
-      const HEIGHT = canvas.height;
-
-      const barWidth = WIDTH / bufferLength;
-      let barHeight;
-      // 主题色
-      let canvasTheme;
-      if (typeof this.theme === "string") {
-        canvasTheme = audioTheme[this.theme]
-      } else {
-        canvasTheme = this.theme;
-      }
-
-      const renderFrame = () => {
-        requestAnimationFrame(renderFrame);
-
-        // 将当前频率数据复制到传入的Uint8Array，更新频率数据
-        this.analyserAudio.getByteFrequencyData(dataArray);
-        ctx.clearRect(0, 0, WIDTH, HEIGHT);
-        // bufferLength表示柱形图中矩形的个数，当前是128个
-        for (let i = 0, x = 0; i < bufferLength; i++) {
-          barHeight = dataArray[i];
-          const gradient = ctx.createLinearGradient(0, 0, 0, 250)
-          this.colorPick(gradient, canvasTheme)
-          ctx.fillStyle = gradient;
-          ctx.fillRect(x, 250 - barHeight, barWidth, barHeight);
-          x += barWidth + 2;
-        }
-      }
-      renderFrame();
     },
     colorPick(gradient, arr) {
       arr.forEach(item => {
