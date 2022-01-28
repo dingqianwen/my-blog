@@ -335,7 +335,8 @@ export default {
       if (this.songReady) {
         this.progress = Math.ceil(this.currentTime / this.audio.duration * 100) + '%'
         try {
-          await this.audio.play()
+          // await
+          this.audio.play()
           this.onLoadAudio()
         } catch (error) {
           this.setPlayingState(false)
