@@ -4,10 +4,10 @@
     <div class="loading" v-if="isLoading">
       <Loading/>
     </div>
-    <!--    {{viewAll}}-->
+
     <div class="music_player">
 
-      <div class="left" v-if="!isLoading" v-show="viewAll||rightView"
+      <div class="left" v-show="!isLoading&&(viewAll||rightView)"
            :style="viewAll?'padding: 80px 120px 0 15px;':'padding: 80px 0px 0 0px;margin: 0 auto;'">
         <img class="point" src="./assets/img/point.png" alt="">
         <img :class="['bar', playing ? 'play': '']" src="./assets/img/bar.png" alt="">
@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div v-show="viewAll||!rightView" v-if="!isLoading" @click.native="show" class="right">
+      <div v-show="!isLoading&&(viewAll||!rightView)" @click.native="show" class="right">
         <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: 1}">
           <div class="music-name">
             <p>{{ title }}</p>
@@ -112,7 +112,7 @@
 <script>
 import Scroller from "./Scroller.vue";
 import Loading from "./Loading.vue";
-import {formatTime, audioTheme} from './utils';
+import {formatTime} from './utils';
 import lyricParser from "./utils/lrcparse"
 import {getSongDetail} from './api'
 import noImg from "./assets/img/noalbum.png"
@@ -206,11 +206,6 @@ export default {
     if (isIOS) {
       const musicDom = document.getElementById('audio');
       musicDom.load();
-      let that = this
-      // musicDom.onloadedmetadata = function () {
-      //   that.duration = musicDom.duration;
-      //   console.log('加载的匿名函数',that.duration);
-      // };
     }
   },
   watch: {
@@ -249,18 +244,10 @@ export default {
       })
     },
     songReady(n) {
-      if (n && this.httpEnd) {
-        this.isLoading = false
-      } else {
-        this.isLoading = true
-      }
+      this.isLoading = !(n && this.httpEnd);
     },
     httpEnd(n) {
-      if (n && this.songReady) {
-        this.isLoading = false
-      } else {
-        this.isLoading = true
-      }
+      this.isLoading = !(n && this.songReady);
     }
   },
   computed: {
@@ -268,7 +255,7 @@ export default {
       return this.$refs.audio
     },
     activeLyricIndex() {
-      let temp = this.lyricWithTranslation
+      return this.lyricWithTranslation
           ? this.lyricWithTranslation.findIndex((l, index) => {
             const nextLyric = this.lyricWithTranslation[index + 1]
             return (
@@ -277,7 +264,6 @@ export default {
             )
           })
           : -1
-      return temp
     },
     lyricWithTranslation() {
       let ret = []
