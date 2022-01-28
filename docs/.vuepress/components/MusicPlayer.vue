@@ -181,7 +181,6 @@ export default {
     },
   },
   created() {
-    this.screenWidth = document.body.clientWidth;
     this.lyricScrolling = {
       [WHEEL_TYPE]: false,
       [SCROLL_TYPE]: false
@@ -192,6 +191,7 @@ export default {
     }
   },
   mounted() {
+    this.screenWidth = window.document.body.clientWidth;
     this.viewAll = !this.mobile();
     // this.viewAll = false;
     this.href = window.location.href;
@@ -347,7 +347,6 @@ export default {
       this.title = title;
       this.signer = artist;
       this.albumName = album
-
       this.albumImg = cover && cover.replace("250y250", "400y400") || "";
       this.lyric = lyricParser(lyric).lyric
     },
@@ -468,7 +467,7 @@ export default {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  //z-index: 10000;
 }
 
 .music_player {
