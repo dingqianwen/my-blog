@@ -324,7 +324,9 @@ export default {
     },
     ready() {
       this.songReady = true
-      this.totalTime = this.audio.duration;
+      if (this.audio) {
+        this.totalTime = this.audio.duration;
+      }
     },
     end() {
       this.pause()
