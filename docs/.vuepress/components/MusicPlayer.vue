@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div v-show="isViewRight()" @click.native="showRight" class="right">
+      <div v-if="isViewRight()" @click.native="showRight" class="right">
         <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: 1}">
           <div class="music-name">
             <p>{{ title }}</p>
@@ -303,7 +303,6 @@ export default {
     setPlayingState(playing) {
       this.playing = playing
     },
-
     updateTime(e) {
       const time = e.target.currentTime
       this.progress = Math.ceil(time / this.audio.duration * 100) + '%'

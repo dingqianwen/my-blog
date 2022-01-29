@@ -21,7 +21,6 @@
     "@better-scroll/mouse-wheel": "^2.4.2",
     "@better-scroll/scroll-bar": "^2.4.2",
     "blueimp-md5": "^2.19.0",
-    "gitalk": "^1.7.2",
-    "is-mobile": "^3.0.0"
+    "gitalk": "^1.7.2"
   }
 }
