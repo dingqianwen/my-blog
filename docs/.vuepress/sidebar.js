@@ -86,8 +86,11 @@ module.exports = {
                     {
                         text: '音乐台',
                         children: [
-                            '/music/天马座的幻想.md',
+                            '/music/天马座幻想.md',
                             '/music/Butter-Fly.md',
+                            '/music/我们做不了任何事.md',
+                            '/music/我对于你你对于我.md',
+                            '/music/渐渐被你吸引.md',
                         ],
                     }
                 ]
