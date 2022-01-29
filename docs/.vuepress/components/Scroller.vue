@@ -1,7 +1,7 @@
 <template>
   <div
-    class="scroller"
-    ref="scroller"
+      class="scroller"
+      ref="scroller"
   >
     <slot></slot>
   </div>
@@ -11,6 +11,7 @@
 import BScroll from "@better-scroll/core"
 import ScrollBar from "@better-scroll/scroll-bar"
 import MouseWheel from "@better-scroll/mouse-wheel"
+
 BScroll.use(ScrollBar)
 BScroll.use(MouseWheel)
 
@@ -18,7 +19,8 @@ const defaultOptions = {
   mouseWheel: true,
   scrollY: true,
   scrollbar: true,
-  probeType: 3
+  probeType: 3,
+  useTransition: true
 }
 export default {
   name: "Scroller",
@@ -48,8 +50,8 @@ export default {
         this.$nextTick(() => {
           if (!this.scroller) {
             this.scroller = new BScroll(
-              this.$refs.scroller,
-              Object.assign({}, defaultOptions, this.options)
+                this.$refs.scroller,
+                Object.assign({}, defaultOptions, this.options)
             )
             this.$emit("init", this.scroller)
           } else {
@@ -63,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .scroller {
   position: relative;
   overflow: hidden;
