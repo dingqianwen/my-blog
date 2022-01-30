@@ -62,8 +62,8 @@
           </div>
         </div>
       </div>
-      <div @click.native="showRight" class="right" :style="isViewRight()?'z-index: 1':'z-index: -1;max-width: 0px;max-height: 0px'">
-        <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: 1}">
+      <div @click.native="showRight" class="right" v-if="isViewRight()">
+        <div class="lyric-container" style="transition: all .2s ease-in-out;opacity: 1">
           <div class="music-name">
             <p>{{ title }}</p>
             <p>歌手：{{ signer }}&emsp;&emsp;专辑：{{ albumName }}</p>
@@ -292,6 +292,10 @@ export default {
       this.viewAll = document.body.clientWidth > 1150;
     },
     showRight() {
+      // 全屏模式下，不可点击
+      if (this.viewAll) {
+        return;
+      }
       this.rightView = !this.rightView;
     },
     setCurrentSong(song) {
@@ -355,6 +359,11 @@ export default {
       return this.activeLyricIndex === index ? "active" : ""
     },
     onInitScroller(scoller) {
+      // 进入歌词页面初始化时，开始定位到歌词这一行
+      const {lyric} = this.$refs
+      if (lyric && lyric[this.activeLyricIndex]) {
+        scoller.scrollToElement(lyric[this.activeLyricIndex], 0, 0, true)
+      }
       const onScrollStart = type => {
         this.clearTimer(type)
         this.lyricScrolling[type] = true
@@ -572,17 +581,6 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
-
-    canvas {
-      position: absolute;
-      left: 0;
-      bottom: 140px;
-      // width: 350px;
-      height: 200px;
-      // width: 100%;
-      // height: 100%;
-      z-index: 99999;
-    }
 
     .noLyric {
       text-align: center;
