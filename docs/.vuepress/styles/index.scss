@@ -2,3 +2,6 @@
 [type="search"]::-webkit-search-decoration {
   display: none;
 }
+.theme-default-content:not(.custom) {
+  padding: 0 2rem 0 2rem;
+}
