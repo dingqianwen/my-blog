@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div @click.native="showRight" class="right" :style="isViewRight()?'z-index: 1':'z-index: -1;max-width: 0px'">
+      <div @click.native="showRight" class="right" :style="isViewRight()?'z-index: 1':'z-index: -1;max-width: 0px;max-height: 0px'">
         <div class="lyric-container" :style="{transition: 'all .2s ease-in-out',opacity: 1}">
           <div class="music-name">
             <p>{{ title }}</p>
