@@ -1,3 +1,28 @@
+const path = require('path');
+const fs = require('fs');
+
+function read(dir, options = {
+    ignoreReadmeMd: false, // 不忽略README.md文件
+}) {
+    let mds = Array.from(fs.readdirSync(path.resolve(__dirname, dir))
+        .filter(f => {
+            if (options.ignoreReadmeMd) {
+                return f !== 'README.md';
+
+            }
+        })
+        .map((fileName) => {
+            if (!dir.endsWith("/")) {
+                dir = dir + "/";
+            }
+            return (dir + fileName).replace("../", "/");
+        }));
+    if (mds.length !== 0) {
+        console.log(mds)
+    }
+    return mds;
+}
+
 module.exports = {
     sidebar: {
         "/backend": [
@@ -10,32 +35,19 @@ module.exports = {
                     // },
                     {
                         text: 'Java',
-                        children: [
-                            '/backend/java/java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先.md',
-                            '/backend/java/架构师成长之路.md',
-                            '/backend/java/仓库不支持amd64体系结构，跳过配置文件..的获取.md',
-                            '/backend/java/发现了以元素process开头的无效内容.md',
-                            '/backend/java/Feign @SpringQueryMap注解.md',
-                            '/backend/java/@Pattern注解正则表达式校验逗号分隔字符.md',
-                        ],
+                        children: read("../backend/java", {ignoreReadmeMd: true}),
                     },
                     {
                         text: 'Python',
-                        children: [
-                            '/backend/python/',
-                        ],
+                        children: read("../backend/python", {ignoreReadmeMd: true}),
                     },
                     {
                         text: 'HBase',
-                        children: [
-                            '/backend/hbase/CentOS安装HBase.md',
-                        ],
+                        children: read("../backend/hbase", {ignoreReadmeMd: true}),
                     },
                     {
                         text: 'Redis',
-                        children: [
-                            '/backend/redis/CentOS安装Redis.md',
-                        ],
+                        children: read("../backend/redis", {ignoreReadmeMd: true}),
                     },
                 ],
             }
@@ -46,23 +58,12 @@ module.exports = {
                     {
                         text: 'Vue',
                         link: '/front/vue/',
-                        children: [
-                            '/front/vue/VuePress增加备案号.md',
-                            '/front/vue/清除缓存.md',
-                            '/front/vue/好用的技巧.md',
-                            '/front/vue/VuePress2+暗色主题图片置暗方式.md',
-                        ],
+                        children: read("../front/vue", {ignoreReadmeMd: true}),
                     },
                     {
                         text: 'JavaScript',
                         link: '/front/js/',
-                        children: [
-                            '/front/js/对象数组深克隆.md',
-                            '/front/js/日期格式刚刚1分钟前等格式化.md',
-                            '/front/js/设置JSON对象默认值.md',
-                            '/front/js/格式化日期.md',
-                            '/front/js/Must use import to load ES Module lodash-es.md',
-                        ],
+                        children: read("../front/js", {ignoreReadmeMd: true}),
                     },
                 ],
             }
@@ -86,13 +87,7 @@ module.exports = {
                 children: [
                     {
                         text: '音乐台',
-                        children: [
-                            '/music/天马座幻想.md',
-                            '/music/Butter-Fly.md',
-                            '/music/我们做不了任何事.md',
-                            '/music/我对于你你对于我.md',
-                            '/music/渐渐被你吸引.md',
-                        ],
+                        children: read("../music", {ignoreReadmeMd: true}),
                     }
                 ]
 
