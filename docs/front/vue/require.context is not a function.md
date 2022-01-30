@@ -25,7 +25,10 @@ description: 页面的描述
 ```
 
 ### 解决方案：
-```js
+
+具体请看：<https://github.com/storybookjs/storybook/issues/2487>
+
+```javascript
 const path = require('path');
 const fs = require('fs');
 
@@ -60,6 +63,10 @@ if (typeof require.context === 'undefined') {
 }
 ```
 
-具体请看：<https://github.com/storybookjs/storybook/issues/2487>
+### 使用方式
+例如：查询某个目录下所有vue的文件
+```javascript
+console.log(require.context("/", false, /\.vue$/).keys());
+```
 
 <Comment></Comment>
