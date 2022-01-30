@@ -5,3 +5,11 @@
 .theme-default-content:not(.custom) {
   padding: 0 2rem 0 2rem;
 }
+
+html.dark{
+  img{
+    -webkit-filter: contrast(70%);
+    filter: contrast(70%);
+  }
+}
+

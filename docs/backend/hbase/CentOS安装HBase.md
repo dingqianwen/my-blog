@@ -38,10 +38,7 @@ cd /usr/local/app/hbase-2.4.8
 ```shell
 ./bin/start-hbase.sh
 ```
-访问管理页面：http://ip:60010  
-|管理界面|
-|---|
-|<img :src="$withBase('images/backend/hbase/Centos安装HBase/web60010.png')" alt="foo">|
+访问管理页面：http://ip:60010
 
 ::: warning 注意事项
 如果使用的是阿里云服务器，请记得登录进阿里云服务器控制台开启防火墙对应的端口号

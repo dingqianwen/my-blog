@@ -50,6 +50,7 @@ module.exports = {
                             '/front/vue/VuePress增加备案号.md',
                             '/front/vue/清除缓存.md',
                             '/front/vue/好用的技巧.md',
+                            '/front/vue/VuePress2+暗色主题图片置暗方式.md',
                         ],
                     },
                     {
