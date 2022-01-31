@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div @click.native="showRight" class="right" v-if="isViewRight()">
+      <div @click="showRight" class="right" v-if="isViewRight()">
         <div class="lyric-container" style="transition: all .2s ease-in-out;opacity: 1">
           <div class="music-name">
             <p>{{ title }}</p>
@@ -71,7 +71,7 @@
           <p v-if="nolyric" class="noLyric">还没有歌词哦~</p>
           <Scroller
               :data="lyric"
-              :options="{disableTouch: true}"
+              :options="{disableTouch: false}"
               @init="onInitScroller"
               class="lyric-wrap"
               ref="scroller"

@@ -26,7 +26,7 @@ description: 页面的描述
 
 ### 解决方案：
 
-具体请看：<https://github.com/storybookjs/storybook/issues/2487>
+具体请看：[storybook-issues:2487](https://github.com/storybookjs/storybook/issues/2487)
 
 ```javascript
 const path = require('path');
