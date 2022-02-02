@@ -24,7 +24,6 @@
 import '../styles/gitalk.css'
 import Gitalk from 'gitalk'
 import md5 from 'blueimp-md5'
-import {gitalkKey} from '../security.js'
 
 export default {
   name: 'Comment',

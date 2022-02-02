@@ -4,4 +4,4 @@ node_modules
 docs/.vuepress/blog
 .idea
 package-lock.json
-docs/.vuepress/security.js
+docs/.vuepress/components/Comment.vue
