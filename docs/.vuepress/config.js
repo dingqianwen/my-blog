@@ -18,17 +18,17 @@ module.exports = {
             href: "logo.png"
         }],
         // 添加百度统计
-     /*   [
+        [
             "script",
             {},
             `var _hmt = _hmt || [];
               (function() {
                 var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?2c62ea544d9e4e77ddc92a4b634a785f";
+                hm.src = "https://hm.baidu.com/hm.js?45c1104dac3574e37d19c8f470ec185d";
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
               })();`
-        ]*/
+        ]
     ],
 
     dest: './docs/.vuepress/blog',
