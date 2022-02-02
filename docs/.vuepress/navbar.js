@@ -35,6 +35,7 @@ module.exports = {
                 },
             ],
         },
+        // {text: '日记本', link: '/diary/'},
         {text: '音乐台', link: '/music/'},
         {text: '留言板', link: '/message/MessageBoard'},
         {
