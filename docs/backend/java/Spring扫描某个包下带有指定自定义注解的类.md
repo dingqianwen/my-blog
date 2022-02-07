@@ -183,6 +183,7 @@ public class InvokerProxyRegistrar implements ImportBeanDefinitionRegistrar {
         if (CollectionUtils.isEmpty(attributes)) {
             return Collections.emptySet();
         }
+        //  AnnotationAttributes.fromMap(attributes)
         Set<String> basePackages = new HashSet<>();
         for (String pkg : (String[]) attributes.get("basePackages")) {
             if (StrUtil.isNotBlank(pkg)) {

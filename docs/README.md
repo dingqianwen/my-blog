@@ -42,11 +42,13 @@ footerHtml: true
 ::: code-group-item C
 ```c
 
-  # include <stdio.h>
-  int main(void)
-  {
-      printf |
-  }
+#include <iostream>
+ 
+int main()
+{
+    std::cout << "Hello World";
+    return |
+}
     
 ```
 :::
