@@ -2,14 +2,28 @@
 [type="search"]::-webkit-search-decoration {
   display: none;
 }
+
 .theme-default-content:not(.custom) {
   padding: 0 2rem 0 2rem;
 }
 
-html.dark{
-  img{
+html.dark {
+  img {
     -webkit-filter: contrast(70%);
     filter: contrast(70%);
   }
 }
 
+.language-java {
+  .token.namespace {
+    color: #fff;
+  }
+
+  .token.tag {
+    color: #999;
+  }
+
+  .annotation {
+    color: #808000;
+  }
+}
