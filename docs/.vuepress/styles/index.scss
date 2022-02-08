@@ -3,6 +3,10 @@
   display: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  outline-style: none;
+}
+
 .theme-default-content:not(.custom) {
   padding: 0 2rem 0 2rem;
 }
