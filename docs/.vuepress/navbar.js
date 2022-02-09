@@ -47,8 +47,12 @@ module.exports = {
         {text: '音乐台', link: '/music/'},
         {text: '留言板', link: '/message/MessageBoard'},
         {
-            text: '外部链接',
+            text: '其他',
             children: [
+                {
+                    text: '公益捐款',
+                    link: '/public-spirited/',
+                },
                 {
                     text: 'My Gitee',
                     link: 'https://gitee.com/qwding',
