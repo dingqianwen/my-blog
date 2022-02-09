@@ -49,6 +49,14 @@ module.exports = {
                         text: 'Redis',
                         children: read("../backend/redis", {ignoreReadmeMd: true}),
                     },
+                    {
+                        text: 'Nginx',
+                        children: read("../backend/nginx", {ignoreReadmeMd: true}),
+                    },
+                    {
+                        text: 'CentOS',
+                        children: read("../backend/centos", {ignoreReadmeMd: true}),
+                    },
                 ],
             }
         ],
