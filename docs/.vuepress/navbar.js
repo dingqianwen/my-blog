@@ -20,6 +20,14 @@ module.exports = {
                     text: 'Redis',
                     link: '/backend/redis/',
                 },
+                {
+                    text: 'Nginx',
+                    link: '/backend/nginx/',
+                },
+                {
+                    text: 'CentOS',
+                    link: '/backend/centos/',
+                },
             ],
         },
         {
