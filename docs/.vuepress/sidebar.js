@@ -83,13 +83,6 @@ module.exports = {
                 ],
             }
         ],
-        "/message": [
-            {
-                children: [
-                    '/message/MessageBoard.md',
-                ],
-            }
-        ],
         "/music": [
             {
                 children: [
