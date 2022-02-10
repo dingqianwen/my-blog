@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div @click="showRight" class="right" v-if="isViewRight()">
+      <div class="right" v-if="isViewRight()" @dblclick="showRight" >
         <div class="lyric-container" style="transition: all .2s ease-in-out;opacity: 1">
           <div class="music-name">
             <p>{{ title }}</p>
