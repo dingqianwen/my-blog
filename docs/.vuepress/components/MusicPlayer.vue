@@ -62,9 +62,9 @@
           </div>
         </div>
       </div>
-      <div class="right" v-if="isViewRight()" @dblclick="showRight" >
+      <div class="right" v-if="isViewRight()">
         <div class="lyric-container" style="transition: all .2s ease-in-out;opacity: 1">
-          <div class="music-name">
+          <div class="music-name" @click="showRight">
             <p>{{ title }}</p>
             <p>歌手：{{ signer }}&emsp;&emsp;专辑：{{ albumName }}</p>
           </div>
