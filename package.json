@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "vuepress build docs;cd docs/.vuepress;scp -r blog root@www.apidocs.cn:/usr/local/nginx/html"
+    "docs:deploy": "vuepress build docs;\n cp robots.txt docs/.vuepress/blog/robots.txt; cd docs/.vuepress;scp -r blog root@www.apidocs.cn:/usr/local/nginx/html"
   },
   "author": "dingqianwen",
   "license": "ISC",
