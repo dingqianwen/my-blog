@@ -1,10 +1,10 @@
 ---
-lang: zh-CN
-title:  '@Pattern注解正则表达式校验逗号分隔字符'
-description: 页面的描述
+lang: zh-CN  
+title:  '@Pattern注解正则表达式校验逗号分隔字符'  
+description: 页面的描述  
 ---
 
-# 正则表达式校验逗号分隔字符
+# @Pattern注解正则表达式校验逗号分隔字符
 
 
 只允许通过`02或03、04、05` 可以有多个，中间逗号隔开。
