@@ -14,7 +14,7 @@ description: 页面的描述
 
 [自主捐款](https://www.gongyibao.cn/#/index)
 
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/wxskm.png" alt="foo" style="width: 50%;height: 50%;">
+<img src="http://oss.apidocs.cn/blog/img/wxskm.png" alt="foo" style="width: 50%;height: 50%;">
 
 ### 入账出账记录
 > 注意：作者平日繁忙，可能存在延迟，尽可能选择自主捐款。
