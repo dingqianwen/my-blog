@@ -66,10 +66,6 @@ module.exports = {
                     link: 'https://niucloud.net.cn',
                 },
                 {
-                    text: '万能搜索',
-                    link: 'https://www.baidu.com',
-                },
-                {
                     text: '苞米豆',
                     link: 'https://baomidou.com/',
                 },
