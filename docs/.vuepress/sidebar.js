@@ -57,6 +57,10 @@ module.exports = {
                         text: 'CentOS',
                         children: read("../backend/centos", {ignoreReadmeMd: true}),
                     },
+                    {
+                        text: 'MySQL',
+                        children: read("../backend/mysql", {ignoreReadmeMd: true}),
+                    },
                 ],
             }
         ],

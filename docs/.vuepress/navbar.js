@@ -28,6 +28,10 @@ module.exports = {
                     text: 'CentOS',
                     link: '/backend/centos/',
                 },
+                {
+                    text: 'MySQL',
+                    link: '/backend/mysql/',
+                },
             ],
         },
         {
