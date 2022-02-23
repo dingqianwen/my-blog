@@ -1,11 +1,13 @@
 ---
-lang: zh-CN
-title: Redis
-description: 页面的描述
+lang: zh-CN  
+title: Redis  
+description: 页面的描述  
+type: cds  
 ---
 
+# 目录
 
-Redis
+> [CentOS安装Redis.md](CentOS安装Redis.md)  
 
 
 <Comment></Comment>

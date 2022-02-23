@@ -18,7 +18,7 @@ function read(dir, options = {
             return (dir + fileName).replace("../", "/");
         }));
     if (mds.length !== 0) {
-        console.log(mds)
+       // console.log(mds)
     }
     return mds;
 }

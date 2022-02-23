@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "vuepress build docs;\n cp robots.txt docs/.vuepress/blog/robots.txt; cd docs/.vuepress;scp -r blog root@www.apidocs.cn:/usr/local/nginx/html"
+    "dev": "node ./build.js && vuepress dev docs",
+    "build": "node ./build.js && vuepress build docs",
+    "deploy": "node ./build.js && vuepress build docs;\n cp robots.txt docs/.vuepress/blog/robots.txt; cd docs/.vuepress;scp -r blog root@www.apidocs.cn:/usr/local/nginx/html"
   },
   "author": "dingqianwen",
   "license": "ISC",
