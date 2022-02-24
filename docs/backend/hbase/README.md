@@ -8,7 +8,7 @@ type: cds
 
 # 目录
 
-> [CentOS安装HBase.md](CentOS安装HBase.md)  
+> [CentOS安装HBase](CentOS安装HBase.md)  
 
 
 <Comment></Comment>

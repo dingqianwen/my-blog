@@ -38,13 +38,30 @@ function writeFile(dir, file) {
         }
         let newTag = "";
         fs.readdir(dir, (err, data) => {
+            if (err) {
+                return err;
+            }
             for (let i = 0; i < data.length; i++) {
                 let f = data[i];
                 if (f.endsWith("README.md")) {
                     continue;
                 }
-                // 应该解析 title 后续修改
-                newTag += `> [${f}](${f})  \n`;
+                let buffer = fs.readFileSync(dir + "/" + f);
+                let pattern = /(title:)[^](.+?)\n/;
+                let title = pattern.exec(buffer.toString())[2];
+                if (!title) {
+                    newTag += `> [${f}](${f})  \n`;
+                } else {
+                    // 自定义标题
+                    title = title.trim();
+                    if (title.startsWith("'")) {
+                        title = title.substr(1);
+                    }
+                    if (title.endsWith("'")) {
+                        title = title.substr(0, title.length - 2);
+                    }
+                    newTag += `> [${title}](${f})  \n`;
+                }
             }
             // newTag === '' ?? 内容如何 ？
             if (newTag === "") {

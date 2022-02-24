@@ -8,7 +8,7 @@ type: cds
 
 # 目录
 
-> [MySQL排序规则引起的索引失效问题.md](MySQL排序规则引起的索引失效问题.md)  
+> [MySQL排序规则引起的索引失效问题](MySQL排序规则引起的索引失效问题.md)  
 
 
 <Comment></Comment>

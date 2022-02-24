@@ -7,7 +7,7 @@ type: cds
 
 # 目录
 
-> [CentOS安装Redis.md](CentOS安装Redis.md)  
+> [CentOS安装Redis](CentOS安装Redis.md)  
 
 
 <Comment></Comment>
