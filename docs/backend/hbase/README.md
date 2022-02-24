@@ -10,5 +10,4 @@ type: cds
 
 > [CentOS安装HBase](CentOS安装HBase.md)  
 
-
 <Comment></Comment>

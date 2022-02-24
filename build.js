@@ -47,10 +47,13 @@ function writeFile(dir, file) {
                     continue;
                 }
                 let buffer = fs.readFileSync(dir + "/" + f);
-                let pattern = /(title:)[^](.+?)\n/;
-                let title = pattern.exec(buffer.toString())[2];
-                if (!title) {
-                    newTag += `> [${f}](${f})  \n`;
+                let execArray = /(?<=title:)[^].+?(?=\n)/.exec(buffer.toString());
+                let title = f;
+                // 如果没有自定义标题
+                if (execArray === null || !(title = execArray[0])) {
+                    if (title.endsWith(".md")) {
+                        title = title.substr(0, title.length - 3);
+                    }
                 } else {
                     // 自定义标题
                     title = title.trim();
@@ -60,15 +63,14 @@ function writeFile(dir, file) {
                     if (title.endsWith("'")) {
                         title = title.substr(0, title.length - 2);
                     }
-                    newTag += `> [${title}](${f})  \n`;
                 }
+                newTag += `> [${title}](${f})  \n`;
             }
             // newTag === '' ?? 内容如何 ？
             if (newTag === "") {
                 newTag = '> 暂无内容';
             }
-            let begin = content.indexOf("# 目录");
-            let newContent = content.substr(0, begin + 4) + "\n\n" + newTag + "\n\n<Comment></Comment>";
+            let newContent = content.replace(/(?<=# 目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
             fs.writeFile(file, newContent, function (err) {
                 if (err) return err;
             });

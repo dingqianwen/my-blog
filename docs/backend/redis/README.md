@@ -9,5 +9,4 @@ type: cds
 
 > [CentOS安装Redis](CentOS安装Redis.md)  
 
-
 <Comment></Comment>

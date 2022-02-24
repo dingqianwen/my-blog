@@ -17,5 +17,4 @@ type: cds
 > [Java架构师成长之路-代码优化方案](架构师成长之路.md)  
 > [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  
 
-
 <Comment></Comment>
