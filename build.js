@@ -62,7 +62,7 @@ function writeData(dir, file) {
                 title = title.substr(1);
             }
             if (title.endsWith("'")) {
-                title = title.substr(0, title.length - 2);
+                title = title.substr(0, title.length - 1);
             }
         }
         let {ctimeMs} = fs.statSync(dir + "/" + f);
@@ -124,13 +124,19 @@ function generateTimeline(file, obj) {
 
 <div class="archives-body">
     <div class="archives-box overflow-initial">
-        <div v-for="yk in Object.keys(maps)" :key="yk">
+        <div v-for="yk in Object.keys(maps).sort((a, b) => {
+                                return b - a;
+                           })" :key="yk">
             <h3 class="year pointer">{{yk}}年</h3>
             <ul class="list-box">
-                <li v-for="mk in Object.keys(maps[yk])" :key="mk">
+                <li v-for="mk in Object.keys(maps[yk]).sort((a, b) => {
+                                return b - a;
+                           })" :key="mk">
                     <span class="month pointer">{{mk}}月</span>
                     <ul class="list-box" style="display: block;">
-                        <li class="month-li" v-for="dk in Object.keys(maps[yk][mk])" :key="dk">
+                        <li class="month-li" v-for="dk in  Object.keys(maps[yk][mk]).sort((a, b) => {
+                                                                    return b - a;
+                                                           })" :key="dk">
                             <span class="day">{{dk}}日 <span class="num">{{Object.keys(maps[yk][mk][dk]).length}}篇</span> </span>
                             <ul class="list-box" style="display: block;">
                                 <li class="article-item" v-for="lk in Object.keys(maps[yk][mk][dk])" :key="lk" >
