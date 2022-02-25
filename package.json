@@ -4,6 +4,7 @@
   "description": "我的个人博客",
   "main": "index.js",
   "scripts": {
+    "commit1": "git commit -am ${V}\ngit push origin;\ngit push",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./build.js && vuepress dev docs",
     "build": "node ./build.js && vuepress build docs",
