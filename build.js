@@ -66,7 +66,7 @@ function writeData(dir, file) {
             }
         }
         let {ctimeMs} = fs.statSync(dir + "/" + f);
-        let dContent = new DContent(title, dir.replace(rootDir + "/", '') + "/" + f, new Date(ctimeMs));
+        let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, new Date(ctimeMs));
         obj.push(dContent)
         timelineObjs.push(dContent)
     }
@@ -119,7 +119,12 @@ function generateTimeline(file, obj) {
                     <blockquote v-if="Object.keys(maps).length===0"><p>暂无内容</p></blockquote>
                  <br>
         </div>`;
-    let code = `
+    let code = `---
+lang: zh-CN
+title: 时间线
+description: 页面的描述
+---
+
 # 时间线
 
 <div class="archives-body">
@@ -140,7 +145,7 @@ function generateTimeline(file, obj) {
                             <span class="day">{{dk}}日 <span class="num">{{Object.keys(maps[yk][mk][dk]).length}}篇</span> </span>
                             <ul class="list-box" style="display: block;">
                                 <li class="article-item" v-for="lk in Object.keys(maps[yk][mk][dk])" :key="lk" >
-                                    <a :href="maps[yk][mk][dk][lk].path.replace('.md','.html')" class>{{maps[yk][mk][dk][lk].title}}</a> 
+                                    <router-link :to="maps[yk][mk][dk][lk].path.replace('.md','.html')">{{maps[yk][mk][dk][lk].title}}</router-link>
                                 </li>
                             </ul>
                         </li>
