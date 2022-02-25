@@ -36,7 +36,14 @@ module.exports = {
     themeConfig: {
         logo: 'logo.png',  //网页顶端导航栏左上角的图标
         navbar,
-        sidebar
+        sidebar,
+        lastUpdatedText: '更新日期',
+        contributorsText: '作者',
+        docsRepo: 'https://gitee.com/qwding/my-blog',
+        docsBranch: 'master',
+        docsDir: 'docs',
+        editLinkPattern: ':repo/edit/:branch/:path',
+        editLinkText: "编辑此页"
     },
     plugins: [
         [

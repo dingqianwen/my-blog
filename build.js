@@ -1,27 +1,9 @@
 const fs = require('fs')
 const rootDir = './docs'
 const tag = "type: cds";
-
-findFile(rootDir, writeFile);
-
-function findFile(dir, callback) {
-    fs.readdir(dir, function (err, files) {
-        if (err) throw err
-        files.forEach((fileName) => {
-            let file = `${dir}/${fileName}`
-            if (fileName.indexOf('.') !== 0) {
-                fs.stat(file, function (err, stat) {
-                    if (stat.isDirectory()) {
-                        findFile(file, callback)
-                    } else {
-                        callback(dir, file)
-                    }
-                })
-            }
-
-        })
-    })
-}
+const timelineFilePath = "./docs/Timeline.md";
+// 时间线数据
+const timelineObjs = [];
 
 function DContent(title, path, createTime) {
     this.title = title
@@ -29,84 +11,115 @@ function DContent(title, path, createTime) {
     this.createTime = createTime
 }
 
-function writeFile(dir, file) {
+// 生成文件目录
+generateDirectory(rootDir, writeData);
+// 生成时间线
+generateTimeline(timelineFilePath, timelineObjs);
+
+function generateDirectory(dir, callback) {
+    let files = fs.readdirSync(dir);
+    files.forEach((fileName) => {
+        let file = `${dir}/${fileName}`
+        if (fileName.indexOf('.') !== 0) {
+            let stat = fs.statSync(file);
+            if (stat.isDirectory()) {
+                generateDirectory(file, callback)
+            } else {
+                callback(dir, file)
+            }
+        }
+    })
+}
+
+function writeData(dir, file) {
     if (!file.endsWith("README.md")) {
         return;
     }
-    fs.readFile(file, function (err, data) {
-        if (err) {
-            return file;
+    let content = fs.readFileSync(file).toString();
+    if (content.indexOf(tag) === -1) {
+        return;
+    }
+    let newTag;
+    let obj = []
+    let data = fs.readdirSync(dir);
+    for (let i = 0; i < data.length; i++) {
+        let f = data[i];
+        if (f.endsWith("README.md")) {
+            continue;
         }
-        let content = data.toString();
-        if (content.indexOf(tag) === -1) {
-            return;
+        let buffer = fs.readFileSync(dir + "/" + f);
+        let execArray = /(?<=title:)[^].+?(?=\n)/.exec(buffer.toString());
+        let title = f;
+        // 如果没有自定义标题
+        if (execArray === null || !(title = execArray[0])) {
+            if (title.endsWith(".md")) {
+                title = title.substr(0, title.length - 3);
+            }
+        } else {
+            // 自定义标题
+            title = title.trim();
+            if (title.startsWith("'")) {
+                title = title.substr(1);
+            }
+            if (title.endsWith("'")) {
+                title = title.substr(0, title.length - 2);
+            }
         }
-        let newTag = "";
-        let obj = []
-        fs.readdir(dir, (err, data) => {
-            if (err) {
-                return err;
-            }
-            for (let i = 0; i < data.length; i++) {
-                let f = data[i];
-                if (f.endsWith("README.md")) {
-                    continue;
-                }
-                let buffer = fs.readFileSync(dir + "/" + f);
-                let execArray = /(?<=title:)[^].+?(?=\n)/.exec(buffer.toString());
-                let title = f;
-                // 如果没有自定义标题
-                if (execArray === null || !(title = execArray[0])) {
-                    if (title.endsWith(".md")) {
-                        title = title.substr(0, title.length - 3);
-                    }
+        let {ctimeMs} = fs.statSync(dir + "/" + f);
+        let dContent = new DContent(title, dir.replace(rootDir + "/", '') + "/" + f, new Date(ctimeMs));
+        obj.push(dContent)
+        timelineObjs.push(dContent)
+    }
+
+    newTag = obj.map(m => {
+        return `- [${m.title}](${m.path})  \n`;
+    }).join('');
+
+
+    // newTag === '' ?? 内容如何 ？
+    if (newTag === "") {
+        newTag = '> 暂无内容 \n';
+    }
+    let newContent = content.replace(/(?<=# 归档目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
+    fs.writeFileSync(file, newContent);
+}
+
+
+function generateTimeline(file, obj) {
+    let map = {}
+    for (let i = 0; i < obj.length; i++) {
+        const to = obj[i];
+        let fullYear = to.createTime.getFullYear();
+        let mh = ("0" + (to.createTime.getMonth() + 1)).slice(-2);
+        let dy = ("0" + to.createTime.getDate()).slice(-2);
+        let day = [to]
+        let days = {};
+        days[dy] = day;
+        let month = {};
+        month[mh] = days;
+        // 初始化
+        if (!map[fullYear]) {
+            // 不存在
+            map[fullYear] = month;
+        } else {
+            if (!map[fullYear][mh]) {
+                map[fullYear][mh] = days;
+            } else {
+                if (!map[fullYear][mh][dy]) {
+                    map[fullYear][mh][dy] = day;
                 } else {
-                    // 自定义标题
-                    title = title.trim();
-                    if (title.startsWith("'")) {
-                        title = title.substr(1);
-                    }
-                    if (title.endsWith("'")) {
-                        title = title.substr(0, title.length - 2);
-                    }
-                }
-                let {ctimeMs} = fs.statSync(dir + "/" + f);
-                obj.push(new DContent(title, f.replace(".md", ".html"), toDate(ctimeMs)))
-            }
-            let map = {}
-            for (let i = 0; i < obj.length; i++) {
-                const ai = obj[i];
-                let fullYear = ai.createTime.getFullYear();
-                let mh = ("0" + (ai.createTime.getMonth() + 1)).slice(-2);
-                let dy = ("0" + ai.createTime.getDate()).slice(-2);
-                let day = [ai]
-                let days = {};
-                days[dy] = day;
-                let month = {};
-                month[mh] = days;
-                // 初始化
-                if (!map[fullYear]) {
-                    // 不存在
-                    map[fullYear] = month;
-                } else {
-                    if (!map[fullYear][mh]) {
-                        map[fullYear][mh] = days;
-                    } else {
-                        if (!map[fullYear][mh][dy]) {
-                            map[fullYear][mh][dy] = day;
-                        } else {
-                            map[fullYear][mh][dy].push(ai);
-                        }
-                    }
+                    map[fullYear][mh][dy].push(to);
                 }
             }
-            let noContent = `
+        }
+    }
+    let noContent = `
         <div>
                  <br>
                     <blockquote v-if="Object.keys(maps).length===0"><p>暂无内容</p></blockquote>
                  <br>
         </div>`;
-            let code = `
+    let code = `
 <div class="archives-body">
     <div class="archives-box overflow-initial">
         <div v-for="yk in Object.keys(maps)" :key="yk">
@@ -119,7 +132,7 @@ function writeFile(dir, file) {
                             <span class="day">{{dk}}日 <span class="num">{{Object.keys(maps[yk][mk][dk]).length}}篇</span> </span>
                             <ul class="list-box" style="display: block;">
                                 <li class="article-item" v-for="lk in Object.keys(maps[yk][mk][dk])" :key="lk" >
-                                    <a :href="maps[yk][mk][dk][lk].path" class>{{maps[yk][mk][dk][lk].title}}</a> 
+                                    <a :href="maps[yk][mk][dk][lk].path.replace('.md','.html')" class>{{maps[yk][mk][dk][lk].title}}</a> 
                                 </li>
                             </ul>
                         </li>
@@ -130,10 +143,11 @@ function writeFile(dir, file) {
     </div>
 </div>
 
+<Comment></Comment>
 
 <script>
     export default {
-    name: '${file}',
+    name: 'Timeline',
     data() {
         return {
           maps: ${JSON.stringify(map)}
@@ -162,19 +176,7 @@ function writeFile(dir, file) {
 }
 </style>
             `
-            // newTag === '' ?? 内容如何 ？
-            if (newTag === "") {
-                newTag = '> 暂无内容 \n';
-            }
-            let newContent = content.replace(/(?<=# 归档目录)[^]*?(?=<Comment><\/Comment>)/, "\n" + code + "\n");
-            fs.writeFile(file, newContent, function (err) {
-                if (err) return err;
-            });
-        })
+    fs.writeFile(file, code, function (err) {
+        if (err) return err;
     });
-}
-
-
-const toDate = function (date) {
-    return new Date(date);
 }

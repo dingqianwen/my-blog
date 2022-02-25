@@ -54,6 +54,10 @@ module.exports = {
             text: '其他',
             children: [
                 {
+                    text: '时间线',
+                    link: '../../Timeline.md',
+                },
+                {
                     text: '公益捐款',
                     link: '/public-spirited/',
                 },
