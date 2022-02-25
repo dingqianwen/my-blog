@@ -18,7 +18,7 @@ function read(dir, options = {
             return (dir + fileName).replace("../", "/");
         }));
     if (mds.length !== 0) {
-       // console.log(mds)
+        // console.log(mds)
     }
     return mds;
 }
@@ -27,76 +27,58 @@ module.exports = {
     sidebar: {
         "/backend": [
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
+            // {
+            //     text: '简介',
+            //     link: '/backend/README.md',
+            // },
             {
-                children: [
-                    // {
-                    //     text: '简介',
-                    //     link: '/backend/README.md',
-                    // },
-                    {
-                        text: 'Java',
-                        children: read("../backend/java", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'Python',
-                        children: read("../backend/python", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'HBase',
-                        children: read("../backend/hbase", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'Redis',
-                        children: read("../backend/redis", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'Nginx',
-                        children: read("../backend/nginx", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'CentOS',
-                        children: read("../backend/centos", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'MySQL',
-                        children: read("../backend/mysql", {ignoreReadmeMd: true}),
-                    },
-                ],
-            }
+                text: 'Java',
+                children: read("../backend/java", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'Python',
+                children: read("../backend/python", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'HBase',
+                children: read("../backend/hbase", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'Redis',
+                children: read("../backend/redis", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'Nginx',
+                children: read("../backend/nginx", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'CentOS',
+                children: read("../backend/centos", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'MySQL',
+                children: read("../backend/mysql", {ignoreReadmeMd: true}),
+            },
+
+
         ],
         "/front": [
             {
-                children: [
-                    {
-                        text: 'Vue',
-                        link: '/front/vue/',
-                        children: read("../front/vue", {ignoreReadmeMd: true}),
-                    },
-                    {
-                        text: 'JavaScript',
-                        link: '/front/js/',
-                        children: read("../front/js", {ignoreReadmeMd: true}),
-                    },
-                ],
-            }
-        ],
-        "/diary": [
+                text: 'Vue',
+                link: '/front/vue/',
+                children: read("../front/vue", {ignoreReadmeMd: true}),
+            },
             {
-                children: [
-                    '/diary/README.md',
-                ],
-            }
+                text: 'JavaScript',
+                link: '/front/js/',
+                children: read("../front/js", {ignoreReadmeMd: true}),
+            },
         ],
         "/music": [
             {
-                children: [
-                    {
-                        text: '音乐台',
-                        children: read("../music", {ignoreReadmeMd: true}),
-                    }
-                ]
-
-            },
+                text: '音乐台',
+                children: read("../music", {ignoreReadmeMd: true}),
+            }
         ]
     }
 }
