@@ -55,7 +55,7 @@ module.exports = {
             children: [
                 {
                     text: '时间线',
-                    link: '../../Timeline.md',
+                    link: '/Timeline',
                 },
                 {
                     text: '公益捐款',
