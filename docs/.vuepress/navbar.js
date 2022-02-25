@@ -45,9 +45,13 @@ module.exports = {
                     text: 'JavaScript',
                     link: '/front/js/',
                 },
+                {
+                    text: 'NodeJS',
+                    link: '/front/nodejs/',
+                },
             ],
         },
-        // {text: '日记本', link: '/diary/'},
+        // {text: '日记本', link: '/diary/'}, netstat -apn|grep 8080
         {text: '音乐台', link: '/music/'},
         {text: '留言板', link: '/message/MessageBoard'},
         {

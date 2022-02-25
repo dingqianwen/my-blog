@@ -5,3 +5,4 @@ docs/.vuepress/blog
 .idea
 package-lock.json
 docs/.vuepress/components/Comment.vue
+docs/.vuepress/service.js

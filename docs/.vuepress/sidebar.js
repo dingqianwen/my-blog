@@ -73,6 +73,11 @@ module.exports = {
                 link: '/front/js/',
                 children: read("../front/js", {ignoreReadmeMd: true}),
             },
+            {
+                text: 'NodeJS',
+                link: '/front/nodejs/',
+                children: read("../front/nodejs", {ignoreReadmeMd: true}),
+            },
         ],
         "/music": [
             {
