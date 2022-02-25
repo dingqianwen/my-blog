@@ -39,8 +39,7 @@ function writeData(dir, file) {
     if (content.indexOf(tag) === -1) {
         return;
     }
-    let newTag;
-    let obj = []
+    let newTag = '';
     let data = fs.readdirSync(dir);
     for (let i = 0; i < data.length; i++) {
         let f = data[i];
@@ -65,22 +64,18 @@ function writeData(dir, file) {
                 title = title.substr(0, title.length - 1);
             }
         }
+        // 时间线
         let {ctimeMs} = fs.statSync(dir + "/" + f);
         let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, new Date(ctimeMs));
-        obj.push(dContent)
         timelineObjs.push(dContent)
+        // 生成当前目录
+        newTag += `- [${title}](${f})  \n`;
     }
-
-    newTag = obj.map(m => {
-        return `- [${m.title}](${m.path})  \n`;
-    }).join('');
-
-
     // newTag === '' ?? 内容如何 ？
     if (newTag === "") {
         newTag = '> 暂无内容 \n';
     }
-    let newContent = content.replace(/(?<=# 归档目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
+    let newContent = content.replace(/(?<=# 当前目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
     fs.writeFileSync(file, newContent);
 }
 
