@@ -1,3 +1,9 @@
+:root {
+  .search-box input {
+    transition: all ease 0.01s;
+  }
+}
+
 /*去除ios自带搜索图标*/
 [type="search"]::-webkit-search-decoration {
   display: none;

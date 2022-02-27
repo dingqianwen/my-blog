@@ -158,7 +158,7 @@ description: 页面的描述
     name: 'Timeline',
     data() {
         return {
-          maps: ${JSON.stringify(map)}
+          maps: ${JSON.stringify(map, null, 3)}
         }
       }
     }
