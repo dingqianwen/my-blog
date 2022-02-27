@@ -33,30 +33,37 @@ module.exports = {
             // },
             {
                 text: 'Java',
+                link: '/backend/java/',
                 children: read("../backend/java", {ignoreReadmeMd: true}),
             },
             {
                 text: 'Python',
+                link: '/backend/python/',
                 children: read("../backend/python", {ignoreReadmeMd: true}),
             },
             {
                 text: 'HBase',
+                link: '/backend/hbase/',
                 children: read("../backend/hbase", {ignoreReadmeMd: true}),
             },
             {
                 text: 'Redis',
+                link: '/backend/redis/',
                 children: read("../backend/redis", {ignoreReadmeMd: true}),
             },
             {
                 text: 'Nginx',
+                link: '/backend/nginx/',
                 children: read("../backend/nginx", {ignoreReadmeMd: true}),
             },
             {
                 text: 'CentOS',
+                link: '/backend/centos/',
                 children: read("../backend/centos", {ignoreReadmeMd: true}),
             },
             {
                 text: 'MySQL',
+                link: '/backend/mysql/',
                 children: read("../backend/mysql", {ignoreReadmeMd: true}),
             },
 
@@ -82,6 +89,7 @@ module.exports = {
         "/music": [
             {
                 text: '音乐台',
+                link: '../music/',
                 children: read("../music", {ignoreReadmeMd: true}),
             }
         ]
