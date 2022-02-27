@@ -7,12 +7,8 @@ h1, h2, h3, h4, h5, h6, .navbar .toggle-sidebar-button {
   outline-style: none;
   /*不换行bug*/
   word-break: break-all;
-  transition: none;
 }
 
-.navbar, .sidebar {
-  transition: none;
-}
 
 .theme-default-content:not(.custom) {
   padding: 0 2rem 0 2rem;
