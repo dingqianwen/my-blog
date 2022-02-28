@@ -89,7 +89,7 @@ module.exports = {
         "/music": [
             {
                 text: '音乐台',
-                link: '../music/',
+                link: '/music/',
                 children: read("../music", {ignoreReadmeMd: true}),
             }
         ]
