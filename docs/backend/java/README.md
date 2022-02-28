@@ -15,6 +15,7 @@ type: cds
 - [N: 鉴于仓库 ‘..‘不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取。](仓库不支持amd64体系结构，跳过配置文件..的获取.md)  
 - [发现了以元素process开头的无效内容](发现了以元素process开头的无效内容.md)  
 - [Java架构师成长之路-代码优化方案](架构师成长之路.md)  
+- [记录一次生产OutOfMemoryError](记录一次生产OutOfMemoryError.md)  
 - [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  
 
 <Comment></Comment>
