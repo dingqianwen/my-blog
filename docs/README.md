@@ -12,7 +12,7 @@ actions:
 
 features:
 - title: 牛逼
-  details: 🐮👃。
+  details: 一代人的神。
 - title: 无敌
   details: 无敌是多么寂寞。
 - title: 寂寞
