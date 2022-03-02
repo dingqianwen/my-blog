@@ -3,14 +3,14 @@ const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
 module.exports = {
-    title: "My-Docs",
+    title: "My-Blog",
     base: "/blog/",
     // /blog/  nginx配置为
     // location /blog {
     // alias  html/blog/;
     // index index.html;
     // }
-    description: '这是dingqw的文档🐮👃!',
+    description: '这是dingqw的博客🐮👃! 我只要一步一步一步的往上爬,我要做“赵高”',
     head: [
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
         ['link', {
