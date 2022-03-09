@@ -8,6 +8,7 @@ type: cds
 # 当前目录
 
 - [@Pattern注解正则表达式校验逗号分隔字符](@Pattern注解正则表达式校验逗号分隔字符.md)  
+- [CompletableFuture用法](CompletableFuture用法.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
