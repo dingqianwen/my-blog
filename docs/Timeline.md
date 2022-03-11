@@ -243,6 +243,13 @@ description: 页面的描述
          ]
       },
       "03": {
+         "11": [
+            {
+               "title": "MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]",
+               "path": "/backend/java/MyBatisBindingExceptionParameterXXXNotFound.md",
+               "createTime": "2022-03-11T10:37:08.154Z"
+            }
+         ],
          "04": [
             {
                "title": "CompletableFuture用法",

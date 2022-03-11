@@ -10,6 +10,7 @@ type: cds
 - [@Pattern注解正则表达式校验逗号分隔字符](@Pattern注解正则表达式校验逗号分隔字符.md)  
 - [CompletableFuture用法](CompletableFuture用法.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
+- [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
 - [java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先?](java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序进行输出,区分大小写,且大写优先.md)  
