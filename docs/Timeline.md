@@ -247,7 +247,14 @@ description: 页面的描述
             {
                "title": "MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]",
                "path": "/backend/java/MyBatisBindingExceptionParameterXXXNotFound.md",
-               "createTime": "2022-03-11T10:37:08.154Z"
+               "createTime": "2022-03-11T10:45:00.769Z"
+            }
+         ],
+         "15": [
+            {
+               "title": "AopContext.currentProxy() Cannot find current proxy",
+               "path": "/backend/java/AopContextCurrentProxyCannotFindCurrentProxy.md",
+               "createTime": "2022-03-15T07:37:35.025Z"
             }
          ],
          "04": [
