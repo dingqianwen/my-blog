@@ -56,3 +56,6 @@ int main()
 
 <br>
 
+<script>
+    console.log("%c只要一步一步一步的往上爬！", "color:green;font-size:18px;font-weight:blod");
+</script>

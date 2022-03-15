@@ -28,6 +28,16 @@ module.exports = {
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
               })();`
+        ],
+        // 谷歌广告
+        [
+            "script",
+            {
+                "async": "async",
+                "src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233",
+                "crossorigin": "anonymous"
+            },
+            ``
         ]
     ],
 
