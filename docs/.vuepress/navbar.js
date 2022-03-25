@@ -82,8 +82,12 @@ module.exports = {
                     link: 'https://baomidou.com/',
                 },
                 {
-                    text: '低价云服务器',
+                    text: '腾讯云服务器',
                     link: 'https://cloud.tencent.com/act/2022season?cps_key=a9850821fc73922e1a15b666f25ec596&from=season2022',
+                },
+                {
+                    text: '阿里云服务器',
+                    link: 'https://www.aliyun.com/minisite/goods?taskPkg=2022cgj&pkgSid=356246',
                 },
             ],
         }
