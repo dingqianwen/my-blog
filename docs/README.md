@@ -54,6 +54,15 @@ int main()
 :::
 ::::
 
+
+### 低价云服务器
+
+[全屏](https://cloud.tencent.com/act/2022season?cps_key=a9850821fc73922e1a15b666f25ec596&from=season2022)
+
+<div>
+  <iframe style="width: 100%;height: 500px;border:none;border-radius: 6px" src="https://cloud.tencent.com/act/2022season?cps_key=a9850821fc73922e1a15b666f25ec596&from=season2022#QCACT_APP"></iframe>
+</div>
+
 <br>
 
 <script>

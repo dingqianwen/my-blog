@@ -81,6 +81,10 @@ module.exports = {
                     text: '苞米豆',
                     link: 'https://baomidou.com/',
                 },
+                {
+                    text: '低价云服务器',
+                    link: 'https://cloud.tencent.com/act/2022season?cps_key=a9850821fc73922e1a15b666f25ec596&from=season2022',
+                },
             ],
         }
     ],
