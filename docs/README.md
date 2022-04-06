@@ -55,10 +55,6 @@ int main()
 ::::
 
 
-<a href="https://www.aliyun.com/minisite/goods?taskPkg=2022cgj&pkgSid=356246" target="_blank" style="position: fixed;max-width: 200px;top: 200px;left: 100px;">
-  <img style="border-radius: 6px;border: 1px solid var(--c-border);" src="https://laoniu-nblog.oss-cn-beijing.aliyuncs.com/nBlog/20220313230050016.jpg" alt="阿里云服务器"/> 
-</a>
-
 <br>
 
 <script>
