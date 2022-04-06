@@ -47,6 +47,12 @@ module.exports = {
         logo: 'logo.png',  //网页顶端导航栏左上角的图标
         navbar,
         sidebar,
+        /*
+        设为 0 来禁用所有级别的页面标题。
+        设为 1 来包含 <h2> 标题。
+        设为 2 来包含 <h2> 和 <h3> 标题。
+         */
+        sidebarDepth: 0,
         lastUpdatedText: '更新日期',
         contributorsText: '作者',
     },
