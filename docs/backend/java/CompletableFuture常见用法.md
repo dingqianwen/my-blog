@@ -148,8 +148,8 @@ public class Test {
 
 ```java
    CompletableFuture.runAsync(()->{
-        System.out.println("开始执行");
-        System.out.println(1/0);
+            System.out.println("开始执行");
+            System.out.println(1/0);
         });
 ```
 
@@ -163,10 +163,10 @@ public class Test {
 
 ```java
 CompletableFuture.runAsync(()->{
-        System.out.println(1/0);
+            System.out.println(1/0);
         }).exceptionally(e->{
-        e.printStackTrace();
-        return null;
+            e.printStackTrace();
+            return null;
         });
 ```
 
