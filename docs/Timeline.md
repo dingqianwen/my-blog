@@ -257,13 +257,6 @@ description: 页面的描述
                "createTime": "2022-03-15T07:37:35.025Z"
             }
          ],
-         "04": [
-            {
-               "title": "CompletableFuture用法",
-               "path": "/backend/java/CompletableFuture用法.md",
-               "createTime": "2022-03-04T08:09:40.668Z"
-            }
-         ],
          "01": [
             {
                "title": "记录一次生产OutOfMemoryError",
@@ -280,9 +273,14 @@ description: 页面的描述
       "04": {
          "07": [
             {
+               "title": "CompletableFuture常见用法",
+               "path": "/backend/java/CompletableFuture常见用法.md",
+               "createTime": "2022-04-07T13:45:42.642Z"
+            },
+            {
                "title": "几行代码带你解读MyBatis框架的Mapper代理模式",
                "path": "/backend/java/几行代码带你解读MyBatis框架的Mapper代理模式.md",
-               "createTime": "2022-04-07T13:16:14.777Z"
+               "createTime": "2022-04-07T13:21:52.739Z"
             },
             {
                "title": "获取系统主题颜色是否为深色模式",

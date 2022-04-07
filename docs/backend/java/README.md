@@ -9,7 +9,7 @@ type: cds
 
 - [@Pattern注解正则表达式校验逗号分隔字符](@Pattern注解正则表达式校验逗号分隔字符.md)  
 - [AopContext.currentProxy() Cannot find current proxy](AopContextCurrentProxyCannotFindCurrentProxy.md)  
-- [CompletableFuture用法](CompletableFuture用法.md)  
+- [CompletableFuture常见用法](CompletableFuture常见用法.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
 - [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  

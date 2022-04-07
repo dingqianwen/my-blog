@@ -1,14 +1,18 @@
 ---
 lang: zh-CN    
-title:  CompletableFuture用法  
+title:  CompletableFuture常见用法  
 description: 页面的描述
 ---
 
-# CompletableFuture用法
+# CompletableFuture常见用法
 
 [[toc]]
 
+## 一般使用场景
+
 ### 合并两个接口返回数据
+
+适合 合并显示两个服务或者多个接口查询到的数据等，提高程序效率。
 
 ```java
 public class Test {
@@ -63,7 +67,9 @@ public class Test {
 2010
 ```
 
-### 处理两段逻辑
+### 同时处理两段逻辑
+
+以下模拟，当A业务且B业务执行完毕后输出：`我也执行了`
 
 ```java
 public class Test {
@@ -84,12 +90,15 @@ public class Test {
                 e1.printStackTrace();
             }
         })).get();
+        System.out.println("我也执行了");
     }
 
 }
 ```
 
 ### 模拟批量处理数据
+
+大量数据处理，适合Excel文件数据处理。
 
 ```java
 public class Test {
@@ -123,10 +132,62 @@ public class Test {
 
 }
 ```
+
 返回
+
 ```text
 [url1我是查询到的数据, url3我是查询到的数据, url4我是查询到的数据]
 2010
+```
+
+## 帮助
+
+### CompletableFuture执行出错不出现异常信息？
+
+看如下代码进行异步操作时，竟然没有打印出任何异常信息
+
+```java
+   CompletableFuture.runAsync(()->{
+        System.out.println("开始执行");
+        System.out.println(1/0);
+        });
+```
+
+输出
+
+```text
+开始执行
+```
+
+如果需要获取程序出现的异常可以用以下方式：
+
+```java
+CompletableFuture.runAsync(()->{
+        System.out.println(1/0);
+        }).exceptionally(e->{
+        e.printStackTrace();
+        return null;
+        });
+```
+
+输出
+
+```text
+开始执行
+java.util.concurrent.CompletionException: java.lang.ArithmeticException: / by zero
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1739)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1728)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.ArithmeticException: / by zero
+	at test.lambda$main$1(TerminalBaseDetailedServiceImpl.java:80)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1736)
+	... 6 more
 ```
 
 <Comment></Comment>
