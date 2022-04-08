@@ -6,14 +6,17 @@ description: 页面的描述
 
 # 记录一次生产OutOfMemoryError
 
-## 事情产生原因
+### 事情产生原因
 
 由于是一次较大的项目上线投产，晚上投产完成验证环节，等到了凌晨1点时，突然我这边服务不断重启，先从Grafana分析服务实例，发现内存快速飙升，然后直接宕机，唯一的可能性就是内存溢出导致。
 
-|Grafana JVM监控图|
-|---|
-![](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/yHiKx0.png)|
-![](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/v8Swtw.png)|
+#### Grafana JVM监控图
+
+<br>
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/yHiKx0.png" alt="none" style="width: 60%;height: 60%;border-radius: 6px;">
+
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/v8Swtw.png" alt="none" style="width: 60%;height: 60%;border-radius: 6px;">
+
 
 然后为了保证服务暂时可用，不影响交易，先扩展实例，扩展JVM内存配置。然后去Elk查询日志发现以下信息
 
@@ -42,7 +45,7 @@ Caused by: java.lang.OutOfMemoryError: Java heap space
 	at org.apache.ibatis.executor.resultset.DefaultResultSetHandler.applyPropertyMappings(DefaultResultSetHandler.java:480)
 ```
 
-## 分析结果
+### 分析结果
 
 经过分析日志，非常大概率是因为接口请求参数漏传，接口此参数没有非空判断，导致SQL执行时无带参数，条件缺失，查询到很多的数据。分析后然后拿到日志TID，去查询整个接口调用链路，确实是由于接口漏传参数导致。
 
