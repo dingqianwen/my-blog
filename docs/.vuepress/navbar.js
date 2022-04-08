@@ -89,6 +89,10 @@ module.exports = {
                     text: '阿里云服务器',
                     link: 'https://www.aliyun.com/minisite/goods?taskPkg=2022cgj&pkgSid=356246',
                 },
+                {
+                    text: '关于作者',
+                    link: '/AboutMe',
+                },
             ],
         }
     ],
