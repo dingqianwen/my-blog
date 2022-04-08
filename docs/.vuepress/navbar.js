@@ -51,7 +51,7 @@ module.exports = {
                 },
             ],
         },
-        // {text: '日记本', link: '/diary/'}, netstat -apn|grep 8080
+        {text: '笔记', link: '/diary/'},
         {text: '音乐台', link: '/music/'},
         {text: '留言板', link: '/message/MessageBoard'},
         {

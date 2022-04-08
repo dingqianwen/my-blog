@@ -100,6 +100,13 @@ module.exports = {
                 link: '/music/',
                 children: read("../music", {ignoreReadmeMd: true}),
             }
+        ],
+        "/diary": [
+            {
+                text: '笔记',
+                link: '/diary/',
+                children: read("../diary", {ignoreReadmeMd: true}),
+            }
         ]
     }
 }
