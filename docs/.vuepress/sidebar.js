@@ -16,7 +16,8 @@ function read(dir, options = {
                 dir = dir + "/";
             }
             return (dir + fileName).replace("../", "/");
-        }));
+        })
+    );
     if (mds.length !== 0) {
         // console.log(mds)
     }
@@ -25,7 +26,7 @@ function read(dir, options = {
 
 module.exports = {
     sidebar: {
-        "/backend": [
+        "/backend/": [
             // SidebarItem  https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html#sidebar
             // {
             //     text: '简介',
@@ -74,7 +75,7 @@ module.exports = {
                 children: read("../backend/mysql", {ignoreReadmeMd: true}),
             },
         ],
-        "/front": [
+        "/front/": [
             {
                 text: 'Vue',
                 link: '/front/vue/',
@@ -94,14 +95,14 @@ module.exports = {
                 children: read("../front/nodejs", {ignoreReadmeMd: true}),
             },
         ],
-        "/music": [
+        "/music/": [
             {
                 text: '音乐台',
                 link: '/music/',
                 children: read("../music", {ignoreReadmeMd: true}),
             }
         ],
-        "/diary": [
+        "/diary/": [
             {
                 text: '笔记',
                 link: '/diary/',

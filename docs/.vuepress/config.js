@@ -17,6 +17,13 @@ module.exports = {
             rel: 'icon',
             href: "logo.png"
         }],
+        [
+            "script",
+            {},
+            `
+           
+            `
+        ],
         // 添加百度统计
         [
             "script",
