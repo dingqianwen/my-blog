@@ -71,14 +71,6 @@ module.exports = {
                 {
                     text: '公益捐款',
                     link: '/public-spirited/',
-                },
-                {
-                    text: '无敌牛牛',
-                    link: 'https://niucloud.net.cn',
-                },
-                {
-                    text: '苞米豆',
-                    link: 'https://baomidou.com/',
                 }
             ],
         }

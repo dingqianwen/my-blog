@@ -18,9 +18,21 @@ features:
 - title: 寂寞
   details: 找不到对手而忧伤。
 
-footer: "Apache-2.0 Licensed | Copyright © 2020 
-  <br>
-  <a href='http://beian.miit.gov.cn' target='_blank' style='color: var(--c-text-lighter);font-family: var(--font-family);font-weight: 400;font-size: 14px;'>京ICP备2020034246号-2</a>"
+footer: "
+  <div>
+    Apache-2.0 Licensed | Copyright © 2020
+    <div style='font-size: 14px;'>
+      <a href='http://beian.miit.gov.cn' target='_blank' class='bah'>京ICP备2020034246号-2</a>
+      <div class='yqlj'>
+          <span>友情链接：</span>
+          <a href='https://niucloud.net.cn' target='_blank'>无敌牛牛</a> |
+          <a href='https://baomidou.com/' target='_blank'>苞米豆</a> |
+          <a href='https://gitee.com/qwding' target='_blank'>My Gitee</a> |
+          <a href='https://github.com/dingqianwen' target='_blank'>My GitHub</a>
+      </div>
+    </div>
+  </div>
+"
 footerHtml: true
  
 
@@ -60,3 +72,4 @@ int main()
 <script type="text/javascript">
     console.log("%c只要一步一步一步的往上爬！", "color:green;font-size:18px;font-weight:blod");
 </script>
+
