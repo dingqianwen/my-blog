@@ -4,7 +4,7 @@ heroImage: logo.png
 
 actions:
 - text: 留言板
-  link: /message/MessageBoard.md
+  link: /message/MessageBoard.html
   type: primary
 - text: 听点音乐
   link: /music/

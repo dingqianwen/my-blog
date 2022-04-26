@@ -12,18 +12,27 @@ module.exports = {
     // }
     description: '这是dingqw的博客🐮👃! 我只要一步一步一步的往上爬,我要做“赵高”',
     head: [
+        [
+            "script",
+            {},
+            `
+            function isIE() {
+                 if(!!window.ActiveXObject || "ActiveXObject" in window){
+                    return true;
+                 }else{
+                    return false;
+                 }
+            }
+            if(isIE()){
+                alert('当前浏览器版本过低，页面无法适配，请更新，点击确定继续访问！');
+            }
+            `
+        ],
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
         ['link', {
             rel: 'icon',
             href: "logo.png"
         }],
-        [
-            "script",
-            {},
-            `
-           
-            `
-        ],
         // 添加百度统计
         [
             "script",
