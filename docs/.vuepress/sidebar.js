@@ -74,6 +74,12 @@ module.exports = {
                 collapsible: true,
                 children: read("../backend/mysql", {ignoreReadmeMd: true}),
             },
+            {
+                text: 'Raspberry Pi',
+                link: '/backend/raspberrypi/',
+                collapsible: true,
+                children: read("../backend/raspberrypi", {ignoreReadmeMd: true}),
+            },
         ],
         "/front/": [
             {

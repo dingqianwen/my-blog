@@ -32,6 +32,10 @@ module.exports = {
                     text: 'MySQL',
                     link: '/backend/mysql/',
                 },
+                {
+                    text: 'Raspberry Pi',
+                    link: '/backend/raspberrypi/',
+                },
             ],
         },
         {
