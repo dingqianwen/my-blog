@@ -11,6 +11,7 @@ type: cds
 - [AopContext.currentProxy() Cannot find current proxy](AopContextCurrentProxyCannotFindCurrentProxy.md)  
 - [CompletableFuture常见用法](CompletableFuture常见用法.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
+- [Illegal group reference: group index is missing](GroupIndexIsMissing.md)  
 - [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
