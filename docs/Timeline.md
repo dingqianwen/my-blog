@@ -266,23 +266,26 @@ description: 页面的描述
                "createTime": "2022-04-13T07:21:38.312Z"
             }
          ],
-         "26": [
-            {
-               "title": "${***}字符串表达式替换工具",
-               "path": "/backend/java/字符串表达式替换工具.md",
-               "createTime": "2022-04-26T14:01:21.313Z"
-            },
-            {
-               "title": "N: 鉴于仓库 ‘..‘不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取。",
-               "path": "/backend/raspberrypi/仓库不支持amd64体系结构，跳过配置文件..的获取.md",
-               "createTime": "2022-04-26T08:43:37.459Z"
-            }
-         ],
          "27": [
             {
                "title": "Illegal group reference: group index is missing",
                "path": "/backend/java/GroupIndexIsMissing.md",
-               "createTime": "2022-04-27T02:10:22.767Z"
+               "createTime": "2022-04-27T02:24:19.451Z"
+            },
+            {
+               "title": "${***}字符串表达式替换工具",
+               "path": "/backend/java/字符串表达式替换工具.md",
+               "createTime": "2022-04-27T02:35:05.392Z"
+            },
+            {
+               "title": "记录MAC简易安装Kuboard过程",
+               "path": "/backend/kuboard/记录MAC安装Kuboard过程.md",
+               "createTime": "2022-04-27T06:06:16.904Z"
+            },
+            {
+               "title": "N: 鉴于仓库 ‘..‘不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取。",
+               "path": "/backend/raspberrypi/仓库不支持amd64体系结构，跳过配置文件..的获取.md",
+               "createTime": "2022-04-27T05:27:37.627Z"
             }
          ],
          "07": [

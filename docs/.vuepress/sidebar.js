@@ -80,6 +80,12 @@ module.exports = {
                 collapsible: true,
                 children: read("../backend/raspberrypi", {ignoreReadmeMd: true}),
             },
+            {
+                text: 'Kuboard',
+                link: '/backend/kuboard/',
+                collapsible: true,
+                children: read("../backend/kuboard", {ignoreReadmeMd: true}),
+            },
         ],
         "/front/": [
             {

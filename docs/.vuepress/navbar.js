@@ -36,6 +36,10 @@ module.exports = {
                     text: 'Raspberry Pi',
                     link: '/backend/raspberrypi/',
                 },
+                {
+                    text: 'Kuboard',
+                    link: '/backend/kuboard/',
+                },
             ],
         },
         {
