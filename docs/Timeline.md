@@ -280,7 +280,7 @@ description: 页面的描述
             {
                "title": "记录MAC简易安装Kuboard过程",
                "path": "/backend/kuboard/记录MAC安装Kuboard过程.md",
-               "createTime": "2022-04-27T06:06:16.904Z"
+               "createTime": "2022-04-27T06:42:51.311Z"
             },
             {
                "title": "N: 鉴于仓库 ‘..‘不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取。",
