@@ -1,0 +1,68 @@
+---
+lang: zh-CN  
+title: '集合拆分 批量数据处理'    
+description: 页面的描述
+---
+
+# 集合拆分 批量数据处理
+
+主要把一个大集合拆分为若干个小的集合，多线程处理数据，或者应对大量数据批量插入数据库，一次批量插入过多导致数据包过大问题，分批执行。
+
+##### 使用方式如下
+
+```java
+public class Test {
+
+    public static void main(String[] args) {
+        {
+            List<Integer> lists = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+            List<List<Integer>> subLists = CollUtils.subList(lists, 2);
+            // 输出 [[1, 2], [3, 4], [5, 6], [7, 8], [9]]
+            System.out.println(subLists);
+        }
+        {
+            List<Integer> lists = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+            List<List<Integer>> subLists = CollUtils.subList(lists, 5);
+            // 输出 [[1, 2, 3, 4, 5], [6, 7, 8, 9]]
+            System.out.println(subLists);
+        }
+    }
+
+}
+```
+
+##### 代码如下
+
+```java
+public class CollUtils {
+
+    /**
+     * 批量处理数据用
+     * <p>
+     * 注意，此工具切分后，只是原始数据的引用，原对象修改，则切分后的数据也被修改
+     *
+     * @param list 被切分的集合
+     * @param aFew 多少切一份
+     * @param <T>  t
+     * @return list
+     */
+    public static <T> List<List<T>> subList(List<T> list, int aFew) {
+        if (aFew <= 0) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (list == null || list.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<List<T>> arrayList = new ArrayList<>();
+        int size = list.size();
+        for (int i = 0; i < size; i += aFew) {
+            List<T> subList = list.subList(i, Math.min((i + aFew), size));
+            arrayList.add(subList);
+        }
+        return arrayList;
+    }
+
+}
+```
+
+<Comment></Comment>

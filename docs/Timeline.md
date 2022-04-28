@@ -288,6 +288,23 @@ description: 页面的描述
                "createTime": "2022-04-27T05:27:37.627Z"
             }
          ],
+         "28": [
+            {
+               "title": "Spring项目中获取当前Request对象工具",
+               "path": "/backend/java/RequestContextUtils.md",
+               "createTime": "2022-04-28T09:19:06.974Z"
+            },
+            {
+               "title": "集合拆分 批量数据处理",
+               "path": "/backend/java/subList.md",
+               "createTime": "2022-04-28T09:37:54.292Z"
+            },
+            {
+               "title": "根据集合中指定的对象属性去重复",
+               "path": "/backend/java/根据集合对象中指定的属性去重复.md",
+               "createTime": "2022-04-28T09:24:46.190Z"
+            }
+         ],
          "07": [
             {
                "title": "几行代码带你解读MyBatis框架的Mapper代理模式",
