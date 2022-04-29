@@ -12,13 +12,9 @@ export const getSongDetail = id => request.get(`https://api.paugram.com/netease?
 
 let BASE_API_URL = "https://dingqw.com/bs";
 
-export const pv = (id) => {
-    request.get(`${BASE_API_URL}/pv?id=${id}`, {}).then(then => {
-    })
-}
 
-export const getPv = (id, call) => {
-    request.get(`${BASE_API_URL}/getPv?id=${id}`, {}).then(then => {
+export const pvIncr = (id, call) => {
+    request.get(`${BASE_API_URL}/pvIncr?id=${id}`, {}).then(then => {
         if (then.code === 0) {
             return call(then.data);
         } else {
