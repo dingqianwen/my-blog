@@ -1,5 +1,6 @@
 // https://v2.vuepress.vuejs.org
 // sitemap生成：https://sitemap.zhetao.com
+// nohup python my-blog-server.py &
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
