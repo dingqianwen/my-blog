@@ -6,7 +6,7 @@ description: 页面的描述
 
 # 自我简介
 
-技术专家，精通前后端技术，目前就职于北京。
+技术专家，精通前后端技术，开源社区苞米豆成员之一，目前就职于北京。
 
 > 身高：184 cm   
 > 体重：72 kg  
@@ -23,7 +23,7 @@ description: 页面的描述
 
 个人微信：
 <br>
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG365.jpeg" alt="none" style="width: 45%;height: 45%;border-radius: 10px;">
+<img src="http://oss.apidocs.cn/blog/img/WechatIMG365.jpeg" alt="none" style="width: 45%;height: 45%;border-radius: 10px;">
 
 [comment]: <> (https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG365.jpeg)
 

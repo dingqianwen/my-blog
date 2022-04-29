@@ -12,6 +12,7 @@ type: cds
 - [CompletableFuture常见用法](CompletableFuture常见用法.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
 - [Illegal group reference: group index is missing](GroupIndexIsMissing.md)  
+- [JdbcTemplate调用存储过程](JdbcTemplate调用存储过程.md)  
 - [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring项目中获取当前Request对象工具](RequestContextUtils.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
