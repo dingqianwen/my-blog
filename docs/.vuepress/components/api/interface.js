@@ -22,3 +22,13 @@ export const pvIncr = (id, call) => {
         }
     })
 }
+
+export const getPv = (id, call) => {
+    request.get(`${BASE_API_URL}/getPv?id=${id}`, {}).then(then => {
+        if (then.code === 0) {
+            return call(then.data);
+        } else {
+            return null;
+        }
+    })
+}
