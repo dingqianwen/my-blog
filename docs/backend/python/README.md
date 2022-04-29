@@ -7,6 +7,6 @@ type: cds
 
 # 当前目录
 
-> 暂无内容 
+- [Python简单操作Redis](Python简单操作Redis.md)  
 
 <Comment></Comment>

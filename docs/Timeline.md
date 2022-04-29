@@ -309,7 +309,12 @@ description: 页面的描述
             {
                "title": "JdbcTemplate调用存储过程",
                "path": "/backend/java/JdbcTemplate调用存储过程.md",
-               "createTime": "2022-04-29T06:45:36.550Z"
+               "createTime": "2022-04-29T06:54:35.111Z"
+            },
+            {
+               "title": "Python简单操作Redis",
+               "path": "/backend/python/Python简单操作Redis.md",
+               "createTime": "2022-04-29T07:26:07.401Z"
             }
          ],
          "07": [
