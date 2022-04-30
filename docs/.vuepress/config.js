@@ -1,6 +1,6 @@
 // https://v2.vuepress.vuejs.org
 // sitemap生成：https://sitemap.zhetao.com
-// nohup python my-blog-server.py &
+// nohup python -u my-blog-server.py &
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
@@ -48,15 +48,15 @@ module.exports = {
               })();`
         ],
         // 谷歌广告
-        /*        [
-                    "script",
-                    {
-                        "async": "async",
-                        "src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233",
-                        "crossorigin": "anonymous"
-                    },
-                    ``
-                ]*/
+        [
+            "script",
+            {
+                "async": "async",
+                "src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233",
+                "crossorigin": "anonymous"
+            },
+            ``
+        ]
     ],
 
     dest: './docs/.vuepress/blog',

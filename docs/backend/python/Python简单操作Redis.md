@@ -6,6 +6,12 @@ description: 页面的描述
 
 # Python简单操作Redis
 
+首先安装`redis`
+
+```shell
+pip3 install redis
+```
+
 代码如下：
 
 ```python

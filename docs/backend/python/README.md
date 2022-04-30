@@ -12,5 +12,6 @@ type: cds
 - [Flask跨域访问](Flask跨域访问.md)  
 - [ModuleNotFoundError: No module named flask](NoModuleNamedFlask.md)  
 - [Python简单操作Redis](Python简单操作Redis.md)  
+- [nohup后台启动Python脚本print不打印日志问题](nohup后台启动Python脚本print不打印日志.md)  
 
 <Comment></Comment>

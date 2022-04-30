@@ -32,7 +32,7 @@ limiter = Limiter(
     server,
     # 根据ip限流
     key_func=get_remote_address,
-    # 默认方案 每小时2000，每分钟100，适用于所有路线。
+    # 默认方案 每小时2000，每分钟100，适用于所有路线。如果想忽略此全局配置，方法上增加此注解@limiter.exempt 
     default_limits=["2000 per hour", "100 per minute"]
 )
 
@@ -55,5 +55,7 @@ def getRealIp() -> str:
     
 # 修改 key_func=getRealIp,    
 ```
+
+更多请查看：[Flask-Limiter](https://blog.csdn.net/suiyuejian/article/details/117930250)
 
 <Comment></Comment>
