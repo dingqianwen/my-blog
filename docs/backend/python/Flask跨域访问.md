@@ -8,7 +8,7 @@ description: 页面的描述
 
 报错信息如下
 
-```shell
+```text
 has been blocked by CORS policy: No ‘Access-Control-Allow-Origin‘ header...
 ```
 

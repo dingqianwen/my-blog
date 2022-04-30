@@ -1,6 +1,6 @@
 ---
-lang: zh-CN
-title: 'nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module'
+lang: zh-CN  
+title: 'nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module'  
 description: 页面的描述
 ---
 
@@ -33,16 +33,19 @@ cp ./objs/nginx /usr/local/nginx/sbin/
 ### 错误解决
 
 #### make时错误信息如下：
+
 ```shell
 make: *** No rule to make target 'build', needed by 'default'.  Stop.
 ```
+
 网上解决方案试了很多，没什么用，建议在一台能用的服务器上执行上面所有操作后直接把编辑后的文件scp到目标主机，例如
+
 ```shell
 scp /usr/local/nginx-1.19.0/objs/nginx  root@***:/usr/local/nginx/sbin/
 ```
-  
-  
+
 #### 启动nginx时：
+
 ```shell
 ./sbin/nginx: error while loading shared libraries: libssl.so.10: cannot open shared object file: No such file or directory
 ```
