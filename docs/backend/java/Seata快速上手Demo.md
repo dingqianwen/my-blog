@@ -8,7 +8,7 @@ description: 页面的描述
 
 首先下载Demo：[seata-demo](https://gitee.com/qwding/seata-demo)
 
-然后先启动nacos
+先启动nacos
 
 ```text
 cd nacos/bin 
@@ -27,7 +27,7 @@ cd seata/bin/
 ```
 
 访问：`http://localhost:7091/`
-默认账号密码：`nacos`
+默认账号密码：`seata`
 
 然后创建官方SQL脚本如下
 
@@ -96,7 +96,7 @@ public class UserService {
 }
 ```
 
-通过PostMan请求接口进行测试分布式事务：`localhost:9020/user/update`；
+通过PostMan请求接口进行测试分布式事务：`localhost:9020/user/update`
 
 
 <Comment></Comment>
