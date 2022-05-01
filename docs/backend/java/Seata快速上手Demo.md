@@ -6,24 +6,49 @@ description: 页面的描述
 
 # Seata快速上手Demo
 
-首先下载Demo：[seata-demo](https://gitee.com/qwding/seata-demo)
 
-先启动nacos
+### 部署Nacos服务
+
+下载nacos-server-2.1.0.tar.gz：[nacos:releases](https://github.com/alibaba/nacos/releases)
+
+启动nacos服务
 
 ```text
-cd nacos/bin 
+cd nacos/bin/
 sh startup.sh -m standalone
 ```
 
 访问:`http://192.168.3.59:8848/nacos/index.html`
 默认账号密码：`nacos`
 
-然后继续启动seata，application.yml配置文件都是改过的，正常启动即可。 
+### 部署Seata服务
+
+下载seata-server-1.4.2.tar.gz：[seata:releases](https://github.com/seata/seata/releases)
+
+首先修改`application.yml` 参考如下配置：
+```yml
+seata:
+  config:
+    # support: nacos, consul, apollo, zk, etcd3
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      data-id: seataServer.properties
+  registry:
+    # support: nacos, eureka, redis, zk, consul, etcd3, sofa
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      cluster: default
+```
+启动seata服务。
 
 ```shell
-cd ../../
-sh seata-server.sh -p 8091 -h 127.0.0.1 -m file
 cd seata/bin/
+sh seata-server.sh
 ```
 
 访问：`http://localhost:7091/`
@@ -48,7 +73,11 @@ CREATE TABLE IF NOT EXISTS `undo_log`
   DEFAULT CHARSET = utf8 COMMENT ='AT transaction mode undo table';
 ```
 
-再创建此项目所用的两张表，以及SQL；
+### 快速上手
+
+下载Demo：[seata-demo](https://gitee.com/qwding/seata-demo)
+
+创建此项目所用的两张表，以及SQL；
 ```sql
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
