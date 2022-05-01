@@ -1,1 +1,15 @@
 google.com, pub-6495628091556233, DIRECT, f08c47fec0942fa0
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233"
+     crossorigin="anonymous"></script>
+<!-- 谷歌广告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6495628091556233"
+     data-ad-slot="1776130802"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
