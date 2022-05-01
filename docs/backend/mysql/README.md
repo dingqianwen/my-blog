@@ -10,4 +10,6 @@ type: cds
 
 - [MySQL排序规则引起的索引失效问题](MySQL排序规则引起的索引失效问题.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

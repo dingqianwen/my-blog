@@ -10,4 +10,6 @@ type: cds
 - [CentOS安装NodeJS](CentOS安装NodeJS.md)  
 - [UnhandledPromiseRejectionWarning: ReferenceError: queueMicrotask is not defined](queueMicrotaskIsNotDefined.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

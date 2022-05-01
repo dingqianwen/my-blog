@@ -98,5 +98,6 @@ public class UserService {
 
 通过PostMan请求接口进行测试分布式事务：`localhost:9020/user/update`
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
 
 <Comment></Comment>

@@ -13,4 +13,6 @@ type: cds
 - [查看端口号占用情况](查看端口号占用情况.md)  
 - [查看进程详细信息](查看进程详细信息.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

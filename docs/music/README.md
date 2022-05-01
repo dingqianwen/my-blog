@@ -20,4 +20,6 @@ description: 页面的描述
 
 <br>
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

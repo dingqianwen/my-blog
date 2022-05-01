@@ -16,4 +16,6 @@ type: cds
 - [获取系统主题颜色是否为深色模式](获取系统主题颜色是否为暗黑模式.md)  
 - [设置JSON对象默认值](设置JSON对象默认值.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

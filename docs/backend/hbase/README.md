@@ -10,4 +10,6 @@ type: cds
 
 - [CentOS安装HBase](CentOS安装HBase.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

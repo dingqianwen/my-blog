@@ -29,4 +29,6 @@ description: 页面的描述
 
 [comment]: <> (https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG364.jpeg)
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

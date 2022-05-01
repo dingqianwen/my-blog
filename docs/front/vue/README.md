@@ -15,4 +15,6 @@ type: cds
 - [好用的技巧](好用的技巧.md)  
 - [清除缓存](清除缓存.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

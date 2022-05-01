@@ -9,4 +9,6 @@ type: cds
 
 - [CentOS安装Redis](CentOS安装Redis.md)  
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>

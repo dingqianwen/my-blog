@@ -75,6 +75,9 @@ function writeData(dir, file) {
     if (newTag === "") {
         newTag = '> 暂无内容 \n';
     }
+    // 插入谷歌广告
+    newTag += `\n<AdsbyGoogle slot="7889564278" layout="in-article"/>\n`;
+
     let newContent = content.replace(/(?<=# 当前目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
     fs.writeFileSync(file, newContent);
 }
