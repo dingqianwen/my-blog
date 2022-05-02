@@ -1,5 +1,5 @@
 <template>
-  <div v-if="view">
+  <div v-if="isView()">
     <br>
     <ins class="adsbygoogle"
          v-if="layout==='in-article'"
@@ -21,17 +21,42 @@
 
 
 <script>
+
+import isMobile from 'ismobilejs';
+
+function onWindow(call) {
+  if (typeof window !== 'undefined') {
+    call();
+  }
+}
+
 export default {
   name: "AdsbyGoogle.vue",
   props: ["layout", "slot"],
   data() {
     return {
-      client: 'ca-pub-6495628091556233',
-      view: true,
+      client: 'ca-pub-6495628091556233'
+    }
+  },
+  methods: {
+    /**
+     * 是否为移动端，目前广告块只在移动端展示
+     *
+     * @returns {boolean}
+     */
+    isView() {
+      onWindow(() => {
+        let mobileResult = isMobile(window.navigator);
+        // 屏蔽ipad展示
+        if (mobileResult.apple.tablet) {
+          return false;
+        }
+        return mobileResult.any;
+      })
     }
   },
   mounted() {
-    if (typeof window !== 'undefined') {
+    onWindow(() => {
       this.$nextTick(() => {
         try {
           // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233" crossorigin="anonymous"/>
@@ -40,7 +65,7 @@ export default {
           console.log("adsbygoogle error ：", e)
         }
       });
-    }
+    })
   }
 }
 </script>
