@@ -14,6 +14,9 @@ module.exports = {
     // }
     description: '这是dingqw的博客🐮👃! 我只要一步一步一步的往上爬,我要做“赵高”',
     head: [
+        ['meta', {name: 'author', content: 'dingqw(761945125@qq.com)'}],
+        ['meta', {name: 'keywords', content: '丁乾文, 个人博客, 丁乾文博客, Java, blog, dingqianwen, dingqw.com, apidocs.cn'}],
+        ['meta', {name: 'description', content: '丁乾文的博客，希望能够帮助到你！'}],
         [
             "script",
             {},

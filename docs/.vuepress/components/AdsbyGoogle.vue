@@ -29,10 +29,15 @@ export default {
     }
   },
   mounted() {
-    try {
-      // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233 crossorigin="anonymous"/>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
+    if (typeof window !== 'undefined') {
+      this.$nextTick(() => {
+        try {
+          // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233" crossorigin="anonymous"/>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.log("adsbygoogle error ：", e)
+        }
+      });
     }
   }
 }
