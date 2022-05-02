@@ -51,13 +51,6 @@ description: 页面的描述
                "path": "/backend/redis/CentOS安装Redis.md",
                "createTime": "2021-12-14T11:23:53.259Z"
             }
-         ],
-         "24": [
-            {
-               "title": "Java架构师成长之路-代码优化方案",
-               "path": "/backend/java/架构师成长之路.md",
-               "createTime": "2021-12-24T05:22:54.469Z"
-            }
          ]
       }
    },
@@ -176,6 +169,11 @@ description: 页面的描述
                "title": "Seata快速上手Demo",
                "path": "/backend/java/Seata快速上手Demo.md",
                "createTime": "2022-05-01T18:30:25.325Z"
+            },
+            {
+               "title": "Java架构师成长之路-代码优化方案",
+               "path": "/backend/java/架构师成长之路.md",
+               "createTime": "2022-05-02T06:41:30.306Z"
             }
          ],
          "01": [
