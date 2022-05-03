@@ -17,6 +17,8 @@ export const pvIncr = (id, call) => {
     request.get(`${BASE_API_URL}/pvIncr?id=${id}`, {}).then(then => {
         if (then.code === 0) {
             return call(then.data);
+        } else if (then.code === 429) {
+            alert("请忽重复提交！")
         } else {
             return null;
         }
@@ -27,6 +29,8 @@ export const getPv = (id, call) => {
     request.get(`${BASE_API_URL}/getPv?id=${id}`, {}).then(then => {
         if (then.code === 0) {
             return call(then.data);
+        } else if (then.code === 429) {
+            alert("请忽重复提交！")
         } else {
             return null;
         }

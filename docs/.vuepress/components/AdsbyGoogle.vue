@@ -57,14 +57,17 @@ export default {
   },
   mounted() {
     onWindow(() => {
-      this.$nextTick(() => {
-        try {
-          // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233" crossorigin="anonymous"/>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.log("adsbygoogle error ：", e)
-        }
-      });
+      // bug 修复
+      if (this.isView) {
+        this.$nextTick(() => {
+          try {
+            // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233" crossorigin="anonymous"/>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            console.log("adsbygoogle error ：", e)
+          }
+        });
+      }
     })
   }
 }
