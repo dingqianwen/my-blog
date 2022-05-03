@@ -397,10 +397,9 @@ description: 页面的描述
     font-size: 15px;
 }
 .archives-box ul, ol {
-    list-style-type: none;
+    list-style-type: disc;
 }
 .archives-box .list-box{
      padding-left: 23px;
 }
 </style>
-            
