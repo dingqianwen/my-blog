@@ -18,7 +18,7 @@ export const pvIncr = (id, call) => {
         if (then.code === 0) {
             return call(then.data);
         } else if (then.code === 429) {
-            alert("请忽重复提交！")
+            alert(then.msg)
         } else if (then.code === 450) {
             alert(then.msg)
         } else {
@@ -32,7 +32,7 @@ export const getPv = (id, call) => {
         if (then.code === 0) {
             return call(then.data);
         } else if (then.code === 429) {
-            alert("请忽重复提交！")
+            alert(then.msg)
         } else if (then.code === 450) {
             alert(then.msg)
         } else {
