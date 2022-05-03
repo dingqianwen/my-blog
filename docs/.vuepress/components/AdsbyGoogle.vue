@@ -58,7 +58,7 @@ export default {
   mounted() {
     onWindow(() => {
       // bug 修复
-      if (this.isView) {
+      if (this.isView()) {
         this.$nextTick(() => {
           try {
             // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6495628091556233" crossorigin="anonymous"/>
