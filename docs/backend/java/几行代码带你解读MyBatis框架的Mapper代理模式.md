@@ -9,7 +9,7 @@ description: 页面的描述
 在IBatis之后的MyBatis提供了一个全新的开发模式,Mapper代理模式,就是所谓Aop面向切面编程,用的方案为JDK提供的Proxy动态代理,或者是Cglib提供的动态代理。
 
 在我们了解了底层之后,就可以动手写代码了,如下：
-
+1
 ```java
 public class SqlSession {
 

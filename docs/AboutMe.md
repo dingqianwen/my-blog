@@ -23,7 +23,7 @@ description: 页面的描述
 
 个人微信：
 <br>
-<img src="http://oss.apidocs.cn/blog/img/WechatIMG365.jpeg" alt="none" style="width: 45%;height: 45%;border-radius: 10px;">
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG365.jpeg" alt="none" style="width: 45%;height: 45%;border-radius: 10px;">
 
 [comment]: <> (https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG365.jpeg)
 

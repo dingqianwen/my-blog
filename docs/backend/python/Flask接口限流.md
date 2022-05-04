@@ -12,7 +12,7 @@ description: 页面的描述
 pip3 install flask_limiter
 ```
 
-通过接口上增加此注解：`@limiter.limit("40 per minute")`
+通过接口上增加此注解：`@limiter.limit("40/minute")`
 
 > 40 per minute 每分钟只能访问40次  
 > 2000 per hour 每小时只能访问2000次  
@@ -38,7 +38,7 @@ limiter = Limiter(
 
 
 @server.get('/test')
-@limiter.limit("40 per minute")
+@limiter.limit("40/minute")
 def test():
 
     return '{"code":0,"msg":"成功！"}'

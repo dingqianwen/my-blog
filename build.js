@@ -64,9 +64,19 @@ function writeData(dir, file) {
                 title = title.substr(0, title.length - 1);
             }
         }
-        // 时间线
-        let {ctimeMs} = fs.statSync(dir + "/" + f);
-        let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, new Date(ctimeMs));
+
+        /*
+         开始生成时间线
+         <p>
+         statSync return:
+         atime: 2022-01-30T17:37:19.610Z,
+         mtime: 2022-01-30T17:36:46.718Z,
+         ctime: 2022-01-30T17:36:46.718Z,
+         birthtime: 2022-01-30T17:35:00.330Z  注意这里有部分系统不支持birthtime
+         ...
+         */
+        let {ctime, birthtime} = fs.statSync(dir + "/" + f);
+        let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, birthtime);
         timelineObjs.push(dContent)
         // 生成当前目录
         newTag += `- [${title}](${f})  \n`;
