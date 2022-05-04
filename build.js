@@ -189,7 +189,10 @@ description: 页面的描述
 .archives-box .day{
     font-size: 15px;
 }
-.archives-box ul, ol {
+.archives-box ul li {
+    list-style-type: none;
+}
+.archives-box ul .article-item {
     list-style-type: disc;
 }
 .archives-box .list-box{

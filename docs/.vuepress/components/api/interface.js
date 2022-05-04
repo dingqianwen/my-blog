@@ -20,7 +20,8 @@ export const pvIncr = (id, call) => {
         } else if (then.code === 429) {
             alert(then.msg)
         } else if (then.code === 450) {
-            alert(then.msg)
+            // alert(then.msg)
+            console.log("警告：" + then.msg)
         } else {
             return null;
         }
@@ -34,7 +35,8 @@ export const getPv = (id, call) => {
         } else if (then.code === 429) {
             alert(then.msg)
         } else if (then.code === 450) {
-            alert(then.msg)
+            // alert(then.msg)
+            console.log("警告：" + then.msg)
         } else {
             return null;
         }
