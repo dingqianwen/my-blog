@@ -79,4 +79,10 @@ pyinstaller --onefile --nowindowed kill_port.py
 ./kill_port 8080
 ```
 
+[点我](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py) 下载此文件，或者通过以下命令下载
+
+```shell
+wget https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py
+```
+
 <Comment></Comment>
