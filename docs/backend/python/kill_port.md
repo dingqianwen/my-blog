@@ -1,12 +1,12 @@
 ---
 lang: zh-CN  
-title: 关闭端口号下所有进程  
+title: 关闭端口号下所有进程工具  
 description: 页面的描述
 ---
 
-# 关闭端口号下所有进程
+# 关闭端口号下所有进程工具
 
-使用方式如下：
+平时想关闭指定端口下的进程，首先需要根据端口号查询到进程信息，再去KILL PID，感觉很麻烦，所以本懒人开发了一个小工具，使用方式如下：
 
 ```shell
 (venv) dingqianwen@localhost pythonProject % python kill_port.py 8011
