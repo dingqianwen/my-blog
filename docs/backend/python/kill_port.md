@@ -34,7 +34,6 @@ else:
     port = sys.argv[1]
     if not port.isdigit():
         print("端口号只能为数字：", port)
-        exit()
     sys = platform.system()
     print("当前系统：", sys)
     if sys == 'Darwin' or sys == 'Linux':
