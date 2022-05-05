@@ -84,4 +84,6 @@ pyinstaller --onefile --nowindowed kill_port.py
 wget https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py
 ```
 
+<AdsbyGoogle slot="7889564278" layout="in-article"/>
+
 <Comment></Comment>
