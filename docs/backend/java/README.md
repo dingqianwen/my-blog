@@ -28,7 +28,7 @@ type: cds
 - [用Java检查SQL语法是否有误](用Java检查SQL语法是否有误.md)  
 - [记录一次生产OutOfMemoryError](记录一次生产OutOfMemoryError.md)  
 - [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  
-- [集合拆分 批量数据处理](集合拆分批量数据处理.md)  
+- [集合拆分批量数据处理](集合拆分批量数据处理.md)  
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 
