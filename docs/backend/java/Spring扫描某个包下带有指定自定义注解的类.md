@@ -1,6 +1,6 @@
 ---
-lang: zh-CN
-title: Spring扫描某个包下带有指定自定义注解的类
+lang: zh-CN  
+title: Spring扫描某个包下带有指定自定义注解的类  
 description: 页面的描述
 ---
 
@@ -9,7 +9,10 @@ description: 页面的描述
 
 [[toc]]
 
-### 代码如下：
+### LoadPackageClasses工具
+
+代码如下：
+
 ```java
 package com;
 
@@ -105,7 +108,8 @@ public class LoadPackageClasses {
 
 ```
 
-### 使用方式：
+使用方式：
+
 ```java
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         // 扫描某个包下带有指定注解的类
@@ -118,12 +122,16 @@ public class LoadPackageClasses {
 ```
 
 
-### 具体在Spring中应用场景参考：
+### 具体在Spring中应用场景参考
+
 先在启动类上加自定义注解扫描的包路径：
+
 ```java
 @InvokerInterfaceScan(basePackages = "com")
 ```
+
 找到包下所有被`@InvokerInterface`注解标记的类，然后执行对应的代码逻辑
+
 ```java
 
 import cn.hutool.core.util.StrUtil;

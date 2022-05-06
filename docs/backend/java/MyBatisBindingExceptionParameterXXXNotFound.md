@@ -17,7 +17,7 @@ public void temp() {
 }
 ```
 
-### 错误信息如下：
+错误信息如下：
 
 ```lombok.config
 org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Parameter 'uuid' not found. Available parameters are [ew, param1]

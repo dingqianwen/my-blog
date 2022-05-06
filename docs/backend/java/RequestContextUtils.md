@@ -6,7 +6,7 @@ description: 页面的描述
 
 # Spring项目中获取当前Request对象工具
 
-##### 使用方式如下
+使用方式如下
 
 ```java
 public class Test {
@@ -17,7 +17,7 @@ public class Test {
 }
 ```
 
-##### 代码如下
+代码如下
 
 ```java
 
