@@ -45,14 +45,17 @@ export default {
      * @returns {boolean}
      */
     isView() {
+      let isView = false;
       onWindow(() => {
         let mobileResult = isMobile(window.navigator);
         // 屏蔽ipad展示
         if (mobileResult.apple.tablet) {
+          isView = false;
           return false;
         }
-        return mobileResult.any;
+        isView = mobileResult.any;
       })
+      return isView;
     }
   },
   mounted() {
