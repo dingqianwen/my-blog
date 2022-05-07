@@ -37,7 +37,7 @@
                   p-id="1139" fill="#ffffff"></path>
             </svg>
           </div>
-          <div class="btn share" title="分享" @click.native="copyHandle">
+          <div class="btn share" title="分享" @click.native="copyHandle" :data-clipboard-text="href">
             <svg t="1640253998462" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  p-id="2826" width="15" height="15">
               <path
@@ -116,6 +116,7 @@ import {formatTime} from './utils';
 import lyricParser from "./utils/lrcparse"
 import {getSongDetail} from './api'
 import noImg from "./assets/img/noalbum.png"
+import Clipboard from "clipboard";
 
 const WHEEL_TYPE = "wheel"
 const SCROLL_TYPE = "scroll"
@@ -145,6 +146,7 @@ export default {
       title: '',
       albumName: '',
       signer: '',
+      href: '',
       songReady: false,
       progress: '0%',
       totalTime: '',
@@ -185,6 +187,7 @@ export default {
     }
   },
   mounted() {
+    this.href = location.href;
     window.onresize = () => {
       return (() => {
         this.onReload();
@@ -423,18 +426,18 @@ export default {
       })
     },
     copyHandle() {
-      let copy = (e) => {
-        e.preventDefault()
-        e.clipboardData.setData('text/plain', window.location.href)
+      let clipboard = new Clipboard('.share')
+      clipboard.on('success', function () {
         alert('复制链接成功！分享给你的朋友吧~')
-        document.removeEventListener('copy', copy)
-      }
-      document.addEventListener('copy', copy)
-      document.execCommand("Copy");
+      });
+      clipboard.on('error', function () {
+        alert('不支持复制哦~')
+      });
     }
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .loading {
   height: 150px;
