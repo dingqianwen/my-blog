@@ -139,7 +139,6 @@ export default {
       // vuex结束
       formatTime,
       isLoading: true,
-      href: '',
       albumImg: noImg,
       nolyric: false,
       lyric: [],
@@ -171,6 +170,9 @@ export default {
       type: [String, Array],
       default: "apple"
     },
+    lyricData: {
+      default: ''
+    }
   },
   created() {
     this.lyricScrolling = {
@@ -183,26 +185,25 @@ export default {
     }
   },
   mounted() {
-    const timer = setInterval(() => {
-      // 判断文档和所有子资源(图片、音视频等)已完成加载
-      if (document.readyState === 'complete') {
-        // 执行方法
-        this.onReload();
-        this.loadComplete = true;
-        window.clearInterval(timer)
-      }
-    }, 500);
     window.onresize = () => {
       return (() => {
         this.onReload();
       })();
     }
-
-    this.href = window.location.href;
+    this.$nextTick(() => {
+      this.onReload();
+      this.loadComplete = true;
+      // 解决ios 无法播放问题
+      const musicDom = document.getElementById('audio');
+      musicDom.load();
+      // 解决微信浏览器打不开音乐问题
+      document.addEventListener(
+          "WeixinJSBridgeReady",
+          function () {
+            musicDom.load();
+          }, false);
+    })
     this.getSone()
-    // 解决ios 无法播放问题
-    const musicDom = document.getElementById('audio');
-    musicDom.load();
   },
   watch: {
     /* 监听*/
@@ -342,7 +343,13 @@ export default {
     },
     async getSone() {
       this.httpEnd = false;
-      const result = await getSongDetail(this.musicId)
+      let result;
+      // 如果本地存在歌词数据
+      if (this.lyricData) {
+        result = this.lyricData;
+      } else {
+        result = await getSongDetail(this.musicId)
+      }
       this.httpEnd = true;
 
       const {cover, lyric, link, id, album, artist, title} = result;
