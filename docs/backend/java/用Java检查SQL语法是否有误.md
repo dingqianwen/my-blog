@@ -13,6 +13,17 @@ select * from user;
 select * fom order;
 ```
 
+首先导入Maven依赖
+
+```xml
+
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid</artifactId>
+    <version>1.1.22</version>
+</dependency>
+```
+
 实现代码如下
 
 ```java
