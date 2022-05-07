@@ -10,10 +10,10 @@ description: 页面的描述
 
 ### 解决方案如下
 
+如果已经没有源码包可以执行一下`/usr/local/nginx/sbin/nginx -V`命令下载对应的源码，注意版本号与之前一致
+
 ```shell
-# 如果已经没有源码包可以执行一下命令下载对应的源码，注意版本号与之前一致
 cd /usr/local
-/usr/local/nginx/sbin/nginx -V
 # 下载
 wget http://nginx.org/download/nginx-1.19.0.tar.gz
 tar -zxvf nginx-1.19.0.tar.gz
