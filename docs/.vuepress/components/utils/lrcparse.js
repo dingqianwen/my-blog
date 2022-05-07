@@ -9,7 +9,7 @@ export function parseLyric(lrc) {
     const lrcObj = []
     for (let i = 0; i < lyrics.length; i++) {
         const lyric = decodeURIComponent(lyrics[i])
-        const timeReg = /\[\d*:\d*((\.|:)\d*)*\]/g
+        const timeReg = /\[\d*:\d*(([.:])\d*)*]/g
         const timeRegExpArr = lyric.match(timeReg)
         if (!timeRegExpArr) continue
         const content = lyric.replace(timeReg, '')

@@ -37,7 +37,7 @@
                   p-id="1139" fill="#ffffff"></path>
             </svg>
           </div>
-          <div class="btn share" title="分享" @click.native="copyHandle" :data-clipboard-text="href">
+          <div class="btn share" title="分享" @click.native="copyHandle">
             <svg t="1640253998462" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  p-id="2826" width="15" height="15">
               <path
@@ -146,7 +146,6 @@ export default {
       title: '',
       albumName: '',
       signer: '',
-      href: '',
       songReady: false,
       progress: '0%',
       totalTime: '',
@@ -168,10 +167,6 @@ export default {
       type: String,
       default: ''
     },
-    theme: {
-      type: [String, Array],
-      default: "apple"
-    },
     lyricData: {
       default: ''
     }
@@ -187,7 +182,6 @@ export default {
     }
   },
   mounted() {
-    this.href = location.href;
     window.onresize = () => {
       return (() => {
         this.onReload();
@@ -426,7 +420,11 @@ export default {
       })
     },
     copyHandle() {
-      let clipboard = new Clipboard('.share')
+      let clipboard = new Clipboard('.share', {
+        text: function () {
+          return location.href;
+        },
+      })
       clipboard.on('success', function () {
         alert('复制链接成功！分享给你的朋友吧~')
       });
