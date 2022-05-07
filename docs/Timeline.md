@@ -394,6 +394,11 @@ description: 页面的描述
                "title": "表单校验工具，手动校验类中注解",
                "path": "/backend/java/ValidationUtils.md",
                "createTime": "2022-05-07T09:15:05.803Z"
+            },
+            {
+               "title": "多条数据只更新最新的一条",
+               "path": "/backend/mysql/多条数据只更新最新的一条.md",
+               "createTime": "2022-05-07T09:51:11.408Z"
             }
          ],
          "02": [

@@ -52,16 +52,15 @@ Exception in thread "main" javax.validation.ValidationException: [age]不能为n
 首先导入依赖
 
 ```xml
-
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-validator</artifactId>
     <version>6.1.7.Final</version>
 </dependency>
 <dependency>
-<groupId>org.glassfish</groupId>
-<artifactId>jakarta.el</artifactId>
-<version>3.0.3</version>
+    <groupId>org.glassfish</groupId>
+    <artifactId>jakarta.el</artifactId>
+    <version>3.0.3</version>
 </dependency>
 ```
 

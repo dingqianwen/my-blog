@@ -9,6 +9,7 @@ type: cds
 # 当前目录
 
 - [MySQL排序规则引起的索引失效问题](MySQL排序规则引起的索引失效问题.md)  
+- [多条数据只更新最新的一条](多条数据只更新最新的一条.md)  
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 
