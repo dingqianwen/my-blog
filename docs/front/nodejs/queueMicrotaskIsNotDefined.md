@@ -8,6 +8,8 @@ description: 页面的描述
 
 ### 执行node **.js报错
 
+报错信息如下
+
 ```shell
 [root@iZ2ze1asovzc5my2rnfo2lZ app]# node service.js 
 (node:2535727) UnhandledPromiseRejectionWarning: ReferenceError: queueMicrotask is not defined
@@ -24,6 +26,5 @@ description: 页面的描述
 > 升级版本到：`v14.1.0`
 
 [NodeJS安装方法](CentOS安装NodeJS.md)
-
 
 <Comment></Comment>

@@ -1,12 +1,12 @@
 ---
-lang: zh-CN
-title: Must use import to load ES Module lodash-es
+lang: zh-CN  
+title: Must use import to load ES Module lodash-es  
 description: 页面的描述
 ---
 
 # Vuepress打包时出现 Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: lodash-es/lodash.js
 
-### 错误信息
+错误信息如下：
 
 ```text
 ✖ Rendering pages - failed
@@ -26,9 +26,9 @@ Instead rename lodash.js to end in .cjs, change the requiring code to use import
 ### 解决方案
 
 删除 `node_modules/lodash-es/package.json` 文件下
+
 ```text
 "type": "module",
 ```
-
 
 <Comment></Comment>

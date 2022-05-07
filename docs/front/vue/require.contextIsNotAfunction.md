@@ -1,6 +1,6 @@
 ---
-lang: zh-CN
-title: 'require.context is not a function'
+lang: zh-CN  
+title: 'require.context is not a function'  
 description: 页面的描述
 ---
 
@@ -8,7 +8,8 @@ description: 页面的描述
 
 [[toc]]
 
-### 错误信息
+错误信息如下
+
 ```text
 (node:13639) UnhandledPromiseRejectionWarning: TypeError: require.context is not a function
     at read (/Users/dingqianwen/vueProjects/my-blog/docs/.vuepress/sidebar.js:35:25)
@@ -63,8 +64,10 @@ if (typeof require.context === 'undefined') {
 }
 ```
 
-### 使用方式
+#### 使用方式
+
 例如：查询某个目录下所有vue的文件
+
 ```javascript
 console.log(require.context("/", false, /\.vue$/).keys());
 ```

@@ -1,6 +1,6 @@
 ---
-lang: zh-CN
-title: CentOS安装HBase
+lang: zh-CN  
+title: CentOS安装HBase  
 description: 页面的描述
 ---
 
@@ -20,6 +20,7 @@ cd /usr/local/app/hbase-2.4.8
 
 
 修改`vim conf/hbase-site.xml`配置文件如下：
+
 ```xml
   <property>
     <name>hbase.master.ipc.address</name>
@@ -34,10 +35,13 @@ cd /usr/local/app/hbase-2.4.8
     <value>60010</value>
   </property>
 ```
+
 启动：
+
 ```shell
 ./bin/start-hbase.sh
 ```
+
 访问管理页面：http://ip:60010
 
 ::: warning 注意事项
@@ -45,6 +49,7 @@ cd /usr/local/app/hbase-2.4.8
 :::
 
 停止：
+
 ```shell
 ./bin/stop-hbase.sh
 ```
