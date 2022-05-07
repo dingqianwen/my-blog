@@ -19,6 +19,7 @@ type: cds
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
 - [SQLSyntaxErrorException: Table seata-demo.undo_log doesnt exist](TableUndo_logDoesntExist.md)  
+- [表单校验工具，手动校验类中注解](ValidationUtils.md)  
 - [java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先?](java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序进行输出,区分大小写,且大写优先.md)  
 - [几行代码带你解读MyBatis框架的Mapper代理模式](几行代码带你解读MyBatis框架的Mapper代理模式.md)  
 - [发现了以元素process开头的无效内容](发现了以元素process开头的无效内容.md)  
