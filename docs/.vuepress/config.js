@@ -1,22 +1,32 @@
 // https://v2.vuepress.vuejs.org
 // sitemap生成：https://sitemap.zhetao.com
 // nohup python -u my-blog-server.py &
+
+/*
+ /blog/  nginx配置为
+
+ location /blog {
+     alias  html/blog/;
+     index index.html;
+ }
+ */
+
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
-    // /blog/  nginx配置为
-    // location /blog {
-    // alias  html/blog/;
-    // index index.html;
-    // }
     description: '这是dingqw的博客🐮👃! 我只要一步一步一步的往上爬,我要做“赵高”',
     head: [
         ['meta', {name: 'author', content: 'dingqw(761945125@qq.com)'}],
         ['meta', {name: 'keywords', content: '丁乾文, 个人博客, 丁乾文博客, Java, blog, dingqianwen, dingqw.com, apidocs.cn'}],
         ['meta', {name: 'description', content: '丁乾文的博客，希望能够帮助到你！'}],
+        ['meta', {name: 'theme-color', content: '#3eaf7c'}],
+        ['link', {
+            rel: 'icon',
+            href: "logo.png"
+        }],
         [
             "script",
             {},
@@ -33,11 +43,27 @@ module.exports = {
             }
             `
         ],
-        ['meta', {name: 'theme-color', content: '#3eaf7c'}],
-        ['link', {
-            rel: 'icon',
-            href: "logo.png"
-        }],
+        [
+            "script",
+            {
+                "src": "/js/jquery.min.js",
+            },
+            ``
+        ],
+        [
+            "script",
+            {
+                "src": "/js/MiniDialog-es5.min.js",
+            },
+            ``
+        ],
+        [
+            "script",
+            {
+                "src": "/js/modal_dialog.js",
+            },
+            ``
+        ],
         // 添加百度统计
         [
             "script",

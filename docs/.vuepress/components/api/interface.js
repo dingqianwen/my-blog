@@ -1,4 +1,5 @@
 import {request} from "./config";
+
 // 获取音乐封面
 export const getSongDetail = id => request.get(`https://api.paugram.com/netease?id=${id}`)
 
@@ -11,9 +12,8 @@ export const pvIncr = (id, call) => {
         if (then.code === 0) {
             return call(then.data);
         } else if (then.code === 429) {
-            alert(then.msg)
+            $warning(then.msg)
         } else if (then.code === 450) {
-            // alert(then.msg)
             console.log("警告：" + then.msg)
         } else {
             return null;
@@ -26,9 +26,8 @@ export const getPv = (id, call) => {
         if (then.code === 0) {
             return call(then.data);
         } else if (then.code === 429) {
-            alert(then.msg)
+            $warning(then.msg)
         } else if (then.code === 450) {
-            // alert(then.msg)
             console.log("警告：" + then.msg)
         } else {
             return null;
