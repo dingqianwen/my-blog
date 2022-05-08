@@ -84,7 +84,7 @@ function $modal(data) {
         $('#modail_message_box').html('');
         $('#modail-dialog-box').append('<div id="modail_message_box"></div>')
         var width_s = 40 + (fontSize * data.content.length) + fontSize + 4;
-        $('#modail_message_box').append('<div id="' + idText + '_box"></div>');
+        $('#modail_message_box').append('<div id="' + idText + '_box"  style="z-index: 2"></div>');
         $('#' + idText + '_box').append('<div class="' + idText + '_item item1"><img src="' + tipIconImg + '" /></div>');
         $('#' + idText + '_box').append('<div class="' + idText + '_item item2">' + data.content + '</div>');
         if (data.closable) {

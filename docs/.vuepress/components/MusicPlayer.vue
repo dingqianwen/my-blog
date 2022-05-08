@@ -332,7 +332,7 @@ export default {
       }
     },
     pause() {
-      this.audio.pause()
+      this.audio.stop()
       this.setPlayingState(false)
     },
     onClickSong() {
@@ -476,7 +476,7 @@ export default {
       left: 180px;
       width: 100px;
       height: 145px;
-      //z-index: 1;
+      z-index: 1;
       transform-origin: 0 0;
       transform: rotate(-30deg);
       transition: all .3s;
