@@ -189,9 +189,26 @@ export default {
     this.$nextTick(() => {
       this.getSone()
 
-      // 解决ios 无法播放问题
-      if (isMobile().apple.device) {
+      // 解决ios 安卓 无法播放问题
+      if (isMobile()) {
         this.audio.load();
+      }
+
+      // 解决ios后台不播放，重新进入暂停不好用问题
+      if (isMobile().apple.device) {
+        let tmp = false;
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === "visible") {
+            // 浏览器进入用户视野中
+            setTimeout(() => {
+              this.setPlayingState(tmp)
+            }, 1000)
+          } else {
+            tmp = this.playing;
+            // 浏览器消失用户视野中
+            this.setPlayingState(false)
+          }
+        })
       }
 
       // 解决微信浏览器打不开音乐问题 手机端 @canplay="ready" 失效 this.audio.readyState一直=0
