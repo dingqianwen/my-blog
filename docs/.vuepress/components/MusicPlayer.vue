@@ -131,9 +131,6 @@ export default {
   },
   data() {
     return {
-      // 原vuex数据
-      // 当前播放歌曲
-      currentSong: {},
       // 当前播放时长
       currentTime: 0,
       // 播放状态
@@ -219,21 +216,6 @@ export default {
         this.scrollToActiveLyric()
       }
     },
-    currentSong(newSong) {
-      // 清空了歌曲
-      if (!newSong.id) {
-        this.audio.pause()
-        this.audio.currentTime = 0
-        return
-      }
-      this.songReady = false
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
-      this.timer = setTimeout(() => {
-        this.play()
-      }, 1000)
-    },
     playing(newPlaying) {
       this.$nextTick(() => {
         newPlaying ? this.play() : this.pause()
@@ -301,9 +283,6 @@ export default {
         return;
       }
       this.rightView = !this.rightView;
-    },
-    setCurrentSong(song) {
-      this.currentSong = song
     },
     setCurrentTime(time) {
       this.currentTime = time
@@ -415,12 +394,6 @@ export default {
         // 分析器关联到输出设备（耳机、扬声器等）
         this.analyserAudio.connect(this.contextAudio.destination);
       }
-    },
-    colorPick(gradient, arr) {
-      arr.forEach(item => {
-        const {pos, color} = item;
-        gradient.addColorStop(pos, color)
-      })
     },
     copyHandle() {
       let clipboard = new Clipboard('.share', {
