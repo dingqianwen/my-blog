@@ -324,7 +324,7 @@ export default {
         try {
           // await ios 设备无法播放
           this.audio.play()
-          this.onLoadAudio()
+          // this.onLoadAudio()
         } catch (error) {
           this.setPlayingState(false)
         }
@@ -389,27 +389,6 @@ export default {
               .getScroller()
               .scrollToElement(lyric[this.activeLyricIndex], 200, 0, true)
         }
-      }
-    },
-    onLoadAudio() {
-      // debugger
-      if (!this.contextAudio) {
-        // 创建AudioContext，关联音频输入，进行解码、控制音频播放和暂停
-        this.contextAudio = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (!this.analyserAudio) {
-        // 创建analyser，获取音频的频率数据（FrequencyData）和时域数据（TimeDomainData）
-        this.analyserAudio = this.contextAudio.createAnalyser();
-        // fftSize：快速傅里叶变换，信号样本的窗口大小，区间为32-32768，默认2048
-        this.analyserAudio.fftSize = 512;
-      }
-      if (!this.sourceAudio) {
-        // 创建音频源
-        this.sourceAudio = this.contextAudio.createMediaElementSource(this.audio);
-        // 音频源关联到分析器
-        this.sourceAudio.connect(this.analyserAudio);
-        // 分析器关联到输出设备（耳机、扬声器等）
-        this.analyserAudio.connect(this.contextAudio.destination);
       }
     },
     copyHandle() {
