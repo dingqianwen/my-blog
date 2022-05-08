@@ -332,7 +332,7 @@ export default {
       }
     },
     pause() {
-      this.audio.stop()
+      this.audio.pause()
       this.setPlayingState(false)
     },
     onClickSong() {
