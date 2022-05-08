@@ -322,14 +322,11 @@ export default {
         this.totalTime = this.audio.duration;
       }
     },
-    end() {
-      this.pause()
-    },
     async play() {
       if (this.songReady) {
         this.progress = Math.ceil(this.currentTime / this.audio.duration * 100) + '%'
         try {
-          // await
+          // await ios 设备无法播放
           this.audio.play()
           this.onLoadAudio()
         } catch (error) {
