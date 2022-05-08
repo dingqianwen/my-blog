@@ -183,13 +183,13 @@ export default {
     }
   },
   mounted() {
+    this.onReload();
     window.onresize = () => {
       return (() => {
         this.onReload();
       })();
     }
     this.$nextTick(() => {
-      this.onReload();
       this.getSone()
 
       // 解决ios 无法播放问题
