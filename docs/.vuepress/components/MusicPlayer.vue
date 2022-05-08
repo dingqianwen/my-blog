@@ -117,6 +117,7 @@ import lyricParser from "./utils/lrcparse"
 import {getSongDetail} from './api'
 import noImg from "./assets/img/noalbum.png"
 import Clipboard from "clipboard";
+import isMobile from 'ismobilejs';
 
 const WHEEL_TYPE = "wheel"
 const SCROLL_TYPE = "scroll"
@@ -189,18 +190,23 @@ export default {
     }
     this.$nextTick(() => {
       this.onReload();
-      this.loadComplete = true;
+      this.getSone()
+
       // 解决ios 无法播放问题
-      const musicDom = document.getElementById('audio');
-      musicDom.load();
-      // 解决微信浏览器打不开音乐问题
-      document.addEventListener(
-          "WeixinJSBridgeReady",
-          function () {
-            musicDom.load();
-          }, false);
+      if (isMobile().apple.device) {
+        this.audio.load();
+      }
+
+      // 解决微信浏览器打不开音乐问题 手机端 @canplay="ready" 失效 this.audio.readyState一直=0
+      const ua = navigator.userAgent.toLowerCase();
+      const isWeiXin = ua.indexOf('micromessenger') !== -1;
+      if (isWeiXin) {
+        this.ready();
+      }
+
+      // 加载完毕
+      this.loadComplete = true;
     })
-    this.getSone()
   },
   watch: {
     /* 监听*/
