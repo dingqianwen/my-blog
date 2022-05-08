@@ -24,10 +24,12 @@ function $modal(data) {
     } else {
         tipIconImg = info_modal
     }
-    if (data.timeout === undefined && data.type != 'confirm') {
+    if (data.timeout === undefined && data.type !== 'confirm') {
         data.timeout = 2000;
     } else {
-        data.timeout < 500 ? data.timeout = 500 : data.timeout = data.timeout;
+        if (data.timeout < 500) {
+            data.timeout = 500
+        }
     }
     if (data.transition === undefined) {
         data.transition = 200
@@ -78,23 +80,25 @@ function $modal(data) {
     if ($('#modail-dialog-box').index() < 0) {
         var modelBox = '<div id="modail-dialog-box"></div>'
         $('body').append(modelBox)
-        $('#modail-dialog-box').css({fontFamily: '微软雅黑', fontSize: fontSize + 'px', color: '#666666',})
+        // #666666
+        $('#modail-dialog-box').css({fontFamily: '微软雅黑', fontSize: fontSize + 'px', color: 'var(--c-text)',})
     }
     if (data.type === 'message') {
         $('#modail_message_box').html('');
         $('#modail-dialog-box').append('<div id="modail_message_box"></div>')
         var width_s = 40 + (fontSize * data.content.length) + fontSize + 4;
         $('#modail_message_box').append('<div id="' + idText + '_box"  style="z-index: 2"></div>');
-        $('#' + idText + '_box').append('<div class="' + idText + '_item item1"><img src="' + tipIconImg + '" /></div>');
+        $('#' + idText + '_box').append('<div class="' + idText + '_item item1"><img src="' + tipIconImg + '"  alt=""/></div>');
         $('#' + idText + '_box').append('<div class="' + idText + '_item item2">' + data.content + '</div>');
         if (data.closable) {
             width_s += fontSize + 4;
-            $('#' + idText + '_box').append('<div class="' + idText + '_item item3"><img src="' + close_modal + '" /></div>');
+            $('#' + idText + '_box').append('<div class="' + idText + '_item item3"><img src="' + close_modal + '"  alt=""/></div>');
         }
+        // background: '#fff',
         $('#' + idText + '_box').css({
             width: width_s + 'px',
             padding: '10px 15px',
-            background: '#fff',
+            background: 'var(--c-bg)',
             boxShadow: '0 1px 6px rgba(0,0,0,.2)',
             borderRadius: '5px',
             position: 'fixed',
