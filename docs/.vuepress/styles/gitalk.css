@@ -949,6 +949,10 @@
     border-color: var(--c-brand);
 }
 
+.gt-container .gt-btn-loadmore {
+    color: var(--c-bg);
+}
+
 .gt-container .gt-error {
     text-align: center;
     margin: 0.625em;

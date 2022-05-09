@@ -69,6 +69,10 @@ int main()
 
 <br>
 
+<!-- <audio style="width: 340px;height: 50px;position: fixed;top: 80%;margin:0 auto;left: 0;right: 0;z-index: 9999999" 
+autoplay="autoplay" type="天马座幻想" src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/music/MAKE-UP%2C%E5%B1%B1%E7%94%B0%E4%BF%A1%E5%A4%AB%20-%20%E3%83%9A%E3%82%AC%E3%82%B5%E3%82%B9%E5%B9%BB%E6%83%B3.mp3"
+controls="controls"></audio> -->
+
 <script type="text/javascript">
     console.log("%c只要一步一步一步的往上爬！", "color:green;font-size:18px;font-weight:blod");
 </script>

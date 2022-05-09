@@ -101,6 +101,7 @@
           :title="title"
           :src="musicSrc"
           @canplay="ready"
+          preload="auto"
           @ended="end"
           @timeupdate="updateTime"
           ref="audio"
