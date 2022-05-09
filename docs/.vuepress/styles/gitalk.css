@@ -1276,7 +1276,7 @@
 .gt-container .gt-comment-block-1 {
     float: right;
     height: 1.375em;
-    width: 2em;
+    width: 3.5em;
 }
 
 .gt-container .gt-comment-block-2 {
@@ -1295,13 +1295,7 @@
     text-decoration: underline;
 }
 
-.gt-container .gt-comment-text {
-    margin-left: 0.5em;
-    color: #a1a1a1;
-    font-size: 0.875em;
-}
-
-.gt-container .gt-comment-date {
+.gt-container .gt-comment-text, .gt-container .gt-comment-date {
     margin-left: 0.5em;
     color: #a1a1a1;
     font-size: 0.875em;
