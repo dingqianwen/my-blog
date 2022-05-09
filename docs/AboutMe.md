@@ -19,7 +19,7 @@ description: 页面的描述
 
 ### 如何联系我
 
-个人邮箱：`761945125@qq.com`
+个人邮箱：<a href="mailto:761945125@qq.com" target="_blank" rel="external nofollow">761945125@qq.com</a>
 
 个人微信：
 <br>
