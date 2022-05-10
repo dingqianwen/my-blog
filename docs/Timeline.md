@@ -247,7 +247,7 @@ description: 页面的描述
             },
             {
                "title": "require.context is not a function",
-               "path": "/front/vue/require.contextIsNotAfunction.md",
+               "path": "/front/vue/requireContextIsNotAfunction.md",
                "createTime": "2022-01-30T18:50:21.272Z"
             }
          ]
