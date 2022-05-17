@@ -1,14 +1,14 @@
 <template>
   <div>
 
-    <div class="loading" v-if="isViewLoading()">
+    <div class="loading" v-show="isLoading">
       <Loading/>
     </div>
 
     <div class="music_player">
 
-      <div class="left" v-show="isViewLeft()"
-           :style="viewAll?'padding: 80px 120px 0 15px;':'padding: 80px 0px 0 0px;margin: 0 auto;'">
+      <div class="left" v-show="!isLoading && (isLargeScreen || switchPanel)"
+           :style="isLargeScreen?'padding: 80px 120px 0 15px;':'padding: 80px 0px 0 0px;margin: 0 auto;'">
         <img class="point" src="./assets/img/point.png" alt="">
         <img :class="['bar', playing ? 'play': '']" src="./assets/img/bar.png" alt="">
         <div class="img-outer-container">
@@ -24,13 +24,13 @@
         </div>
         <div class="control">
           <div :class="['btn', playing ? 'play' : 'pause']" @click.native="onClickSong" title="播放/暂停">
-            <svg v-show="!playing" t="1640174711530" class="svg" viewBox="0 0 900 1024" version="1.1"
+            <svg v-show="!playing" class="svg" viewBox="0 0 900 1024"
                  xmlns="http://www.w3.org/2000/svg" p-id="801" width="20" height="20">
               <path
                   d="M780.8 475.733333L285.866667 168.533333c-27.733333-17.066667-64 4.266667-64 36.266667v614.4c0 32 36.266667 53.333333 64 36.266667l492.8-307.2c29.866667-14.933333 29.866667-57.6 2.133333-72.533334z"
                   p-id="802" fill="#ffffff"></path>
             </svg>
-            <svg v-show="playing" t="1640174831312" class="icon" viewBox="0 0 1024 1024" version="1.1"
+            <svg v-show="playing" class="icon" viewBox="0 0 1024 1024"
                  xmlns="http://www.w3.org/2000/svg" p-id="1138" width="20" height="20">
               <path
                   d="M349.866667 149.333333h-14.933334c-21.333333 0-36.266667 14.933333-36.266666 34.133334v654.933333c0 19.2 14.933333 34.133333 34.133333 34.133333h14.933333c19.2 0 34.133333-14.933333 34.133334-34.133333V183.466667c2.133333-19.2-12.8-34.133333-32-34.133334z m341.333333 0h-14.933333c-21.333333 0-36.266667 14.933333-36.266667 34.133334v654.933333c0 19.2 14.933333 34.133333 34.133333 34.133333h14.933334c19.2 0 34.133333-14.933333 34.133333-34.133333V183.466667c2.133333-19.2-12.8-34.133333-32-34.133334z"
@@ -38,7 +38,7 @@
             </svg>
           </div>
           <div class="btn share" title="分享" @click.native="copyHandle">
-            <svg t="1640253998462" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
                  p-id="2826" width="15" height="15">
               <path
                   d="M512 42.666667a37.12 37.12 0 1 1 0 74.026666H227.84a111.573333 111.573333 0 0 0-111.146667 111.146667v568.32a111.573333 111.573333 0 0 0 111.146667 111.146667h568.32a111.573333 111.573333 0 0 0 111.146667-111.146667V512A37.12 37.12 0 1 1 981.333333 512v284.16A185.6 185.6 0 0 1 796.16 981.333333H227.84A185.6 185.6 0 0 1 42.666667 796.16V227.84A185.6 185.6 0 0 1 227.84 42.666667z m432.213333 0A37.12 37.12 0 0 1 981.333333 79.786667V277.333333a37.12 37.12 0 1 1-74.026666 0V169.173333L525.866667 550.613333a37.12 37.12 0 0 1-52.48 0 37.12 37.12 0 0 1 0-52.48L854.826667 116.693333H746.666667A37.12 37.12 0 1 1 746.666667 42.666667z"
@@ -48,9 +48,9 @@
                   fill="#ffffff" p-id="2828"></path>
             </svg>
           </div>
-          <div class="btn switch" @click="showRight" title="切换面板" v-if="!viewAll">
-            <!-- <svg t="1640501097351" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5847" width="20" height="20"><path d="M883.8 407.9H726.7v249.3c0 58.3-47.2 105.5-105.5 105.5h-179v86.8c0.1 40.2 32.6 72.7 72.8 72.8h368.9c40.2-0.1 72.7-32.6 72.8-72.8V480.7c0-19.3-7.6-37.9-21.3-51.5-13.7-13.7-32.3-21.3-51.6-21.3z m0 0" fill="#ffffff" p-id="5848" data-spm-anchor-id="a313x.7781069.0.i13" class="selected"></path><path d="M515 342.3h211.8V208.5c0-58.3-47.2-105.5-105.5-105.5H172.5C114.2 103 67 150.2 67 208.5v448.6c0 58.3 47.2 105.5 105.5 105.5h204.1V480.7c0.1-76.4 62-138.3 138.4-138.4z m0 0" fill="#ffffff" p-id="5849" data-spm-anchor-id="a313x.7781069.0.i14" class="selected"></path><path d="M726.7 657.2V407.9H515c-40.2 0.1-72.7 32.6-72.8 72.8v282h179c28 0 54.8-11.1 74.6-30.9 19.8-19.8 30.9-46.6 30.9-74.6z m0 0" fill="#ffffff" p-id="5850" data-spm-anchor-id="a313x.7781069.0.i15" class="selected"></path></svg> -->
-            <svg t="1641741992711" class="icon" viewBox="0 0 1137 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          <div class="btn switch" @click="doSwitchPanel" title="切换面板" v-if="!isLargeScreen">
+            <!-- <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="5847" width="20" height="20"><path d="M883.8 407.9H726.7v249.3c0 58.3-47.2 105.5-105.5 105.5h-179v86.8c0.1 40.2 32.6 72.7 72.8 72.8h368.9c40.2-0.1 72.7-32.6 72.8-72.8V480.7c0-19.3-7.6-37.9-21.3-51.5-13.7-13.7-32.3-21.3-51.6-21.3z m0 0" fill="#ffffff" p-id="5848" data-spm-anchor-id="a313x.7781069.0.i13" class="selected"></path><path d="M515 342.3h211.8V208.5c0-58.3-47.2-105.5-105.5-105.5H172.5C114.2 103 67 150.2 67 208.5v448.6c0 58.3 47.2 105.5 105.5 105.5h204.1V480.7c0.1-76.4 62-138.3 138.4-138.4z m0 0" fill="#ffffff" p-id="5849" data-spm-anchor-id="a313x.7781069.0.i14" class="selected"></path><path d="M726.7 657.2V407.9H515c-40.2 0.1-72.7 32.6-72.8 72.8v282h179c28 0 54.8-11.1 74.6-30.9 19.8-19.8 30.9-46.6 30.9-74.6z m0 0" fill="#ffffff" p-id="5850" data-spm-anchor-id="a313x.7781069.0.i15" class="selected"></path></svg> -->
+            <svg class="icon" viewBox="0 0 1137 1024" xmlns="http://www.w3.org/2000/svg"
                  p-id="57234" width="20" height="20">
               <path
                   d="M775.509333 843.320889V364.032a119.751111 119.751111 0 0 0-119.808-119.751111H299.406222V119.751111C299.406222 53.646222 353.052444 0 419.157333 0h598.869334C1084.131556 0 1137.777778 53.646222 1137.777778 119.751111v603.761778a119.751111 119.751111 0 0 1-119.751111 119.808h-242.517334z"
@@ -62,9 +62,10 @@
           </div>
         </div>
       </div>
-      <div class="right" v-if="isViewRight()">
+
+      <div class="right" v-if="!isLoading && (isLargeScreen || !switchPanel)">
         <div class="lyric-container" style="transition: all .2s ease-in-out;opacity: 1">
-          <div class="music-name" @click="showRight">
+          <div class="music-name" @click="doSwitchPanel">
             <p>{{ title }}</p>
             <p>歌手：{{ signer }}&emsp;&emsp;专辑：{{ albumName }}</p>
           </div>
@@ -96,18 +97,20 @@
         </div>
       </div>
 
-      <audio
-          id="audio"
-          :title="title"
-          :src="musicSrc"
-          @canplay="ready"
-          preload="auto"
-          @ended="end"
-          @timeupdate="updateTime"
-          ref="audio"
-          crossOrigin="anonymous"
-      ></audio>
     </div>
+
+    <audio
+        id="audio"
+        :title="title"
+        :src="musicSrc"
+        @canplay="ready"
+        preload="auto"
+        @ended="end"
+        @timeupdate="updateTime"
+        ref="audio"
+        crossOrigin="anonymous"
+    ></audio>
+
   </div>
 </template>
 
@@ -123,6 +126,7 @@ import isMobile from 'ismobilejs';
 
 const WHEEL_TYPE = "wheel"
 const SCROLL_TYPE = "scroll"
+
 // 恢复自动滚动的定时器时间
 const AUTO_SCROLL_RECOVER_TIME = 1000
 
@@ -153,9 +157,8 @@ export default {
       sourceAudio: null,
       contextAudio: null,
       analyserAudio: null,
-      rightView: true,
-      viewAll: true,
-      loadComplete: false
+      switchPanel: true,
+      isLargeScreen: this.screenWidth() > 1150
     }
   },
   props: {
@@ -182,33 +185,32 @@ export default {
     }
   },
   mounted() {
-    this.onReload();
+    // 是否全屏展示
     window.onresize = () => {
       return (() => {
-        this.onReload();
+        let boo = this.screenWidth() > 1150;
+        // 会重复计算吗？？
+        if (boo !== this.isLargeScreen) {
+          this.isLargeScreen = boo;
+        }
       })();
     }
-    this.$nextTick(() => {
-      this.getSone()
+    // 拉取歌曲信息
+    this.getSone()
 
-      // 解决ios 安卓 无法播放问题
-      if (isMobile()) {
-        this.audio.load();
-      }
+    // 解决ios 安卓 无法播放问题
+    if (isMobile()) {
+      this.audio.load();
+    }
 
-      // 解决微信浏览器打不开音乐问题 手机端 @canplay="ready" 失效 this.audio.readyState一直=0
-      const ua = navigator.userAgent.toLowerCase();
-      const isWeiXin = ua.indexOf('micromessenger') !== -1;
-      if (isWeiXin) {
-        this.ready();
-      }
-
-      // 加载完毕
-      this.loadComplete = true;
-    })
+    // 解决微信浏览器打不开音乐问题 手机端 @canplay="ready" 失效 this.audio.readyState一直=0
+    const ua = navigator.userAgent.toLowerCase();
+    const isWeiXin = ua.indexOf('micromessenger') !== -1;
+    if (isWeiXin) {
+      this.ready();
+    }
   },
   watch: {
-    /* 监听*/
     activeLyricIndex(newIndex, oldIndex) {
       if (
           newIndex !== oldIndex &&
@@ -267,24 +269,18 @@ export default {
     }
   },
   methods: {
-    isViewLoading() {
-      return this.isLoading || !this.loadComplete;
+    screenWidth() {
+      // 解决build时异常
+      if (typeof window !== 'undefined') {
+        return document.body.clientWidth
+      }
     },
-    isViewLeft() {
-      return !this.isViewLoading() && (this.viewAll || this.rightView)
-    },
-    isViewRight() {
-      return !this.isViewLoading() && (this.viewAll || !this.rightView);
-    },
-    onReload() {
-      this.viewAll = document.body.clientWidth > 1150;
-    },
-    showRight() {
-      // 全屏模式下，不可点击
-      if (this.viewAll) {
+    doSwitchPanel() {
+      // 大屏模式下，不可点击
+      if (this.isLargeScreen) {
         return;
       }
-      this.rightView = !this.rightView;
+      this.switchPanel = !this.switchPanel;
     },
     setCurrentTime(time) {
       this.currentTime = time
@@ -336,7 +332,7 @@ export default {
       }
       this.httpEnd = true;
 
-      const {cover, lyric, link, id, album, artist, title} = result;
+      const {cover, lyric, album, artist, title} = result;
       this.title = title;
       this.signer = artist;
       this.albumName = album
@@ -405,7 +401,6 @@ export default {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  //z-index: 10000;
 }
 
 .music_player {
