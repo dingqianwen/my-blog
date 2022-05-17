@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./build.js && vuepress dev docs",
     "build": "node ./build.js && vuepress build docs",
-    "deploy": "node ./build.js && vuepress build docs;cd docs/.vuepress;scp -r blog root@www.apidocs.cn:/usr/local/nginx/html"
+    "deploy": "node ./build.js && vuepress build docs;cd docs/.vuepress;rsync -rzP blog root@www.apidocs.cn:/usr/local/nginx/html"
   },
   "author": "dingqianwen",
   "license": "ISC",
