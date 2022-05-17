@@ -158,7 +158,7 @@ export default {
       contextAudio: null,
       analyserAudio: null,
       switchPanel: true,
-      isLargeScreen: this.screenWidth() > 1150
+      isLargeScreen: true
     }
   },
   props: {
@@ -186,9 +186,10 @@ export default {
   },
   mounted() {
     // 是否全屏展示
+    this.isLargeScreen = document.body.clientWidth > 1150;
     window.onresize = () => {
       return (() => {
-        let boo = this.screenWidth() > 1150;
+        let boo = document.body.clientWidth > 1150;
         // 会重复计算吗？？
         if (boo !== this.isLargeScreen) {
           this.isLargeScreen = boo;
@@ -269,12 +270,6 @@ export default {
     }
   },
   methods: {
-    screenWidth() {
-      // 解决build时异常
-      if (typeof window !== 'undefined') {
-        return document.body.clientWidth
-      }
-    },
     doSwitchPanel() {
       // 大屏模式下，不可点击
       if (this.isLargeScreen) {
