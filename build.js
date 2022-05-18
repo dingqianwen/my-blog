@@ -12,7 +12,7 @@ function DContent(title, path, createTime) {
 }
 
 // 生成文件目录
-generateDirectory(rootDir, writeData);
+generateDirectory(rootDir, writeDirectoryData);
 // 生成时间线
 generateTimeline(timelineFilePath, timelineObjs);
 
@@ -31,7 +31,7 @@ function generateDirectory(dir, callback) {
     })
 }
 
-function writeData(dir, file) {
+function writeDirectoryData(dir, file) {
     if (!file.endsWith("README.md")) {
         return;
     }
