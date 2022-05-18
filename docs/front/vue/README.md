@@ -5,7 +5,9 @@ description: 页面的描述
 type: cds
 ---
 
-# 当前目录
+# 目录 [Vue]
+
+[dir.start]: <>
 
 - [VuePress2+暗色主题图片置暗方式](VuePress2+暗色主题图片置暗方式.md)  
 - [VuePress增加备案号](VuePress增加备案号.md)  
@@ -14,6 +16,8 @@ type: cds
 - [require.context is not a function](requireContextIsNotAfunction.md)  
 - [好用的技巧](好用的技巧.md)  
 - [清除缓存](清除缓存.md)  
+
+[dir.end]: <>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 

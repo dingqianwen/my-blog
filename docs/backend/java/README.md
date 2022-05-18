@@ -5,7 +5,9 @@ description: 页面的描述
 type: cds
 ---
 
-# 当前目录
+# 目录 [Java]
+
+[dir.start]: <>
 
 - [@Pattern注解正则表达式校验逗号分隔字符](@Pattern注解正则表达式校验逗号分隔字符.md)  
 - [AopContext.currentProxy() Cannot find current proxy](AopContextCurrentProxyCannotFindCurrentProxy.md)  
@@ -30,6 +32,8 @@ type: cds
 - [记录一次生产OutOfMemoryError](记录一次生产OutOfMemoryError.md)  
 - [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  
 - [集合拆分批量数据处理](集合拆分批量数据处理.md)  
+
+[dir.end]: <>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 

@@ -1,11 +1,13 @@
 ---
 lang: zh-CN  
-title: python  
+title: Python  
 description: 页面的描述  
 type: cds  
 ---
 
-# 当前目录
+# 目录 [Python]
+
+[dir.start]: <>
 
 - [CentOS安装Python](CentOS安装Python.md)  
 - [Flask接口限流](Flask接口限流.md)  
@@ -14,6 +16,8 @@ type: cds
 - [Python简单操作Redis](Python简单操作Redis.md)  
 - [关闭端口号下所有进程工具](kill_port.md)  
 - [nohup后台启动Python脚本print不打印日志问题](nohup后台启动Python脚本print不打印日志.md)  
+
+[dir.end]: <>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 

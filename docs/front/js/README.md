@@ -6,7 +6,9 @@ type: cds
 ---
 
 
-# 当前目录
+# 目录 [JavaScript]
+
+[dir.start]: <>
 
 - [Must use import to load ES Module lodash-es](MustUseImportToLoadESModuleLodash-es.md)  
 - [对象数组深克隆](对象数组深克隆.md)  
@@ -15,6 +17,8 @@ type: cds
 - [正则表达式取文本中间内容](正则表达式取文本中间内容.md)  
 - [获取系统主题颜色是否为深色模式](获取系统主题颜色是否为暗黑模式.md)  
 - [设置JSON对象默认值](设置JSON对象默认值.md)  
+
+[dir.end]: <>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 

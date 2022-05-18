@@ -66,14 +66,14 @@ function writeData(dir, file) {
         }
 
         /*
-         开始生成时间线
-         <p>
-         statSync return:
-         atime: 2022-01-30T17:37:19.610Z,
-         mtime: 2022-01-30T17:36:46.718Z,
-         ctime: 2022-01-30T17:36:46.718Z,
-         birthtime: 2022-01-30T17:35:00.330Z  注意这里有部分系统不支持birthtime
-         ...
+             开始生成时间线
+             <p>
+             statSync return:
+             atime: 2022-01-30T17:37:19.610Z,
+             mtime: 2022-01-30T17:36:46.718Z,
+             ctime: 2022-01-30T17:36:46.718Z,
+             birthtime: 2022-01-30T17:35:00.330Z  注意这里有部分系统不支持birthtime
+             ...
          */
         let {ctime, birthtime} = fs.statSync(dir + "/" + f);
         let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, birthtime);
@@ -85,10 +85,8 @@ function writeData(dir, file) {
     if (newTag === "") {
         newTag = '> 暂无内容 \n';
     }
-    // 插入谷歌广告
-    newTag += `\n<AdsbyGoogle slot="7889564278" layout="in-article"/>\n`;
 
-    let newContent = content.replace(/(?<=# 当前目录)[^]*?(?=<Comment><\/Comment>)/, "\n\n" + newTag + "\n");
+    let newContent = content.replace(/(?<=\[dir.start]: <>)[^]*?(?=\[dir.end]: <>)/, "\n\n" + newTag + "\n");
     fs.writeFileSync(file, newContent);
 }
 
@@ -121,86 +119,10 @@ function generateTimeline(file, obj) {
             }
         }
     }
-    let noContent = `
-        <div>
-                 <br>
-                    <blockquote v-if="Object.keys(maps).length===0"><p>暂无内容</p></blockquote>
-                 <br>
-        </div>`;
-    let code = `---
-lang: zh-CN
-title: 时间线
-description: 页面的描述
----
 
-# 时间线
+    let content = fs.readFileSync(file).toString();
+    let data = `\n maps: ${JSON.stringify(map, null, 3)} \n`;
+    let newContent = content.replace(/(?<=\/\*timeline.data.start\*\/)[^]*?(?=\/\*timeline.data.end\*\/)/, data);
+    fs.writeFileSync(file, newContent);
 
-<div class="archives-body">
-    <div class="archives-box overflow-initial">
-        <div v-for="yk in Object.keys(maps).sort((a, b) => {
-                                return b - a;
-                           })" :key="yk">
-            <h3 class="year pointer">{{yk}}年</h3>
-            <ul class="list-box">
-                <li v-for="mk in Object.keys(maps[yk]).sort((a, b) => {
-                                return b - a;
-                           })" :key="mk">
-                    <span class="month pointer">{{mk}}月</span>
-                    <ul class="list-box" style="display: block;">
-                        <li class="month-li" v-for="dk in  Object.keys(maps[yk][mk]).sort((a, b) => {
-                                                                    return b - a;
-                                                           })" :key="dk">
-                            <span class="day">{{dk}}日 <span class="num">{{Object.keys(maps[yk][mk][dk]).length}}篇</span> </span>
-                            <ul class="list-box" style="display: block;">
-                                <li class="article-item" v-for="lk in Object.keys(maps[yk][mk][dk])" :key="lk" >
-                                    <router-link :to="maps[yk][mk][dk][lk].path.replace('.md','.html')">{{maps[yk][mk][dk][lk].title}}</router-link>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>${obj.length === 0 ? noContent : ''}
-    </div>
-</div>
-
-<Comment></Comment>
-
-<script>
-    export default {
-    name: 'Timeline',
-    data() {
-        return {
-          maps: ${JSON.stringify(map, null, 3)}
-        }
-      }
-    }
-</script>
-<style scoped>
-.archives-box .num {
-    font-size: 14px;
-    font-weight: 100;
-}
-.archives-box .month{
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 1.25em;
-}
-.archives-box .day{
-    font-size: 15px;
-}
-.archives-box ul li {
-    list-style-type: none;
-}
-.archives-box ul .article-item {
-    list-style-type: disc;
-}
-.archives-box .list-box{
-     padding-left: 23px;
-}
-</style>
-            `
-    fs.writeFile(file, code, function (err) {
-        if (err) return err;
-    });
 }

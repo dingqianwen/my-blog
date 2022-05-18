@@ -6,9 +6,13 @@ type: cds
 ---
 
 
-# 当前目录
+# 目录 [HBase]
+
+[dir.start]: <>
 
 - [CentOS安装HBase](CentOS安装HBase.md)  
+
+[dir.end]: <>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
 

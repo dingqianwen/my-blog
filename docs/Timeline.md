@@ -1,13 +1,13 @@
 ---
-lang: zh-CN
-title: 时间线
+lang: zh-CN  
+title: 时间线  
 description: 页面的描述
 ---
 
 # 时间线
 
 <div class="archives-body">
-    <div class="archives-box overflow-initial">
+    <div class="archives-box overflow-initial" v-if="Object.keys(maps).length!==0">
         <div v-for="yk in Object.keys(maps).sort((a, b) => {
                                 return b - a;
                            })" :key="yk">
@@ -33,16 +33,20 @@ description: 页面的描述
             </ul>
         </div>
     </div>
+    <div v-else>
+         <br>
+            <blockquote><p>暂无内容</p></blockquote>
+         <br>
+    </div>
 </div>
-
-<Comment></Comment>
 
 <script>
     export default {
     name: 'Timeline',
     data() {
         return {
-          maps: {
+          /*timeline.data.start*/
+ maps: {
    "2021": {
       "11": {
          "30": [
@@ -431,11 +435,13 @@ description: 页面的描述
          ]
       }
    }
-}
+} 
+/*timeline.data.end*/
         }
       }
     }
 </script>
+
 <style scoped>
 .archives-box .num {
     font-size: 14px;
@@ -459,4 +465,6 @@ description: 页面的描述
      padding-left: 23px;
 }
 </style>
-            
+
+
+<Comment></Comment>
