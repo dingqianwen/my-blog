@@ -74,9 +74,11 @@ print('Hello World')
 
 ::: code-group-item JS
 ```javascript
+
 <script type="text/javascript">
     console.log('Hello World')
-</script>    
+</script>
+
 ```
 :::
 
