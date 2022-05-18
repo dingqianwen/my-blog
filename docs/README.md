@@ -42,28 +42,44 @@ footerHtml: true
 ###  像数 1, 2, 3 一样容易
 
 :::: code-group
-::: code-group-item JAVA
+::: code-group-item Java
 ```java
 
     public static void main(String[] args) {
-        System.out.println |
+        System.out.println('Hello World');
     }
     
 ```
 :::
-::: code-group-item C
-```c
+::: code-group-item C++
+```c++
 
 #include <iostream>
- 
-int main()
-{
-    std::cout << "Hello World";
-    return |
+using namespace std;
+
+int main() {
+	cout << "Hello World!";
+	return 0;
 }
     
 ```
 :::
+::: code-group-item Python
+```python
+
+print('Hello World')
+    
+```
+:::
+
+::: code-group-item JS
+```javascript
+<script type="text/javascript">
+    console.log('Hello World')
+</script>    
+```
+:::
+
 ::::
 
 

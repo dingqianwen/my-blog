@@ -8,7 +8,7 @@ description: 页面的描述
 
 停下！听会音乐吧 🤔️
 
-```text
+```ts:no-line-numbers
 我一个人吃饭 旅行  
 到处走走停停  
 也一个人看书 写信  
