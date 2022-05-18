@@ -1,6 +1,7 @@
 // https://v2.vuepress.vuejs.org
 // sitemap生成：https://sitemap.zhetao.com
 // nohup python -u my-blog-server.py &
+//  Node.js v16.15.0
 
 /*
  /blog/  nginx配置为
@@ -14,6 +15,11 @@
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
+const {defaultTheme} = require('vuepress')
+const { searchPlugin } = require('@vuepress/plugin-search')
+const {registerComponentsPlugin} = require('@vuepress/plugin-register-components')
+
+
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
@@ -90,40 +96,34 @@ module.exports = {
 
     dest: './docs/.vuepress/blog',
     evergreen: true,
-    themeConfig: {
-        logo: 'logo.png',  //网页顶端导航栏左上角的图标
+    theme: defaultTheme({
+        logo: 'logo.png',  // 网页顶端导航栏左上角的图标
         navbar,
         sidebar,
         /*
-        设为 0 来禁用所有级别的页面标题。
-        设为 1 来包含 <h2> 标题。
-        设为 2 来包含 <h2> 和 <h3> 标题。
+            设为 0 来禁用所有级别的页面标题。
+            设为 1 来包含 <h2> 标题。
+            设为 2 来包含 <h2> 和 <h3> 标题。
          */
         sidebarDepth: 0,
         lastUpdatedText: '更新日期',
         contributorsText: '作者',
-    },
+    }),
     plugins: [
-        [
-            '@vuepress/plugin-search',
-            {
-                locales: {
-                    '/': {
-                        placeholder: 'Search',
-                    },
-                    '/zh/': {
-                        placeholder: '搜索',
-                    },
+        searchPlugin({
+            locales: {
+                '/': {
+                    placeholder: 'Search',
                 },
-                // 允许搜索 Frontmatter 中的 `tags`
-                getExtraFields: (page) => [page.frontmatter.tags, page.content, page.filePath, page.path],
-            }
-        ],
-        [
-            '@vuepress/register-components',
-            {
-                componentsDir: path.resolve(__dirname, './components'),
+                '/zh/': {
+                    placeholder: '搜索',
+                },
             },
-        ]
+            // 允许搜索 Frontmatter 中的 `tags`
+            // getExtraFields: (page) => [page.frontmatter.tags, page.content, page.filePath, page.path],
+        }),
+        registerComponentsPlugin({
+            componentsDir: path.resolve(__dirname, './components'),
+        })
     ],
 };

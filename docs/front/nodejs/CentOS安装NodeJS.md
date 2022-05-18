@@ -6,27 +6,31 @@ description: 页面的描述
 
 # CentOS安装NodeJS
 
+[[toc]]
+
 ### 快速安装
 
-> 安装版本：`v14.1.0`
+[Node.js官网](https://nodejs.org/en/)
+
+> 安装版本：`v16.15.0`
 
 ```shell
 cd /usr/local
 
 # 可自行指定版本即可
-wget https://nodejs.org/download/release/v14.1.0/node-v14.1.0-linux-x64.tar.gz
-tar -zxvf node-v14.1.0-linux-x64.tar.gz 
+wget https://nodejs.org/download/release/v16.15.0/node-v16.15.0-linux-x64.tar.gz
+tar -zxvf node-v16.15.0-linux-x64.tar.gz 
 
 # 创建软链
-ln -s /usr/local/app/node-v14.1.0-linux-x64/bin/npm /usr/bin/npm
-ln -s /usr/local/app/node-v14.1.0-linux-x64/bin/node /usr/bin/node
+ln -s /usr/local/app/node-v16.15.0-linux-x64/bin/npm /usr/bin/npm
+ln -s /usr/local/app/node-v16.15.0-linux-x64/bin/node /usr/bin/node
 ```
 
 验证：
 
 ```shell
 [root@iZ2ze1asovzc5my2rnfo2lZ app]# node -v
-v14.1.0
+v16.15.0
 ```
 
 ### 针对安装问题解决
