@@ -35,7 +35,7 @@ module.exports = {
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
         ['link', {
             rel: 'icon',
-            href: "logo.png"
+            href: "/logo.png"
         }],
         [
             "script",
