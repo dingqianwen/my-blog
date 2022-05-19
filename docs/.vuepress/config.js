@@ -4,20 +4,24 @@
 //  Node.js v16.15.0
 
 /*
- /blog/  nginx配置为
+     /blog/  nginx配置为
 
- location /blog {
-     alias  html/blog/;
-     index index.html;
- }
+     location /blog {
+         alias  html/blog/;
+         index index.html;
+     }
  */
 
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
 const {defaultTheme} = require('vuepress')
-const { searchPlugin } = require('@vuepress/plugin-search')
+const {searchPlugin} = require('@vuepress/plugin-search')
 const {registerComponentsPlugin} = require('@vuepress/plugin-register-components')
+const {shikiPlugin} = require('@vuepress/plugin-shiki')
+
+// npm i -D @vuepress/plugin-google-analytics@next
+const {googleAnalyticsPlugin} = require('@vuepress/plugin-google-analytics')
 
 
 module.exports = {
@@ -124,6 +128,15 @@ module.exports = {
         }),
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, './components'),
+        }),
+        /*        shikiPlugin({
+                    // 配置项 github-dark   monokai
+                    // default nord
+                    theme: 'github-dark'
+                }),*/
+        googleAnalyticsPlugin({
+            // 配置项
+            id: 'G-NW8GVSTN33'
         })
     ],
 };

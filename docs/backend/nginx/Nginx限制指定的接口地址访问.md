@@ -8,7 +8,7 @@ description: 页面的描述
 
 有时候需要临时或者紧急屏蔽一些接口的调用，可以通过以下Nginx配置实现
 
-```conf
+```text
 location /bs/getPv {
     return 403;
 }

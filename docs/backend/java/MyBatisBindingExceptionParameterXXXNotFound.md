@@ -19,7 +19,7 @@ public void temp() {
 
 错误信息如下：
 
-```lombok.config
+```text
 org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Parameter 'uuid' not found. Available parameters are [ew, param1]
  at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96)
  at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441)
