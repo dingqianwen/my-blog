@@ -52,7 +52,7 @@ footerHtml: true
 ```
 :::
 ::: code-group-item C++
-```c++
+```c
 
 #include <iostream>
 using namespace std;
