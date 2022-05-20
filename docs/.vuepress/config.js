@@ -1,6 +1,6 @@
 // https://v2.vuepress.vuejs.org
 // sitemap生成：https://sitemap.zhetao.com
-// nohup python -u my-blog-server.py &
+// nohup python -u mb-server.py &
 //  Node.js v16.15.0
 
 /*
