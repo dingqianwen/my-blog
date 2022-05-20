@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: logo.png
+heroImage: hero.svg
 
 actions:
 - text: 留言板
