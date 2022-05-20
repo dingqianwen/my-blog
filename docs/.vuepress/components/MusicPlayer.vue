@@ -204,7 +204,10 @@ export default {
       this.audio.load();
       // 解决浏览器被切换走，或者被其他音频阻断，音乐停止，但是播放状态与动画还在运行中bug
       this.audio.addEventListener("pause", () => {
-        this.setPlayingState(false)
+        // 避免重复监听事件
+        if (this.playing === true) {
+          this.setPlayingState(false)
+        }
       });
     }
 
