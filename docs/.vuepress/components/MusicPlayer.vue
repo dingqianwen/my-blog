@@ -199,9 +199,9 @@ export default {
     // 拉取歌曲信息
     this.getSone()
 
-    // 解决ios 安卓 无法播放问题
+    // 解决ios 安卓 无法播放问题  电脑版刷新无法再次加载问题
+    this.audio.load();
     if (isMobile().any) {
-      this.audio.load();
       // 解决浏览器被切换走，或者被其他音频阻断，音乐停止，但是播放状态与动画还在运行中bug
       this.audio.addEventListener("pause", () => {
         // 避免重复监听事件
