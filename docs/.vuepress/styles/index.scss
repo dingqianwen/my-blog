@@ -6,7 +6,7 @@
 
 /*修复行号与代码对应不齐问题*/
 div[class*=language-].line-numbers-mode .line-numbers .line-number {
-  height: 1.377em;
+  height: auto;
 }
 
 /*去除ios自带搜索图标*/
