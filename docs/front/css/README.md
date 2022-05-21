@@ -10,6 +10,7 @@ type: cds
 [dir.start]: <>
 
 - [var()函数](var()函数.md)  
+- [好看的加载动画CSS样式](好看的加载动画CSS样式.md)  
 
 [dir.end]: <>
 

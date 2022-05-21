@@ -14,7 +14,7 @@ SpringBoot文件上传报错，是因为文件大小超过默认限制，需要�
 
 `properties`配置方式
 
-```properties
+```text
 spring.http.multipart.max-file-size=10MB
 spring.http.multipart.max-request-size=10MB
 ```
@@ -33,7 +33,7 @@ spring:
 
 `properties`配置方式
 
-```properties
+```text
 spring.servlet.multipart.max-file-size=10MB
 spring.servlet.multipart.max-request-size=10MB
 ```
