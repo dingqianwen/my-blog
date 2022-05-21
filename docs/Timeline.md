@@ -385,9 +385,14 @@ description: 页面的描述
          ],
          "21": [
             {
-               "title": "Maximum upload size exceeded; nested exception is java.lang.IllegalStateException",
+               "title": "Maximum upload size exceeded",
                "path": "/backend/java/MaximumUploadSizeExceeded.md",
                "createTime": "2022-05-21T14:55:15.985Z"
+            },
+            {
+               "title": "var()函数",
+               "path": "/front/css/var()函数.md",
+               "createTime": "2022-05-21T15:19:12.860Z"
             }
          ],
          "01": [

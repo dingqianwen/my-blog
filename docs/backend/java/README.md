@@ -15,7 +15,7 @@ type: cds
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
 - [Illegal group reference: group index is missing](GroupIndexIsMissing.md)  
 - [JdbcTemplate调用存储过程](JdbcTemplate调用存储过程.md)  
-- [Maximum upload size exceeded; nested exception is java.lang.IllegalStateException](MaximumUploadSizeExceeded.md)  
+- [Maximum upload size exceeded](MaximumUploadSizeExceeded.md)  
 - [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring项目中获取当前Request对象工具](RequestContextUtils.md)  
 - [Seata快速上手Demo](Seata快速上手Demo.md)  

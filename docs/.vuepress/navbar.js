@@ -46,8 +46,8 @@ module.exports = {
             text: '前端',
             children: [
                 {
-                    text: 'Vue',
-                    link: '/front/vue/',
+                    text: 'CSS',
+                    link: '/front/css/',
                 },
                 {
                     text: 'JavaScript',
@@ -56,6 +56,10 @@ module.exports = {
                 {
                     text: 'NodeJS',
                     link: '/front/nodejs/',
+                },
+                {
+                    text: 'Vue',
+                    link: '/front/vue/',
                 },
             ],
         },

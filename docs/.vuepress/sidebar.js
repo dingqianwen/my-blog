@@ -89,10 +89,10 @@ module.exports = {
         ],
         "/front/": [
             {
-                text: 'Vue',
-                // link: '/front/vue/',
+                text: 'CSS',
+                // link: '/front/js/',
                 collapsible: true,
-                children: read("../front/vue", {ignoreReadmeMd: true}),
+                children: read("../front/css", {ignoreReadmeMd: true}),
             },
             {
                 text: 'JavaScript',
@@ -105,6 +105,12 @@ module.exports = {
                 // link: '/front/nodejs/',
                 collapsible: true,
                 children: read("../front/nodejs", {ignoreReadmeMd: true}),
+            },
+            {
+                text: 'Vue',
+                // link: '/front/vue/',
+                collapsible: true,
+                children: read("../front/vue", {ignoreReadmeMd: true}),
             },
         ],
         "/music/": [
