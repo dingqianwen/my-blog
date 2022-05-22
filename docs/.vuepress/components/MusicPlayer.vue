@@ -209,6 +209,12 @@ export default {
           this.setPlayingState(false)
         }
       });
+      this.audio.addEventListener("play", () => {
+        // 避免重复监听事件
+        if (this.playing === false) {
+          this.setPlayingState(true)
+        }
+      });
     }
 
     // 解决微信浏览器打不开音乐问题 手机端 @canplay="ready" 失效 this.audio.readyState一直=0
