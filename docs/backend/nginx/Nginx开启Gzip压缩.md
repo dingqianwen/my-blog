@@ -31,8 +31,7 @@ nginx -s reload
 
 #### 验证是否生效
 
-再次请求自己网站，会发现响应Header有如下键值`Content-Encoding: gzip`  
-同时例如`https://apidocs.cn/js/jquery.min.js`文件
+再次请求自己网站，会发现响应Header有如下键值`Content-Encoding: gzip`，同时发现本站的`jquery.min.js`文件
 
 - 开启Gzip前：`89.8kB`
 - 开启Gzip后：`31.5kB`
