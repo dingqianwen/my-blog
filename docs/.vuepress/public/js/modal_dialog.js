@@ -64,10 +64,8 @@ function $modal(data) {
 
     function calculate(e, sun) {
         if (data.center) {
-            var tipHeight = e.height() + sun;
-            console.log(tipHeight)
-            var windowHeight = $(window).height();
-            console.log((windowHeight / 2) - (tipHeight / 2))
+            let tipHeight = e.height() + sun;
+            let windowHeight = $(window).height();
             data.top = (windowHeight / 2) - (tipHeight / 2)
         }
     }
