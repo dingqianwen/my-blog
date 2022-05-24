@@ -58,7 +58,10 @@ export default {
         return true;
       })
     });
-
+    // handleCommentPreview bug 点击编辑时也会调用预览接口
+    /*if(!_this.state.isPreview){
+      return;
+    }*/
   }
 };
 </script>
