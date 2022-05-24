@@ -56,12 +56,13 @@ Java方式
 略
 ````
 
-修改Gitalk配置中`proxy`地址，改为我们自己的接口去访问令牌，
+修改Gitalk配置中`proxy`地址，改为我们自己的接口去访问令牌，`clientSecret`配置写在后台同时也增加了安全性。
 
-```ts
+```javascript
 new Gitalk({
     // '''
     proxy: 'https://IP:PORT/get_access_token'
+    //clientSecret: '', 此行配置可以去除了
     // '''
 })
 ```
