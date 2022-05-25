@@ -867,15 +867,15 @@
 }
 
 .gt-container .gt-avatar-github {
-    width: 3em;
-    height: 3em;
+    width: 3.125em;
+    height: 3.125em;
     cursor: pointer;
 }
 
 @media (max-width: 479px) {
     .gt-container .gt-avatar-github {
-        width: 1.875em;
-        height: 1.875em;
+        width: 2em;
+        height: 2em;
     }
 }
 
@@ -1094,7 +1094,7 @@
     -ms-flex: 1;
     flex: 1;
     padding-left: 1.25em;
-    width: 100%;
+    width: 90%;
 }
 
 @media (max-width: 479px) {
