@@ -6,11 +6,37 @@ description: 页面的描述
 
 # 使用LED矩阵玩贪吃蛇小游戏
 
-通过控制电路，点亮/熄灭Led灯实现
+[[toc]]
+
+### 所需材料
+
+- 树莓派/单片机
+- MAX7219芯片
+- 若干Led（最低不少于64个）
+- 万能板（焊接Led）
+
+### 模块以及针脚介绍
+
+#### MAX7219
+MAX7219是MAXIM公司生产的串行输入/输出共阴极数码管显示驱动芯片，一片MAX7219可驱动8个7段（包括小数点共8段）数字LED、LED条线图形显示器、或64个分立的LED发光二级管。该芯片具有10MHz传输率的三线串行接口可与任何微处理器相连，只需一个外接电阻即可设置所有LED的段电流。
+
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/lOqudg.png" alt="none" style="width: 35%;height: 35%;border-radius: 6px;">
+
+各引脚的功能为：
+
+> DIN：串行数据输入端  
+> DOUT：串行数据输出端，用于级连扩展  
+> LOAD：装载数据输入  
+> CLK：串行时钟输入  
+> DIG0~DIG7：8位LED位选线，从共阴极LED中吸入电流  
+> SEG A~SEG G DP：7段驱动和小数点驱动  
+> ISET：  通过一个10k电阻和Vcc相连，设置段电流  
+
+
 
 ### 实现方案
 
-Led矩阵如下
+通过控制电路，点亮/熄灭Led灯实现，Led矩阵如下
 
 ```text
 0  0  0  0  0  0  0  0  
