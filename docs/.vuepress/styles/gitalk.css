@@ -1099,7 +1099,7 @@
 
 @media (max-width: 479px) {
     .gt-container .gt-header-comment {
-        margin-left: 0.875em;
+        padding-left: 0.875em;
     }
 }
 
