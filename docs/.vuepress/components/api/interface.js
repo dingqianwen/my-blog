@@ -25,9 +25,9 @@ export const transferPush = (value, key, success, ex) => {
         value: value,
         key: key
     }).then(then => {
-        let data = process(then);
+        process(then);
         if (then.code === 0) {
-            success(data);
+            success();
         } else {
             ex(then);
         }
@@ -37,9 +37,9 @@ export const transferPush = (value, key, success, ex) => {
 export const transferPull = (key, success, ex) => {
     return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {})
         .then(then => {
-            process(then);
+            let data = process(then);
             if (then.code === 0) {
-                return success();
+                return success(data);
             } else {
                 ex(then);
             }
