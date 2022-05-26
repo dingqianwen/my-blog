@@ -51,10 +51,10 @@ export const transferPush = (value, key, call) => {
     })
 }
 
-export const transferPull = (key, call) => {
-    request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {}).then(then => {
+export const transferPull = (key) => {
+    return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {}).then(then => {
         if (then.code === 0) {
-            return call(then.data);
+            return then.data
         } else if (then.code === 429) {
             $warning(then.msg)
         } else {

@@ -16,7 +16,9 @@ description: 页面的描述
 
 <button @click="push" class="transfer-button">提交</button>
 &nbsp;&nbsp;
-<button @click="pull()" class="transfer-button copy">获取</button>
+<button @click="pull()" class="transfer-button">获取</button>
+
+<div class="copy" @click="copy()"></div>
 
 <br>
 
@@ -47,26 +49,31 @@ export default {
             $success("提交成功~");
         })
     },
-    pull() {
-        $api.transferPull(this.key,(data) => {
-            if(!data || data === "None") {
-                 $warning("无数据~");
-            }
-            let clipboard = new Clipboard('.copy', {
-              text: function () {
-                return data;
-              },
-            });
-            clipboard.on('success', function () {
-              $success("复制成功！");
-              clipboard.destroy();
-            });
-            clipboard.on('error', function () {
-              $warning("不支持复制哦~");
-              clipboard.destroy();
-            });
-        })
+    async pull() {
+       this.data = await $api.transferPull(this.key);
+       if(!this.data || this.data === "None") {
+           $warning("无数据可复制~");
+           return;
+       }
+       setTimeout(()=>{
+           $('.copy').click();
+       }, 10);
     },
+    copy(){
+        let clipboard = new Clipboard('.copy', {
+          text:  () => {
+            return this.data;
+          },
+        });
+        clipboard.on('success', function () {
+          $success("复制成功！");
+          clipboard.destroy();
+        });
+        clipboard.on('error', function () {
+          $warning("不支持复制哦~");
+          clipboard.destroy();
+        });
+    }
   },
   mounted() {
   }
