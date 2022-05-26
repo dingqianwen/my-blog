@@ -37,9 +37,9 @@ export const transferPush = (value, key, success, ex) => {
 export const transferPull = (key, success, ex) => {
     return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {})
         .then(then => {
-            let data = process(then);
+            process(then);
             if (then.code === 0) {
-                return success(data);
+                return success();
             } else {
                 ex(then);
             }
@@ -57,7 +57,8 @@ function process(result) {
     } else if (result.code === 450) {
         console.log("警告：" + result.msg)
     } else {
-        return null;
+        console.log("系统异常:", result)
+        $error("系统异常～")
     }
 }
 

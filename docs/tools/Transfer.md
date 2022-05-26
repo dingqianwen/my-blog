@@ -46,7 +46,7 @@ export default {
             $warning("没有内容可提交~");
             return;
         }
-        $api.transferPush(this.value, this.key, (data) => {
+        $api.transferPush(this.value, this.key, () => {
             $success("提交成功~");
         })
     },
