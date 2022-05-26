@@ -47,17 +47,24 @@ export default {
         element.appendChild(newElement)
       })
     }
-
     // 如果点赞，先判断有没有登录
-    $("#gitalk-container").bind("DOMNodeInserted", function () {
-      $(".gt-comment-like").click(function () {
-        if (!localStorage.getItem('GT_ACCESS_TOKEN')) {
-          $warning("亲，你还没有登录哦~");
-          return false;
-        }
-        return true;
-      })
-    });
+    let $gc = $('#gitalk-container');
+    $gc.on('click', '.gt-comment-like', function () {
+      if (!localStorage.getItem('GT_ACCESS_TOKEN')) {
+        $warning("亲，你还没有登录哦~");
+        return false;
+      }
+      return true;
+    })
+
+    // 预览页面提交评论后的bug
+    $gc.on('click', '.gt-header-controls .gt-btn-public', function () {
+      let $gt = $('.gt-header-textarea');
+      let hasClass = $gt.hasClass('hide');
+      if (hasClass) {
+        $gt.css('height', '72px');
+      }
+    })
     // handleCommentPreview bug 点击编辑时也会调用预览接口
     /*if(!_this.state.isPreview){
       return;
