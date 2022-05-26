@@ -5,6 +5,8 @@ import api from './components/api'
 export default defineClientConfig({
     enhance({app}) {
         // 全局挂载api接口
-        window.$api = api
+        if (typeof window !== 'undefined') {
+            window.$api = api
+        }
     },
 })
