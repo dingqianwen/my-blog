@@ -7,25 +7,26 @@ description: 页面的描述
 # 跨平台复制
 
 <br>
-
-<textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
-
-<label>
-<input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
-</label>
-
-<button @click="push" class="transfer-button">提交</button>
-&nbsp;&nbsp;
-<button @click="pull()" class="transfer-button">获取</button>
-
-<div class="copy" @click="copy()"></div>
-
 <br>
+<label>
+    <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
+</label>
+<br><br>
+<label>
+    <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
+</label>
+<br><br>
+<label>
+    <button @click="push" class="transfer-button transfer-push">提交</button>
+    &nbsp;&nbsp; 
+    <button @click="pull()" class="transfer-button">获取</button>
+</label>
+<span class="copy" @click="copy()"></span>
+<br><br>  
+
+> 此工具只是作者版本各个系统复制文本使用，不保证数据安全性，相关问题本平台不负任何责任！
 
 
-:::warning 温馨提示  
-此工具只是作者版本各个系统复制文本使用，不保证数据安全性，相关问题本平台不负任何责任！  
-:::
 
 <script>
 
@@ -80,7 +81,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .transfer-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
@@ -88,6 +89,7 @@ export default {
     color: var(--c-text);
     border: 1px solid var(--c-border);
     outline: none;
+    background-color: var(--c-bg);
     padding-left : 0.75em;
 }
 .transfer-textarea{
@@ -121,6 +123,14 @@ export default {
 .transfer-button:hover {
     color: var(--c-bg);
     background-color: var(--c-brand-light);
+}
+.transfer-push{
+    color: var(--c-bg);
+    background-color: var(--c-brand);
+}
+.transfer-push:hover {
+    background-color: var(--c-brand-light);
+    border-color: var(--c-brand);
 }
 </style>
 
