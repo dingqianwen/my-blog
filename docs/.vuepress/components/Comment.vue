@@ -57,14 +57,23 @@ export default {
       return true;
     })
 
-    // 预览页面提交评论后的bug
+    // 评论提交评论后输入框高度没有重置bug
     $gc.on('click', '.gt-header-controls .gt-btn-public', function () {
       let $gt = $('.gt-header-textarea');
-      let hasClass = $gt.hasClass('hide');
-      if (hasClass) {
-        $gt.css('height', '72px');
+      $gt.css('height', '72px');
+    })
+
+    // 点击预览时，隐藏评论按钮
+    $gc.on('click', '.gt-header-controls .gt-btn-preview', function () {
+      let pl = $('.gt-header-controls .gt-btn-public');
+      if (pl.hasClass('hide')) {
+        pl.removeClass('hide');
+      } else {
+        // 隐藏
+        pl.addClass('hide');
       }
     })
+
     // handleCommentPreview bug 点击编辑时也会调用预览接口
     /*if(!_this.state.isPreview){
       return;
