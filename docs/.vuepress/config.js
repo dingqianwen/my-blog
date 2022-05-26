@@ -75,6 +75,13 @@ module.exports = {
             },
             ``
         ],
+        [
+            "script",
+            {
+                "src": "/js/blog.js",
+            },
+            ``
+        ],
         // 添加百度统计
         [
             "script",
