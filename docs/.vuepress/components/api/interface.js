@@ -9,58 +9,56 @@ let BASE_API_URL = "https://dingqw.com/bs";
 
 export const pvIncr = (id, call) => {
     request.get(`${BASE_API_URL}/pvIncr?id=${id}`, {}).then(then => {
-        if (then.code === 0) {
-            return call(then.data);
-        } else if (then.code === 429) {
-            $warning(then.msg)
-        } else if (then.code === 450) {
-            console.log("警告：" + then.msg)
-        } else {
-            return null;
-        }
+        call(process(then));
     })
 }
 
 export const getPv = (id, call) => {
     request.get(`${BASE_API_URL}/getPv?id=${id}`, {}).then(then => {
-        if (then.code === 0) {
-            return call(then.data);
-        } else if (then.code === 429) {
-            $warning(then.msg)
-        } else if (then.code === 450) {
-            console.log("警告：" + then.msg)
-        } else {
-            return null;
-        }
+        call(process(then));
     })
 }
 
 
-export const transferPush = (value, key, call) => {
+export const transferPush = (value, key, success, ex) => {
     request.post(`${BASE_API_URL}/transfer/push`, {
         value: value,
         key: key
     }).then(then => {
+        let data = process(then);
         if (then.code === 0) {
-            return call(then.data);
-        } else if (then.code === 429) {
-            $warning(then.msg)
+            success(data);
         } else {
-            return null;
+            ex(then);
         }
     })
 }
 
-export const transferPull = (key) => {
-    return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {}).then(then => {
-        if (then.code === 0) {
-            return then.data
-        } else if (then.code === 429) {
-            $warning(then.msg)
-        } else {
-            return null;
-        }
-    })
+export const transferPull = (key, success, ex) => {
+    return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {})
+        .then(then => {
+            let data = process(then);
+            if (then.code === 0) {
+                return success(data);
+            } else {
+                ex(then);
+            }
+        })
+}
+
+function process(result) {
+    if (result.code === 0) {
+        return result.data
+    } else if (result.code === 429) {
+        $warning(result.msg)
+    } else if (result.code === 410) {
+        // 410
+        $warning(result.msg)
+    } else if (result.code === 450) {
+        console.log("警告：" + result.msg)
+    } else {
+        return null;
+    }
 }
 
 export default {BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush}

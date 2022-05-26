@@ -51,14 +51,16 @@ export default {
         })
     },
     async pull() {
-       this.data = await $api.transferPull(this.key);
-       if(!this.data || this.data === "None") {
-           $warning("无数据可复制~");
-           return;
-       }
-       setTimeout(()=>{
-           $('.copy').click();
-       }, 10);
+       await $api.transferPull(this.key, (data) => {
+           this.data = data;
+           if(!data || data === "None") {
+               $warning("无数据可复制~");
+               return;
+           }
+           setTimeout(()=>{
+               $('.copy').click();
+           }, 10);
+       });
     },
     copy(){
         let clipboard = new Clipboard('.copy', {
