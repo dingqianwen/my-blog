@@ -119,7 +119,6 @@ import Scroller from "./Scroller.vue";
 import Loading from "./Loading.vue";
 import {formatTime} from './utils';
 import lyricParser from "./utils/lrcparse"
-import {getSongDetail} from './api'
 import noImg from "./assets/img/noalbum.png"
 import Clipboard from "clipboard";
 import isMobile from 'ismobilejs';
@@ -336,7 +335,7 @@ export default {
       if (this.lyricData) {
         result = this.lyricData;
       } else {
-        result = await getSongDetail(this.musicId)
+        result = await $api.getSongDetail(this.musicId)
       }
       this.httpEnd = true;
 

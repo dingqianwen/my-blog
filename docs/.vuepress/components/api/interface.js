@@ -34,3 +34,33 @@ export const getPv = (id, call) => {
         }
     })
 }
+
+
+export const transferPush = (value, key, call) => {
+    request.post(`${BASE_API_URL}/transfer/push`, {
+        value: value,
+        key: key
+    }).then(then => {
+        if (then.code === 0) {
+            return call(then.data);
+        } else if (then.code === 429) {
+            $warning(then.msg)
+        } else {
+            return null;
+        }
+    })
+}
+
+export const transferPull = (key, call) => {
+    request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {}).then(then => {
+        if (then.code === 0) {
+            return call(then.data);
+        } else if (then.code === 429) {
+            $warning(then.msg)
+        } else {
+            return null;
+        }
+    })
+}
+
+export default {BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush}

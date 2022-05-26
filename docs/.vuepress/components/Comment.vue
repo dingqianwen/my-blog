@@ -11,7 +11,6 @@
 import '../styles/gitalk.css'
 import Gitalk from 'gitalk'
 import md5 from 'blueimp-md5'
-import {getPv, pvIncr} from './api'
 import {usePageData} from '@vuepress/client'
 
 export default {
@@ -42,7 +41,7 @@ export default {
       let element = document.getElementsByClassName('page-meta')[0];
       let newElement = document.createElement('div');
       newElement.className = 'meta-item contributors browse—count';
-      pvIncr(md5(value.path), function (data) {
+      $api.pvIncr(md5(value.path), function (data) {
         newElement.innerHTML = `<span class="meta-item-label">浏览: </span><span class="meta-item-info">${data.toLocaleString('en-US')}</span>`;
         element.appendChild(newElement)
       })

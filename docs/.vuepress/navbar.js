@@ -77,6 +77,10 @@ module.exports = {
                     link: '/Timeline.html',
                 },
                 {
+                    text: '跨平台复制',
+                    link: '/tools/Transfer.html',
+                },
+                {
                     text: '留言板',
                     link: '/message/MessageBoard.html',
                 },
