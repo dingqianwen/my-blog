@@ -6,7 +6,14 @@ description: 页面的描述
 
 # Nginx开启Gzip压缩
 
-启用Gzip：一种压缩技术，通过在网站服务器安装该功能，可以减少传输宇节。
+Gzip是一种压缩技术，通过在网站服务器安装该功能，可以减少传输宇节。
+
+### 例如
+
+本站响应的`jquery.min.js`文件开启Gzip前后对比如下：
+
+- 开启前：`89.8kB`
+- 开启后：`31.5kB`
 
 ### 如何启用？
 
@@ -29,11 +36,10 @@ http {
 nginx -s reload
 ```
 
-#### 验证是否生效
+### 验证是否生效
 
-再次请求自己网站，会发现响应Header有如下键值`Content-Encoding: gzip`，同时发现本站的`jquery.min.js`文件
+再次请求自己网站，会发现响应Header有如下键值`Content-Encoding: gzip`。
 
-- 开启Gzip前：`89.8kB`
-- 开启Gzip后：`31.5kB`
+
 
 <Comment></Comment>
