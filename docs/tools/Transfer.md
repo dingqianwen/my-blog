@@ -17,9 +17,13 @@ description: 页面的描述
 </label>
 <br><br>
 <label>
-    <button @click="push" class="transfer-button transfer-push">提交</button>
+    <button @click="push" class="transfer-button transfer-push">
+        <span>提交</span>
+    </button>
     &nbsp;&nbsp; 
-    <button @click="pull()" class="transfer-button">获取</button>
+    <button @click="pull()" class="transfer-button transfer-pull">
+        <span>获取</span>
+    </button>
 </label>
 <span class="copy" @click="copy()"></span>
 <br><br>  
@@ -38,6 +42,9 @@ export default {
     return {
         value: "",
         key: "",
+        data: "",
+        pushBtnLoading: false,
+        pullBtnLoading: false,
     }
   },
   methods: {
@@ -46,13 +53,19 @@ export default {
             $warning("没有内容可提交~");
             return;
         }
+        this.pushBtnLoading = true;
         $api.transferPush(this.value, this.key, () => {
             $success("提交成功~");
+            this.pushBtnLoading = false;
+        },() => {
+            this.pushBtnLoading = false;
         })
     },
     async pull() {
+       this.pullBtnLoading = true;
        await $api.transferPull(this.key, (data) => {
            this.data = data;
+           this.pullBtnLoading = false;
            if(!data || data === "None") {
                $warning("无数据可复制~");
                return;
@@ -60,6 +73,8 @@ export default {
            setTimeout(()=>{
                $('.copy').click();
            }, 10);
+       }, () => {
+           this.pullBtnLoading = false; 
        });
     },
     copy(){
@@ -76,14 +91,72 @@ export default {
           $warning("不支持复制哦~");
           clipboard.destroy();
         });
+    },
+    setLoading(el) {
+        $(el).append('<span class="transfer-btn-loading transfer-spinner"></span>');
+    },
+    removeLoading(el) {
+        $(el + ' .transfer-btn-loading').remove();
     }
   },
   mounted() {
+  },
+  watch: {
+    pushBtnLoading: {
+      handler(newVal) {
+        if(newVal) {
+            this.setLoading('.transfer-push');
+        }else{
+            this.removeLoading('.transfer-push');
+        }
+      },
+      immediate: false
+    },
+    pullBtnLoading: {
+      handler(newVal) {
+        if(newVal) {
+            this.setLoading('.transfer-pull');
+        }else{
+            this.removeLoading('.transfer-pull');
+        }
+      },
+      immediate: false
+    }
   }
 }
 </script>
 
-<style scoped>
+<style>
+
+.transfer-spinner {
+    position: relative;
+}
+
+.transfer-spinner::before {
+    content: '';
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 6px;
+    width: 0.75em;
+    height: 0.75em;
+    margin-top: -0.1875em;
+    margin-left: -0.375em;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    border-top-color: var(--c-text-accent);
+    -webkit-animation: gt-kf-rotate 0.6s linear infinite;
+    animation: gt-kf-rotate 0.6s linear infinite;
+}
+.transfer-btn-loading {
+    position: relative;
+    margin-left: 0.5em;
+    display: inline-block;
+    width: 0.75em;
+    height: 1em;
+    vertical-align: top;
+}
+
 .transfer-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
@@ -111,6 +184,7 @@ export default {
 }
 .transfer-button{
     outline: none;   
+    display: inline-block;
     border: 1px solid var(--c-text-accent);
     border-radius: 5px;
     padding: 0.542em 0.95em;
