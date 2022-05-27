@@ -126,6 +126,19 @@ module.exports = {
                 link: '/diary/',
                 children: read("../diary", {ignoreReadmeMd: true}),
             }
+        ],
+        "/": [
+            {
+                text: '其他',
+                link: '/',
+                children: [
+                    '/AboutMe.html',
+                    '/Timeline.html',
+                    '/tools/Transfer.html',
+                    '/message/MessageBoard.html',
+                    '/public-spirited/',
+                ],
+            }
         ]
     }
 }
