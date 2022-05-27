@@ -55,8 +55,10 @@ export default {
         }
         this.pushBtnLoading = true;
         $api.transferPush(this.value, this.key, () => {
-            $success("提交成功~");
-            this.pushBtnLoading = false;
+           setTimeout(() => {
+               this.pushBtnLoading = false;
+               $success("提交成功~");
+           }, 200);
         },() => {
             this.pushBtnLoading = false;
         })
@@ -65,14 +67,14 @@ export default {
        this.pullBtnLoading = true;
        await $api.transferPull(this.key, (data) => {
            this.data = data;
-           this.pullBtnLoading = false;
-           if(!data || data === "None") {
-               $warning("无数据可复制~");
-               return;
-           }
-           setTimeout(()=>{
+           setTimeout(() => {
+               this.pullBtnLoading = false;
+               if(!data || data === "None") {
+                   $warning("无数据可复制~");
+                   return;
+               }
                $('.copy').click();
-           }, 10);
+           }, 200);
        }, () => {
            this.pullBtnLoading = false; 
        });
