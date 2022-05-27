@@ -8,8 +8,8 @@ description: 页面的描述
 
 <br>
 <br>
-<label>
-    <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
+<label style="display: flex;">
+   <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
 </label>
 <br><br>
 <label>
