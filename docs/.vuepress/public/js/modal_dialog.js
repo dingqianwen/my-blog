@@ -12,7 +12,7 @@ function $modal(data) {
     if (data.type === undefined) {
         data.type = 'alert'
     }
-    let tipIconImg = '';
+    var tipIconImg = '';
     if (data.icon === 'success') {
         tipIconImg = success_modal
     } else if (data.icon === 'warning') {
@@ -64,8 +64,8 @@ function $modal(data) {
 
     function calculate(e, sun) {
         if (data.center) {
-            let tipHeight = e.height() + sun;
-            let windowHeight = $(window).height();
+            var tipHeight = e.height() + sun;
+            var windowHeight = $(window).height();
             data.top = (windowHeight / 2) - (tipHeight / 2)
         }
     }
