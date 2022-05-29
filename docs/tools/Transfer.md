@@ -173,7 +173,8 @@ export default {
     overflow: hidden;
     overflow-wrap: break-word; 
     max-height: 400px;
-    height: 72px;
+    min-height: 72px;
+    resize: vertical;
     width: 100%;
     max-width: 100%;
     border-radius: 5px;
