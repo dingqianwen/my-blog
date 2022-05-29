@@ -40,19 +40,10 @@ module.exports = {
         }],
         [
             "script",
-            {},
-            `
-            function isIE() {
-                 if(!!window.ActiveXObject || "ActiveXObject" in window){
-                    return true;
-                 }else{
-                    return false;
-                 }
-            }
-            if(isIE()){
-                alert('当前浏览器版本过低，页面无法适配，请更新或更换浏览器，点击确定继续访问！');
-            }
-            `
+            {
+                "src": "/js/before.js",
+            },
+            ``
         ],
         [
             "script",
