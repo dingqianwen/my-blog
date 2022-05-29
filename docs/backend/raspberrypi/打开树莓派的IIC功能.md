@@ -36,7 +36,7 @@ pi@raspberrypi:~ $ i2cdetect -y 1
 pi@raspberrypi:~ $
 ```
 
-###### 会得到一个地址:0x40
+###### 会得到一个地址:`0x40`
 
 
 <Comment></Comment>

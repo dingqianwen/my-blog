@@ -11,7 +11,8 @@ description: 页面的描述
 ### 本文必看
 
 1、请小伙伴先完成[通过MAX7219模块驱动矩阵屏](通过MAX7219模块驱动矩阵屏.md)  
-2、由于精力有限，Python版本暂不提供了，对应逻辑可以参考如下代码即可。
+2、由于精力有限，Python版本暂不提供了，对应逻辑可以参考如下代码即可。  
+3、首先需要[启用树莓派的SPI接口](启用树莓派的SPI接口.md)  
 
 ### 所需材料
 
@@ -71,10 +72,6 @@ description: 页面的描述
 树莓派、轻触开关、MAX7219芯片连接图
 
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/MAX7219贪吃蛇.drawio.png" alt="none" style="width: 70%;height: 70%;border-radius: 6px;">
-
-### 启用SPI
-
-[启用树莓派的SPI接口](启用树莓派的SPI接口.md)
 
 
 ### 游戏程序
