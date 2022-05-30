@@ -6,6 +6,19 @@ description: 页面的描述
 
 # 设置JSON对象默认值
 
+例如
+
+```javascript
+var obj = {age: 18, name: '张三'};
+console.log(setDefaultValue(obj, null));
+```
+
+输出
+
+```json
+{"age":null,"name":null}
+```
+
 代码实现如下
 
 ```javascript
