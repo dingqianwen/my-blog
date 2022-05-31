@@ -84,28 +84,31 @@ function $modal(data) {
     if (data.type === 'message') {
         $('#modail_message_box').html('');
         $('#modail-dialog-box').append('<div id="modail_message_box"></div>')
-        var width_s = 40 + (fontSize * data.content.length) + fontSize + 4;
-        $('#modail_message_box').append('<div id="' + idText + '_box"  style="z-index: 2"></div>');
+        //var width_s = 40 + (fontSize * data.content.length) + fontSize + 4;
+        $('#modail_message_box').append('<div id="' + idText + '_box"  style="z-index: 10"></div>');
         $('#' + idText + '_box').append('<div class="' + idText + '_item item1"><img src="' + tipIconImg + '"  alt=""/></div>');
         $('#' + idText + '_box').append('<div class="' + idText + '_item item2">' + data.content + '</div>');
         if (data.closable) {
-            width_s += fontSize + 4;
+            //width_s += fontSize + 4;
             $('#' + idText + '_box').append('<div class="' + idText + '_item item3"><img src="' + close_modal + '"  alt=""/></div>');
         }
         // background: '#fff',
         $('#' + idText + '_box').css({
-            width: width_s + 'px',
+            // width: width_s + 'px',
             padding: '10px 15px',
             background: 'var(--c-bg)',
             boxShadow: '0 1px 6px rgba(0,0,0,.2)',
             borderRadius: '5px',
             position: 'fixed',
-            left: '0',
+            // left: '0',
             margin: 'auto',
-            right: '0',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            // right: '0',
             opacity: '0',
         })
-        $('.' + idText + '_item.item2').css({margin: '0 8px'})
+        $('.' + idText + '_item.item1').css({position: 'absolute',  cursor: 'pointer'})
+        $('.' + idText + '_item.item2').css({margin: '0 16px', padding: '0 6px 0 10px'})
         $('.' + idText + '_item.item3').css({position: 'absolute', right: '15px', cursor: 'pointer'})
         $('.' + idText + '_item').css({display: 'inline-block'})
         $('.' + idText + '_item img').css({
