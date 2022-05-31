@@ -19,10 +19,12 @@ description: 页面的描述
 <label>
     <button @click="push" class="transfer-button transfer-push">
         <span>提交</span>
+        <span class="transfer-btn-loading transfer-spinner" v-if="pushBtnLoading"></span>
     </button>
     &nbsp;&nbsp; 
     <button @click="pull()" class="transfer-button transfer-pull">
         <span>获取</span>
+        <span class="transfer-btn-loading transfer-spinner" v-if="pullBtnLoading"></span>
     </button>
 </label>
 <span class="copy" @click="copy()"></span>
@@ -94,37 +96,9 @@ export default {
           clipboard.destroy();
         });
     },
-    setLoading(el) {
-        $(el).append('<span class="transfer-btn-loading transfer-spinner"></span>');
-    },
-    removeLoading(el) {
-        $(el + ' .transfer-btn-loading').remove();
-    }
   },
   mounted() {
   },
-  watch: {
-    pushBtnLoading: {
-      handler(newVal) {
-        if(newVal) {
-            this.setLoading('.transfer-push');
-        }else{
-            this.removeLoading('.transfer-push');
-        }
-      },
-      immediate: false
-    },
-    pullBtnLoading: {
-      handler(newVal) {
-        if(newVal) {
-            this.setLoading('.transfer-pull');
-        }else{
-            this.removeLoading('.transfer-pull');
-        }
-      },
-      immediate: false
-    }
-  }
 }
 </script>
 
