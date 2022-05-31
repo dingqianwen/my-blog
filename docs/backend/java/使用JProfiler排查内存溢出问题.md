@@ -1,10 +1,10 @@
 ---
 lang: zh-CN   
-title: JProfiler排查内存溢出问题   
+title: 使用JProfiler排查内存溢出问题   
 description: 页面的描述
 ---
 
-# JProfiler排查内存溢出问题
+# 使用JProfiler排查内存溢出问题
 
 [[toc]]
 
