@@ -17,15 +17,9 @@ description: 页面的描述
 </label>
 <br><br>
 <label>
-    <button @click="push" class="transfer-button transfer-push">
-        <span>提交</span>
-        <span class="transfer-btn-loading transfer-spinner" v-if="pushBtnLoading"></span>
-    </button>
+    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" text="提交"></M-Button>
     &nbsp;&nbsp; 
-    <button @click="pull()" class="transfer-button transfer-pull">
-        <span>获取</span>
-        <span class="transfer-btn-loading transfer-spinner" v-if="pullBtnLoading"></span>
-    </button>
+    <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取"></M-Button>
 </label>
 <span class="copy" @click="copy()"></span>
 <br><br>  
@@ -102,36 +96,7 @@ export default {
 }
 </script>
 
-<style>
-
-.transfer-spinner {
-    position: relative;
-}
-
-.transfer-spinner::before {
-    content: '';
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    position: absolute;
-    top: 6px;
-    width: 0.75em;
-    height: 0.75em;
-    margin-top: -0.1875em;
-    margin-left: -0.375em;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    border-top-color: var(--c-text-accent);
-    -webkit-animation: gt-kf-rotate 0.6s linear infinite;
-    animation: gt-kf-rotate 0.6s linear infinite;
-}
-.transfer-btn-loading {
-    position: relative;
-    margin-left: 0.5em;
-    display: inline-block;
-    width: 0.75em;
-    height: 1em;
-    vertical-align: top;
-}
+<style scoped>
 
 .transfer-input{
     transition: background-color var(--t-color), border-color var(--t-color);
@@ -159,31 +124,14 @@ export default {
     padding: 0.75em;
     border: 1px solid var(--c-border);
 }
-.transfer-button{
-    outline: none;   
-    display: inline-block;
-    border: 1px solid var(--c-text-accent);
-    border-radius: 5px;
-    padding: 0.542em 0.95em;
-    background-color: var(--c-bg);
-    color: var(--c-brand);
-    border-color: var(--c-brand);
-    transition: background-color var(--t-color), border-color var(--t-color);
-    font-size: 0.75em;
-    white-space: nowrap;
-    cursor: pointer;
-}
-.transfer-button:hover {
-    color: var(--c-bg);
-    background-color: var(--c-brand-light);
-}
+
 .transfer-push{
-    color: var(--c-bg);
-    background-color: var(--c-brand);
+    color: var(--c-bg) !important;
+    background-color: var(--c-brand) !important;
 }
 .transfer-push:hover {
-    background-color: var(--c-brand-light);
-    border-color: var(--c-brand);
+    background-color: var(--c-brand-light) !important;
+    border-color: var(--c-brand) !important;
 }
 </style>
 
