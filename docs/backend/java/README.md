@@ -19,6 +19,7 @@ type: cds
 - [MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]](MyBatisBindingExceptionParameterXXXNotFound.md)  
 - [Spring项目中获取当前Request对象工具](RequestContextUtils.md)  
 - [Seata快速上手Demo](Seata快速上手Demo.md)  
+- [SpringCloud@HystrixCommand进行熔断降级](SpringCloud@HystrixCommand.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
 - [SQLSyntaxErrorException: Table seata-demo.undo_log doesnt exist](TableUndo_logDoesntExist.md)  
