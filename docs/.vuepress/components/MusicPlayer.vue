@@ -389,11 +389,11 @@ export default {
         },
       })
       clipboard.on('success', function () {
-        $success("复制链接成功！分享给你的朋友吧~");
+        $success("复制链接成功！分享给你的朋友吧!");
         clipboard.destroy();
       });
       clipboard.on('error', function () {
-        $warning("不支持复制哦~");
+        $warning("不支持复制哦!");
         clipboard.destroy();
       });
     }

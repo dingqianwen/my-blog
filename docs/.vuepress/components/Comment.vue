@@ -50,7 +50,7 @@ export default {
     let $gc = $('#gitalk-container');
     $gc.on('click', '.gt-comment-like', function () {
       if (!localStorage.getItem('GT_ACCESS_TOKEN')) {
-        $warning("亲，你还没有登录哦~");
+        $warning("亲，你还没有登录哦!");
         return false;
       }
       return true;

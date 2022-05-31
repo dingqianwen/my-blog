@@ -50,14 +50,14 @@ export default {
   methods: {
     push() {
         if (!this.value) {
-            $warning("没有内容可提交~");
+            $warning("没有内容可提交！");
             return;
         }
         this.pushBtnLoading = true;
         $api.transferPush(this.value, this.key, () => {
            setTimeout(() => {
                this.pushBtnLoading = false;
-               $success("提交成功~");
+               $success("提交成功！");
            }, 200);
         },() => {
             this.pushBtnLoading = false;
@@ -70,7 +70,7 @@ export default {
            setTimeout(() => {
                this.pullBtnLoading = false;
                if(!data || data === "None") {
-                   $warning("无数据可复制~");
+                   $warning("暂无数据可复制！");
                    return;
                }
                $('.copy').click();
@@ -90,7 +90,7 @@ export default {
           clipboard.destroy();
         });
         clipboard.on('error', function () {
-          $warning("不支持复制哦~");
+          $warning("不支持复制哦！");
           clipboard.destroy();
         });
     },

@@ -95,6 +95,7 @@ function $modal(data) {
         // background: '#fff',
         $('#' + idText + '_box').css({
             // width: width_s + 'px',
+            'min-width': '280px',
             padding: '10px 15px',
             background: 'var(--c-bg)',
             boxShadow: '0 1px 6px rgba(0,0,0,.2)',
