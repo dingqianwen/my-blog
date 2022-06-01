@@ -11,7 +11,7 @@ head:
 # Spring项目中获取当前Request对象工具
 
 注意不可以在线程内部使用，因为Spring的`RequestContextHolder#requestAttributesHolder`底层方法`setRequestAttributes`
-入参`inheritable = false`默认通过`ThreadLocal`实现，数据不具备传递到子线程使用，具体使用方式如下
+入参`inheritable = false`所以默认通过`ThreadLocal`实现，数据不具备传递到子线程使用，具体使用方式如下
 
 ```java
 public class Test {
