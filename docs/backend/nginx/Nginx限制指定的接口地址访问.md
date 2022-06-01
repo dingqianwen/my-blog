@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: Nginx限制指定的接口地址访问  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Nginx限制指定的接口地址访问, Nginx临时或者紧急屏蔽一些接口的调用'}]
+
 ---
 
 # Nginx限制指定的接口地址访问

@@ -1,7 +1,12 @@
 ---
 lang: zh-CN  
 title: 公益捐款  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '公益捐款'}]
+- [meta, {name: description, content: '公益捐款'}]
+
 ---
 
 # 公益捐款

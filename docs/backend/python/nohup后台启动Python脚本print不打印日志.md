@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: nohup后台启动Python脚本print不打印日志问题  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'nohup后台启动Python脚本Print不打印日志问题'}]
+
 ---
 
 # nohup后台启动Python脚本Print不打印日志问题

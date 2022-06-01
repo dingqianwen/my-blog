@@ -1,7 +1,12 @@
 ---
 lang: zh-CN  
 title: CentOS安装HBase  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CentOS安装HBase'}]
+- [meta, {name: description, content: '阿里云服务器Linux(CentOS)简易安装HBase'}]
+
 ---
 
 # CentOS安装HBase

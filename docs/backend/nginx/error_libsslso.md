@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'nginx: error while loading shared libraries: libssl.so.10'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'libssl.so.10: cannot open shared object file: No such file or directory'}]
+
 ---
 
 # ./sbin/nginx: error while loading shared libraries: libssl.so.10: cannot open shared object file: No such file or directory

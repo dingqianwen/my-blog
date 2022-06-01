@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'SQLSyntaxErrorException: Table seata-demo.undo_log doesnt exist'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'SQLSyntaxErrorException: Table seata-demo.undo_log doesnt exist, undo_log'}]
+
 ---
 
 # SQLSyntaxErrorException: Table 'seata-demo.undo_log' doesn't exist

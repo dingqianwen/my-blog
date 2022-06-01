@@ -1,7 +1,11 @@
 ---
 lang: zh-CN   
 title: MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'MyBatis Plus Parameter uuid not found. Available parameters are [ew, param1]'}]
+
 ---
 
 # MyBatis Plus Parameter 'uuid' not found. Available parameters are [ew, param1]

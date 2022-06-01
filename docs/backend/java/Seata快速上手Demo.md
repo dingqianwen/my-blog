@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'Seata快速上手Demo'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Seata快速上手Demo, MAC上快速上手SeataDemo'}]
+
 ---
 
 # Seata快速上手Demo

@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 记录一次生产OutOfMemoryError  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '记录一次生产OutOfMemoryError, 服务不断重启'}]
+
 ---
 
 # 记录一次生产OutOfMemoryError

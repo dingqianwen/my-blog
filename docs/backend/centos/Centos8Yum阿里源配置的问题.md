@@ -1,7 +1,12 @@
 ---
 lang: zh-CN  
 title: 'Centos8 yum 阿里源配置的问题'  
-description: 页面的描述
+description: 页面的描述  
+date: 2022-05-07 18:41:36  
+head:
+
+- [meta, {name: keywords, content: 'Centos8 yum 阿里源配置的问题'}]
+
 ---
 
 # Centos8 yum 阿里源配置的问题

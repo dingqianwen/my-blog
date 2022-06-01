@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: MySQL排序规则引起的索引失效问题  
-description: 页面的描述  
+description: 页面的描述   
+head:
+
+- [meta, {name: keywords, content: 'MySQL排序规则引起的索引失效问题'}]
+
 ---
 
 # MySQL排序规则引起的索引失效问题

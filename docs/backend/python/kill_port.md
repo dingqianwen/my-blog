@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 关闭端口号下所有进程工具  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '关闭端口号下所有进程工具, kill_port'}]
+
 ---
 
 # 关闭端口号下所有进程工具

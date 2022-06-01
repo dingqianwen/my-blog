@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: '记录MAC简易安装Kuboard过程'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'MAC简易安装Kuboard过程, Kubernetes, Docker, Kuboard'}]
+
 ---
 
 # 记录MAC简易安装Kuboard过程

@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title:  '@Pattern注解正则表达式校验逗号分隔字符'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '@Pattern注解正则表达式校验逗号分隔字符'}]
+
 ---
 
 # @Pattern注解正则表达式校验逗号分隔字符

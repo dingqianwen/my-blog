@@ -1,7 +1,11 @@
 ---
 lang: zh-CN   
 title: 使用JProfiler排查内存溢出问题   
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '使用JProfiler排查内存溢出问题, JProfiler, dump, JVM'}]
+
 ---
 
 # 使用JProfiler排查内存溢出问题

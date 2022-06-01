@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
-title: 'AopContext.currentProxy() Cannot find current proxy'
-description: 页面的描述
+title: 'AopContext.currentProxy() Cannot find current proxy'  
+description: 页面的描述   
+head:
+
+- [meta, {name: keywords, content: 'AopContext.currentProxy() Cannot find current proxy'}]
+- [meta, {name: description, content: 'Cannot find current proxy: set‘expogeProxy’property on advis ed to make it available，and ensure that AopContext.currentProxy() is invoked in the 8ame threasd as the aoe invocation context.'}]
 ---
 
 # AopContext.currentProxy() Cannot find current proxy

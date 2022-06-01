@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: SpringCloud@HystrixCommand进行熔断降级   
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'SpringCloud@HystrixCommand进行熔断降级, Hystrix'}]
+
 ---
 
 # SpringCloud@HystrixCommand进行熔断降级

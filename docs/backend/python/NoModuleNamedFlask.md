@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'ModuleNotFoundError: No module named flask'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'No module named flask'}]
+
 ---
 
 # ModuleNotFoundError: No module named 'flask'

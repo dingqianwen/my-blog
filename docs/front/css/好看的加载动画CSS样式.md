@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 好看的加载动画CSS样式  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '好看的加载动画CSS样式, 加载动画, loading'}]
+
 ---
 
 # 好看的加载动画CSS样式

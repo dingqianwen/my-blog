@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'CentOS安装Python'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CentOS安装Python, Linux安装Python'}]
+
 ---
 
 # CentOS安装Python

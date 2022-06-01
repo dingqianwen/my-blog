@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: '表单校验工具，手动校验类中注解'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '表单校验工具，手动校验类中注解, ValidationUtils'}]
+
 ---
 
 # 表单校验工具，手动校验类中注解

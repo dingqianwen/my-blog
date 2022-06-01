@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 启用树莓派的SPI接口        
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '启用树莓派的SPI接口, SPI, 树莓派, SPI接口'}]
+
 ---
 
 # 启用树莓派的SPI接口

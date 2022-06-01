@@ -1,7 +1,11 @@
 ---
 lang: zh-CN   
 title: CentOS安装NodeJS  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CentOS安装NodeJS, Linux安装NodeJS'}]
+
 ---
 
 # CentOS安装NodeJS

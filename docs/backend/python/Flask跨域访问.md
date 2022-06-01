@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'Flask跨域访问'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Flask跨域访问, flask-cors'}]
+
 ---
 
 # Flask跨域访问

@@ -1,7 +1,12 @@
 ---
 lang: zh-CN  
 title: 关于作者  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '丁乾文的个人简介, 丁乾文, dingqianwen, dingqw, 个人简介'}]
+- [meta, {name: description, content: '丁乾文的个人简介'}]
+
 ---
 
 # 自我简介

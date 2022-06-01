@@ -1,12 +1,17 @@
 ---
 lang: zh-CN  
 title: Spring项目中获取当前Request对象工具  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Spring项目中获取当前Request对象工具, RequestContextHolder'}]
+
 ---
 
 # Spring项目中获取当前Request对象工具
 
-使用方式如下
+注意不可以在线程内部使用，因为Spring的`RequestContextHolder#requestAttributesHolder`底层方法`setRequestAttributes`
+入参`inheritable = false`默认通过`ThreadLocal`实现，数据不具备传递到子线程使用，具体使用方式如下
 
 ```java
 public class Test {
@@ -17,7 +22,7 @@ public class Test {
 }
 ```
 
-代码如下
+此工具实现代码如下
 
 ```java
 

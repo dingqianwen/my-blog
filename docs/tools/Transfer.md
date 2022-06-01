@@ -1,7 +1,13 @@
 ---
 lang: zh-CN   
 title: 跨平台复制  
-description: 页面的描述
+description: 页面的描述  
+date: 2022-06-01 10:25:59  
+head:
+
+- [meta, {name: keywords, content: '跨平台复制, 手机复制电脑粘贴, 电脑复制手机粘贴'}]
+- [meta, {name: description, content: '跨平台复制数据'}]
+
 ---
 
 # 跨平台复制

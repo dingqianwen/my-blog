@@ -1,7 +1,11 @@
 ---
 lang: zh-CN   
 title: 'Package subpath ./templates/dev.html is not defined by "exports"'    
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Package subpath ./templates/dev.html is not defined by exports'}]
+
 ---
 
 # Package subpath './templates/dev.html' is not defined by "exports"

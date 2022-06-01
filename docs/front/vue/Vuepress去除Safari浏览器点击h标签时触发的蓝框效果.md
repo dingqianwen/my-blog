@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: Vuepress去除Safari浏览器点击h标签时触发的蓝框效果  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Vuepress去除Safari浏览器点击h标签时触发的蓝框效果, Vuepress2, Safari浏览器点击h标签时触发的蓝框问题'}]
+
 ---
 
 # Vuepress去除Safari浏览器点击h标签时触发的蓝框效果

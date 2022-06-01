@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: Spring扫描某个包下带有指定自定义注解的类  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Spring扫描某个包下带有指定自定义注解的类'}]
+
 ---
 
 

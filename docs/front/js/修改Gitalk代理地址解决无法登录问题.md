@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 修改Gitalk代理地址，解决无法登录问题    
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '修改Gitalk代理地址，解决无法登录问题, Gitalk, proxy'}]
+
 ---
 
 # 修改Gitalk代理地址，解决无法登录问题

@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 打开树莓派的IIC功能           
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '打开树莓派的IIC功能, IIC'}]
+
 ---
 
 # 打开树莓派的IIC功能

@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: CSS resize属性
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CSS resize属性, resize属性, CSS, resize'}]
+
 ---
 
 # CSS resize属性

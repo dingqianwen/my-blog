@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: var()函数  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CSS var() 函数, var(), CSS, var()函数'}]
+
 ---
 
 # CSS var() 函数

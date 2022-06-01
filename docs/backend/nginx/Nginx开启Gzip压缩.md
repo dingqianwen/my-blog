@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: Nginx开启Gzip压缩  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Nginx开启Gzip压缩, 开启Gzip, Gzip'}]
+
 ---
 
 # Nginx开启Gzip压缩

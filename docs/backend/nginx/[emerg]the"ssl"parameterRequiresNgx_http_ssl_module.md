@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'requires ngx_http_ssl_module, nginx.conf:35'}]
+
 ---
 
 # nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:35

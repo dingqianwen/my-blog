@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: '用Java检查SQL语法是否有误'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '用Java检查SQL语法是否有误'}]
+
 ---
 
 # 用Java检查SQL语法是否有误

@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: CentOS安装Redis  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CentOS安装Redis, Linux安装Redis, Redis'}]
+
 ---
 
 # CentOS安装Redis

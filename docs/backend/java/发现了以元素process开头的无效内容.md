@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: '发现了以元素process开头的无效内容'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'cvc-complex-type.2.4.a: 发现了以元素 process 开头的无效内容, activiti, org.activiti.bpmn.exceptions.XMLException'}]
+
 ---
 
 # org.activiti.bpmn.exceptions.XMLException: cvc-complex-type.2.4.a: 发现了以元素 'process' 开头的无效内容。

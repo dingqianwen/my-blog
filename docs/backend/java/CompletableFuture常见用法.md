@@ -1,7 +1,11 @@
 ---
 lang: zh-CN    
 title:  CompletableFuture常见用法  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'CompletableFuture常见用法, CompletableFuture执行出错不出现异常信息'}]
+
 ---
 
 # CompletableFuture常见用法

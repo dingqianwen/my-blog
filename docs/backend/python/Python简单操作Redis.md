@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'Python简单操作Redis'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Python简单操作Redis'}]
+
 ---
 
 # Python简单操作Redis

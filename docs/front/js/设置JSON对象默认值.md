@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 设置JSON对象默认值  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'JS设置JSON对象默认值'}]
+
 ---
 
 # 设置JSON对象默认值

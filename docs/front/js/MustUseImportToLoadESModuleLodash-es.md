@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: Must use import to load ES Module lodash-es  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'Must use import to load ES Module lodash-es'}]
+
 ---
 
 # Vuepress打包时出现 Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: lodash-es/lodash.js

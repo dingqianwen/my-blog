@@ -1,7 +1,12 @@
 ---
 lang: zh-CN
 title: 留言板
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '丁乾文的留言板, 丁乾文, 留言板, dingqw, dingqianwen'}]
+- [meta, {name: description, content: '丁乾文的个人留言板'}]
+
 ---
 
 

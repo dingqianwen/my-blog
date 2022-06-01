@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: VuePress增加备案号  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'VuePress增加备案号, VuePress2'}]
+
 ---
 
 # VuePress增加备案号

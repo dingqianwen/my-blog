@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 'VuePress2+暗色主题图片置暗方式'  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: 'VuePress2+暗色主题图片置暗方式, VuePress2, 图片置暗'}]
+
 ---
 
 # VuePress2+暗色主题图片置暗方式

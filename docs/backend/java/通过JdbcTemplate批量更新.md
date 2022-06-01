@@ -1,7 +1,11 @@
 ---
 lang: zh-CN  
 title: 通过JdbcTemplate批量更新  
-description: 页面的描述
+description: 页面的描述  
+head:
+
+- [meta, {name: keywords, content: '通过JdbcTemplate批量更新'}]
+
 ---
 
 # 通过JdbcTemplate批量更新
