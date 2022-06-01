@@ -1,5 +1,5 @@
 <template>
-  <button class="m-button-button">
+  <button class="m-button-button" :class="`m-button-${type}`">
     <span>{{ text }}</span>
     <span class="m-button-loading m-button-spinner" v-if="isLoading"></span>
   </button>
@@ -8,7 +8,7 @@
 <script>
 export default {
   name: "M-Button",
-  props: ['text', 'isLoading']
+  props: ['text', 'isLoading', 'type'],
 }
 </script>
 
@@ -62,6 +62,16 @@ export default {
   width: 0.75em;
   height: 1em;
   vertical-align: top;
+}
+
+.m-button-primary {
+  color: var(--c-bg) !important;
+  background-color: var(--c-brand) !important;
+}
+
+.m-button-primary:hover {
+  background-color: var(--c-brand-light) !important;
+  border-color: var(--c-brand) !important;
 }
 
 </style>

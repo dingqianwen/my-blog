@@ -11,13 +11,13 @@ description: 页面的描述
 <label style="display: flex;">
    <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
 </label>
-<br><br>
+<br>
 <label>
     <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
 </label>
 <br><br>
 <label>
-    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" text="提交"></M-Button>
+    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" text="提交" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取"></M-Button>
 </label>
@@ -123,15 +123,6 @@ export default {
     color: var(--c-text);
     padding: 0.75em;
     border: 1px solid var(--c-border);
-}
-
-.transfer-push{
-    color: var(--c-bg) !important;
-    background-color: var(--c-brand) !important;
-}
-.transfer-push:hover {
-    background-color: var(--c-brand-light) !important;
-    border-color: var(--c-brand) !important;
 }
 </style>
 
