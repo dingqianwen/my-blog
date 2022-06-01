@@ -10,6 +10,12 @@ head:
 
 # fs读取文件，并且替换文件中指定的字符串
 
+使用方式如下
+
+```js
+replaceFile('路径', '被替换字符串 或 正则表达式', '新字符串')
+```
+
 实现代码如下：
 
 ```js
@@ -17,17 +23,17 @@ head:
  * 读取文件，并且替换文件中指定的字符串
  */
 let replaceFile = function (filePath, sourceRegx, targetStr) {
-        fs.readFile(filePath, function (err, data) {
-            if (err) {
-                return err;
-            }
-            let str = data.toString();
-            str = str.replace(sourceRegx, targetStr);
-            fs.writeFile(filePath, str, function (err) {
-                if (err) return err;
-            });
+    fs.readFile(filePath, function (err, data) {
+        if (err) {
+            return err;
+        }
+        let str = data.toString();
+        str = str.replace(sourceRegx, targetStr);
+        fs.writeFile(filePath, str, function (err) {
+            if (err) return err;
         });
-    }
+    });
+}
 ```
 
 <Comment></Comment>

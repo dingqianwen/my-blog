@@ -79,7 +79,7 @@ head:
          "24": [
             {
                "title": "清除缓存",
-               "path": "/front/vue/清除缓存.md",
+               "path": "/front/nodejs/清除缓存.md",
                "createTime": "2021-12-24T02:19:02.461Z"
             }
          ],
@@ -150,7 +150,7 @@ head:
             },
             {
                "title": "fs读取文件,并且替换文件中指定的字符串",
-               "path": "/front/vue/fs读取文件,并且替换文件中指定的字符串.md",
+               "path": "/front/nodejs/fs读取文件,并且替换文件中指定的字符串.md",
                "createTime": "2022-02-23T11:23:38.701Z"
             }
          ],
@@ -249,14 +249,14 @@ head:
          ],
          "31": [
             {
+               "title": "require.context is not a function",
+               "path": "/front/nodejs/requireContextIsNotAfunction.md",
+               "createTime": "2022-01-30T18:50:21.272Z"
+            },
+            {
                "title": "VuePress2+暗色主题图片置暗方式",
                "path": "/front/vue/VuePress2+暗色主题图片置暗方式.md",
                "createTime": "2022-01-30T17:35:00.330Z"
-            },
-            {
-               "title": "require.context is not a function",
-               "path": "/front/vue/requireContextIsNotAfunction.md",
-               "createTime": "2022-01-30T18:50:21.272Z"
             }
          ]
       },
