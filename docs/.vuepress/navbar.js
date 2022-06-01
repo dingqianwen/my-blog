@@ -80,6 +80,10 @@ module.exports = {
                     text: '跨平台复制',
                     link: '/tools/Transfer.html',
                 },
+                // {
+                //     text: '在线加解密',
+                //     link: '/tools/OnlineEncryptAndDecrypt.html',
+                // },
                 {
                     text: '留言板',
                     link: '/message/MessageBoard.html',
