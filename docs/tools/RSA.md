@@ -36,6 +36,7 @@ head:
 </label>
 <br><br>  
 
+> 本平台不会记录并存储相关密钥信息，加解密后即删除！
 
 <script>
 export default {
