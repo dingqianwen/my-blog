@@ -29,9 +29,9 @@ head:
 <br><br>
 <label>
     <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
-    &nbsp;
+    &nbsp;&nbsp;
     <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
-    &nbsp;&nbsp;&nbsp;&nbsp; 
+    &nbsp;&nbsp;
     <M-Button @click="reset()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="重置"></M-Button>
 </label>
 <br><br>  
