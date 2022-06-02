@@ -18,7 +18,7 @@ head:
    <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
 </label>
 <br>
-<label>
+<label style="display: flex;">
     <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
 </label>
 <br><br>
