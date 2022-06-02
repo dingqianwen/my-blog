@@ -24,6 +24,8 @@ const {shikiPlugin} = require('@vuepress/plugin-shiki')
 const {googleAnalyticsPlugin} = require('@vuepress/plugin-google-analytics')
 
 
+const {processPage} = require('./plugin/process')
+
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
@@ -137,5 +139,6 @@ module.exports = {
             // 配置项
             id: 'G-NW8GVSTN33'
         })*/
+        processPage({})
     ],
 };

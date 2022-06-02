@@ -7,3 +7,5 @@ package-lock.json
 -- docs/.vuepress/components/Comment.vue
 docs/.vuepress/service.js
 publish.py
+
+*.DS_Store

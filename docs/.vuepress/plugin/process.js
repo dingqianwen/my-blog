@@ -5,16 +5,11 @@ const timelineFilePath = "./docs/Timeline.md";
 // 时间线数据
 const timelineObjs = [];
 
-function DContent(title, path, createTime) {
+function Content(title, path, createTime) {
     this.title = title
     this.path = path
     this.createTime = createTime
 }
-
-// 生成文件目录
-generateDirectory(rootDir, writeDirectoryData);
-// 生成时间线
-generateTimeline(timelineFilePath, timelineObjs);
 
 function generateDirectory(dir, callback) {
     let files = fs.readdirSync(dir);
@@ -75,9 +70,9 @@ function writeDirectoryData(dir, file) {
              birthtime: 2022-01-30T17:35:00.330Z  注意这里有部分系统不支持birthtime
              ...
          */
-        let {ctime, birthtime} = fs.statSync(dir + "/" + f);
-        let dContent = new DContent(title, dir.replace(rootDir, '') + "/" + f, birthtime);
-        timelineObjs.push(dContent)
+        let {birthtime} = fs.statSync(dir + "/" + f);
+        let content = new Content(title, dir.replace(rootDir, '') + "/" + f, birthtime);
+        timelineObjs.push(content)
         // 生成当前目录
         newTag += `- [${title}](${f})  \n`;
     }
@@ -124,5 +119,17 @@ function generateTimeline(file, obj) {
     let data = `\n maps: ${JSON.stringify(map, null, 3)} \n`;
     let newContent = content.replace(/(?<=\/\*timeline.data.start\*\/)[^]*?(?=\/\*timeline.data.end\*\/)/, data);
     fs.writeFileSync(file, newContent);
+}
 
+function processPage() {
+    // 生成文件目录
+    generateDirectory(rootDir, writeDirectoryData);
+    // 生成时间线
+    generateTimeline(timelineFilePath, timelineObjs);
+    return true;
+}
+
+
+module.exports = {
+    processPage
 }
