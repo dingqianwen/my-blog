@@ -46,10 +46,41 @@ export const transferPull = (key, success, ex) => {
         })
 }
 
+export const rsaEncrypt = (plaintext, publicKey, success, ex) => {
+    return request.post(`${BASE_API_URL}/rsa/encrypt`, {
+        plaintext: plaintext,
+        publicKey: publicKey
+    }).then(then => {
+        let data = process(then);
+        if (then.code === 0) {
+            return success(data);
+        } else {
+            ex(then);
+        }
+    })
+}
+
+
+export const rsaDecrypt = (ciphertext, privateKey, success, ex) => {
+    return request.post(`${BASE_API_URL}/rsa/decrypt`, {
+        ciphertext: ciphertext,
+        privateKey: privateKey
+    }).then(then => {
+        let data = process(then);
+        if (then.code === 0) {
+            return success(data);
+        } else {
+            ex(then);
+        }
+    })
+}
+
+
 function process(result) {
     if (result.code === 0) {
         return result.data
     } else if (result.code === 429) {
+        // 被限流
         $warning(result.msg)
     } else if (result.code === 410) {
         // 410
@@ -62,4 +93,7 @@ function process(result) {
     }
 }
 
-export default {BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush}
+export default {
+    BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush,
+    rsaEncrypt, rsaDecrypt
+}
