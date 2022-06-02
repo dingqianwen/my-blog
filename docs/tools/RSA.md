@@ -1,6 +1,6 @@
 ---
 lang: zh-CN   
-title: RSA在线加解密
+title: RSA在线加解密  
 description: 页面的描述  
 date: 2022-06-01 10:25:59  
 head:
@@ -29,8 +29,10 @@ head:
 <br><br>
 <label>
     <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
-    &nbsp;&nbsp; 
-    <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密"></M-Button>
+    &nbsp;
+    <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
+    &nbsp;&nbsp;&nbsp;&nbsp; 
+    <M-Button @click="reset()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="重置"></M-Button>
 </label>
 <br><br>  
 
@@ -85,6 +87,12 @@ export default {
             this.encryptBtnLoading = false;
         })
     },
+    reset() {
+        this.plaintext = "";
+        this.ciphertext = "";
+        this.publicKey = "";
+        this.privateKey = "";
+    }
   }
 }
 </script>
