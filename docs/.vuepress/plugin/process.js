@@ -7,10 +7,10 @@ const sitemapTxtPath = "./docs/.vuepress/public/sitemap.txt";
 const sitemapXmlPath = "./docs/.vuepress/public/sitemap.xml";
 const sitemapBaseURL = "https://dingqw.com/blog";
 
-function Content(title, path, fileName, dirFilePath, createTime) {
+function Content(title, path, dir, fileName, createTime) {
     this.title = title
     this.path = path
-    this.dirFilePath = dirFilePath
+    this.dir = dir
     this.fileName = fileName
     this.createTime = createTime
 }
@@ -24,65 +24,63 @@ function listDirectory(dir, callback) {
             if (stat.isDirectory()) {
                 listDirectory(file, callback)
             } else {
-                callback(dir, file)
+                callback(dir, file, fileName)
             }
         }
     })
 }
 
-function writePageData(dir, file) {
-    if (!file.endsWith("README.md")) {
+function writePageData(dir, f, fileName) {
+    if (f.endsWith("README.md")) {
         return;
     }
-    let data = fs.readdirSync(dir);
-    for (let i = 0; i < data.length; i++) {
-        let f = data[i];
-        if (f.endsWith("README.md")) {
-            continue;
-        }
-        let buffer;
-        try {
-            buffer = fs.readFileSync(dir + "/" + f);
-        } catch (e) {
-            continue
-        }
-        let execArray = /(?<=\ntitle:)[^].+?(?=\n)/.exec(buffer.toString());
-        let title = f;
-        // 如果没有自定义标题
-        if (execArray === null || !(title = execArray[0])) {
-            if (title.endsWith(".md")) {
-                title = title.substr(0, title.length - 3);
-            }
-        } else {
-            // 自定义标题
-            title = title.trim();
-            if (title.startsWith("'")) {
-                title = title.substr(1);
-            }
-            if (title.endsWith("'")) {
-                title = title.substr(0, title.length - 1);
-            }
-        }
-        // 注意这里有部分系统不支持birthtime
-        let {birthtime} = fs.statSync(dir + "/" + f);
-        let content = new Content(title, dir.replace(rootDir, '') + "/" + f, f, file, birthtime);
-        pageData.push(content)
+    let buffer;
+    try {
+        buffer = fs.readFileSync(f);
+    } catch (e) {
+        return
     }
+    let execArray = /(?<=\ntitle:)[^].+?(?=\n)/.exec(buffer.toString());
+    let title;
+    // 如果没有自定义标题
+    if (execArray === null || !(title = execArray[0])) {
+        // 取文件名称
+        if (fileName.endsWith(".md")) {
+            title = fileName.substr(0, fileName.length - 3);
+        }
+    } else {
+        // 自定义标题
+        title = title.trim();
+        if (title.startsWith("'")) {
+            title = title.substr(1);
+        }
+        if (title.endsWith("'")) {
+            title = title.substr(0, title.length - 1);
+        }
+    }
+    // 注意这里有部分系统不支持birthtime
+    let {birthtime} = fs.statSync(f);
+    let content = new Content(title, f.replace(rootDir, ''), dir, fileName, birthtime);
+    pageData.push(content)
 }
 
 function generateDirectory() {
     let pageGroup = pageData.reduce((acc, item) => {
-        if (acc[item.dirFilePath]) {
-            acc[item.dirFilePath].push(item);
+        if (acc[item.dir]) {
+            acc[item.dir].push(item);
         } else {
-            acc[item.dirFilePath] = [item];
+            acc[item.dir] = [item];
         }
         return acc;
     }, {});
-    Object.keys(pageGroup).forEach(dirFilePath => {
-        let element = pageGroup[dirFilePath];
+    Object.keys(pageGroup).forEach(dir => {
+        let element = pageGroup[dir];
         let newTag = '';
+        let dirFile = dir + "/README.md";
         for (let pd of element) {
+            if (pd.path.endsWith("README.md")) {
+                continue;
+            }
             // 生成当前目录
             newTag += `- [${pd.title}](${pd.fileName})  \n`;
         }
@@ -91,13 +89,16 @@ function generateDirectory() {
             newTag = '> 暂无内容 \n';
         }
         // 写入目录
-        fs.readFile(dirFilePath, function (err, content) {
+        fs.readFile(dirFile, function (err, content) {
+            if (!content) {
+                return;
+            }
             // 排除掉不需要生成目录的readme.md
             if (content.toString().indexOf(tag) === -1) {
                 return;
             }
             let newContent = content.toString().replace(/(?<=\[dir.start]: <>)[^]*?(?=\[dir.end]: <>)/, "\n\n" + newTag + "\n");
-            fs.writeFile(dirFilePath, newContent, function (err) {
+            fs.writeFile(dirFile, newContent, function (err) {
                 if (err) {
                     console.log(err);
                 }

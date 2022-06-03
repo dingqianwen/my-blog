@@ -77,6 +77,7 @@ https://dingqw.com/blog/front/vue/VuePress2+暗色主题图片置暗方式.html
 https://dingqw.com/blog/front/vue/VuePress增加备案号.html
 https://dingqw.com/blog/front/vue/Vuepress去除Safari浏览器点击h标签时触发的蓝框效果.html
 https://dingqw.com/blog/front/vue/好用的技巧.html
+https://dingqw.com/blog/message/MessageBoard.html
 https://dingqw.com/blog/music/Butter-Fly.html
 https://dingqw.com/blog/music/他不爱我.html
 https://dingqw.com/blog/music/嘉宾.html

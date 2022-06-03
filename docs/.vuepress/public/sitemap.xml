@@ -397,6 +397,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/message/MessageBoard.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/music/Butter-Fly.html</loc>
         <priority>1.00</priority>
     </url>
