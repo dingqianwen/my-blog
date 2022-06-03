@@ -160,7 +160,7 @@ function generateSitemap(sitemapTxtPath, sitemapXmlPath, sitemapBaseURL) {
     for (let pd of pageData) {
         // encodeURI(pageUrl)
         let pageUrl = sitemapBaseURL + (pd.path.replace(".md", ".html"));
-        sitemapTxt += pageUrl + "\n";
+        sitemapTxt += encodeURI(pageUrl) + "\n";
         sitemapXml += `
     <url>
         <loc>${pageUrl}</loc>
