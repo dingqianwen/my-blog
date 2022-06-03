@@ -15,7 +15,7 @@ head:
 <br>
 <br>
 <label style="display: flex;">
-   <textarea class="transfer-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
+   <textarea class="transfer-textarea" placeholder="把数据粘贴此处" ref="value" v-model="value"></textarea>
 </label>
 <br>
 <label style="display: flex;">
@@ -98,6 +98,7 @@ export default {
     },
   },
   mounted() {
+        this.$refs.value.focus()
   },
 }
 </script>

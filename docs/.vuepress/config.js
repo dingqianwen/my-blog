@@ -1,17 +1,4 @@
 // https://v2.vuepress.vuejs.org
-// sitemap生成：https://sitemap.zhetao.com
-// nohup python -u mb-server.py &
-//  Node.js v16.15.0
-
-/*
-     /blog/  nginx配置为
-
-     location /blog {
-         alias  html/blog/;
-         index index.html;
-     }
- */
-
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
@@ -19,7 +6,6 @@ const {defaultTheme} = require('vuepress')
 const {searchPlugin} = require('@vuepress/plugin-search')
 const {registerComponentsPlugin} = require('@vuepress/plugin-register-components')
 const {shikiPlugin} = require('@vuepress/plugin-shiki')
-
 // npm i -D @vuepress/plugin-google-analytics@next
 const {googleAnalyticsPlugin} = require('@vuepress/plugin-google-analytics')
 
@@ -65,13 +51,6 @@ module.exports = {
             "script",
             {
                 "src": "/js/modal_dialog.js",
-            },
-            ``
-        ],
-        [
-            "script",
-            {
-                "src": "/js/index.js",
             },
             ``
         ],

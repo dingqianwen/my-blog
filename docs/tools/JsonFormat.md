@@ -16,7 +16,7 @@ head:
 
 <br>
 <label style="display: flex;">
-   <textarea class="jf-textarea" placeholder="把数据粘贴此处" v-model="value"></textarea>
+   <textarea class="jf-textarea" ref="value" placeholder="把数据粘贴此处" v-model="value"></textarea>
 </label>
 <br><br>
 <label>
@@ -54,6 +54,7 @@ export default {
         }
   },
   mounted() {
+        this.$refs.value.focus()
   },
 }
 </script>
