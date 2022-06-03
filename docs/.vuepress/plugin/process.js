@@ -3,6 +3,9 @@ const rootDir = './docs'
 const tag = "type: cds";
 const timelineFilePath = "./docs/Timeline.md";
 const pageData = [];
+const sitemapTxtPath = "./docs/.vuepress/public/sitemap.txt";
+const sitemapXmlPath = "./docs/.vuepress/public/sitemap.xml";
+const sitemapBaseURL = "https://dingqw.com/blog";
 
 function Content(title, path, fileName, dirFilePath, createTime) {
     this.title = title
@@ -31,18 +34,19 @@ function writePageData(dir, file) {
     if (!file.endsWith("README.md")) {
         return;
     }
-    let content = fs.readFileSync(file).toString();
-    if (content.indexOf(tag) === -1) {
-        return;
-    }
     let data = fs.readdirSync(dir);
     for (let i = 0; i < data.length; i++) {
         let f = data[i];
         if (f.endsWith("README.md")) {
             continue;
         }
-        let buffer = fs.readFileSync(dir + "/" + f);
-        let execArray = /(?<=title:)[^].+?(?=\n)/.exec(buffer.toString());
+        let buffer;
+        try {
+            buffer = fs.readFileSync(dir + "/" + f);
+        } catch (e) {
+            continue
+        }
+        let execArray = /(?<=\ntitle:)[^].+?(?=\n)/.exec(buffer.toString());
         let title = f;
         // 如果没有自定义标题
         if (execArray === null || !(title = execArray[0])) {
@@ -88,6 +92,10 @@ function generateDirectory() {
         }
         // 写入目录
         fs.readFile(dirFilePath, function (err, content) {
+            // 排除掉不需要生成目录的readme.md
+            if (content.toString().indexOf(tag) === -1) {
+                return;
+            }
             let newContent = content.toString().replace(/(?<=\[dir.start]: <>)[^]*?(?=\[dir.end]: <>)/, "\n\n" + newTag + "\n");
             fs.writeFile(dirFilePath, newContent, function (err) {
                 if (err) {
@@ -143,12 +151,43 @@ function generateTimeline(file) {
     });
 }
 
+function generateSitemap(sitemapTxtPath, sitemapXmlPath, sitemapBaseURL) {
+    let sitemapTxt = "";
+    let sitemapXml = `<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`
+    for (let pd of pageData) {
+        // encodeURI(pageUrl)
+        let pageUrl = sitemapBaseURL + (pd.path.replace(".md", ".html"));
+        sitemapTxt += pageUrl + "\n";
+        sitemapXml += `
+    <url>
+        <loc>${pageUrl}</loc>
+        <priority>1.00</priority>
+    </url>
+`;
+    }
+    sitemapXml += "</urlset>";
+    fs.writeFile(sitemapTxtPath, sitemapTxt, function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+    fs.writeFile(sitemapXmlPath, sitemapXml, function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+}
+
 function processPage() {
     listDirectory(rootDir, writePageData)
     // 生成文件目录
     generateDirectory();
     // 生成时间线
     generateTimeline(timelineFilePath);
+    // 生成网站地图
+    generateSitemap(sitemapTxtPath, sitemapXmlPath, sitemapBaseURL);
     return true;
 }
 
