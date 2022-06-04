@@ -121,7 +121,7 @@ public class Snake {
     /**
      * x y 蛇的身体  模拟被点亮的灯坐标
      */
-    public List<Coordinate> body = new ArrayList<>();
+    public List<Coordinate> body = new LinkedList<>();
 
     /**
      * 爬行速度
