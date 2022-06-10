@@ -27,6 +27,7 @@ footer: "
           <span>友情链接：</span>
           <a href='https://refblogs.com/' target='_blank'>无敌牛牛</a> |
           <a href='https://baomidou.com/' target='_blank'>苞米豆</a> |
+          <a href='https://www.gitiu.com' target='_blank'>Gitiu's Blog</a> |
           <a href='https://gitee.com/qwding' target='_blank'>My Gitee</a> |
           <a href='https://github.com/dingqianwen' target='_blank'>My GitHub</a>
       </div>
