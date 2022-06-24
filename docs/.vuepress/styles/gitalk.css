@@ -15,6 +15,17 @@
     transition: background-color var(--t-color), border-color var(--t-color);
 }
 
+.g-emoji{
+    display: inline-block;
+    min-width: 1ch;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", serif;
+    font-size: 1em;
+    font-style: normal !important;
+    font-weight: 400;
+    line-height: 1;
+    vertical-align: -0.075em;
+}
+
 .markdown-body .pl-c {
     color: #6a737d;
 }
