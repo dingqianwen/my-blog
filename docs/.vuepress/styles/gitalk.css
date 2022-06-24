@@ -671,6 +671,7 @@
     word-wrap: normal;
     background-color: transparent;
     border: 0;
+    color: var(--c-text);
 }
 
 .markdown-body pre code::before,
