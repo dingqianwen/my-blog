@@ -12,6 +12,7 @@ type: cds
 - [@Pattern注解正则表达式校验逗号分隔字符](@Pattern注解正则表达式校验逗号分隔字符.md)  
 - [AopContext.currentProxy() Cannot find current proxy](AopContextCurrentProxyCannotFindCurrentProxy.md)  
 - [CompletableFuture常见用法](CompletableFuture常见用法.md)  
+- [线程工具CountDownLatch](CountDownLatch.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
 - [Illegal group reference: group index is missing](GroupIndexIsMissing.md)  
 - [ReadValue IllegalArgumentException: argument "content" is null](JacksonArgumentContentIsNull.md)  

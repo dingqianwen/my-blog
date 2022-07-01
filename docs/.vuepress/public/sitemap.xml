@@ -52,6 +52,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/java/CountDownLatch.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/java/Feign@SpringQueryMap注解.html</loc>
         <priority>1.00</priority>
     </url>
