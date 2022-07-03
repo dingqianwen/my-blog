@@ -78,7 +78,7 @@ public static void main(String[] args) throws InterruptedException {
 ```
 
 ::: warning 温馨提示
-项目中最好使用`await(long timeout, TimeUnit unit)`方法去等待，防止业务出现异常，无法正常`countDown`锁死程序
+项目中最好使用`await(long timeout, TimeUnit unit)`方法去等待，防止业务出现异常，无法正常`countDown`导致锁死程序
 :::
 
 
