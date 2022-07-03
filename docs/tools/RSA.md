@@ -124,6 +124,7 @@ export default {
     transition: background-color var(--t-color),border-color var(--t-color);
     color: var(--c-text);
     padding: 0.75em;
+    word-break:break-all;
     border: 1px solid var(--c-border);
 }
 </style>
