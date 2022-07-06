@@ -111,7 +111,9 @@ class FeignLogger extends feign.Logger {
 
     @Override
     protected void logRequest(String configKey, Level logLevel, Request request) {
-        super.logRequest(configKey, logLevel, request);
+        if (log.isInfoEnabled()) {
+            super.logRequest(configKey, logLevel, request);
+        }
     }
 
     @Override
