@@ -438,6 +438,13 @@ head:
                "createTime": "2022-07-01T07:27:39.026Z"
             }
          ],
+         "06": [
+            {
+               "title": "解决FeignClient被FallBack后无错误日志打印问题",
+               "path": "/backend/java/解决FeignClient被FallBack后无错误日志打印问题.md",
+               "createTime": "2022-07-06T07:09:09.829Z"
+            }
+         ],
          "03": [
             {
                "title": "RSA在线加解密",

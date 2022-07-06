@@ -162,6 +162,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/java/解决FeignClient被FallBack后无错误日志打印问题.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/java/记录一次生产OutOfMemoryError.html</loc>
         <priority>1.00</priority>
     </url>
