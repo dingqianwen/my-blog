@@ -192,6 +192,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/mysql/MySQL获取前一天的日期.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/mysql/多条数据只更新最新的一条.html</loc>
         <priority>1.00</priority>
     </url>

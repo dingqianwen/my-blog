@@ -445,6 +445,13 @@ head:
                "createTime": "2022-07-06T07:09:09.829Z"
             }
          ],
+         "08": [
+            {
+               "title": "MySQL获取前一天的日期",
+               "path": "/backend/mysql/MySQL获取前一天的日期.md",
+               "createTime": "2022-07-08T06:05:58.064Z"
+            }
+         ],
          "03": [
             {
                "title": "RSA在线加解密",
