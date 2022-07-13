@@ -116,7 +116,7 @@ export default {
     padding-left : 0.75em;
 }
 .transfer-textarea{
-    overflow: hidden;
+    /*overflow: hidden;*/
     overflow-wrap: break-word; 
     max-height: 400px;
     min-height: 72px;

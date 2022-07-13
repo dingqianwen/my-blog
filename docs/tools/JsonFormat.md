@@ -62,7 +62,7 @@ export default {
 <style scoped>
 
 .jf-textarea{
-    overflow: hidden;
+/*    overflow: hidden;*/
     overflow-wrap: break-word; 
     max-height: 500px;
     min-height: 272px;
