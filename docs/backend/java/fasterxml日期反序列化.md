@@ -76,6 +76,31 @@ import java.util.Date;
  */
 public class DateJsonDeserialize {
 
+
+    /**
+     * convert
+     *
+     * @param text 时间戳 or yyyy-MM-dd HH:mm:ss等
+     * @return date
+     */
+    private static DateTime convert(String text) {
+        DateTime date;
+        try {
+            // 支持若干日期格式，例如{yyyy-MM-dd HH:mm:ss，yyyy-MM-dd}
+            date = DateUtil.parse(text);
+        } catch (DateException e) {
+            // 时间戳，例如{1658214991175}
+            if (NumberUtil.isNumber(text)) {
+                long timestamp = Long.parseLong(text);
+                date = new DateTime(timestamp);
+            } else {
+                // 不支持的格式
+                throw e;
+            }
+        }
+        return date;
+    }
+
     /**
      * LocalDate
      * <p>
@@ -88,18 +113,8 @@ public class DateJsonDeserialize {
         @Override
         public LocalDate deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
             if (jsonParser != null && StrUtil.isNotBlank(jsonParser.getText())) {
-                Date date;
-                try {
-                    date = DateUtil.parse(jsonParser.getText());
-                } catch (DateException e) {
-                    if (NumberUtil.isNumber(jsonParser.getText())) {
-                        long timestamp = Long.parseLong(jsonParser.getText());
-                        date = new DateTime(timestamp);
-                    } else {
-                        throw e;
-                    }
-                }
-                return LocalDateTimeUtil.of(date).toLocalDate();
+                DateTime dateTime = DateJsonDeserialize.convert(jsonParser.getText());
+                return LocalDateTimeUtil.of(dateTime).toLocalDate();
             } else {
                 return null;
             }
@@ -119,17 +134,7 @@ public class DateJsonDeserialize {
         @Override
         public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
             if (jsonParser != null && StrUtil.isNotBlank(jsonParser.getText())) {
-                DateTime dateTime;
-                try {
-                    dateTime = DateUtil.parse(jsonParser.getText());
-                } catch (DateException e) {
-                    if (NumberUtil.isNumber(jsonParser.getText())) {
-                        long timestamp = Long.parseLong(jsonParser.getText());
-                        dateTime = new DateTime(timestamp);
-                    } else {
-                        throw e;
-                    }
-                }
+                DateTime dateTime = DateJsonDeserialize.convert(jsonParser.getText());
                 return LocalDateTimeUtil.of(dateTime);
             } else {
                 return null;
@@ -150,18 +155,7 @@ public class DateJsonDeserialize {
         @Override
         public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
             if (jsonParser != null && StrUtil.isNotBlank(jsonParser.getText())) {
-                try {
-                    // 支持若干日期格式，例如{yyyy-MM-dd HH:mm:ss，yyyy-MM-dd}
-                    return DateUtil.parse(jsonParser.getText());
-                } catch (DateException e) {
-                    // 时间戳，例如{1658214991175}
-                    if (NumberUtil.isNumber(jsonParser.getText())) {
-                        long timestamp = Long.parseLong(jsonParser.getText());
-                        return new DateTime(timestamp);
-                    }
-                    // 不支持的格式
-                    throw e;
-                }
+                return DateJsonDeserialize.convert(jsonParser.getText());
             } else {
                 return null;
             }
