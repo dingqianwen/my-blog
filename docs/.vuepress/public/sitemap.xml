@@ -417,6 +417,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/front/vue/当多个异步方法执行完毕后再执行某个事件.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/message/MessageBoard.html</loc>
         <priority>1.00</priority>
     </url>

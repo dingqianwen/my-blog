@@ -13,6 +13,7 @@ type: cds
 - [VuePress增加备案号](VuePress增加备案号.md)  
 - [Vuepress去除Safari浏览器点击h标签时触发的蓝框效果](Vuepress去除Safari浏览器点击h标签时触发的蓝框效果.md)  
 - [好用的技巧](好用的技巧.md)  
+- [当多个异步方法执行完毕后再执行某个事件](当多个异步方法执行完毕后再执行某个事件.md)  
 
 [dir.end]: <>
 
