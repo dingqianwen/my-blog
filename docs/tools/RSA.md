@@ -32,7 +32,7 @@ head:
     &nbsp;&nbsp;
     <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
     &nbsp;&nbsp;
-    <M-Button @click="reset()" class="oead-encrypt" text="重置"></M-Button>
+    <M-Button @click="reset()" text="重置"></M-Button>
 </label>
 <br><br>  
 
