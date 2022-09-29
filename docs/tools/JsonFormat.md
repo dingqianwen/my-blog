@@ -22,7 +22,7 @@ head:
 <label>
     <M-Button @click="format()" text="格式化" type="primary"></M-Button>
     &nbsp;&nbsp; 
-    <M-Button @click="clear()" text="清除"></M-Button>
+    <M-Button @click="clear()" text="重置"></M-Button>
 </label>
 
 <script>
@@ -32,7 +32,7 @@ export default {
   data(){
     return {
         value: "",
-    }
+    };
   },
   methods: {
         format() {
@@ -47,7 +47,7 @@ export default {
                 $warning("数据格式有误，请先检查！");
                 return;
             }
-            this.value = JSON.stringify(parse, undefined, 3)
+            this.value = JSON.stringify(parse, undefined, 3);
         },
         clear() {
             this.value = "";

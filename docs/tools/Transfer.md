@@ -25,7 +25,9 @@ head:
 <label>
     <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" text="提交" type="primary"></M-Button>
     &nbsp;&nbsp; 
-    <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取"></M-Button>
+    <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取" type="primary"></M-Button>
+    &nbsp;&nbsp;
+    <M-Button @click="reset()" text="重置"></M-Button>
 </label>
 <span class="copy" @click="copy()"></span>
 <br><br>  
@@ -47,7 +49,7 @@ export default {
         data: "",
         pushBtnLoading: false,
         pullBtnLoading: false,
-    }
+    };
   },
   methods: {
     push() {
@@ -63,7 +65,7 @@ export default {
            }, 200);
         },() => {
             this.pushBtnLoading = false;
-        })
+        });
     },
     async pull() {
        this.pullBtnLoading = true;
@@ -96,9 +98,14 @@ export default {
           clipboard.destroy();
         });
     },
+    reset(){
+        this.value = '';
+        this.key = '';
+        this.data = '';
+    }
   },
   mounted() {
-        this.$refs.value.focus()
+        this.$refs.value.focus();
   },
 }
 </script>
