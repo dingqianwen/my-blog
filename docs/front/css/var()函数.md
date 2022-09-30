@@ -69,12 +69,12 @@ html.dark {
 
 :root {
   --bg-color1: #39d48e;
-  --font-color1: #121315;
+  --font-color1: black;
 }
 
 .dk {
   --bg-color1: #30a26e;
-  --font-color1: #d2c3cd;
+  --font-color1: red;
 }
 
 #div1 {
@@ -114,12 +114,12 @@ html.dark {
 <style>
     :root {
         --bg-color1: #39d48e;
-        --font-color1: #121315;
+        --font-color1: black;
     }
 
     .dk {
         --bg-color1: #30a26e;
-        --font-color1: #d2c3cd;
+        --font-color1: red;
     }
 
     #div1 {
