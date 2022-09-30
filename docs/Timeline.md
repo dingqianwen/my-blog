@@ -330,11 +330,6 @@ head:
                "createTime": "2022-02-09T04:12:00.043Z"
             },
             {
-               "title": "nginx: [emerg] the \"ssl\" parameter requires ngx_http_ssl_module",
-               "path": "/backend/nginx/[emerg]the\"ssl\"parameterRequiresNgx_http_ssl_module.md",
-               "createTime": "2022-02-09T03:29:54.518Z"
-            },
-            {
                "title": "nginx: error while loading shared libraries: libssl.so.10",
                "path": "/backend/nginx/error_libsslso.md",
                "createTime": "2022-02-09T03:26:38.812Z"
@@ -654,6 +649,13 @@ head:
                "title": "跨平台复制",
                "path": "/tools/Transfer.md",
                "createTime": "2022-09-29T07:25:14.372Z"
+            }
+         ],
+         "30": [
+            {
+               "title": "nginx: [emerg] the \"ssl\" parameter requires ngx_http_ssl_module",
+               "path": "/backend/nginx/Ngx_http_ssl_module.md",
+               "createTime": "2022-09-30T05:43:36.943Z"
             }
          ],
          "07": [
