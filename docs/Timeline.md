@@ -220,11 +220,6 @@ head:
                "title": "关于作者",
                "path": "/AboutMe.md",
                "createTime": "2022-04-08T07:30:06.655Z"
-            },
-            {
-               "title": "不打扰，是我的温柔",
-               "path": "/diary/不打扰，是我的温柔.md",
-               "createTime": "2022-04-08T06:11:38.495Z"
             }
          ],
          "07": [
