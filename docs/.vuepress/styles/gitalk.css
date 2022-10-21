@@ -1360,7 +1360,7 @@
 }
 
 .gt-container .gt-comment-body .email-hidden-toggle a:hover {
-    /*background-color: #c6cbd1;*/
+    color: var(--c-text-accent);
 }
 
 .gt-container .gt-comment-body .email-hidden-reply {
