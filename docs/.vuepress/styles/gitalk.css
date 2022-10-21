@@ -1352,15 +1352,15 @@
     font-size: 12px;
     font-weight: 600;
     line-height: 6px;
-    color: #444d56;
+    color: var(--c-text-lighter);
     text-decoration: none;
     vertical-align: middle;
-    background: #dfe2e5;
-    border-radius: 1px;
+    background: var(--c-border);
+    border-radius: 2px;
 }
 
 .gt-container .gt-comment-body .email-hidden-toggle a:hover {
-    background-color: #c6cbd1;
+    /*background-color: #c6cbd1;*/
 }
 
 .gt-container .gt-comment-body .email-hidden-reply {
@@ -1370,9 +1370,9 @@
 
 .gt-container .gt-comment-body .email-hidden-reply .email-signature-reply {
     padding: 0 15px;
-    margin: 15px 0;
-    color: #586069;
-    border-left: 4px solid #dfe2e5;
+    /*margin: 15px 0;*/
+    color: #6a737d;
+    border-left: 4px solid var(--c-border);
 }
 
 .gt-container .gt-comment-body .email-hidden-reply.expanded {
