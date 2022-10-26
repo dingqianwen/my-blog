@@ -90,6 +90,7 @@ https://dingqw.com/blog/music/%E5%BD%A9%E8%99%B9.html
 https://dingqw.com/blog/music/%E6%88%91%E4%BB%AC%E5%81%9A%E4%B8%8D%E4%BA%86%E4%BB%BB%E4%BD%95%E4%BA%8B.html
 https://dingqw.com/blog/music/%E6%88%91%E5%AF%B9%E4%BA%8E%E4%BD%A0%E4%BD%A0%E5%AF%B9%E4%BA%8E%E6%88%91.html
 https://dingqw.com/blog/music/%E6%B8%90%E6%B8%90%E8%A2%AB%E4%BD%A0%E5%90%B8%E5%BC%95.html
+https://dingqw.com/blog/tools/AES.html
 https://dingqw.com/blog/tools/JsonFormat.html
 https://dingqw.com/blog/tools/RSA.html
 https://dingqw.com/blog/tools/Random.html

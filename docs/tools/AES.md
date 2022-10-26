@@ -1,22 +1,22 @@
 ---
 lang: zh-CN   
-title: RSA在线加解密  
+title: AES在线加解密  
 description: 页面的描述  
 date: 2022-06-01 10:25:59  
 head:
 
-- [meta, {name: keywords, content: 'RSA在线加密, RSA在线解密, RSA在线加解密'}]
+- [meta, {name: keywords, content: 'AES在线加解密'}]
 
 ---
 
-# RSA在线加解密
+# AES在线加解密
 
 <br>
 <br>
 <label style="display: flex;">
-   <textarea class="oead-textarea" style="resize: none" placeholder="请输入公钥" v-model="publicKey"></textarea>
+   <input class="oead-input" style="resize: none;" placeholder="请输入密钥" v-model="secretKey"/>
    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <textarea class="oead-textarea" style="resize: none" placeholder="请输入私钥" v-model="privateKey"></textarea>
+   <input class="oead-input" style="resize: none" placeholder="请输入IV偏移量" v-model="iv"/>
 </label>
 <br>
 <label style="display: flex;">
@@ -39,54 +39,90 @@ head:
 > 本平台不会记录并存储相关密钥信息，加解密后即删除！
 
 <script>
+
+import CryptoJS from "crypto-js";
+
+
 export default {
-  name: 'RSA',
+  name: 'AES',
   data(){
     return {
         plaintext: "",
         ciphertext: "",
-        publicKey: "",
-        privateKey: "",
+        secretKey: "",
+        iv: "",
         encryptBtnLoading: false,
         decryptBtnLoading: false,
-    }
+    };
   },
   methods: {
     decrypt() {
-        if (!this.privateKey) {
-            $warning("私钥不能为空！");
-            return;
+        if(!this.process()){
+           return;
         }
         if (!this.ciphertext) {
             $warning("密文不能为空！");
             return;
         }
         this.decryptBtnLoading = true;
-        $api.rsaDecrypt(this.ciphertext, this.privateKey, (data) => {
-            this.plaintext = data;
-            this.decryptBtnLoading = false;
-        }, () => {
-            this.plaintext = "";
-            this.decryptBtnLoading = false;
-        })
+        let key = CryptoJS.enc.Utf8.parse(this.secretKey.padStart(32, '0'));
+        let iv = CryptoJS.enc.Utf8.parse(this.iv.padStart(16, '0'));
+      
+        let base64 = CryptoJS.enc.Base64.parse(this.ciphertext);
+        let src = CryptoJS.enc.Base64.stringify(base64);
+
+        const decrypt = CryptoJS.AES.decrypt(src, key, {
+          iv: iv,
+          mode: CryptoJS.mode.CBC,
+          padding: CryptoJS.pad.Pkcs7
+        });
+        this.plaintext = CryptoJS.enc.Utf8.stringify(decrypt).toString();
+        this.decryptBtnLoading = false;
+    },
+    process() {
+        if (!this.secretKey) {
+            $warning("密钥不能为空！");
+            return false;
+        }
+        if (!this.iv) {
+            $warning("IV偏移量不能为空！");
+            return false;
+        }
+        if(this.secretKey.length > 32) {
+            $warning("密钥过长，不可超过32位！");
+            return false;
+        }
+        if(this.secretKey.length < 32) {
+            this.secretKey = this.secretKey.padStart(32, '0');
+        }
+        if(this.iv.length > 16) {
+            $warning("IV偏移量过长，不可超过16位！");
+            return false;
+        }
+        if(this.iv.length < 16) {
+            this.iv = this.iv.padStart(16, '0');
+        }
+        return true;
     },
     encrypt() {
-        if (!this.publicKey) {
-            $warning("公钥不能为空！");
-            return;
+        if(!this.process()){
+           return;
         }
         if (!this.plaintext) {
             $warning("明文不能为空！");
             return;
         }
         this.encryptBtnLoading = true;
-        $api.rsaEncrypt(this.plaintext, this.publicKey, (data) => {
-            this.ciphertext = data;
-            this.encryptBtnLoading = false;
-        }, () => {
-            this.ciphertext = "";
-            this.encryptBtnLoading = false;
-        })
+        let key = CryptoJS.enc.Utf8.parse(this.secretKey.padStart(32, '0'));
+        let iv = CryptoJS.enc.Utf8.parse(this.iv.padStart(16, '0'));
+        let srcs = CryptoJS.enc.Utf8.parse(this.plaintext);
+        const encrypted = CryptoJS.AES.encrypt(srcs, key, {
+          iv: iv,
+          mode: CryptoJS.mode.CBC,
+          padding: CryptoJS.pad.Pkcs7,
+        });
+        this.ciphertext = CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+        this.encryptBtnLoading = false;
     },
     reset() {
         this.plaintext = "";
@@ -103,13 +139,15 @@ export default {
 .oead-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
-    height: 26px;
+    height: 30px;
     color: var(--c-text);
     border: 1px solid var(--c-border);
     outline: none;
     background-color: var(--c-bg);
     padding-left : 0.75em;
+    width: 100%;
 }
+
 .oead-textarea{
     /*overflow: hidden;*/
     overflow-wrap: break-word; 
