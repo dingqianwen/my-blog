@@ -59,12 +59,15 @@ export default {
   },
   methods: {
     getUrlParam(name) {
-          var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-          var value = window.location.search.substr(1).match(reg);
-          if (value != null) {
-              return unescape(value[2]);
-          }
-          return null;
+        if (typeof window === 'undefined') {
+            return null;
+        }
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var value = window.location.search.substr(1).match(reg);
+        if (value != null) {
+            return unescape(value[2]);
+        }
+        return null;
     },
     decrypt() {
         if(!this.process()){
