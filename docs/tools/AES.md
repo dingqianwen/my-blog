@@ -49,13 +49,23 @@ export default {
     return {
         plaintext: "",
         ciphertext: "",
-        secretKey: "",
-        iv: "",
+        secretKey: this.getUrlParam("secretKey"),
+        iv: this.getUrlParam("iv"),
         encryptBtnLoading: false,
         decryptBtnLoading: false,
     };
   },
+  created() {
+  },
   methods: {
+    getUrlParam(name) {
+          var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+          var value = window.location.search.substr(1).match(reg);
+          if (value != null) {
+              return unescape(value[2]);
+          }
+          return null;
+    },
     decrypt() {
         if(!this.process()){
            return;
@@ -127,8 +137,8 @@ export default {
     reset() {
         this.plaintext = "";
         this.ciphertext = "";
-        this.publicKey = "";
-        this.privateKey = "";
+        this.secretKey = "";
+        this.iv = "";
     }
   }
 }
