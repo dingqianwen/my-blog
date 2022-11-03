@@ -28,6 +28,9 @@ tar -zxvf node-v16.15.0-linux-x64.tar.gz
 # 创建软链
 ln -s /usr/local/app/node-v16.15.0-linux-x64/bin/npm /usr/bin/npm
 ln -s /usr/local/app/node-v16.15.0-linux-x64/bin/node /usr/bin/node
+
+# 采用TaoBao的镜像地址提升下载速度(可选)
+npm config set registry https://registry.npm.taobao.org 
 ```
 
 验证：
