@@ -57,7 +57,7 @@ export const transferUpload = (formData, progress, success, ex) => {
 
 
 export const transferDownload = (uid, callback) => {
-    let uids = uid.toString().split('@');
+    let uids = uid.toString().split('/');
     let fileName = uids[uids.length - 1];
     const a = document.createElement("a");
     a.href = uid;

@@ -30,10 +30,10 @@ head:
 </div>
  
 <br>
-<label style="display: flex;">
+<label>
     <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
 </label>
-<br><br>
+<br><br><br>
 <label>
     <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" :text="present?`提交(${present})`:'提交'" type="primary"></M-Button>
     &nbsp;&nbsp; 
@@ -117,6 +117,7 @@ export default {
            setTimeout(() => {
                if(!data || data === "None"||!(data.value || data.uid)) {
                    $warning("暂无数据可复制！");
+                   this.pullBtnLoading = false;
                    return;
                }
                new Promise((resolve) => {
