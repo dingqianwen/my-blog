@@ -207,6 +207,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/nginx/ERR_CONTENT_LENGTH_MISMATCH200.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/nginx/Nginx开启Gzip压缩.html</loc>
         <priority>1.00</priority>
     </url>
