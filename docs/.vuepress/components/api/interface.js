@@ -52,7 +52,9 @@ export const transferUpload = (formData, progress, success, ex) => {
             } else {
                 ex(then);
             }
-        });
+        }).catch((e) => {
+        ex(e);
+    });
 };
 
 
@@ -126,7 +128,30 @@ function process(result) {
     }
 }
 
+/**
+ * 中断请求方法
+ */
+function interruptHttpRequesting() {
+    if (window.$httpRequestList.length > 0) {
+        window.$httpRequestList.forEach(item => {
+            // 给个标志，中断请求
+            item('interrupt')
+        })
+        window.$httpRequestList = []
+    }
+}
+
+
 export default {
-    BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush, transferUpload, transferDownload,
-    rsaEncrypt, rsaDecrypt
+    BASE_API_URL,
+    pvIncr,
+    getPv,
+    getSongDetail,
+    transferPull,
+    transferPush,
+    transferUpload,
+    transferDownload,
+    interruptHttpRequesting,
+    rsaEncrypt,
+    rsaDecrypt
 }

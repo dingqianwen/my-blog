@@ -72,7 +72,9 @@ export default {
     },
     fileChange(){
         const file = this.$refs.file?.files[0];
-        this.fileName = file.name;
+        if(file){
+            this.fileName = file.name;
+        }
     },
     push() {
         if(this.pushBtnLoading){
@@ -91,18 +93,25 @@ export default {
                 this.fileName = file.name;
                 const formData = new FormData();
                 formData.append('file', file);
-                    $api.transferUpload(formData,(present)=>{
-                        this.present = present;
-                    },(data) => {
-                        uid = data;
-                        resolve();
-                    },() => {
-                        resolve();
-                    });
+                this.present = '0';
+                $api.transferUpload(formData,(present)=>{
+                    this.present = present ? present: '0';
+                }, (data) => {
+                    uid = data;
+                    resolve();
+                }, (e) => {
+                    resolve(e);
+                });
              } else {
                  resolve();
              }
-        }).then(()=>{
+        }).then((then)=>{
+            if(then && then.message === 'interrupt'){
+               this.present = '';
+               this.pushBtnLoading = false;
+               $warning("提交已取消！");
+               return;
+            }
             $api.transferPush(this.value, uid, this.key, () => {
                setTimeout(() => {
                    this.present = '';
@@ -165,6 +174,7 @@ export default {
         this.data = '';
         this.fileName = '未选择任何文件';
         this.$refs.file.value = '';
+        $api.interruptHttpRequesting();
     }
   },
   mounted() {

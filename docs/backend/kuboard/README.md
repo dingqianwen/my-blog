@@ -9,7 +9,7 @@ type: cds
 
 [dir.start]: <>
 
-- [记录MAC简易安装Kuboard过程](记录MAC安装Kuboard过程.md)  
+- [记录MAC安装Kuboard过程](记录MAC安装Kuboard过程.md)  
 
 [dir.end]: <>
 
