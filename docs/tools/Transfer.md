@@ -108,17 +108,26 @@ export default {
        this.pullBtnLoading = true;
        await $api.transferPull(this.key, (data) => {
            setTimeout(() => {
-               this.pullBtnLoading = false;
-               if(!data || data === "None"||!data.value) {
+               if(!data || data === "None"||!(data.value || data.uid)) {
                    $warning("暂无数据可复制！");
                    return;
                }
-               this.data = data.value;
-               if(data.uid){
-                  this.uid = data.uid;
-                  $api.transferDownload(data.uid);            
-               }
-               $('.copy').click();
+               new Promise((resolve) => {
+                    if(data.uid){
+                       this.uid = data.uid;
+                       $api.transferDownload(data.uid,()=>{
+                            resolve();             
+                       });   
+                    } else {
+                      resolve();     
+                    }
+               }).then(()=>{
+                  if(data.value){
+                       this.data = data.value;
+                       $('.copy').click();
+                    }
+                  this.pullBtnLoading = false;
+               });
            }, 200);
        }, () => {
            this.pullBtnLoading = false; 

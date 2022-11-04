@@ -56,7 +56,7 @@ export const transferUpload = (formData, success, ex) => {
 };
 
 
-export const transferDownload = (uid) => {
+export const transferDownload = (uid, callback) => {
     const config = {
         responseType: 'blob',
     };
@@ -64,7 +64,6 @@ export const transferDownload = (uid) => {
     let fileName = uids[uids.length - 1];
     request.get(`${uid}`, config)
         .then(then => {
-            console.log(then);
             let blob = new Blob([then]);
             let url = window.URL.createObjectURL(blob);
             let a = document.createElement('a');
@@ -72,6 +71,7 @@ export const transferDownload = (uid) => {
             a.download = fileName;
             a.click();
             window.URL.revokeObjectURL(url);
+            callback(then);
         });
 };
 
