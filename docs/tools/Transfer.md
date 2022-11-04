@@ -24,9 +24,9 @@ head:
         <label>
           <input type="text" class="fileName" v-model="fileName"/>
         </label>
-        <M-Button href="javascript:void(0);"  class="link" text="浏览" type="primary"></M-Button>
         <input type="file" class="uploadFile" ref="file" @change="fileChange" />
      </div>
+      <M-Button href="javascript:void(0);" style="cursor:pointer;" class="link" text="浏览" type="primary"></M-Button>
 </div>
  
 <br>
@@ -215,7 +215,6 @@ export default {
     top:0;
     opacity:0;
     filter:alpha(opacity=0);
-    cursor:pointer;
     width: 100%;
     height:32px;
     overflow: hidden;

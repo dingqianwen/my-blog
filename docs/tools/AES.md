@@ -13,11 +13,12 @@ head:
 
 <br>
 <br>
-<label style="display: flex;">
+<label style="display: flex;height: 32px">
    <input class="oead-input" style="resize: none;" placeholder="请输入密钥" v-model="secretKey"/>
    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
    <input class="oead-input" style="resize: none" placeholder="请输入IV偏移量" v-model="iv"/>
 </label>
+<br>
 <label style="display: flex;">
    <textarea class="oead-textarea" placeholder="明文" v-model="plaintext"></textarea>
 </label>

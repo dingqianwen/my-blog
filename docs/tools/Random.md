@@ -17,10 +17,10 @@ head:
    <textarea class="random-textarea" placeholder="随机数据池" ref="pool" v-model="pool"></textarea>
 </label>
 <br>
-<label style="display: flex;">
+<label>
    <input type="number" v-model="valueLength" class="random-input" placeholder="长度"  @input="valueLengthInput"/>
 </label>
-<br>
+<br><br>
 <label style="display: flex;">
    <textarea type="text" v-model="result" class="random-textarea" placeholder="输出" style="min-height: 44px;max-height: 200px;"></textarea>
 </label>
