@@ -36,12 +36,12 @@ export const transferPush = (value, uid, key, success, ex) => {
 };
 
 
-export const transferUpload = (formData, success, ex) => {
+export const transferUpload = (formData, progress, success, ex) => {
     const config = {
         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
         onUploadProgress: progressEvent => {
             let present = (progressEvent.loaded / progressEvent.total * 100 | 0);
-            console.log(present)
+            progress(present);
         }
     };
     request.post(`${BASE_API_URL}/transfer/upload`, formData, config)

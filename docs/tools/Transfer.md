@@ -35,7 +35,7 @@ head:
 </label>
 <br><br>
 <label>
-    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" text="提交" type="primary"></M-Button>
+    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" :text="present?`提交(${present})`:'提交'" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取" type="primary"></M-Button>
     &nbsp;&nbsp;
@@ -62,7 +62,8 @@ export default {
         pushBtnLoading: false,
         pullBtnLoading: false,
         fileName: "未选择任何文件",
-        uid: ""
+        uid: "",
+        present: ''
     };
   },
   methods: {
@@ -86,9 +87,12 @@ export default {
                 this.fileName = file.name;
                 const formData = new FormData();
                 formData.append('file', file);
-                    $api.transferUpload(formData, (data) => {
+                    $api.transferUpload(formData,(present)=>{
+                        console.log(present);
+                        this.present = present;
+                    },(data) => {
                         uid = data;
-                        console.log(data);
+                        this.present = '';
                         resolve();
                     },() => {
                         resolve();
