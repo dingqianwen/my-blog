@@ -73,7 +73,7 @@ export default {
 .random-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
-    height: 26px;
+    height: 28px;
     color: var(--c-text);
     border: 1px solid var(--c-border);
     outline: none;

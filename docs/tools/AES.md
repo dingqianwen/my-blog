@@ -18,7 +18,6 @@ head:
    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
    <input class="oead-input" style="resize: none" placeholder="请输入IV偏移量" v-model="iv"/>
 </label>
-<br>
 <label style="display: flex;">
    <textarea class="oead-textarea" placeholder="明文" v-model="plaintext"></textarea>
 </label>
@@ -152,7 +151,7 @@ export default {
 .oead-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
-    height: 30px;
+    height: 28px;
     color: var(--c-text);
     border: 1px solid var(--c-border);
     outline: none;
