@@ -12,6 +12,7 @@
   },
   "author": "dingqianwen",
   "license": "Apache 2.0",
+  "createDate": "2021-11-26",
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "2.0.0-beta.45",
     "@vuepress/plugin-register-components": "2.0.0-beta.45",

@@ -22,11 +22,11 @@ head:
 <div class="file-main">
     <div class="file-box">
         <label>
-          <input type="text" class="fileName" v-model="fileName"/>
+          <input type="text" class="fileName" v-model="fileName" readonly/>
         </label>
         <input type="file" class="uploadFile" ref="file" @change="fileChange" />
      </div>
-      <M-Button href="javascript:void(0);" style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
+      <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
 </div>
  
 <br>
