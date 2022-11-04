@@ -242,6 +242,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/python/Flask上传下载文件.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/python/Flask接口限流.html</loc>
         <priority>1.00</priority>
     </url>

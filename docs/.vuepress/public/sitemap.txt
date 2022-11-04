@@ -46,6 +46,7 @@ https://dingqw.com/blog/backend/nginx/Ngx_http_ssl_module.html
 https://dingqw.com/blog/backend/nginx/RequestEntityTooLarge.html
 https://dingqw.com/blog/backend/nginx/error_libsslso.html
 https://dingqw.com/blog/backend/python/CentOS%E5%AE%89%E8%A3%85Python.html
+https://dingqw.com/blog/backend/python/Flask%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6.html
 https://dingqw.com/blog/backend/python/Flask%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81.html
 https://dingqw.com/blog/backend/python/Flask%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE.html
 https://dingqw.com/blog/backend/python/NoModuleNamedFlask.html
