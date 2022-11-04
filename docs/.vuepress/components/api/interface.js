@@ -5,24 +5,25 @@ export const getSongDetail = id => request.get(`https://api.paugram.com/netease?
 
 
 let BASE_API_URL = "https://dingqw.com/bs";
-
+// let BASE_API_URL = "http://localhost:8011/bs";
 
 export const pvIncr = (id, call) => {
     request.get(`${BASE_API_URL}/pvIncr?id=${id}`, {}).then(then => {
         call(process(then));
     })
-}
+};
 
 export const getPv = (id, call) => {
     request.get(`${BASE_API_URL}/getPv?id=${id}`, {}).then(then => {
         call(process(then));
     })
-}
+};
 
 
-export const transferPush = (value, key, success, ex) => {
+export const transferPush = (value, uid, key, success, ex) => {
     request.post(`${BASE_API_URL}/transfer/push`, {
         value: value,
+        uid: uid,
         key: key
     }).then(then => {
         process(then);
@@ -32,7 +33,47 @@ export const transferPush = (value, key, success, ex) => {
             ex(then);
         }
     })
-}
+};
+
+
+export const transferUpload = (formData, success, ex) => {
+    const config = {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        onUploadProgress: progressEvent => {
+            let present = (progressEvent.loaded / progressEvent.total * 100 | 0);
+            console.log(present)
+        }
+    };
+    request.post(`${BASE_API_URL}/transfer/upload`, formData, config)
+        .then(then => {
+            let data = process(then);
+            if (then.code === 0) {
+                return success(data);
+            } else {
+                ex(then);
+            }
+        });
+};
+
+
+export const transferDownload = (uid) => {
+    const config = {
+        responseType: 'blob',
+    };
+    let uids = uid.toString().split('@');
+    let fileName = uids[uids.length - 1];
+    request.get(`${uid}`, config)
+        .then(then => {
+            console.log(then);
+            let blob = new Blob([then]);
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        });
+};
 
 export const transferPull = (key, success, ex) => {
     return request.get(`${BASE_API_URL}/transfer/pull?key=${key}`, {})
@@ -44,7 +85,7 @@ export const transferPull = (key, success, ex) => {
                 ex(then);
             }
         })
-}
+};
 
 export const rsaEncrypt = (plaintext, publicKey, success, ex) => {
     return request.post(`${BASE_API_URL}/rsa/encrypt`, {
@@ -58,7 +99,7 @@ export const rsaEncrypt = (plaintext, publicKey, success, ex) => {
             ex(then);
         }
     })
-}
+};
 
 
 export const rsaDecrypt = (ciphertext, privateKey, success, ex) => {
@@ -73,7 +114,7 @@ export const rsaDecrypt = (ciphertext, privateKey, success, ex) => {
             ex(then);
         }
     })
-}
+};
 
 
 function process(result) {
@@ -88,12 +129,12 @@ function process(result) {
     } else if (result.code === 450) {
         console.log("警告：" + result.msg)
     } else {
-        console.log("系统异常:", result)
+        console.log("系统异常:", result);
         $error("系统异常～")
     }
 }
 
 export default {
-    BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush,
+    BASE_API_URL, pvIncr, getPv, getSongDetail, transferPull, transferPush, transferUpload, transferDownload,
     rsaEncrypt, rsaDecrypt
 }

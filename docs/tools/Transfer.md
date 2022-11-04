@@ -18,6 +18,18 @@ head:
    <textarea class="transfer-textarea" placeholder="把数据粘贴此处" ref="value" v-model="value"></textarea>
 </label>
 <br>
+
+<div class="file-main">
+    <div class="file-box">
+        <label>
+          <input type="text" class="fileName" v-model="fileName"/>
+        </label>
+        <M-Button href="javascript:void(0);"  class="link" text="浏览" type="primary"></M-Button>
+        <input type="file" class="uploadFile" ref="file" @change="fileChange" />
+     </div>
+</div>
+ 
+<br>
 <label style="display: flex;">
     <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
 </label>
@@ -49,33 +61,62 @@ export default {
         data: "",
         pushBtnLoading: false,
         pullBtnLoading: false,
+        fileName: "未选择任何文件",
+        uid: ""
     };
   },
   methods: {
+    fileChange(){
+        const file = this.$refs.file?.files[0];
+        this.fileName = file.name;
+    },
     push() {
-        if (!this.value) {
+        const file = this.$refs.file?.files[0];
+        if (!this.value && !file) {
             $warning("没有内容可提交！");
             return;
         }
         this.pushBtnLoading = true;
-        $api.transferPush(this.value, this.key, () => {
-           setTimeout(() => {
-               this.pushBtnLoading = false;
-               $success("提交成功！");
-           }, 200);
-        },() => {
-            this.pushBtnLoading = false;
+        let uid = '';
+        new Promise((resolve) => {
+            if(file) {
+                this.fileName = file.name;
+                const formData = new FormData();
+                formData.append('file', file);
+                    $api.transferUpload(formData, (data) => {
+                        uid = data;
+                        console.log(data);
+                        resolve();
+                    },() => {
+                        resolve();
+                    });
+             } else {
+                 resolve();
+             }
+        }).then(()=>{
+            $api.transferPush(this.value, uid, this.key, () => {
+               setTimeout(() => {
+                   this.pushBtnLoading = false;
+                   $success("提交成功！");
+               }, 200);
+            },() => {
+                this.pushBtnLoading = false;
+            });
         });
     },
     async pull() {
        this.pullBtnLoading = true;
        await $api.transferPull(this.key, (data) => {
-           this.data = data;
            setTimeout(() => {
                this.pullBtnLoading = false;
-               if(!data || data === "None") {
+               if(!data || data === "None"||!data.value) {
                    $warning("暂无数据可复制！");
                    return;
+               }
+               this.data = data.value;
+               if(data.uid){
+                  this.uid = data.uid;
+                  $api.transferDownload(data.uid);            
                }
                $('.copy').click();
            }, 200);
@@ -115,7 +156,7 @@ export default {
 .transfer-input{
     transition: background-color var(--t-color), border-color var(--t-color);
     border-radius: 5px;
-    height: 26px;
+    height: 28px;
     color: var(--c-text);
     border: 1px solid var(--c-border);
     outline: none;
@@ -138,6 +179,41 @@ export default {
     padding: 0.75em;
     border: 1px solid var(--c-border);
 }
+
+
+
+.file-main{
+    height:32px;
+}
+.file-box{
+    position:relative;
+    float:left;
+}
+.file-main input.uploadFile{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    opacity:0;
+    filter:alpha(opacity=0);
+    cursor:pointer;
+    width: 100%;
+    height:32px;
+    overflow: hidden;
+    outline: none;
+}
+.file-main input.fileName{
+    transition: background-color var(--t-color), border-color var(--t-color);
+    outline: none;
+    padding: 5px 5px 5px 0.75em;
+    line-height:20px;
+    border: 1px solid var(--c-border);
+    margin-right:10px;
+    border-radius: 5px;
+    background-color: var(--c-bg);
+    color: var(--c-text);
+}
+
 </style>
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>
