@@ -26,7 +26,7 @@ head:
         </label>
         <input type="file" class="uploadFile" ref="file" @change="fileChange" />
      </div>
-      <M-Button href="javascript:void(0);" style="cursor:pointer;" class="link" text="浏览" type="primary"></M-Button>
+      <M-Button href="javascript:void(0);" style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
 </div>
  
 <br>
@@ -35,7 +35,7 @@ head:
 </label>
 <br><br><br>
 <label>
-    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" :text="present?`提交(${present})`:'提交'" type="primary"></M-Button>
+    <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" :text="present?`提交(${present}%)`:'提交'" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取" type="primary"></M-Button>
     &nbsp;&nbsp;
@@ -67,6 +67,9 @@ export default {
     };
   },
   methods: {
+    selectFile(){
+        this.$refs.file.click();
+    },
     fileChange(){
         const file = this.$refs.file?.files[0];
         this.fileName = file.name;
@@ -74,6 +77,7 @@ export default {
     push() {
         if(this.pushBtnLoading){
             $warning("请等待上传完毕！");
+            return;
         }
         const file = this.$refs.file?.files[0];
         if (!this.value && !file) {
@@ -88,11 +92,9 @@ export default {
                 const formData = new FormData();
                 formData.append('file', file);
                     $api.transferUpload(formData,(present)=>{
-                        console.log(present);
                         this.present = present;
                     },(data) => {
                         uid = data;
-                        this.present = '';
                         resolve();
                     },() => {
                         resolve();
@@ -103,6 +105,7 @@ export default {
         }).then(()=>{
             $api.transferPush(this.value, uid, this.key, () => {
                setTimeout(() => {
+                   this.present = '';
                    this.pushBtnLoading = false;
                    $success("提交成功！");
                }, 200);
