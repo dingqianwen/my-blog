@@ -71,6 +71,9 @@ export default {
         this.fileName = file.name;
     },
     push() {
+        if(this.pushBtnLoading){
+            $warning("请等待上传完毕！");
+        }
         const file = this.$refs.file?.files[0];
         if (!this.value && !file) {
             $warning("没有内容可提交！");
@@ -152,6 +155,8 @@ export default {
         this.value = '';
         this.key = '';
         this.data = '';
+        this.fileName = '未选择任何文件';
+        this.$refs.file.value = '';
     }
   },
   mounted() {
