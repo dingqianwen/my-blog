@@ -132,22 +132,17 @@ export default {
                    this.pullBtnLoading = false;
                    return;
                }
-               new Promise((resolve) => {
-                    if(data.uid){
-                       this.uid = data.uid;
-                       $api.transferDownload(data.uid,()=>{
-                            resolve();             
-                       });   
-                    } else {
-                      resolve();     
-                    }
-               }).then(()=>{
-                  if(data.value){
-                       this.data = data.value;
-                       $('.copy').click();
-                    }
-                  this.pullBtnLoading = false;
-               });
+               if(data.value){
+                   this.data = data.value;
+                   $('.copy').click();
+               }
+               if(data.uid){
+                   this.uid = data.uid;
+                   $api.transferDownload(data.uid,()=>{
+                                  
+                   });   
+               }
+               this.pullBtnLoading = false;
            }, 200);
        }, () => {
            this.pullBtnLoading = false; 
@@ -169,6 +164,9 @@ export default {
         });
     },
     reset(){
+        if(this.present !== '' && !window.confirm('有任务正在上传，确定取消！')){
+           return;
+        }
         this.value = '';
         this.key = '';
         this.data = '';
