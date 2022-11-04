@@ -40,7 +40,7 @@ function writePageData(dir, f, fileName) {
     } catch (e) {
         return
     }
-    let execArray = /(?<=\ntitle:)[^].+?(?=\n)/.exec(buffer.toString());
+    let execArray = /(?<=\ntitle:)[^]*?(?=\n)/.exec(buffer.toString());
     let title;
     // 如果没有自定义标题
     if (execArray === null || !(title = execArray[0])) {
