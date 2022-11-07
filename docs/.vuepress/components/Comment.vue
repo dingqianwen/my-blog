@@ -36,16 +36,6 @@ export default {
     const gitalk = new Gitalk(commentConfig);
     gitalk.render('gitalk-container');
 
-    // 访问量 如果不存在此标签，则进行创建
-    if (!document.getElementsByClassName('browse—count')[0]) {
-      let element = document.getElementsByClassName('page-meta')[0];
-      let newElement = document.createElement('div');
-      newElement.className = 'meta-item contributors browse—count';
-      $api.pvIncr(md5(value.path), function (data) {
-        newElement.innerHTML = `<span class="meta-item-label">浏览: </span><span class="meta-item-info">${data.toLocaleString('en-US')}</span>`;
-        element.appendChild(newElement)
-      })
-    }
     // 如果点赞，先判断有没有登录
     let $gc = $('#gitalk-container');
     $gc.on('click', '.gt-comment-like', function () {
