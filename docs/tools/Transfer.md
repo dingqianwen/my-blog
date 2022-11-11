@@ -173,6 +173,8 @@ export default {
         this.fileName = '未选择任何文件';
         this.$refs.file.value = '';
         $api.interruptHttpRequesting();
+        this.present = '';
+        this.pushBtnLoading = false;
     }
   },
   mounted() {
