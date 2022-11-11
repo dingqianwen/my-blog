@@ -25,11 +25,11 @@ head:
    <textarea type="text" v-model="result" class="random-textarea" placeholder="输出" style="min-height: 44px;max-height: 200px;"></textarea>
 </label>
 <br><br>
-<label>
+<div>
     <M-Button @click="generate()" text="生成" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="reset()" text="重置"></M-Button>
-</label>
+</div>
 
 <script>
 

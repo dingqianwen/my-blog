@@ -34,15 +34,15 @@ head:
     <input type="password" v-model="key" class="transfer-input" placeholder="密钥"/>
 </label>
 <br><br><br>
-<label>
+<div>
     <M-Button @click="push()" class="transfer-push" :isLoading="pushBtnLoading" :text="present?`提交(${present}%)`:'提交'" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="pull()" class="transfer-pull" :isLoading="pullBtnLoading" text="获取" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
-</label>
+</div>
 <span class="copy" @click="copy()"></span>
-<br><br>  
+<br>
 
 > 此工具只是作者版本各个系统复制文本使用，不保证数据安全性，相关问题本平台不负任何责任！
 

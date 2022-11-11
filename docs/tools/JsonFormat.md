@@ -19,11 +19,12 @@ head:
    <textarea class="jf-textarea" ref="value" placeholder="把数据粘贴此处" v-model="value"></textarea>
 </label>
 <br><br>
-<label>
+<div>
     <M-Button @click="format()" text="格式化" type="primary"></M-Button>
     &nbsp;&nbsp; 
     <M-Button @click="clear()" text="重置"></M-Button>
-</label>
+</div>
+<br>
 
 <script>
 

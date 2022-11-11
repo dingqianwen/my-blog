@@ -14,29 +14,32 @@ head:
 <br>
 <br>
 <label style="display: flex;">
-   <textarea class="oead-textarea" style="resize: none" placeholder="请输入公钥" v-model="publicKey"></textarea>
-   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <textarea class="oead-textarea" style="resize: none" placeholder="请输入私钥" v-model="privateKey"></textarea>
-</label>
-<br>
-<label style="display: flex;">
    <textarea class="oead-textarea" placeholder="明文" v-model="plaintext"></textarea>
 </label>
 <br>
 <label style="display: flex;">
    <textarea class="oead-textarea" placeholder="密文" v-model="ciphertext"></textarea>
 </label>
+<br>
+<div style="display: flex;">
+   <label for="publicKey"></label>
+   <textarea class="oead-textarea" id="publicKey" style="resize: none" placeholder="请输入公钥" v-model="publicKey"></textarea>
+   <p>&nbsp;&nbsp;&nbsp;</p>
+   <label for="privateKey"></label>
+   <textarea class="oead-textarea" id="privateKey" style="resize: none" placeholder="请输入私钥" v-model="privateKey"></textarea>
+</div>
 <br><br>
-<label>
+<div>
     <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
-</label>
-<br><br>  
+</div>
+<br>
 
-> 本平台不会记录并存储相关密钥信息，加解密后即删除！
+> 加解密过程会发出网络请求到服务端进行，但本平台不会记录并存储相关密钥信息，加解密后即删除！  
+> 后端执行脚本为Python编写，参考：<router-link to="../backend/python/Python实现RSA加解密.html">Python实现RSA加解密</router-link>
 
 <script>
 export default {
@@ -49,7 +52,7 @@ export default {
         privateKey: "",
         encryptBtnLoading: false,
         decryptBtnLoading: false,
-    }
+    };
   },
   methods: {
     decrypt() {
@@ -68,7 +71,7 @@ export default {
         }, () => {
             this.plaintext = "";
             this.decryptBtnLoading = false;
-        })
+        });
     },
     encrypt() {
         if (!this.publicKey) {
@@ -86,7 +89,7 @@ export default {
         }, () => {
             this.ciphertext = "";
             this.encryptBtnLoading = false;
-        })
+        });
     },
     reset() {
         this.plaintext = "";
@@ -130,6 +133,6 @@ export default {
 </style>
 
 
-<AdsbyGoogle slot="7889564278" layout="in-article"/>
+<AdsbyGoogle slot="7889564278" layout="in-article"></AdsbyGoogle>
 
 <Comment></Comment>

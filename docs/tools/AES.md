@@ -13,12 +13,6 @@ head:
 
 <br>
 <br>
-<label style="display: flex;height: 32px">
-   <input class="oead-input" style="resize: none;" placeholder="请输入密钥" v-model="secretKey"/>
-   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <input class="oead-input" style="resize: none" placeholder="请输入IV偏移量" v-model="iv"/>
-</label>
-<br>
 <label style="display: flex;">
    <textarea class="oead-textarea" placeholder="明文" v-model="plaintext"></textarea>
 </label>
@@ -26,17 +20,26 @@ head:
 <label style="display: flex;">
    <textarea class="oead-textarea" placeholder="密文" v-model="ciphertext"></textarea>
 </label>
+<br>
+<label>
+   <input class="oead-input" style="resize: none;" placeholder="密钥" v-model="secretKey" type="password"/>
+</label>
 <br><br>
 <label>
+   <input class="oead-input" style="resize: none" placeholder="IV偏移量" v-model="iv" type="password"/>
+</label>
+<br><br><br>
+<div>
     <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
-</label>
-<br><br>  
+</div>
+<br>
 
-> 本平台不会记录并存储相关密钥信息，加解密后即删除！
+> 密钥不足`32`位、IV偏移量不足`16`位时前缀自动补充`0`；  
+> 加解密过程不会发出网络请求、不会存储相关密钥信息；
 
 <script>
 
@@ -158,7 +161,6 @@ export default {
     outline: none;
     background-color: var(--c-bg);
     padding-left : 0.75em;
-    width: 100%;
 }
 
 .oead-textarea{
