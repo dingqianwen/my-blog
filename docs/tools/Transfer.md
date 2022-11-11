@@ -107,9 +107,6 @@ export default {
              }
         }).then((then)=>{
             if(then && then.message === 'interrupt'){
-               this.present = '';
-               this.pushBtnLoading = false;
-               $warning("提交已取消！");
                return;
             }
             $api.transferPush(this.value, uid, this.key, () => {
@@ -164,17 +161,21 @@ export default {
         });
     },
     reset(){
-        if(this.present !== '' && !window.confirm('有任务正在上传，确定取消！')){
-           return;
+        if(this.pushBtnLoading){
+           if(!window.confirm('有任务正在上传，确定取消！')) {
+              return;
+           } else {
+              $api.interruptHttpRequesting();
+              this.present = '';
+              this.pushBtnLoading = false;
+              $warning("提交已取消！");
+           }
         }
         this.value = '';
         this.key = '';
         this.data = '';
         this.fileName = '未选择任何文件';
         this.$refs.file.value = '';
-        $api.interruptHttpRequesting();
-        this.present = '';
-        this.pushBtnLoading = false;
     }
   },
   mounted() {
