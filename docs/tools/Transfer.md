@@ -20,13 +20,12 @@ head:
 <br>
 
 <div class="file-main">
-    <div class="file-box">
-        <label>
-          <input type="text" class="fileName" v-model="fileName" readonly/>
-        </label>
+     <div class="file-box">
+        <label for="fileName"></label>
+        <input type="text" id="fileName" class="fileName" v-model="fileName" readonly/>
         <input type="file" class="uploadFile" ref="file" @change="fileChange" />
      </div>
-      <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
+     <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
 </div>
  
 <br>
@@ -225,11 +224,10 @@ export default {
 .file-main input.uploadFile{
     position:absolute;
     left:0;
-    right:0;
+    right:10px;
     top:0;
     opacity:0;
     filter:alpha(opacity=0);
-    width: 100%;
     height:32px;
     overflow: hidden;
     outline: none;
@@ -240,7 +238,7 @@ export default {
     padding: 5px 5px 5px 0.75em;
     line-height:20px;
     border: 1px solid var(--c-border);
-    margin-right:10px;
+    margin-right: 10px;
     border-radius: 5px;
     background-color: var(--c-bg);
     color: var(--c-text);
