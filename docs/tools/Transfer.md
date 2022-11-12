@@ -107,14 +107,13 @@ export default {
              }
         }).then((then)=>{
             if(then && then.message === 'interrupt'){
+               $warning("提交已取消！");
                return;
             }
             $api.transferPush(this.value, uid, this.key, () => {
-               setTimeout(() => {
-                   this.present = '';
-                   this.pushBtnLoading = false;
-                   $success("提交成功！");
-               }, 200);
+               this.present = '';
+               this.pushBtnLoading = false;
+               $success("提交成功！");
             },() => {
                 this.pushBtnLoading = false;
             });
@@ -166,9 +165,6 @@ export default {
               return;
            } else {
               $api.interruptHttpRequesting(["transfer/upload", "transfer/push"]);
-              this.present = '';
-              this.pushBtnLoading = false;
-              $warning("提交已取消！");
            }
         }
         this.value = '';
@@ -176,6 +172,9 @@ export default {
         this.data = '';
         this.fileName = '未选择任何文件';
         this.$refs.file.value = '';
+        
+        this.present = '';
+        this.pushBtnLoading = false;
         this.pullBtnLoading = false;
     }
   },
