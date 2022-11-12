@@ -52,8 +52,8 @@ export default {
     return {
         plaintext: "",
         ciphertext: "",
-        secretKey: this.getUrlParam("secretKey"),
-        iv: this.getUrlParam("iv"),
+        secretKey: this.getCurrentUrlParam("secretKey"),
+        iv: this.getCurrentUrlParam("iv"),
         encryptBtnLoading: false,
         decryptBtnLoading: false,
     };
@@ -61,16 +61,11 @@ export default {
   created() {
   },
   methods: {
-    getUrlParam(name) {
-        if (typeof window === 'undefined') {
-            return null;
-        }
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-        var value = window.location.search.substr(1).match(reg);
-        if (value != null) {
-            return unescape(value[2]);
-        }
-        return null;
+    getCurrentUrlParam(name){
+       if (typeof window === 'undefined') {
+           return null;
+       }
+       return getCurrentUrlParam(name);
     },
     decrypt() {
         if(!this.process()){

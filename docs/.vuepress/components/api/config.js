@@ -19,8 +19,10 @@ function handleError(e) {
     throw e
 }
 
+
 function handleRequest(request) {
     request['cancelToken'] = new axios.CancelToken(function executor(cancel) {
+        cancel.prototype.cancelTokenUrl = request.url
         window.$httpRequestList.push(cancel);
     });
     return request;

@@ -165,10 +165,9 @@ export default {
            if(!window.confirm('有任务正在上传，确定取消！')) {
               return;
            } else {
-              $api.interruptHttpRequesting();
+              $api.interruptHttpRequesting(["transfer/upload", "transfer/push"]);
               this.present = '';
               this.pushBtnLoading = false;
-              this.pullBtnLoading = false;
               $warning("提交已取消！");
            }
         }
@@ -177,6 +176,7 @@ export default {
         this.data = '';
         this.fileName = '未选择任何文件';
         this.$refs.file.value = '';
+        this.pullBtnLoading = false;
     }
   },
   mounted() {

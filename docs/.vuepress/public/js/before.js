@@ -57,3 +57,25 @@ function compareVersion(v1, v2) {
         }
     }
 }
+
+function getCurrentUrlParam(name) {
+    if (typeof window === 'undefined') {
+        return null;
+    }
+    return getUrlParam(window.location.search, name)
+}
+
+function getUrlParam(url, name) {
+    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    let value;
+    if (!url.startsWith("?")) {
+        // https://dingqw.com/bs/transfer/pull?key=123
+        value = url.substr(url.indexOf('?') + 1).match(reg);
+    } else {
+        value = url.substr(1).match(reg);
+    }
+    if (value != null) {
+        return unescape(value[2]);
+    }
+    return null;
+}

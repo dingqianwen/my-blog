@@ -131,11 +131,24 @@ function process(result) {
 /**
  * 中断请求方法
  */
-function interruptHttpRequesting() {
+function interruptHttpRequesting(url) {
     if (window.$httpRequestList.length > 0) {
         window.$httpRequestList.forEach(item => {
-            // 给个标志，中断请求
-            item('interrupt')
+            if (url) {
+                if (!Array.isArray(url)) {
+                    url = [url];
+                }
+                //只关闭ctg相匹配的接口
+                for (let i = 0; i < url.length; i++) {
+                    if (item.prototype.cancelTokenUrl.includes(url[i])) {
+                        item('interrupt')
+                        break;
+                    }
+                }
+            } else {
+                // 给个标志，中断请求
+                item('interrupt')
+            }
         })
         window.$httpRequestList = []
     }
