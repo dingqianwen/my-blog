@@ -135,12 +135,10 @@ function interruptHttpRequesting(url) {
     if (window.$httpRequestList.length > 0) {
         window.$httpRequestList.forEach(item => {
             if (url) {
-                if (!Array.isArray(url)) {
-                    url = [url];
-                }
+                let cancelTokenUrl = item.prototype.cancelTokenUrl;
                 //只关闭ctg相匹配的接口
                 for (let i = 0; i < url.length; i++) {
-                    if (item.prototype.cancelTokenUrl.includes(url[i])) {
+                    if (cancelTokenUrl.includes(url[i])) {
                         item('interrupt')
                         break;
                     }
