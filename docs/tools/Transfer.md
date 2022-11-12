@@ -22,7 +22,7 @@ head:
 <div class="file-main">
      <div class="file-box">
         <label for="fileName"></label>
-        <input type="text" id="fileName" class="fileName" v-model="fileName" readonly/>
+        <input type="text" id="fileName" class="fileName" v-model="fileName" readonly @click="selectFile"/>
         <input type="file" class="uploadFile" ref="file" @change="fileChange" />
      </div>
      <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
@@ -62,7 +62,8 @@ export default {
         pullBtnLoading: false,
         fileName: "未选择任何文件",
         uid: "",
-        present: ''
+        present: '',
+        fileData: null
     };
   },
   methods: {
@@ -73,6 +74,7 @@ export default {
         const file = this.$refs.file?.files[0];
         if(file){
             this.fileName = file.name;
+            this.fileData = this.$refs.file?.files[0];
         }
     },
     push() {
@@ -80,7 +82,7 @@ export default {
             $warning("请等待上传完毕！");
             return;
         }
-        const file = this.$refs.file?.files[0];
+        const file = this.fileData;
         if (!this.value && !file) {
             $warning("没有内容可提交！");
             return;
@@ -170,6 +172,7 @@ export default {
         this.key = '';
         this.data = '';
         this.fileName = '未选择任何文件';
+        this.fileData = null;
         this.$refs.file.value = '';
         
         this.present = '';
@@ -179,6 +182,25 @@ export default {
   },
   mounted() {
         this.$refs.value.focus();
+        const oDragWrap = document.getElementsByClassName("file-box")[0];
+        oDragWrap.addEventListener("dragenter", function(e) {
+            e.preventDefault();
+        }, false);
+        oDragWrap.addEventListener("dragleave", function(e) {
+        }, false);
+        oDragWrap.addEventListener("dragover",function(e) {
+            e.preventDefault();
+        }, false);
+        oDragWrap.addEventListener("drop", (e)=> {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            if (files.length === 0) {
+                return;
+            }
+            let file = files[0];
+            this.fileName = file.name;
+            this.fileData = file;
+        }, false);
   },
 }
 </script>
@@ -221,16 +243,8 @@ export default {
     position:relative;
     float:left;
 }
-.file-main input.uploadFile{
-    position:absolute;
-    left:0;
-    right:10px;
-    top:0;
-    opacity:0;
-    filter:alpha(opacity=0);
-    height:32px;
-    overflow: hidden;
-    outline: none;
+.file-main input.uploadFile {
+    display: none;
 }
 .file-main input.fileName{
     transition: background-color var(--t-color), border-color var(--t-color);
@@ -242,10 +256,11 @@ export default {
     border-radius: 5px;
     background-color: var(--c-bg);
     color: var(--c-text);
+    cursor: pointer;
 }
 
 </style>
 
-<AdsbyGoogle slot="7889564278" layout="in-article"/>
+<AdsbyGoogle slot="7889564278" layout="in-article"></AdsbyGoogle>
 
 <Comment></Comment>
