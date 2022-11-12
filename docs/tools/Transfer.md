@@ -168,6 +168,7 @@ export default {
               $api.interruptHttpRequesting();
               this.present = '';
               this.pushBtnLoading = false;
+              this.pullBtnLoading = false;
               $warning("提交已取消！");
            }
         }
