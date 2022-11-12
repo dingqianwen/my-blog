@@ -20,12 +20,12 @@ head:
 <br>
 
 <div class="file-main">
-     <div class="file-box">
-        <label for="fileName"></label>
-        <input type="text" id="fileName" class="fileName" v-model="fileName" readonly @click="selectFile"/>
-        <input type="file" class="uploadFile" ref="file" @change="fileChange" />
-     </div>
-     <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
+  <div class="file-box">
+    <label for="fileName"></label>
+    <input type="text" id="fileName" class="fileName" v-model="fileName" readonly @click="selectFile"/>
+    <input type="file" class="uploadFile" ref="file" @change="fileChange" />
+    <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
+  </div>
 </div>
  
 <br>
@@ -43,7 +43,10 @@ head:
 <span class="copy" @click="copy()"></span>
 <br>
 
-> 此工具只是作者版本各个系统复制文本使用，不保证数据安全性，相关问题本平台不负任何责任！
+> 1、文本数据在服务端保存`1小时`，长度不可超过`10000字符`；  
+> 2、文件在服务端保存`30分钟`，文件大小最大不可超过`1G`；  
+> 3、接口存在限流，为避免被拉入黑名单，请注意访问频次；  
+> 4、此工具只是作者版本各个系统复制文本使用，不保证数据安全性，相关问题本平台不负任何责任！  
 
 
 
@@ -235,12 +238,10 @@ export default {
 }
 
 
-
 .file-main{
     height:32px;
 }
 .file-box{
-    position:relative;
     float:left;
 }
 .file-main input.uploadFile {
