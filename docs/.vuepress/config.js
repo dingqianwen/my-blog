@@ -108,6 +108,9 @@ module.exports = {
         }),
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, './components'),
+            components: {
+                System: path.resolve(__dirname, './components/system/System.vue'),
+            },
         }),
         /*shikiPlugin({
             // 配置项 github-dark   monokai
