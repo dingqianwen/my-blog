@@ -1,5 +1,5 @@
 <template>
-  <div id="CPUMonitor" style="height: 370px;width: 370px">
+  <div id="CPUMonitor" style="height: 350px;width: 370px">
 
   </div>
 </template>
@@ -57,7 +57,7 @@ export default {
             valueAnimation: true,
             formatter: 'CPU {value} %',
             color: 'auto',
-            fontSize: 18
+            fontSize: 16
           },
           data: [
             {

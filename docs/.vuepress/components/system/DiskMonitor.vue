@@ -1,5 +1,5 @@
 <template>
-  <div id="DiskMonitor" style="height: 370px;width: 370px;">
+  <div id="DiskMonitor" style="height: 350px;width: 370px;">
 
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
             valueAnimation: true,
             formatter: '文件 {value} %',
             color: 'auto',
-            fontSize: 18
+            fontSize: 16
           },
           data: [
             {

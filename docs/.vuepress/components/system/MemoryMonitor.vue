@@ -1,5 +1,5 @@
 <template>
-  <div id="MemoryMonitor" style="height: 370px;width: 370px">
+  <div id="MemoryMonitor" style="height: 350px;width: 370px">
 
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
             valueAnimation: true,
             formatter: '内存 {value} %',
             color: 'auto',
-            fontSize: 18
+            fontSize: 16
           },
           data: [
             {
