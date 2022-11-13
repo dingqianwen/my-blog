@@ -1,5 +1,5 @@
 <template>
-  <div id="tet1" style="height: 370px;width: 370px">
+  <div id="CPUMonitor" style="height: 370px;width: 370px">
 
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     return {}
   },
   mounted() {
-    var chartDom = document.getElementById('tet1');
+    var chartDom = document.getElementById('CPUMonitor');
     var myChart = echarts.init(chartDom);
     var option;
 
@@ -61,7 +61,7 @@ export default {
           },
           data: [
             {
-              value: 50
+              value: 100
             }
           ]
         }
