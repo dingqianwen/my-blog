@@ -46,7 +46,7 @@ export default {
           },
           detail: {
             valueAnimation: true,
-            formatter: '内存 {value} %',
+            formatter: '内存 {value}%',
             color: 'auto',
             fontSize: 16
           },

@@ -46,7 +46,7 @@ export default {
           },
           detail: {
             valueAnimation: true,
-            formatter: '文件 {value} %',
+            formatter: '文件 {value}%',
             color: 'auto',
             fontSize: 16
           },

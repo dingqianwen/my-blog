@@ -55,7 +55,7 @@ export default {
           },
           detail: {
             valueAnimation: true,
-            formatter: 'CPU {value} %',
+            formatter: 'CPU {value}%',
             color: 'auto',
             fontSize: 16
           },
