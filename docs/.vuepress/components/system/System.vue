@@ -8,8 +8,6 @@
       <MemoryMonitor></MemoryMonitor>
       <DiskMonitor></DiskMonitor>
     </div>
-    <br>
-    <br>
   </div>
 </template>
 
