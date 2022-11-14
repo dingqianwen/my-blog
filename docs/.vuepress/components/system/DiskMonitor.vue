@@ -63,7 +63,8 @@
                             valueAnimation: true,
                             formatter: '文件 {value}%',
                             color: 'auto',
-                            fontSize: 16
+                            fontSize: 16,
+                            offsetCenter: [0, '38%'],
                         },
                         data: [
                             {
