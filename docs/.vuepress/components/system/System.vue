@@ -4,9 +4,9 @@
 
         <!--    </div>-->
         <div style="display: flex;flex-wrap: wrap;justify-content: center;">
-            <CPUMonitor :cpu="cpu"></CPUMonitor>
-            <MemoryMonitor :memory="memory"></MemoryMonitor>
-            <DiskMonitor :transfer="disk.transfer"></DiskMonitor>
+            <CPUMonitor :cpu="cpu"/>
+            <MemoryMonitor :memory="memory"/>
+            <DiskMonitor :transfer="disk.transfer"/>
         </div>
     </div>
 </template>
