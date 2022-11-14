@@ -497,6 +497,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/tools/System.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/tools/Transfer.html</loc>
         <priority>1.00</priority>
     </url>

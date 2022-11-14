@@ -19,6 +19,12 @@ export const getPv = (id, call) => {
     })
 };
 
+export const system = (call) => {
+    request.get(`${BASE_API_URL}/system`, {}).then(then => {
+        call(process(then));
+    })
+};
+
 
 export const transferPush = (value, uid, key, success, ex) => {
     request.post(`${BASE_API_URL}/transfer/push`, {
@@ -139,7 +145,7 @@ function interruptHttpRequesting(url) {
                 //只关闭ctg相匹配的接口
                 for (let i = 0; i < url.length; i++) {
                     if (cancelTokenUrl.includes(url[i])) {
-                        item('interrupt')
+                        item('interrupt');
                         break;
                     }
                 }
@@ -147,7 +153,7 @@ function interruptHttpRequesting(url) {
                 // 给个标志，中断请求
                 item('interrupt')
             }
-        })
+        });
         window.$httpRequestList = []
     }
 }
@@ -164,5 +170,6 @@ export default {
     transferDownload,
     interruptHttpRequesting,
     rsaEncrypt,
-    rsaDecrypt
+    rsaDecrypt,
+    system
 }

@@ -97,4 +97,5 @@ https://dingqw.com/blog/tools/AES.html
 https://dingqw.com/blog/tools/JsonFormat.html
 https://dingqw.com/blog/tools/RSA.html
 https://dingqw.com/blog/tools/Random.html
+https://dingqw.com/blog/tools/System.html
 https://dingqw.com/blog/tools/Transfer.html

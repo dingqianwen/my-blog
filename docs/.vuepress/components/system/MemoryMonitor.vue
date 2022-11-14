@@ -1,83 +1,80 @@
 <template>
-  <div id="MemoryMonitor" style="height: 350px;width: 370px">
+    <div id="MemoryMonitor" style="height: 350px;width: 370px">
 
-  </div>
+    </div>
 </template>
 
 <script>
 
-import * as echarts from 'echarts';
+    import * as echarts from 'echarts';
 
-export default {
-  name: 'MemoryMonitor',
-  data() {
-    return {}
-  },
-  mounted() {
-    var chartDom = document.getElementById('MemoryMonitor');
-    var myChart = echarts.init(chartDom);
-    var option;
-
-    option = {
-      series: [
-        {
-          type: 'gauge',
-          axisLine: {
-            lineStyle: {
-              width: 10,
-              color: [
-                [0.3, '#67e0e3'],
-                [0.7, '#37a2da'],
-                [1, '#fd666d']
-              ]
+    export default {
+        name: 'MemoryMonitor',
+        data() {
+            return {
+                myChart: null
             }
-          },
-          pointer: {
-            itemStyle: {
-              color: 'auto'
+        },
+        props: ["memory"],
+        watch: {
+            "memory.percent"(nval) {
+                this.myChart.setOption({
+                    series: [
+                        {
+                            data: [
+                                {
+                                    value: nval
+                                }
+                            ]
+                        }
+                    ]
+                });
             }
-          },
-          axisTick: {
-          },
-          axisLabel: {
-            color: 'auto',
-            distance: 20,
-            fontSize: 13
-          },
-          detail: {
-            valueAnimation: true,
-            formatter: '内存 {value}%',
-            color: 'auto',
-            fontSize: 16
-          },
-          data: [
-            {
-              value: 100
-            }
-          ]
+        },
+        mounted() {
+            const chartDom = document.getElementById('MemoryMonitor');
+            this.myChart = echarts.init(chartDom);
+            const option = {
+                series: [
+                    {
+                        type: 'gauge',
+                        axisLine: {
+                            lineStyle: {
+                                width: 10,
+                                color: [
+                                    [0.3, '#67e0e3'],
+                                    [0.7, '#37a2da'],
+                                    [1, '#fd666d']
+                                ]
+                            }
+                        },
+                        pointer: {
+                            itemStyle: {
+                                color: 'auto'
+                            }
+                        },
+                        axisTick: {},
+                        axisLabel: {
+                            color: 'auto',
+                            distance: 20,
+                            fontSize: 13
+                        },
+                        detail: {
+                            valueAnimation: true,
+                            formatter: '内存 {value}%',
+                            color: 'auto',
+                            fontSize: 16
+                        },
+                        data: [
+                            {
+                                value: 100
+                            }
+                        ]
+                    }
+                ]
+            };
+            option && this.myChart.setOption(option);
         }
-      ]
-    };
-    setInterval(function () {
-      myChart.setOption({
-        series: [
-          {
-            data: [
-              {
-                value: 25
-              }
-            ]
-          }
-        ]
-      });
-    }, 2000);
-    option && myChart.setOption(option);
-
-
-
-
-
-  }
-}
+    }
 
 </script>
