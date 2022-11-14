@@ -27,6 +27,7 @@
                 },
                 memory: null,
                 system: null,
+                rate: 2000
             }
         },
         methods: {
@@ -44,11 +45,12 @@
             setTimeout(() => {
                 this.systemRefresh();
             }, 300);
+            // 轮询
             this.timer = window.setInterval(() => {
                 setTimeout(() => {
                     this.systemRefresh();
                 }, 0)
-            }, 3000)
+            }, this.rate)
         }
     }
 </script>
