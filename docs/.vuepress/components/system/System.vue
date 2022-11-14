@@ -27,7 +27,8 @@
                 },
                 memory: null,
                 system: null,
-                rate: 2000
+                rate: 3000,
+                timer: null,
             }
         },
         methods: {
@@ -50,7 +51,14 @@
                 setTimeout(() => {
                     this.systemRefresh();
                 }, 0)
-            }, this.rate)
-        }
+            }, this.rate);
+        },
+        // 卸载
+        beforeUnmount() {
+            clearInterval(this.timer);
+        },
+        destroyed() {
+            clearInterval(this.timer);
+        },
     }
 </script>
