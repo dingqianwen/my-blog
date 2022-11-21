@@ -13,6 +13,10 @@ module.exports = {
                     link: '/backend/python/',
                 },
                 {
+                    text: 'PHP',
+                    link: '/backend/php/',
+                },
+                {
                     text: 'HBase',
                     link: '/backend/hbase/',
                 },

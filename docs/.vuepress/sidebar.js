@@ -45,6 +45,12 @@ module.exports = {
                 children: read("../backend/python", {ignoreReadmeMd: true}),
             },
             {
+                text: 'PHP',
+                // link: '/backend/php/',
+                collapsible: true,
+                children: read("../backend/php", {ignoreReadmeMd: true}),
+            },
+            {
                 text: 'HBase',
                 // link: '/backend/hbase/',
                 collapsible: true,
