@@ -90,6 +90,6 @@ function decrypt($data, $privateKey): string
 
 ### 小工具
 
-在线RSA加解密工具：[RSA](/tools/RSA.html)
+在线RSA加解密工具：[RSA](/blog/tools/RSA.html)
 
 <Comment></Comment>
