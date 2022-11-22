@@ -195,6 +195,47 @@ if __name__ == '__main__':
 明文：我一个人吃饭 旅行  到处走走停停  也一个人看书 写信  自己对话谈心  只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里只是心又飘到了哪里  就连自己看也看不清
 ```
 
+### 加签验签  
+
+
+给数据加上签名，来检查数据在传输过程中是否被恶意篡改。
+
+
+```python
+import base64
+from Crypto.Signature import PKCS1_v1_5 as Sign_PKC
+from Crypto.Hash import SHA256
+from Crypto.PublicKey import RSA
+from Crypto.PublicKey.RSA import RsaKey
+
+
+def format_key(key):
+    if not isinstance(key, RsaKey):
+        # ValueError: RSA key format is not supported
+        if not key.startswith('-----') and not key.endswith('-----'):
+            key = '-----BEGIN KEY-----\n%s\n-----END KEY-----' % key
+        key = RSA.importKey(key)
+    return key
+
+
+# 加签
+def signature(private_key, encrypt_data):
+    private_key = format_key(private_key)
+    sha_data = SHA256.new(encrypt_data.encode("utf-8"))
+    sign = Sign_PKC.new(private_key).sign(sha_data)
+    sign_base64 = base64.b64encode(sign)
+    return sign_base64.decode()
+
+
+# 验签
+def verify(public_key, encrypt_data, sign):
+    public_key = format_key(public_key)
+    sign_data = base64.b64decode(sign.encode("utf-8"))
+    cipher_rsa = Sign_PKC.new(public_key)
+    return cipher_rsa.verify(SHA256.new(encrypt_data.encode("utf-8")), sign_data)
+
+```
+
 ### 小工具
 
 在线RSA加解密工具：[RSA](/tools/RSA.html)
