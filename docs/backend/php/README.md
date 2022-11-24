@@ -11,6 +11,8 @@ type: cds
 [dir.start]: <>
 
 - [PHP实现RSA加解密](PHP实现RSA加解密.md)  
+- [获取请求头](PHP获取请求头.md)  
+- [PHP获取请求的JSON数据](PHP获取请求的JSON数据.md)  
 - [自定义打印日志](自定义打印日志.md)  
 
 [dir.end]: <>

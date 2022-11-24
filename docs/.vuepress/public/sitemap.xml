@@ -242,6 +242,16 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/php/PHP获取请求头.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://dingqw.com/blog/backend/php/PHP获取请求的JSON数据.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/php/自定义打印日志.html</loc>
         <priority>1.00</priority>
     </url>

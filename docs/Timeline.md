@@ -163,9 +163,21 @@ head:
          ],
          "21": [
             {
+               "title": "获取请求头",
+               "path": "/backend/php/PHP获取请求头.md",
+               "createTime": "2022-11-21T14:41:06.979Z"
+            },
+            {
                "title": "自定义打印日志",
                "path": "/backend/php/自定义打印日志.md",
                "createTime": "2022-11-21T14:38:20.719Z"
+            }
+         ],
+         "24": [
+            {
+               "title": "PHP获取请求的JSON数据",
+               "path": "/backend/php/PHP获取请求的JSON数据.md",
+               "createTime": "2022-11-24T09:06:16.922Z"
             }
          ],
          "04": [
