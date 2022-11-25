@@ -10,6 +10,7 @@ https://dingqw.com/blog/backend/java/AopContextCurrentProxyCannotFindCurrentProx
 https://dingqw.com/blog/backend/java/CompletableFuture%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95.html
 https://dingqw.com/blog/backend/java/CountDownLatch.html
 https://dingqw.com/blog/backend/java/Feign@SpringQueryMap%E6%B3%A8%E8%A7%A3.html
+https://dingqw.com/blog/backend/java/FeignClient%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE.html
 https://dingqw.com/blog/backend/java/GroupIndexIsMissing.html
 https://dingqw.com/blog/backend/java/JacksonArgumentContentIsNull.html
 https://dingqw.com/blog/backend/java/JdbcTemplate%E8%B0%83%E7%94%A8%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B.html

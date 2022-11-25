@@ -14,6 +14,7 @@ type: cds
 - [CompletableFuture常见用法](CompletableFuture常见用法.md)  
 - [线程工具CountDownLatch](CountDownLatch.md)  
 - [Feign @SpringQueryMap注解](Feign@SpringQueryMap注解.md)  
+- [FeignClient请求超时时间设置](FeignClient请求超时时间设置.md)  
 - [Illegal group reference: group index is missing](GroupIndexIsMissing.md)  
 - [ReadValue IllegalArgumentException: argument "content" is null](JacksonArgumentContentIsNull.md)  
 - [JdbcTemplate调用存储过程](JdbcTemplate调用存储过程.md)  
