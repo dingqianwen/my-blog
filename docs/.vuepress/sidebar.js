@@ -133,6 +133,13 @@ module.exports = {
                 children: read("../diary", {ignoreReadmeMd: true}),
             }
         ],
+        "/ci/": [
+            {
+                text: '面试题',
+                link: '/ci/',
+                children: read("../ci", {ignoreReadmeMd: true}),
+            }
+        ],
         "/tools/": [
             {
                 text: '工具箱',

@@ -108,18 +108,21 @@ function generateDirectory() {
 }
 
 function generateTimeline(file) {
-    let map = {}
-    let obj = Array.from(pageData).map(m => ({
+    let map = {};
+    let obj = Array.from(pageData).filter(f => {
+        // 排除掉ci目录
+        return !f.dir.toString().endsWith('/ci');
+    }).map(m => ({
         title: m.title,
         path: m.path,
         createTime: m.createTime
-    }))
+    }));
     for (let i = 0; i < obj.length; i++) {
         const to = obj[i];
         let fullYear = to.createTime.getFullYear();
         let mh = ("0" + (to.createTime.getMonth() + 1)).slice(-2);
         let dy = ("0" + to.createTime.getDate()).slice(-2);
-        let day = [to]
+        let day = [to];
         let days = {};
         days[dy] = day;
         let month = {};
@@ -158,6 +161,10 @@ function generateSitemap(sitemapTxtPath, sitemapXmlPath, sitemapBaseURL) {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`
     for (let pd of pageData) {
+        // /ci
+        if(pd.dir.toString().endsWith('/ci')){
+            continue;
+        }
         // encodeURI(pageUrl)
         let pageUrl = sitemapBaseURL + (pd.path.replace(".md", ".html"));
         sitemapTxt += encodeURI(pageUrl) + "\n";
@@ -182,7 +189,7 @@ function generateSitemap(sitemapTxtPath, sitemapXmlPath, sitemapBaseURL) {
 }
 
 function processPage() {
-    listDirectory(rootDir, writePageData)
+    listDirectory(rootDir, writePageData);
     // 生成文件目录
     generateDirectory();
     // 生成时间线
@@ -195,4 +202,4 @@ function processPage() {
 
 module.exports = {
     processPage
-}
+};
