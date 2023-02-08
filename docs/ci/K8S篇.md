@@ -14,10 +14,10 @@ node节点包含的组件有：kubelet、kube-proxy、container-runtime。
 
 ## kubelet的功能、作用是什么？
 
-1、节点管理。
-2、pod管理。
-3、容器健康检查
-4、Metrics Server资源监控。
+1、节点管理。  
+2、pod管理。  
+3、容器健康检查  
+4、Metrics Server资源监控。  
 
 ## k8s中命名空间的作用是什么？
 
