@@ -68,7 +68,6 @@ module.exports = {
             ],
         },
         {text: '笔记', link: '/diary/'},
-        {text: '面试题', link: '/ci/'},
         {text: '音乐台', link: '/music/'},
         {
             text: '其他',
