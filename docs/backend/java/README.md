@@ -36,6 +36,7 @@ type: cds
 - [Java架构师成长之路-代码优化方案](架构师成长之路.md)  
 - [根据集合中指定的对象属性去重复](根据集合对象中指定的属性去重复.md)  
 - [用Java检查SQL语法是否有误](用Java检查SQL语法是否有误.md)  
+- [终端命令执行工具](终端命令执行工具.md)  
 - [解决FeignClient被FallBack后无错误日志打印问题](解决FeignClient被FallBack后无错误日志打印问题.md)  
 - [记录一次生产OutOfMemoryError](记录一次生产OutOfMemoryError.md)  
 - [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  

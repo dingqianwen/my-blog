@@ -172,6 +172,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/java/终端命令执行工具.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/java/解决FeignClient被FallBack后无错误日志打印问题.html</loc>
         <priority>1.00</priority>
     </url>
