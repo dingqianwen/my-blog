@@ -137,6 +137,11 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/java/两种好用的动态编译加载Java文件工具.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/java/使用JProfiler排查内存溢出问题.html</loc>
         <priority>1.00</priority>
     </url>
@@ -188,6 +193,11 @@
 
     <url>
         <loc>https://dingqw.com/blog/backend/java/通过JdbcTemplate批量更新.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://dingqw.com/blog/backend/java/阿里OSS连接池无连接可用问题.html</loc>
         <priority>1.00</priority>
     </url>
 

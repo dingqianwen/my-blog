@@ -29,6 +29,7 @@ type: cds
 - [表单校验工具，手动校验类中注解](ValidationUtils.md)  
 - [fasterxml日期反序列化](fasterxml日期反序列化.md)  
 - [java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序 进行输出,区分大小写，且大写优先?](java输入一个字符串,要求将该字符串中出现的英文字母,按照顺序进行输出,区分大小写,且大写优先.md)  
+- [两种好用的动态编译加载Java文件工具](两种好用的动态编译加载Java文件工具.md)  
 - [使用JProfiler排查内存溢出问题](使用JProfiler排查内存溢出问题.md)  
 - [几行代码带你解读MyBatis框架的Mapper代理模式](几行代码带你解读MyBatis框架的Mapper代理模式.md)  
 - [发现了以元素process开头的无效内容](发现了以元素process开头的无效内容.md)  
@@ -40,6 +41,7 @@ type: cds
 - [解决FeignClient被FallBack后无错误日志打印问题](解决FeignClient被FallBack后无错误日志打印问题.md)  
 - [记录一次生产OutOfMemoryError](记录一次生产OutOfMemoryError.md)  
 - [通过JdbcTemplate批量更新](通过JdbcTemplate批量更新.md)  
+- [阿里OSS连接池无连接可用问题](阿里OSS连接池无连接可用问题.md)  
 - [集合拆分批量数据处理](集合拆分批量数据处理.md)  
 
 [dir.end]: <>
