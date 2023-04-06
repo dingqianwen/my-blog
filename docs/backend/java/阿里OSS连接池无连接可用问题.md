@@ -3,13 +3,13 @@
 
 ## 问题
 
-现状是掉用`ossClient.getObject()`时线程阻塞，切无法释放，经过代码排查后，
+现状是调用`ossClient.getObject()`时线程阻塞，且无法释放，经过代码排查后，
 发现阿里OSS默认从连接管理器检索可用连接的超时时间为-1（不限制），则一直等待，最终需要服务重启。
 
 
 ## 解决过程
 
-本地模拟，首先设置最大连接数为3，连接管理器检索可用连接的超时时间改为10秒后则会出现以下情况，多个线程掉用第4次`ossClient.getObject()`
+本地模拟，首先设置最大连接数为3，连接管理器检索可用连接的超时时间改为10秒后则会出现以下情况，多个线程调用第4次`ossClient.getObject()`
 10秒后出现以下异常
 
 ```text
@@ -36,7 +36,7 @@ Caused by: java.util.concurrent.TimeoutException
 	... 10 more
 ```
 
-通过次过程分析到，应该是没有连接可用了，为啥没有连接呢，难道用完没有回收吗，通过debug后发现以下内容
+通过这次过程分析到，应该是没有连接可用了，为啥没有连接呢，难道用完没有回收吗，通过debug后发现以下内容
 
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/企业微信截图_16807770951204.png" alt="none" style="width: 70%;height: 70%;border-radius: 6px;">
 
@@ -51,3 +51,5 @@ Caused by: java.util.concurrent.TimeoutException
 
 通过以上排查流程，最后明显定位到OSS用完后，没有操作`OSSObject.close();`，或者返回的数据没有`InputStream.close();`导致。
 最后通过在数据使用完毕后，手动`InputStream.close();`，问题得以解决。
+
+我们遇到的问题是因为有部分业务异常导致没有正常的`close`，如果出现过多次没有`close`的情况，导致最终没有连接卡死情况，最后需要重启服务器。
