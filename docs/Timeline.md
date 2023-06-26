@@ -758,6 +758,13 @@ head:
                "path": "/tools/Unicode.md",
                "createTime": "2023-06-22T00:01:34.436Z"
             }
+         ],
+         "26": [
+            {
+               "title": "二维码/条形码",
+               "path": "/tools/BarCodeAndQrCode.md",
+               "createTime": "2023-06-26T02:34:30.828Z"
+            }
          ]
       }
    }
