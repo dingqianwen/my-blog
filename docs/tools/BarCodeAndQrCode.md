@@ -18,6 +18,7 @@ head:
 <label style="display: flex;">
    <textarea class="text-textarea" placeholder="请输入二维码/条形码数据！" ref="text" v-model="text"></textarea>
 </label>
+<br v-if="autoHeight === undefined">
 <label style="width: 100%;text-align: center;display: block">
    <canvas id="code" :style="{height: autoHeight}"></canvas>
 </label>
