@@ -74,10 +74,10 @@ export default {
         },
         reset() {
             this.text = "";
-            this.autoHeight = 0;
             this.resetCode();
         },
         resetCode() {
+            this.autoHeight = 0;
             const code = document.getElementById("code");
             code.width = code.width.toString();
         }
