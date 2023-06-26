@@ -18,11 +18,11 @@ head:
 <label style="display: flex;">
    <textarea class="text-textarea" placeholder="请输入二维码/条形码数据！" ref="text" v-model="text"></textarea>
 </label>
-<br v-if="autoHeight === undefined">
+<br v-if="autoView">
 <label style="width: 100%;text-align: center;display: block">
-   <canvas id="code" :style="{height: autoHeight}"></canvas>
+   <canvas id="code" v-show="autoView === true"></canvas>
 </label>
-<br>
+<br><br>
 <div>
     <M-Button @click="generateBarCode()" text="条形码" type="primary"></M-Button>
     &nbsp;&nbsp; 
@@ -38,7 +38,7 @@ export default {
   data(){
     return {
         text: null,
-        autoHeight: 0
+        autoView: false
     };
   },
   methods: {
@@ -50,7 +50,7 @@ export default {
                 element: document.getElementById('code'),
                 value: this.text
             });
-            this.autoHeight = undefined;
+            this.autoView = true;
         },
         generateBarCode() {
             try {
@@ -64,9 +64,10 @@ export default {
                 let barcode = JsBarcode("#code", this.text, {
                                 displayValue: false,
                                 background : "#ffffff",
-                                lineColor : "#000000"
+                                lineColor : "#000000",
+                                margin : 0
                               });
-                 this.autoHeight = undefined;
+                 this.autoView = true;
             } catch (e) {
                  this.resetCode();
                  $warning("条形码不支持中文以及特殊字符！");
@@ -78,7 +79,7 @@ export default {
             this.resetCode();
         },
         resetCode() {
-            this.autoHeight = 0;
+            this.autoView = false;
             const code = document.getElementById("code");
             code.width = code.width.toString();
         }
