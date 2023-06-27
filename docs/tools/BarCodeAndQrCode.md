@@ -7,7 +7,7 @@ head:
 
 - [meta, {name: keywords, content: '生成二维码/条形码, 在线生成二维码/条形码'}]
 - [script, {src: '/js/JsBarcode.js'}]
-- [script, {src: '/js/qrious.js'}]
+- [script, {src: '/js/arale-qrcode.js'}]
 
 ---
 
@@ -18,9 +18,9 @@ head:
 <label style="display: flex;">
    <textarea class="text-textarea" placeholder="请输入二维码/条形码数据！" ref="text" v-model="text"></textarea>
 </label>
-<br v-if="autoView">
+<br v-show="autoView">
 <label style="width: 100%;text-align: center;display: block">
-   <canvas id="code" v-show="autoView === true"></canvas>
+    <svg id="code" v-show="autoView"></svg>
 </label>
 <br><br>
 <div>
@@ -46,10 +46,17 @@ export default {
             if(!this.text){
                 return;
             }
-            const qr = new QRious({
-                element: document.getElementById('code'),
-                value: this.text
-            });
+            const createQrCode = function (text) {
+                const codeFigure = new AraleQRCode({
+                                    "element" : "code",
+                                    "render": "svg",
+                                    "text": text,
+                                    "size": 100,
+                                    "background":"var(--c-bg)",
+                                    "foreground": "var(--c-text)"
+                                });
+            };
+            createQrCode(this.text);
             this.autoView = true;
         },
         generateBarCode() {
@@ -63,8 +70,8 @@ export default {
                 }
                 let barcode = JsBarcode("#code", this.text, {
                                 displayValue: false,
-                                background : "#ffffff",
-                                lineColor : "#000000",
+                                background : "var(--c-bg)",
+                                lineColor : "var(--c-text)",
                                 margin : 0
                               });
                  this.autoView = true;
@@ -122,4 +129,7 @@ export default {
 
 
 [comment]: <> (https://blog.csdn.net/qq_17627195/article/details/127287540)
+
 [comment]: <> (https://github.com/neocotic/qrious)
+
+[comment]: <> (https://gitcode.net/mirrors/aralejs/qrcode?utm_source=csdn_github_accelerator)
