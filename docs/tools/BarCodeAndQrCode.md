@@ -64,15 +64,16 @@ export default {
                 if(!this.text){
                     return;
                 }
-                if(this.text.length > 26){
-                    $warning("条形码最大长度不支持超过26字符！");
+                if(this.text.length > 20){
+                    $warning("条形码最大长度不支持超过20字符！");
                     return;
                 }
                 let barcode = JsBarcode("#code", this.text, {
                                 displayValue: false,
                                 background : "var(--c-bg)",
                                 lineColor : "var(--c-text)",
-                                margin : 0
+                                margin : 0,
+                                width: 1.2
                               });
                  this.autoView = true;
             } catch (e) {
