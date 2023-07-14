@@ -22,7 +22,7 @@ this.AraleQRCode = function (t) {
         return (window.devicePixelRatio || 1) / e
     }, a = function (t) {
         "string" == typeof t && (t = {text: t}), this.options = o({}, {
-            element:"",
+            element: "",
             text: "",
             render: "",
             size: 256,
@@ -52,7 +52,8 @@ this.AraleQRCode = function (t) {
     };
     o(a.prototype, {
         createCanvas: function (t) {
-            var e = this.options, r = document.getElementById(e.element), o = r.getContext("2d"), i = t.getModuleCount(),
+            var e = this.options, r = document.getElementById(e.element), o = r.getContext("2d"),
+                i = t.getModuleCount(),
                 n = u(o), a = e.size, l = a * n, h = e.imageSize * n, g = function (t, e) {
                     var r = new Image;
                     r.src = t, r.onload = function () {
@@ -92,7 +93,9 @@ this.AraleQRCode = function (t) {
         }, createSVG: function (t) {
             var e = this.options, r = t.getModuleCount(), o = r / e.size,
                 i = document.getElementById(e.element)
-            i.setAttribute("width", e.size), i.setAttribute("height", e.size), i.setAttribute("viewBox", "0 0 " + r + " " + r);
+            i.setAttribute("width", e.size)
+            i.setAttribute("height", e.size)
+            i.setAttribute("viewBox", "0 0 " + r + " " + r);
             for (var n = 0; r > n; n++) for (var u = 0; r > u; u++) {
                 var a = document.createElementNS("http://www.w3.org/2000/svg", "rect"),
                     l = s({row: n, col: u, count: r, options: e});

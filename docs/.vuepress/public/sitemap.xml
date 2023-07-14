@@ -32,6 +32,16 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/flink/Flink-MySQL-CDC同步数据.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://dingqw.com/blog/backend/flink/安装Flink环境.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/hbase/CentOS安装HBase.html</loc>
         <priority>1.00</priority>
     </url>
