@@ -23,6 +23,35 @@ head:
 CDC 即 Change Data Capture
 变更数据捕获，为Flink 1.11中一个新增功能。我们可以通过 CDC 得知数据源表的更新内容（包含Insert、Update和Delete），并将这些更新内容作为数据流发送到下游系统。捕获到的数据操作具有一个标识符，分别对应数据的增加，修改和删除。
 
+## 常见开源CDC比较
+
+||Flink CDC|Debezium|Canal|  
+|-|-|-|-|  
+|增量同步|V|V|V|
+|断点续传|V|V|V|
+|全量同步|V|V|X|
+|全量+增量|V|V|X|
+|架构|分布式|单机|单机|
+|生态|🌟🌟🌟🌟🌟|🌟🌟🌟|🌟🌟🌟|
+
+## Flink CDC 版本介绍
+
+### Flink CDC 1.x  
+
+- 全量 + 增量读取的过程需要保证所有数据的一致性，因此需要通过加锁保证，但是加锁在数据库层面上是一个十分高危的操作。底层 `Debezium` 在保证数据一致性时，需要对读取的库或表加锁，全局锁可能导致数据库锁住，表级锁会锁住表的读，DBA 一般不给锁权限。
+- 不支持水平扩展，因为 Flink CDC 底层是基于 `Debezium`，起架构是单节点，所以Flink CDC 只支持单并发。在全量阶段读取阶段，如果表非常大 (亿级别)，读取时间在小时甚至天级别，用户不能通过增加资源去提升作业速度。
+- 全量读取阶段不支持 checkpoint：CDC 读取分为两个阶段，全量读取和增量读取，目前全量读取阶段是不支持 checkpoint 的，因此会存在一个问题：当我们同步全量数据时，假设需要 5 个小时，当我们同步了 4 小时的时候作业失败，这时候就需要重新开始，再读取 5 个小时。
+
+###  Flink CDC 2.x
+
+- 无锁
+- 水平扩展
+- 支持checkpoint
+
+借鉴`Netflix`的DBlog paper 全程无锁  
+基于`Flink Flip-27` Source实现
+
+
 ## 简单用法
 
 本文描述监听MySQL某个表数据变动后，处理对应的逻辑，然后落入到新表等，首先引入以下依赖
@@ -74,7 +103,7 @@ CDC 即 Change Data Capture
 </dependencies>
 ```
 
-编写如下代码，配置数据源以及监听的表。
+模拟编写如下代码，配置数据源以及监听的表。
 
 ```java
 package org.example.flink;
@@ -139,61 +168,6 @@ public class MySqlSourceExample {
 ```
 
 项目打`jar`后提交到Flink即可运行。
-
-## 窗口函数
-
-先聚合一个批次，再写入数据库，减轻数据库的压力，`countWindowAll(10)`表示当数据汇总到10个，执行一次。
-
-```java
-env.fromSource(**)
-.map(new MapFunction<String, String>() {
-   ***
-})
-.countWindowAll(10)
-.apply(new AllWindowFunction<String, List<String>, GlobalWindow>() {
-    @Override
-    public void apply(GlobalWindow globalWindow, Iterable<String> iterable, Collector<List<String>> collector) throws Exception {
-        List<String> skuInfos = Lists.newArrayList(iterable);
-        if (skuInfos.size() > 0) {
-            collector.collect(skuInfos);
-        }
-    }
-})
-.addSink(new RichSinkFunction<List<String>>() {
-    @Override
-    public void invoke(List<String> value, Context context) {
-        ***
-    }
-});
-```
-
-## 启用检查点
-
-当服务停止后，期间表数据发生变动，启动程序后可以继续从上次读取的`binlog`行数继续读取。
-
-```java
-StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(conf);
-env.enableCheckpointing(5000)
-CheckpointConfig cpf = env.getCheckpointConfig();
-// 设置检查点保存路径,可以配置为hdfs地址等
-cpf.setCheckpointStorage("file:///Users/dingqianwen/point/");
-```
-
-当程序运行的时候，通过配置的`env.enableCheckpointing(5000)`每5秒向该目录存储最新的检查点。路径格式如下：
-
-```text
-/Users/dingqianwen/point/1a4f32e1d98a81882f72ede7d3ccaf60/chk-34
-```
-
-当程序重新启动的时候，可以拿到最新的保存点去恢复任务继续执行，代码设置如下：
-
-```java
-Configuration conf = new Configuration();
-conf.setString("execution.savepoint.path", "file:///Users/dingqianwen/point/1a4f32e1d98a81882f72ede7d3ccaf60/chk-34");
-StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(conf);
-```
-
-通过Flink提供的可视化页面在提交任务执行的时候也可以输入从某保存点继续任务。
 
 
 <Comment></Comment>

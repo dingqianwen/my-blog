@@ -46,17 +46,14 @@ export default {
             if(!this.text){
                 return;
             }
-            const createQrCode = function (text) {
-                const codeFigure = new AraleQRCode({
-                                    "element" : "code",
-                                    "render": "svg",
-                                    "text": text,
-                                    "size": 100,
-                                    "background":"var(--c-bg)",
-                                    "foreground": "var(--c-text)"
-                                });
-            };
-            createQrCode(this.text);
+            new AraleQRCode({
+                "element" : "code",
+                "render": "svg",
+                "text": this.text,
+                "size": 100,
+                "background":"var(--c-bg)",
+                "foreground": "var(--c-text)"
+            });
             this.autoView = true;
         },
         generateBarCode() {

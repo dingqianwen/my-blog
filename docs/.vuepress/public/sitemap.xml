@@ -32,7 +32,22 @@
     </url>
 
     <url>
+        <loc>https://dingqw.com/blog/backend/flink/Flink StartupOptions.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://dingqw.com/blog/backend/flink/Flink-MySQL-CDC同步数据.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://dingqw.com/blog/backend/flink/Flink启用检查点-断点续传.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://dingqw.com/blog/backend/flink/Flink窗口函数.html</loc>
         <priority>1.00</priority>
     </url>
 
