@@ -10,8 +10,8 @@ type: cds
 
 [dir.start]: <>
 
-- [Flink StartupOptions](Flink StartupOptions.md)  
 - [Flink-MySQL-CDC同步表数据](Flink-MySQL-CDC同步数据.md)  
+- [Flink StartupOptions](Flink-StartupOptions.md)  
 - [Flink启用检查点-断点续传](Flink启用检查点-断点续传.md)  
 - [Flink窗口函数](Flink窗口函数.md)  
 - [安装Flink环境](安装Flink环境.md)  
