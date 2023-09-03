@@ -57,6 +57,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/flink/实时交易规则.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/hbase/CentOS安装HBase.html</loc>
         <priority>1.00</priority>
     </url>
