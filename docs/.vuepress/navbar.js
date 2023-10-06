@@ -13,6 +13,10 @@ module.exports = {
                     link: '/backend/python/',
                 },
                 {
+                    text: 'Flink',
+                    link: '/backend/flink/',
+                },
+                {
                     text: 'PHP',
                     link: '/backend/php/',
                 },

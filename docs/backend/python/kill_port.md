@@ -46,7 +46,7 @@ else:
         r = os.popen("lsof -i tcp:" + port)
         text = r.read()
         array = text.split("\n")
-        print("进程个数为：", len(array) - 2)
+        print("进程个数为：", 0 if len(array) - 2 <= -1 else len(array) - 2)
         if len(array) > 1:
             print("当前进程信息：")
             for arr in array:
@@ -59,6 +59,28 @@ else:
                 pid = ar[1]
                 if pid != 'PID':
                     os.system("kill -9 " + pid)
+                    print('已关闭：', pid)
+        r.close()
+    elif sys == 'Windows':
+        r = os.popen("netstat -ano | findstr :" + port)
+        text = r.read()
+        array = text.split("\n")
+        print("进程个数为：", len(array) - 1)
+        if len(array) > 1:
+            print("当前进程信息：")
+            for arr in array:
+                if len(arr) > 1:
+                    print(arr)
+            try:
+                input("输入回车键确认执行，取消请输入Ctrl+C！")
+            except KeyboardInterrupt:
+                raise SystemExit
+        for arr in array:
+            ar = ' '.join(arr.split()).split(" ")
+            if len(ar) > 1:
+                pid = ar[len(ar) - 1]
+                if pid:
+                    os.system("taskkill /PID " + pid)
                     print('已关闭：', pid)
         r.close()
     else:
@@ -83,10 +105,13 @@ pyinstaller --onefile --nowindowed kill_port.py
 ./kill_port 8080
 ```
 
-[点我](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py) 下载此文件，或者通过以下命令下载
+[下载kill_port.py](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py)   
+[下载kill_port](https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port) 
 
 ```shell
 wget https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port.py
+# 编译后，可直接执行版本
+wget https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/tool/kill_port
 ```
 
 <AdsbyGoogle slot="7889564278" layout="in-article"/>

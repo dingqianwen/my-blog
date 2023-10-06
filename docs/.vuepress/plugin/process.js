@@ -5,7 +5,7 @@ const timelineFilePath = "./docs/Timeline.md";
 const pageData = [];
 const sitemapTxtPath = "./docs/.vuepress/public/sitemap.txt";
 const sitemapXmlPath = "./docs/.vuepress/public/sitemap.xml";
-const sitemapBaseURL = "https://dingqw.com/blog";
+const sitemapBaseURL = "https://apidocs.cn/blog";
 
 function Content(title, path, dir, fileName, createTime) {
     this.title = title
