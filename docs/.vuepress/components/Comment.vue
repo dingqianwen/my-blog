@@ -31,7 +31,7 @@ export default {
       language: 'zh-CN',
       pagerDirection: "last",
       // @default "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"
-      proxy: 'https://dingqw.com/bs/get_access_token'
+      proxy: 'https://apidocs.cn/bs/get_access_token'
     }
     const gitalk = new Gitalk(commentConfig);
     gitalk.render('gitalk-container');

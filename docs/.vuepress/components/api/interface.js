@@ -4,7 +4,7 @@ import {request} from "./config";
 export const getSongDetail = id => request.get(`https://api.paugram.com/netease?id=${id}`)
 
 
-let BASE_API_URL = "https://apidocs.cn/bs";
+let BASE_API_URL = "http://30e24871v6.yicp.fun:9000/bs";
 // let BASE_API_URL = "http://localhost:8011/bs";
 
 export const pvIncr = (id, call) => {

@@ -24,33 +24,33 @@ module.exports = {
         ['meta', {name: 'theme-color', content: '#3eaf7c'}],
         ['link', {
             rel: 'icon',
-            href: "/logo.png"
+            href: "/blog/logo.png"
         }],
         [
             "script",
             {
-                "src": "/js/before.js",
+                "src": "/blog/js/before.js",
             },
             ``
         ],
         [
             "script",
             {
-                "src": "/js/jquery.min.js",
+                "src": "/blog/js/jquery.min.js",
             },
             ``
         ],
         [
             "script",
             {
-                "src": "/js/MiniDialog-es5.min.js",
+                "src": "/blog/js/MiniDialog-es5.min.js",
             },
             ``
         ],
         [
             "script",
             {
-                "src": "/js/modal_dialog.js",
+                "src": "/blog/js/modal_dialog.js",
             },
             ``
         ],
