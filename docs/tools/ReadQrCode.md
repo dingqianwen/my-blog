@@ -71,6 +71,9 @@ export default {
             this.fileName = file.name;
             this.fileData = this.$refs.file?.files[0];
         }
+        this.convertSetImageData(file)
+    },
+    convertSetImageData(file){
         const reader = new FileReader();
         reader.onloadend = (e) => {
             const img = new Image();
@@ -168,6 +171,7 @@ export default {
             let file = files[0];
             this.fileName = file.name;
             this.fileData = file;
+            this.convertSetImageData(file)
         }, false);
   },
 }
