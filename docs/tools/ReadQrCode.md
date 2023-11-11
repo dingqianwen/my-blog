@@ -23,7 +23,7 @@ head:
   <div class="file-box">
     <label for="fileName"></label>
     <input type="text" id="fileName" class="fileName" v-model="fileName" readonly @click="selectFile"/>
-    <input type="file" accept="image/*" class="uploadFile" ref="file" @change="fileChange" />
+    <input type="file" accept=".png,.jpeg,.jpg" class="uploadFile" ref="file" @change="fileChange" />
     <M-Button style="cursor:pointer;" @click="selectFile" class="link" text="浏览" type="primary"></M-Button>
   </div>
 </div>
