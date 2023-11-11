@@ -15,7 +15,7 @@ head:
 <br>
 <br>
 <label style="display: flex;">
-   <textarea class="transfer-textarea" placeholder="二维码识别数据！" ref="value" v-model="value"></textarea>
+   <textarea class="transfer-textarea" readonly placeholder="二维码识别数据！" ref="value" v-model="value"></textarea>
 </label>
 <br>
 
