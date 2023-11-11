@@ -76,8 +76,8 @@ export default {
             return;
         }
         this.decryptBtnLoading = true;
-        let key = CryptoJS.enc.Utf8.parse(this.secretKey.padStart(32, '0'));
-        let iv = CryptoJS.enc.Utf8.parse(this.iv.padStart(16, '0'));
+        let key = CryptoJS.enc.Utf8.parse(this.secretKey);
+        let iv = CryptoJS.enc.Utf8.parse(this.iv);
       
         let base64 = CryptoJS.enc.Base64.parse(this.ciphertext);
         let src = CryptoJS.enc.Base64.stringify(base64);
@@ -103,9 +103,6 @@ export default {
             $warning("密钥过长，不可超过32位！");
             return false;
         }
-        if(this.secretKey.length < 32) {
-            this.secretKey = this.secretKey.padStart(32, '0');
-        }
         if(this.iv.length > 16) {
             $warning("IV偏移量过长，不可超过16位！");
             return false;
@@ -124,8 +121,8 @@ export default {
             return;
         }
         this.encryptBtnLoading = true;
-        let key = CryptoJS.enc.Utf8.parse(this.secretKey.padStart(32, '0'));
-        let iv = CryptoJS.enc.Utf8.parse(this.iv.padStart(16, '0'));
+        let key = CryptoJS.enc.Utf8.parse(this.secretKey);
+        let iv = CryptoJS.enc.Utf8.parse(this.iv);
         let srcs = CryptoJS.enc.Utf8.parse(this.plaintext);
         const encrypted = CryptoJS.AES.encrypt(srcs, key, {
           iv: iv,
