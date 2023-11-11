@@ -28,15 +28,19 @@ head:
   </div>
 </div>
 <br>
+<div>
+    <img class="img" v-if="imageData" :src="imageData" ref="img" style="width: 50%;height: 50%;max-width: 400px;max-height: 400px" alt="">
+</div>
 <br>
 <div>
-    <M-Button @click="parse()" class="transfer-parse" text="解析" type="primary"></M-Button>
+    <M-Button @click="parse()" class="transfer-parse" :isLoading="loading" text="解析" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
 </div>
 <span class="copy" @click="copy()"></span>
 <br>
 
+{{test}}
 > 识别过程以及数据系统不做任何记录；
 
 <script>
@@ -51,7 +55,9 @@ export default {
         value: "",
         fileName: "未选择任何图片",
         uid: "",
-        fileData: null
+        fileData: null,
+        loading: false,
+        imageData: ""
     };
   },
   methods: {
@@ -64,30 +70,59 @@ export default {
             this.fileName = file.name;
             this.fileData = this.$refs.file?.files[0];
         }
+        const reader = new FileReader();
+        reader.onloadend = (e) => {
+            const img = new Image();
+            img.src = e.target.result;
+            img.onload = ()=> {
+              const maxWidth = 500;
+              const maxHeight = 500;
+              let width = img.width;
+              let height = img.height;
+            
+              if (width > maxWidth || height > maxHeight) {
+                const ratio = Math.min(maxWidth / width, maxHeight / height);
+                width *= ratio;
+                height *= ratio;
+              }
+            
+              const canvas = document.createElement('canvas');
+              const ctx = canvas.getContext('2d');
+              canvas.width = width;
+              canvas.height = height;
+              ctx.drawImage(img, 0, 0, width, height);
+              this.imageData = canvas.toDataURL('image/jpeg', 0.8);
+            };
+        };
+        reader.readAsDataURL(file);
     },
     parse() {
-        const file = this.fileData;
+        const file = this.imageData;
         if (!file) {
             $warning("无待识别文件信息！");
             return;
         }
-        this.fileName = file.name;
-        this.getQrUrl(file).then((res) => {
-            if (!res) {
+        this.loading = true;
+        setTimeout(() => {
+            this.getQrUrl(file).then((res) => {
+                if (!res) {
+                    $warning("识别失败，请检查图片是否模糊、正确！");
+                    this.value = "";
+                    return;
+                }
+                this.value = res.data;
+                $('.copy').click();
+            }).catch((err) => {
                 $warning("识别失败，请检查图片是否正确！");
                 this.value = "";
-                return;
-            }
-            this.value = res.data;
-            $('.copy').click();
-        }).catch((err) => {
-            $warning("识别失败，请检查图片是否正确！");
-        });
+            }).finally(() => {
+                this.loading = false;
+            });
+        }, 200);
     },
     getQrUrl(file) {
-        const url = window.webkitURL.createObjectURL(file) ||  window.URL.createObjectURL(file);
         const qr = new QrCode();
-        return qr.decodeFromImage(url);
+        return qr.decodeFromImage(file);
     },
     copy(){
         let clipboard = new Clipboard('.copy', {
@@ -109,6 +144,7 @@ export default {
         this.fileName = '未选择任何文件';
         this.fileData = null;
         this.$refs.file.value = '';
+        this.imageData = "";
     }
   },
   mounted() {
