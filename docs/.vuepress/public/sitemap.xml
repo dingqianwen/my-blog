@@ -572,6 +572,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/tools/ReadQrCode.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/tools/System.html</loc>
         <priority>1.00</priority>
     </url>
