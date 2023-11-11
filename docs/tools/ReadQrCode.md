@@ -28,8 +28,9 @@ head:
   </div>
 </div>
 <br>
-<div>
-    <img class="img" v-if="imageData" :src="imageData" ref="img" style="width: 50%;height: 50%;max-width: 400px;max-height: 400px" alt="">
+<div style="width: 100%;text-align: center;display: block;">
+    <img class="img" v-if="imageData" :src="imageData" ref="img" style="width: 50%;height: 50%;max-width: 400px;
+        max-height: 400px;border-radius: 6px;border: 1px dashed var(--c-border);" alt="">
 </div>
 <br>
 <div>
@@ -40,7 +41,7 @@ head:
 <span class="copy" @click="copy()"></span>
 <br>
 
-{{test}}
+> 为保障识别成功率，二维码尽量占整个图片范围30%以上；
 > 识别过程以及数据系统不做任何记录；
 
 <script>
@@ -75,8 +76,8 @@ export default {
             const img = new Image();
             img.src = e.target.result;
             img.onload = ()=> {
-              const maxWidth = 500;
-              const maxHeight = 500;
+              const maxWidth = 1000;
+              const maxHeight = 1000;
               let width = img.width;
               let height = img.height;
             
