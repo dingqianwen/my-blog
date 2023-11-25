@@ -108,7 +108,7 @@ TXD：发送数据（串行输出），RXD：接收数据（串行输入），�
 
 点击右侧`PlatformIO`的按钮，选择`Upload`，即可把程序烧录到单片机中。
 
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/gu0Vnu.png" alt="none" style="width: 60%;height: 60%;border-radius: 6px;">
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/R7gbEE.png" alt="none" style="width: 50%;height: 50%;border-radius: 6px;">
 
 ::: tip 针对烧录失败或者没有反应处理
 
