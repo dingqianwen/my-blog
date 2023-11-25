@@ -742,6 +742,13 @@ head:
                "path": "/tools/ReadQrCode.md",
                "createTime": "2023-11-11T06:47:12.343Z"
             }
+         ],
+         "25": [
+            {
+               "title": "Clion-51单片机环境搭建-MAC",
+               "path": "/backend/c/Clion-51单片机环境搭建-MAC.md",
+               "createTime": "2023-11-25T08:47:10.086Z"
+            }
          ]
       },
       "07": {

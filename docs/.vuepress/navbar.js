@@ -9,6 +9,10 @@ module.exports = {
                     link: '/backend/java/',
                 },
                 {
+                    text: 'C',
+                    link: '/backend/c/',
+                },
+                {
                     text: 'Python',
                     link: '/backend/python/',
                 },

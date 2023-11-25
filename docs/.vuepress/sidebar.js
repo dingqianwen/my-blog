@@ -45,6 +45,12 @@ module.exports = {
                 children: read("../backend/python", {ignoreReadmeMd: true}),
             },
             {
+                text: 'C',
+                // link: '/backend/c/',
+                collapsible: true,
+                children: read("../backend/c", {ignoreReadmeMd: true}),
+            },
+            {
                 text: 'Flink',
                 // link: '/backend/flink/',
                 collapsible: true,
