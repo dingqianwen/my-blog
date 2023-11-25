@@ -63,6 +63,13 @@ void Delay10ms(unsigned int c) {
 }
 ```
 
+LED连线对应关系
+
+| LED | 单片机      | 序号 | 
+|-----|----------|----|
+| +   | P0.0/AD0 | 39 |
+| -   | GND      | 20 |
+
 ## 6. 解决代码爆红以及提示问题
 
 * 项目目录中`platformio.ini`文件添加如下内容，`username`替换为你电脑用户名称。
@@ -84,8 +91,6 @@ lib_extra_dirs =
 
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/EnqG4p.png" alt="none" style="width: 50%;height: 50%;border-radius: 6px;">
 
-### 连线
-
 下载器与单片机引脚图对应关系如下
 
 | 下载器 | 单片机      | 序号 | 
@@ -106,10 +111,11 @@ TXD：发送数据（串行输出），RXD：接收数据（串行输入），�
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/gu0Vnu.png" alt="none" style="width: 60%;height: 60%;border-radius: 6px;">
 
 ::: tip 针对烧录失败或者没有反应处理
+
 * 检查单片机与下载器连接线路是否正常，注意RXD和TXD需要交叉连接。
 * 检查USB端口是否正常。
 * 烧录时可以尝试断开单片机电源后再进行烧录，烧录完成后再接上单片机电源进行测试。
-:::
+  :::
 
 <Comment></Comment>
 
