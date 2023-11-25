@@ -8,7 +8,7 @@
 
 NodeJS Version：`v16.15.0`
 
-后端服务
+后端服务(可选)
 
 ```shell
 nohup python -u mb-server.py &

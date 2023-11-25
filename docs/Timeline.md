@@ -745,6 +745,11 @@ head:
          ],
          "25": [
             {
+               "title": "51单片机-开关控制LED",
+               "path": "/backend/c/51单片机-开关控制LED.md",
+               "createTime": "2023-11-25T09:57:09.873Z"
+            },
+            {
                "title": "Clion-51单片机环境搭建-MAC",
                "path": "/backend/c/Clion-51单片机环境搭建-MAC.md",
                "createTime": "2023-11-25T08:47:10.086Z"

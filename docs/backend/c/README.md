@@ -10,6 +10,7 @@ type: cds
 
 [dir.start]: <>
 
+- [51单片机-开关控制LED](51单片机-开关控制LED.md)  
 - [Clion-51单片机环境搭建-MAC](Clion-51单片机环境搭建-MAC.md)  
 
 [dir.end]: <>
