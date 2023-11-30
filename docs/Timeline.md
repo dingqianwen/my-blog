@@ -754,6 +754,18 @@ head:
                "path": "/backend/c/Clion-51单片机环境搭建-MAC.md",
                "createTime": "2023-11-25T08:47:10.086Z"
             }
+         ],
+         "30": [
+            {
+               "title": "C语言控制台实现贪吃蛇",
+               "path": "/backend/c/C语言控制台实现贪吃蛇.md",
+               "createTime": "2023-11-30T08:09:39.886Z"
+            },
+            {
+               "title": "MicroPython-umqtt.simple-阿里物联网平台",
+               "path": "/backend/python/MicroPython-umqtt.simple.md",
+               "createTime": "2023-11-30T05:43:46.439Z"
+            }
          ]
       },
       "07": {

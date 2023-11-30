@@ -13,6 +13,7 @@ type: cds
 - [Flask上传下载文件](Flask上传下载文件.md)  
 - [Flask接口限流](Flask接口限流.md)  
 - [Flask跨域访问](Flask跨域访问.md)  
+- [MicroPython-umqtt.simple-阿里物联网平台](MicroPython-umqtt.simple.md)  
 - [ModuleNotFoundError: No module named flask](NoModuleNamedFlask.md)  
 - [Python实现RSA加解密](Python实现RSA加解密.md)  
 - [Python简单操作Redis](Python简单操作Redis.md)  

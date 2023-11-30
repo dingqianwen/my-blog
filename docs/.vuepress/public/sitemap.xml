@@ -22,6 +22,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/c/C语言控制台实现贪吃蛇.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/centos/Centos8Yum阿里源配置的问题.html</loc>
         <priority>1.00</priority>
     </url>
@@ -333,6 +338,11 @@
 
     <url>
         <loc>https://apidocs.cn/blog/backend/python/Flask跨域访问.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/backend/python/MicroPython-umqtt.simple.html</loc>
         <priority>1.00</priority>
     </url>
 
