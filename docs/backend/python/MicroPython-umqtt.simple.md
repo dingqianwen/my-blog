@@ -52,12 +52,8 @@ wifiPass = 'wifi password'
 
 
 def wifi_connect():
-    led = Pin("LED", Pin.OUT)
-    led.value(1)
     wlan = network.WLAN(network.STA_IF)  # STA模式
     wlan.active(True)  # 激活接口
-    start_time = time.time()  # 记录时间做超时判断
-
     sc = wlan.scan()  # 扫描WIFI
     # 遍历
     for i in sc:
@@ -67,9 +63,9 @@ def wifi_connect():
         print('connecting to network...')
         wlan.connect(wifiSsid, wifiPass)  # 输入WIFI账号密码
         while not wlan.isconnected():
-            if time.time() - start_time > 15:
-                print('WIFI Connected Timeout!')
-                return False
+            time.sleep(1)
+        print('connecting to network success:', wlan.ifconfig())
+        return True
     else:
         print('network information:', wlan.ifconfig())
         return True
@@ -96,8 +92,8 @@ if wifi_connect():
     print("mqtt连接成功")
     client.subscribe(subTopic)
 
-    client.publish(pubTopic, "你好！")
-
+    mqtt_publish("hi！")
+    
     while True:
         time.sleep(1)
 
@@ -109,16 +105,16 @@ if wifi_connect():
 
 运行以上代码，则会在物联网平台看到设备在线。并可以看到设备往平台发送的消息，日志地址：[https://iot.console.aliyun.com/lk/monitor/log](https://iot.console.aliyun.com/lk/monitor/log)
 
-## 4.如果无法订阅消息看如下处理方案
+## 4.无法订阅消息的处理方案
 
-在阿里云物联网平台，设备在线，但是无法订阅消息。安装的`umqtt.simple`
-在`2017`
-年之后就没有更新了，我们首先去下载源代码进行排查以及更改：[micropython-umqtt.simple](https://pypi.org/project/micropython-umqtt.simple/#files)
+在阿里云物联网平台，设备在线但是无法订阅消息。安装的`umqtt.simple`在`2017`年之后就没有更新了，我们首先去下载源代码进行排查以及更改：
+[micropython-umqtt.simple](https://pypi.org/project/micropython-umqtt.simple/#files)
+，然后把原有导入的代码`from umqtt.simple import MQTTClient`删除掉，把刚下载的代码解压，找到`simple.py`文件完整代码复制到刚删除的地方。
 
-然后把原有导入的代码`from umqtt.simple import MQTTClient`移除掉，把上面下载的代码解压，找到`simple.py`文件完整代码复制到刚删除的地方。
-经过debug发现如下代码`12行`返回`0x90`10进制为`144`错误码，导致`while 1`跳出循环。
+运行程序，debug发现启动时下方代码`12行`返回`0x90`10进制为`144`错误码，导致`while 1`
+跳出循环，导致后续无法正常订阅消息，我们需要注释掉第`19行`的`return`代码。
 
-```py {12}
+```py {12,19}
     def subscribe(self, topic, qos=0):
         assert self.cb is not None, "Subscribe callback is not set"
         pkt = bytearray(b"\x82\0\0\0")
@@ -140,11 +136,27 @@ if wifi_connect():
                 return
 ```
 
-然后再去平台下发指定，将会在控制台收到如下信息
+再找到下方代码块，修改第`7行`代码`raise OSError(-1)`改为`return None`
 
-```shell
+```py {7}
+    def wait_msg(self):
+        res = self.sock.read(1)
+        self.sock.setblocking(True)
+        if res is None:
+            return None
+        if res == b"":
+            raise OSError(-1)
+        if res == b"\xd0":  # PINGRESP
+            sz = self.sock.read(1)[0]
+            assert sz == 0
+            return None
+```
+
+然后再去平台下发指令，将会在控制台收到如下信息
+
+```text
 topic: b'/sys/k0j6cIoeXJy/bWgfVjOdI4hIf1ju05Vf/thing/service/property/set'
 msg: b'{"method":"thing.service.property.set","id":"1024580116","params":{"PowerSwitch_1":0},"version":"1.0.0"}'
 ```
 
-接下来就可以把业务逻辑写进去了，然后就可以控制、检测设备了。
+接下来就可以把业务逻辑写进去了，就可以控制、检测设备了。
