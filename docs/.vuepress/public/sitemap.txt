@@ -72,6 +72,7 @@ https://apidocs.cn/blog/backend/python/Python%E5%AE%9E%E7%8E%B0RSA%E5%8A%A0%E8%A
 https://apidocs.cn/blog/backend/python/Python%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9CRedis.html
 https://apidocs.cn/blog/backend/python/kill_port.html
 https://apidocs.cn/blog/backend/python/nohup%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8Python%E8%84%9A%E6%9C%ACprint%E4%B8%8D%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97.html
+https://apidocs.cn/blog/backend/raspberrypi/PicoW-Air724UG.html
 https://apidocs.cn/blog/backend/raspberrypi/%E4%BB%93%E5%BA%93%E4%B8%8D%E6%94%AF%E6%8C%81amd64%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%EF%BC%8C%E8%B7%B3%E8%BF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6..%E7%9A%84%E8%8E%B7%E5%8F%96.html
 https://apidocs.cn/blog/backend/raspberrypi/%E4%BD%BF%E7%94%A8LED%E7%9F%A9%E9%98%B5%E7%8E%A9%E8%B4%AA%E5%90%83%E8%9B%87%E5%B0%8F%E6%B8%B8%E6%88%8F.html
 https://apidocs.cn/blog/backend/raspberrypi/%E5%90%AF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84SPI%E6%8E%A5%E5%8F%A3.html

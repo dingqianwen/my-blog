@@ -768,6 +768,15 @@ head:
             }
          ]
       },
+      "12": {
+         "07": [
+            {
+               "title": "树莓派PicoW串口连接Air724UG-4G模块",
+               "path": "/backend/raspberrypi/PicoW-Air724UG.md",
+               "createTime": "2023-12-07T09:19:30.188Z"
+            }
+         ]
+      },
       "07": {
          "14": [
             {
