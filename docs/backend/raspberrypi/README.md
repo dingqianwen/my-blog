@@ -9,7 +9,8 @@ type: cds
 
 [dir.start]: <>
 
-- [树莓派PicoW串口连接Air724UG-4G模块](PicoW-Air724UG.md)  
+- [树莓派PicoW串口连接Air724UG-AT-4G模块](PicoW-Air724UG-AT.md)  
+- [树莓派PicoW串口连接Air724UG-DTU-4G模块](PicoW-Air724UG-DTU.md)  
 - [N: 鉴于仓库 ‘..‘不支持 ‘amd64‘ 体系结构，跳过配置文件 ‘..‘ 的获取。](仓库不支持amd64体系结构，跳过配置文件..的获取.md)  
 - [使用LED矩阵玩贪吃蛇小游戏](使用LED矩阵玩贪吃蛇小游戏.md)  
 - [启用树莓派的SPI接口](启用树莓派的SPI接口.md)  

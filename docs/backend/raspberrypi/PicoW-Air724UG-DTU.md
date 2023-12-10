@@ -1,32 +1,32 @@
 ---
 lang: zh-CN
-title: '树莓派PicoW串口连接Air724UG-4G模块'
+title: '树莓派PicoW串口连接Air724UG-DTU-4G模块'
 description: 页面的描述
 head:
 
-  - [ meta, { name: keywords, content: '树莓派PicoW串口连接Air724UG-4G模块发Http请求, 树莓派' } ]
+  - [ meta, { name: keywords, content: '树莓派PicoW串口连接Air724UG-DTU-4G模块发Http请求, 树莓派' } ]
 
 ---
 
-# 树莓派PicoW串口连接Air724UG-4G模块
+# 树莓派PicoW串口连接Air724UG-DTU-4G模块
 
 [[toc]]
 
-## Air724UG-4G模块
+## Air724UG-DTU-4G模块
 
 Core-Air724 核心板是由银尔达（yinerda）基于合宙Air724模组推出的低功耗，小体积，高性能嵌入式4G
 Cat1核心版，支持标准固件AT固件,支持功能电话语音、短信、TCP&UDP、TCP&UDP透传、NTP、HTTP、FTP、MQTT等
 
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/QXo16W.png" alt="none" style="width: 50%;height: 50%;border-radius: 6px;">
 
-## 配置Air724UG-4G模块
+## 配置Air724UG-DTU-4G模块
 
-本次购买的为DTU固件Air724UG-4G，首先在银尔达DTU官网：[http://dtu.yinerda.com/](http://dtu.yinerda.com/)
+本次购买的为DTU固件Air724UG-DTU-4G，首先在银尔达DTU官网：[http://dtu.yinerda.com/](http://dtu.yinerda.com/)
 注册账号，然后在设备管理中添加设备，添加设备时需要输入设备的IMEI号，
 IMEI号可以在设备标签上查看。然后配置分组，串口参数选择打开，波特率选择`115200`，数据位选择`8`位，校验位选择`无`，停止位选择`1`
 位，其他都是默认，然后点击保存参数，最后再让设备重启一下即完成配置。
 
-## 让PicoW串口连接Air724UG-4G模块
+## 让PicoW串口连接Air724UG-DTU-4G模块
 
 PicoW官方针脚图如下
 
@@ -34,7 +34,7 @@ PicoW官方针脚图如下
 
 与此4G模块串口通信仅需4根线即可，线路对应关系如下
 
-|     PicoW     | Air724UG-4G |
+|     PicoW     | Air724UG-DTU-4G |
 |:-------------:|:-----------:|
 |  VBUS（序号40）   |     VCC     |
 |   GND（序号38）   |     GND     |
@@ -108,7 +108,7 @@ end----------------------------------------------------------------------------
 在串口通信通常使用一种叫做`ASCII`码编码方式，在 ASCII 码中，字符`c`对应的十六进制是`x63`，二进制表示为`01100011`。
 在串口通信中，典型的传输方式是每个字符由`8`个连续的位（bit）来表示，按照从左至右的顺序，依次传输每一个位。
 
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/ki3xut.png" alt="none" style="width: 60%;height: 60%;border-radius: 6px;">
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/ki3xut.png" alt="none" style="width: 70%;height: 70%;border-radius: 6px;">
 
 ## 发送Http请求测试
 
@@ -162,7 +162,7 @@ read_data()
 print('end----------------------------------------------------------------------------')
 ```
 
-::: tip 踩坑记录
+::: tip 踩坑记录  
 只有命令指令`uart.write()`才用追加`\r\n`（回车换行），发送数据不需要加，否则会导致请求失败，无法接收到响应数据。
 :::
 
