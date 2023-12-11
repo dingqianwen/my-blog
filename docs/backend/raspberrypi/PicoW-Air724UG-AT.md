@@ -17,7 +17,7 @@ head:
 Core-Air724 核心板是由银尔达（yinerda）基于合宙Air724模组推出的低功耗，小体积，高性能嵌入式4G
 Cat1核心版，支持标准固件AT固件,支持功能电话语音、短信、TCP&UDP、TCP&UDP透传、NTP、HTTP、FTP、MQTT等
 
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/QXo16W.png" alt="none" style="width: 50%;height: 50%;border-radius: 6px;">
+<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/QXo16W.png" alt="none" style="width: 45%;height: 45%;border-radius: 6px;">
 
 ## 让PicoW串口连接Air724UG-AT-4G模块
 
@@ -117,7 +117,7 @@ end----------------------------------------------------------------------------
 在串口通信通常使用一种叫做`ASCII`码编码方式，在 ASCII 码中，字符`c`对应的十六进制是`x63`，二进制表示为`01100011`。 在串口通信中，典型的传输方式是每个字符由`8`
 个连续的位（bit）来表示，按照从左至右的顺序，依次传输每一个位。
 
-<img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/ki3xut.png" alt="none" style="width: 70%;height: 70%;border-radius: 6px;">
+[UART通信](https://baijiahao.baidu.com/s?id=1777705258428369997&wfr=spider&for=pc)
 
 ## 发送Http请求测试
 

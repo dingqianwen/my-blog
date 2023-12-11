@@ -372,7 +372,12 @@
     </url>
 
     <url>
-        <loc>https://apidocs.cn/blog/backend/raspberrypi/PicoW-Air724UG.html</loc>
+        <loc>https://apidocs.cn/blog/backend/raspberrypi/PicoW-Air724UG-AT.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/backend/raspberrypi/PicoW-Air724UG-DTU.html</loc>
         <priority>1.00</priority>
     </url>
 

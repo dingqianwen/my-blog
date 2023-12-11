@@ -769,11 +769,16 @@ head:
          ]
       },
       "12": {
-         "07": [
+         "11": [
             {
-               "title": "树莓派PicoW串口连接Air724UG-4G模块",
-               "path": "/backend/raspberrypi/PicoW-Air724UG.md",
-               "createTime": "2023-12-07T09:19:30.188Z"
+               "title": "树莓派PicoW串口连接Air724UG-AT-4G模块",
+               "path": "/backend/raspberrypi/PicoW-Air724UG-AT.md",
+               "createTime": "2023-12-11T01:09:00.241Z"
+            },
+            {
+               "title": "树莓派PicoW串口连接Air724UG-DTU-4G模块",
+               "path": "/backend/raspberrypi/PicoW-Air724UG-DTU.md",
+               "createTime": "2023-12-11T01:09:00.242Z"
             }
          ]
       },
