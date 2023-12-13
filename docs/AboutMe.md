@@ -1,21 +1,21 @@
 ---
-lang: zh-CN  
-title: 关于作者  
-description: 页面的描述  
+lang: zh-CN
+title: 关于作者
+description: 页面的描述
 head:
 
-- [meta, {name: keywords, content: '丁乾文的个人简介, 丁乾文, dingqianwen, dingqw, 个人简介'}]
-- [meta, {name: description, content: '丁乾文的个人简介'}]
+  - [ meta, { name: keywords, content: '丁乾文的个人简介, 丁乾文, dingqianwen, dingqw, 个人简介' } ]
+  - [ meta, { name: description, content: '丁乾文的个人简介' } ]
 
 ---
 
 # 自我简介
 
-技术专家，精通前后端技术，开源社区苞米豆成员之一，目前就职于北京。
+技术专家，精通前后端技术，开源社区[苞米豆](https://baomidou.com/)成员之一，目前就职于北京。
 
 > 身高：184 cm   
-> 体重：72 kg  
-> 爱好：听音乐、钢琴、爬山、骑行、做饭等。  
+> 体重：75 kg  
+> 爱好：听音乐、钢琴、爬山、骑行、做饭等    
 > 星座：水瓶座
 
 ### 关于博客
@@ -35,6 +35,6 @@ head:
 
 [comment]: <> (https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/WechatIMG364.jpeg)
 
-<AdsbyGoogle slot="7889564278" layout="in-article"/>
+<AdsbyGoogle slot="7889564278" layout="in-article"></AdsbyGoogle>
 
 <Comment></Comment>

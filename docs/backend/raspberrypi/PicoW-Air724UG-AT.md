@@ -1,10 +1,10 @@
 ---
-lang: zh-CN  
-title: '树莓派PicoW串口连接Air724UG-AT-4G模块'  
-description: 页面的描述   
+lang: zh-CN
+title: '树莓派PicoW串口连接Air724UG-AT-4G模块'
+description: 页面的描述
 head:
 
-- [ meta, { name: keywords, content: '树莓派PicoW串口连接Air724UG-AT-4G模块发Http请求, 树莓派' } ]
+  - [ meta, { name: keywords, content: '树莓派PicoW串口连接Air724UG-AT-4G模块发Http请求, 树莓派' } ]
 
 ---
 
@@ -28,11 +28,11 @@ PicoW官方针脚图如下
 与此4G模块串口通信仅需4根线即可，线路对应关系如下
 
 |     PicoW     | Air724UG-AT-4G |
-|:-------------:|:-----------:|
-|  VBUS（序号40）   |     VCC     |
-|   GND（序号38）   |     GND     |
-| UART0 TX（序号1） |     RXD     |
-| UART0 RX（序号2） |     TXD     |
+|:-------------:|:--------------:|
+|  VBUS（序号40）   |      VCC       |
+|   GND（序号38）   |      GND       |
+| UART0 TX（序号1） |      RXD       |
+| UART0 RX（序号2） |      TXD       |
 
 ## 串口测试
 
@@ -113,8 +113,10 @@ end----------------------------------------------------------------------------
 
 ## 串口通信传输原理
 
-串口通信是基于二进制的，在串口通信中，数据通过位（bit）来传输，每个位只有两种状态，即`0`和`1`。 以上案例中我们发送了一个为`config,get,imei`的命令，进一步分析如何传输一个`c`字符。
-在串口通信通常使用一种叫做`ASCII`码编码方式，在 ASCII 码中，字符`c`对应的十六进制是`x63`，二进制表示为`01100011`。 在串口通信中，典型的传输方式是每个字符由`8`
+串口通信是基于二进制的，在串口通信中，数据通过位（bit）来传输，每个位只有两种状态，即`0`和`1`。
+以上案例中我们发送了一个为`config,get,imei`的命令，进一步分析如何传输一个`c`字符。
+在串口通信通常使用一种叫做`ASCII`码编码方式，在 ASCII 码中，字符`c`对应的十六进制是`x63`，二进制表示为`01100011`。
+在串口通信中，典型的传输方式是每个字符由`8`
 个连续的位（bit）来表示，按照从左至右的顺序，依次传输每一个位。
 
 [UART通信](https://baijiahao.baidu.com/s?id=1777705258428369997&wfr=spider&for=pc)
@@ -138,10 +140,11 @@ send_cmd('AT+CSTT="","","" ')
 send_cmd('AT+CIICR')
 # 查询IP，只有获取到IP后才能上网
 send_cmd('AT+CIFSR')
-# 初始化HTTP
-send_cmd("AT+HTTPINIT")
 # 发起PDP激活的请求
 send_cmd('AT+SAPBR=1,1')
+
+# 初始化HTTP
+send_cmd("AT+HTTPINIT")
 # 初始化HTTP url
 send_cmd('AT+HTTPPARA="URL","https://apidocs.cn/blog/"')
 # HTTP get 数据，收到OK表示发送成功
@@ -153,28 +156,26 @@ send_cmd("AT+HTTPREAD=0,46669")
 send_cmd("AT+HTTPTERM")
 ```
 
-
 ### POST请求示例
 
-只需要把`send_cmd("AT+HTTPACTION=0")`改成`send_cmd("AT+HTTPACTION=1")`即可，具体参考以下案例
+只需要把`send_cmd("AT+HTTPACTION=0")`改成`send_cmd("AT+HTTPACTION=1")`即可，
+`AT+HTTPDATA=6,1000`中的`6`表示发送的数据长度，`1000`表示超时时间，单位毫秒，具体参考以下案例
 
 ```python
 # 初始化HTTP
 send_cmd("AT+HTTPINIT")
-# 发起PDP激活的请求
-send_cmd('AT+SAPBR=1,1')
 # 初始化HTTP url
-send_cmd('AT+HTTPPARA="URL","https://****/"')
+send_cmd('AT+HTTPPARA="URL","http://***:8087"')
 # POST body数据 数据长度1-102400
-send_cmd("AT+HTTPDATA=123456")
+send_cmd('AT+HTTPDATA=6,1000')
+# 发送body数据
+send_cmd("123456")
 # HTTP post 数据，收到OK表示发送成功
 send_cmd("AT+HTTPACTION=1")
-read_data()
 # 读取获取到的HTTP数据，收到+HTTPACTION表示接受到数据
-send_cmd("AT+HTTPREAD=0,46669")
+send_cmd("AT+HTTPREAD=0,1")
 # 关闭连接
 send_cmd("AT+HTTPTERM")
 ```
-
 
 <Comment></Comment>
