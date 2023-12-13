@@ -15,7 +15,7 @@ const {processPage} = require('./plugin/process')
 module.exports = {
     title: "My-Blog",
     base: "/blog/",
-    description: '这是dingqw的博客🐮👃! 我只要一步一步一步的往上爬,我要做“赵高”',
+    description: '这是dingqw的博客🐮👃！我只要一步一步一步的往上爬，我要做“赵高“',
     head: [
         ['meta', {'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8'}],
         ['meta', {name: 'author', content: 'dingqw(761945125@qq.com)'}],
