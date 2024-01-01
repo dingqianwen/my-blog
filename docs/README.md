@@ -9,9 +9,6 @@ actions:
 - text: 听点音乐
   link: /music/
   type: secondary
-- text: 规则引擎
-  link: http://ruleengine.cn/doc/
-  type: secondary
 
 features:
 - title: 牛逼
