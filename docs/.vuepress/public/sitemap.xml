@@ -272,6 +272,16 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/nginx/1410D0B9_noCipherMatch.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/backend/nginx/CentOS7快速安装Nginx.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/nginx/ERR_CONTENT_LENGTH_MISMATCH200.html</loc>
         <priority>1.00</priority>
     </url>
