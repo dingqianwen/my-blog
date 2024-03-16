@@ -15,27 +15,33 @@ head:
 
 [[toc]]
 
-## 1. 安装SDCC
+## 安装SDCC
 
 ```bash
 brew install sdcc
 ```
 
-## 2. 安装Clion
+## 安装platformio
+
+```bash
+brew install platformio
+```
+
+## 安装Clion
 
 作者版本：CLion 2023.2.2 [下载地址](https://www.jetbrains.com/clion/download/#section=mac)
 
-## 3. Clion安装插件
+## Clion安装插件
 
 Preferences | Plugins 搜索 `PlatformIO for CLion`
 
-## 4. 新建项目
+## 新建项目
 
 File | New Project | PlatformIO，选择好对应的单片机型号。
 
 <img src="https://oss-xuxin.oss-cn-beijing.aliyuncs.com/blog/img/8QhF0N.png" alt="none" style="width: 70%;height: 70%;border-radius: 6px;">
 
-## 5. 让LED闪烁
+## 让LED闪烁
 
 项目目录`src/main.c`中编写如下程序
 
@@ -70,7 +76,7 @@ LED连线对应关系
 | +   | P0.0/AD0 | 39 |
 | -   | GND      | 20 |
 
-## 6. 解决代码爆红以及提示问题
+## 解决代码爆红以及提示问题
 
 * 项目目录中`platformio.ini`文件添加如下内容，`username`替换为你电脑用户名称。
 
@@ -85,7 +91,7 @@ lib_extra_dirs =
 #include <lint.h>
 ```
 
-## 7. STC单片机下载器与单片机进行连接
+## STC单片机下载器与单片机进行连接
 
 单片机引脚图如下
 
@@ -104,7 +110,7 @@ lib_extra_dirs =
 TXD：发送数据（串行输出），RXD：接收数据（串行输入），串口通信的RXD和TXD与单片机需要交叉连接。
 :::
 
-## 8. 上传烧录
+## 上传烧录
 
 点击右侧`PlatformIO`的按钮，选择`Upload`，即可把程序烧录到单片机中。
 
