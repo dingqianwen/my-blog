@@ -432,6 +432,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/diary/个人洗脑.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/front/css/resize属性.html</loc>
         <priority>1.00</priority>
     </url>
