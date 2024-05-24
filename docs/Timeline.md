@@ -873,6 +873,13 @@ head:
                "path": "/diary/个人洗脑.md",
                "createTime": "2024-05-12T17:21:29.340Z"
             }
+         ],
+         "24": [
+            {
+               "title": "自建服务器-阿里云动态域名绑定",
+               "path": "/backend/python/aliyun-ddns.md",
+               "createTime": "2024-05-24T11:50:17.300Z"
+            }
          ]
       }
    }

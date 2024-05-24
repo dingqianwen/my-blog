@@ -372,6 +372,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/python/aliyun-ddns.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/python/kill_port.html</loc>
         <priority>1.00</priority>
     </url>

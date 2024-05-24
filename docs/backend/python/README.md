@@ -17,6 +17,7 @@ type: cds
 - [ModuleNotFoundError: No module named flask](NoModuleNamedFlask.md)  
 - [Python实现RSA加解密](Python实现RSA加解密.md)  
 - [Python简单操作Redis](Python简单操作Redis.md)  
+- [自建服务器-阿里云动态域名绑定](aliyun-ddns.md)  
 - [关闭端口号下所有进程工具](kill_port.md)  
 - [nohup后台启动Python脚本print不打印日志问题](nohup后台启动Python脚本print不打印日志.md)  
 

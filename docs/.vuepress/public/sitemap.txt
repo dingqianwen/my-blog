@@ -72,6 +72,7 @@ https://apidocs.cn/blog/backend/python/MicroPython-umqtt.simple.html
 https://apidocs.cn/blog/backend/python/NoModuleNamedFlask.html
 https://apidocs.cn/blog/backend/python/Python%E5%AE%9E%E7%8E%B0RSA%E5%8A%A0%E8%A7%A3%E5%AF%86.html
 https://apidocs.cn/blog/backend/python/Python%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9CRedis.html
+https://apidocs.cn/blog/backend/python/aliyun-ddns.html
 https://apidocs.cn/blog/backend/python/kill_port.html
 https://apidocs.cn/blog/backend/python/nohup%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8Python%E8%84%9A%E6%9C%ACprint%E4%B8%8D%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97.html
 https://apidocs.cn/blog/backend/raspberrypi/PicoW-Air724UG-AT.html
