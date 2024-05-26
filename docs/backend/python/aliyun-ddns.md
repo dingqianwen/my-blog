@@ -161,86 +161,83 @@ import requests
 
 class HWRouter:
     def __init__(self, url, username, password):
-        self.csrfParam = None
-        self.csrfToken = None
         self.cookie = None
         self.url = url
         self.username = username
         self.password = password
 
     def init(self):
-        url = self.url + "/html/index.html"
-        response = requests.get(url)
+        response = requests.get(self.url + "/html/index.html")
         if response.status_code == 200:
-            data = response.text
-            csrf_param_start = data.find("csrf_param")
-            data = data[csrf_param_start:]
-            csrf_param_start = data.find("=\"") + 2
-            csrf_param_end = data.find("\"/>")
-            self.csrf_param = data[csrf_param_start:csrf_param_end].strip()
+            res_data = response.text
+            csrf_param_start = res_data.find("csrf_param")
+            res_data = res_data[csrf_param_start:]
+            csrf_param_start = res_data.find("=\"") + 2
+            csrf_param_end = res_data.find("\"/>")
+            csrf_param = res_data[csrf_param_start:csrf_param_end].strip()
 
-            csrf_token_start = data.find("csrf_token")
-            data = data[csrf_token_start:]
-            csrf_token_start = data.find("=\"") + 2
-            csrf_token_end = data.find("\"/>")
-            self.csrf_token = data[csrf_token_start:csrf_token_end].strip()
+            csrf_token_start = res_data.find("csrf_token")
+            res_data = res_data[csrf_token_start:]
+            csrf_token_start = res_data.find("=\"") + 2
+            csrf_token_end = res_data.find("\"/>")
+            csrf_token = res_data[csrf_token_start:csrf_token_end].strip()
 
             cookie_path = response.headers.get("Set-Cookie")
             cookie_split = cookie_path.index(";")
             self.cookie = cookie_path[:cookie_split]
-            return True
+            return csrf_param, csrf_token
         else:
             return False
 
     def login(self):
+        csrf_param, csrf_token = self.init()
         first_nonce = self.random_nonce()
-        login_nonce = self.do_login("/api/system/user_login_nonce", first_nonce)
-        if login_nonce is not None:
-            iterations = login_nonce.get('iterations')
-            salt = login_nonce.get('salt')
-            server_nonce = login_nonce.get('servernonce')
-            csrf_token = login_nonce.get('csrf_token')
-            csrf_param = login_nonce.get('csrf_param')
-            salted_password = self.get_salted_password(self.password, self.hex_to_byte_array(salt), iterations)
-            client_key = self.get_hmac("Client Key", salted_password)
-            store_key = self.get_store_key(client_key)
-            auth_msg = first_nonce + "," + server_nonce + "," + server_nonce
-            client_signature = self.get_hmac(auth_msg, store_key)
-            new_arr = [0] * len(client_key)
-            for i in range(len(client_key)):
-                new_arr[i] = client_key[i] ^ client_signature[i]
-            client_proof = self.bytes_to_hex(new_arr)
-            login = {"data": {"clientproof": client_proof,
-                              "finalnonce": server_nonce},
-                     "csrf": {"csrf_param": csrf_param,
-                              "csrf_token": csrf_token}}
-            headers = {
-                "Cookie": self.cookie,
-                "Content-Type": "application/json"
-            }
-            response = requests.post(self.url + "/api/system/user_login_proof", headers=headers,
-                                     data=json.dumps(login))
-            self.cookie = response.headers["Set-Cookie"]
-            return True
-        return False
-
-    def do_login(self, url, first_nonce):
+        login_nonce = self.user_login_nonce(first_nonce, csrf_param, csrf_token)
+        if login_nonce is None:
+            return False
+        iterations = login_nonce.get('iterations')
+        salt = login_nonce.get('salt')
+        server_nonce = login_nonce.get('servernonce')
+        csrf_token = login_nonce.get('csrf_token')
+        csrf_param = login_nonce.get('csrf_param')
+        salted_password = self.get_salted_password(self.password, self.hex_to_byte_array(salt), iterations)
+        client_key = self.get_hmac("Client Key", salted_password)
+        store_key = self.get_store_key(client_key)
+        auth_msg = first_nonce + "," + server_nonce + "," + server_nonce
+        client_signature = self.get_hmac(auth_msg, store_key)
+        new_arr = [0] * len(client_key)
+        for i in range(len(client_key)):
+            new_arr[i] = client_key[i] ^ client_signature[i]
+        client_proof = self.bytes_to_hex(new_arr)
+        login = {"data": {"clientproof": client_proof,
+                          "finalnonce": server_nonce},
+                 "csrf": {"csrf_param": csrf_param,
+                          "csrf_token": csrf_token}}
         headers = {
             "Cookie": self.cookie,
             "Content-Type": "application/json"
         }
+        response = requests.post(self.url + "/api/system/user_login_proof", headers=headers,
+                                 data=json.dumps(login))
+        self.cookie = response.headers["Set-Cookie"]
+        return True
 
+    def user_login_nonce(self, first_nonce, csrf_param, csrf_token):
+        headers = {
+            "Cookie": self.cookie,
+            "Content-Type": "application/json"
+        }
         payload = {
             "csrf": {
-                "csrf_param": self.csrf_param,
-                "csrf_token": self.csrf_token
+                "csrf_param": csrf_param,
+                "csrf_token": csrf_token
             },
             "data": {
                 "firstnonce": first_nonce,
                 "username": self.username
             }
         }
-        response = requests.post(self.url + url, headers=headers, data=json.dumps(payload))
+        response = requests.post(self.url + "/api/system/user_login_nonce", headers=headers, data=json.dumps(payload))
         if response.status_code == 200:
             reps_json = response.json()
             if "Set-Cookie" in response.headers:
@@ -302,13 +299,13 @@ if __name__ == "__main__":
     # 默认，用户名不用动
     username = "admin"
     # 改为自己路由器的密码
-    password = "*****"
+    password = "******"
     m = HWRouter(url, username, password)
-    if m.init() and m.login():
+    if m.login():
+        # 获得主机
         data = m.get("/api/ntwk/wandetect")
         externalIPAddress = data.get("ExternalIPAddress")
         print("ExternalIPAddress : " + externalIPAddress)
-
 ```
 
 如果是华为路由器，直接修改下以上代码`password`，其他不用动，基本都是通用的，直接运行即可获取到外网IP地址。
