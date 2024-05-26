@@ -308,7 +308,7 @@ if __name__ == "__main__":
         print("ExternalIPAddress : " + externalIPAddress)
 ```
 
-如果是华为路由器，直接修改下以上代码`password`，其他不用动，基本都是通用的，直接运行即可获取到外网IP地址。
+直接修改下以上代码`password`，其他不用动，基本都是通用的，直接运行即可获取到外网IP地址。
 最后开始的`ddns.py`文件，`get_ip()`修改下即可。
 
 <Comment></Comment>
