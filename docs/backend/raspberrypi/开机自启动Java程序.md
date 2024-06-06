@@ -27,6 +27,7 @@ After=multi-user.target
 Type=simple
 ExecStart=/usr/local/jdk1.8/jre/bin/java -jar -server -Xms2048m -Xmx2048m -Xss512k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC -Dfile.encoding=UTF-8 /home/pi/java/rule-engine-web-3.0.jar --server.port=8010
 Restart=on-failure
+WorkingDirectory=/home/pi/java
 
 [Install]
 WantedBy=multi-user.target
