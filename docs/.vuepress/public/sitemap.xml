@@ -412,7 +412,17 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/raspberrypi/开机自启动Java程序.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/raspberrypi/打开树莓派的IIC功能.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/backend/raspberrypi/树莓派4B更换阿里源.html</loc>
         <priority>1.00</priority>
     </url>
 
