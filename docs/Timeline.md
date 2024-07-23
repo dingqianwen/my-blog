@@ -382,8 +382,8 @@ head:
          ],
          "09": [
             {
-               "title": "Centos8 yum 阿里源配置的问题",
-               "path": "/backend/centos/Centos8Yum阿里源配置的问题.md",
+               "title": "CentOS8 yum 阿里源配置的问题",
+               "path": "/backend/centos/CentOS8Yum阿里源配置的问题.md",
                "createTime": "2022-02-09T03:18:37.000Z"
             },
             {
@@ -863,6 +863,15 @@ head:
                "title": "CentOS7快速安装Nginx",
                "path": "/backend/nginx/CentOS7快速安装Nginx.md",
                "createTime": "2024-03-15T16:38:48.855Z"
+            }
+         ]
+      },
+      "07": {
+         "23": [
+            {
+               "title": "CentOS快速安装Java",
+               "path": "/backend/centos/CentOS快速安装Java.md",
+               "createTime": "2024-07-23T15:56:55.243Z"
             }
          ]
       },

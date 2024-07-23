@@ -27,7 +27,12 @@
     </url>
 
     <url>
-        <loc>https://apidocs.cn/blog/backend/centos/Centos8Yum阿里源配置的问题.html</loc>
+        <loc>https://apidocs.cn/blog/backend/centos/CentOS8Yum阿里源配置的问题.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/backend/centos/CentOS快速安装Java.html</loc>
         <priority>1.00</priority>
     </url>
 
