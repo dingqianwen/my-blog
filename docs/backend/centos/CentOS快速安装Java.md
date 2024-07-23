@@ -25,7 +25,7 @@ sudo yum install java-1.8.0-openjdk
 
 安装OpenJDK的开发工具，方便执行javac以及jps等常用命令
 
-```text
+```bash
 sudo yum install java-1.8.0-openjdk-devel
 ```
 
