@@ -32,7 +32,7 @@ sudo yum install java-1.8.0-openjdk-devel
 最后验证JDK版本
 
 ```bash
-javac -version
+java -version
 ```
 
 <Comment></Comment>
