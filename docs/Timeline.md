@@ -873,6 +873,13 @@ head:
                "path": "/backend/centos/CentOS快速安装Java.md",
                "createTime": "2024-07-23T15:56:55.243Z"
             }
+         ],
+         "31": [
+            {
+               "title": "家庭搭建太阳能发电操作记录",
+               "path": "/diary/家庭搭建太阳能发电记录.md",
+               "createTime": "2024-07-30T17:03:29.653Z"
+            }
          ]
       },
       "05": {
