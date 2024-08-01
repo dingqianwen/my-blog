@@ -19,10 +19,7 @@ head:
 @Component
 @RequiredArgsConstructor
 public class ThreadPoolTaskExecutorBeanPostProcessor implements BeanPostProcessor {
-
-    /**
-     * taskDecorator
-     */
+    
     private static final String TASK_DECORATOR = "taskDecorator";
 
     @SneakyThrows

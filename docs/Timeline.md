@@ -885,6 +885,11 @@ head:
       "08": {
          "02": [
             {
+               "title": "SpringCloud@Stream链路传递",
+               "path": "/backend/java/SpringCloud@Stream链路传递.md",
+               "createTime": "2024-08-01T17:10:59.275Z"
+            },
+            {
                "title": "Spring中父子线程传递MDC等上下文工具",
                "path": "/backend/java/Spring中父子线程传递MDC等上下文工具.md",
                "createTime": "2024-08-01T16:55:23.523Z"

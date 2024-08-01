@@ -23,6 +23,7 @@ type: cds
 - [Spring项目中获取当前Request对象工具](RequestContextUtils.md)  
 - [Seata快速上手Demo](Seata快速上手Demo.md)  
 - [SpringCloud@HystrixCommand进行熔断降级](SpringCloud@HystrixCommand.md)  
+- [SpringCloud@Stream链路传递](SpringCloud@Stream链路传递.md)  
 - [Spring中父子线程传递MDC等上下文工具](Spring中父子线程传递MDC等上下文工具.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
