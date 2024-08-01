@@ -89,7 +89,7 @@ https://apidocs.cn/blog/backend/raspberrypi/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%80%9A
 https://apidocs.cn/blog/backend/raspberrypi/%E9%80%9A%E8%BF%87MAX7219%E6%A8%A1%E5%9D%97%E9%A9%B1%E5%8A%A8%E7%9F%A9%E9%98%B5%E5%B1%8F.html
 https://apidocs.cn/blog/backend/redis/CentOS%E5%AE%89%E8%A3%85Redis.html
 https://apidocs.cn/blog/diary/%E4%B8%AA%E4%BA%BA%E6%B4%97%E8%84%91.html
-https://apidocs.cn/blog/diary/%E5%AE%B6%E5%BA%AD%E6%90%AD%E5%BB%BA%E5%A4%AA%E9%98%B3%E8%83%BD%E5%8F%91%E7%94%B5%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.html
+https://apidocs.cn/blog/diary/%E5%AE%B6%E5%BA%AD%E6%90%AD%E5%BB%BA%E5%A4%AA%E9%98%B3%E8%83%BD%E5%8F%91%E7%94%B5%E8%AE%B0%E5%BD%95.html
 https://apidocs.cn/blog/front/css/resize%E5%B1%9E%E6%80%A7.html
 https://apidocs.cn/blog/front/css/var()%E5%87%BD%E6%95%B0.html
 https://apidocs.cn/blog/front/css/%E5%A5%BD%E7%9C%8B%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%8A%A8%E7%94%BBCSS%E6%A0%B7%E5%BC%8F.html

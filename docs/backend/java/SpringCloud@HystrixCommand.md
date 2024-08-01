@@ -67,7 +67,8 @@ public class TestController {
 
 ### 附常用配置
 
-例如`HystrixCommandProperties`配置默认超时为`1s`，所以在耗时比较长的业务中很容易触发降级，所以可以适当增长超时时间，如下`3s`内访问都成功，超过`3s`才触发降级。
+例如`HystrixCommandProperties`配置默认超时为`1s`，所以在耗时比较长的业务中很容易触发降级，所以可以适当增长超时时间，
+如下配置`3s`内访问成功，超过`3s`触发降级。
 
 ```java
 @HystrixCommand(fallbackMethod = "fallbackMethod",
@@ -91,5 +92,81 @@ public class TestController {
         }
 )
 ```
+
+### 执行隔离策略
+
+`HystrixCommand`支持两种隔离策略：线程池隔离和信号量隔离，默认使用线程池隔离策略，以下是两者的简要对比：
+
+|    | 线程池        | 信号量           |  
+|----|------------|---------------|    
+| 线程 | 开启一个子线程执行  | 调用线程上执行       |
+| 开销 | 排队、调度、线程切换 | 无线程切换，开销低     |
+| 异步 | 支持         | 不支持           |
+| 并发 | 受限于线程池大小   | 受限于信号量上限，默认10 |
+| 超时 | 支持         | 不支持           |
+
+
+### MDC链路追踪、上下文无法传递问题
+
+在使用`HystrixCommand`时，由于`HystrixCommand`默认会在独立的线程中执行，所以在使用`MDC`以及其他`ThreadLocal`传递信息时，
+会无法正常传递，解决方法如下：
+
+#### 方案1
+
+使用信号量隔离策略，将`HystrixCommand`的执行策略设置为`SEMAPHORE`，从而保证MDC等上下文的传递。
+与默认`THREAD`区别是，`SEMAPHORE`是在调用线程中执行，而`THREAD`是在新线程中执行。
+
+```java
+@HystrixCommand(
+        fallbackMethod = "fallbackMethod",
+        commandProperties = {
+                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE")
+        }
+)
+```
+
+#### 方案2
+
+使用`HystrixConcurrencyStrategy`自定义策略，手动将MDC等上下文传递到新线程中。
+
+```java
+import com.netflix.hystrix.strategy.HystrixPlugins;
+import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
+import org.slf4j.MDC;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
+import java.util.concurrent.Callable;
+
+@Component
+public class CustomizedHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy {
+
+    public CustomizedHystrixConcurrencyStrategy() {
+        // HystrixPlugins.reset();
+        HystrixPlugins.getInstance().registerConcurrencyStrategy(this);
+    }
+
+    @Override
+    public <T> Callable<T> wrapCallable(Callable<T> callable) {
+        Map<String, String> map = MDC.getCopyOfContextMap();
+        // 传递其他信息
+        // ..
+        return () -> {
+            try {
+                MDC.setContextMap(map);
+                return callable.call();
+            } finally {
+                MDC.clear();
+            }
+        };
+    }
+
+}
+```
+
+#### 方案3
+
+使用`InheritableThreadLocal`或者`TransmittableThreadLocal`，具体使用细节就不一一说明了。
+如果遇到源码无法修改，例如使用`MDC`以及`RequestContextHolder.getRequestAttributes()`时，则需要使用以上两种方式了。
 
 <Comment></Comment>
