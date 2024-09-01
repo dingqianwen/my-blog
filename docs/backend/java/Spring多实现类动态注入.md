@@ -74,7 +74,7 @@ public class AppTest {
 
 通过配置使用
 
-```text
+```yaml
 spring:
   dynamic:
     injection:
