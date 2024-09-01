@@ -26,6 +26,7 @@ type: cds
 - [SpringCloud@Stream链路传递](SpringCloud@Stream链路传递.md)  
 - [Spring中父子线程传递MDC等上下文工具](Spring中父子线程传递MDC等上下文工具.md)  
 - [Spring单元测试事物不提交问题](Spring单元测试事物不提交问题.md)  
+- [Spring多实现类动态注入](Spring多实现类动态注入.md)  
 - [Spring扫描某个包下带有指定自定义注解的类](Spring扫描某个包下带有指定自定义注解的类.md)  
 - [SQLSyntaxErrorException: Table seata-demo.undo_log doesnt exist](TableUndo_logDoesntExist.md)  
 - [表单校验工具，手动校验类中注解](ValidationUtils.md)  

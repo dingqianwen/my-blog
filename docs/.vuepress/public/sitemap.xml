@@ -172,6 +172,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/java/Spring多实现类动态注入.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/java/Spring扫描某个包下带有指定自定义注解的类.html</loc>
         <priority>1.00</priority>
     </url>

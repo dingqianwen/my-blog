@@ -32,6 +32,7 @@ https://apidocs.cn/blog/backend/java/SpringCloud@HystrixCommand.html
 https://apidocs.cn/blog/backend/java/SpringCloud@Stream%E9%93%BE%E8%B7%AF%E4%BC%A0%E9%80%92.html
 https://apidocs.cn/blog/backend/java/Spring%E4%B8%AD%E7%88%B6%E5%AD%90%E7%BA%BF%E7%A8%8B%E4%BC%A0%E9%80%92MDC%E7%AD%89%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E5%85%B7.html
 https://apidocs.cn/blog/backend/java/Spring%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BA%8B%E7%89%A9%E4%B8%8D%E6%8F%90%E4%BA%A4%E9%97%AE%E9%A2%98.html
+https://apidocs.cn/blog/backend/java/Spring%E5%A4%9A%E5%AE%9E%E7%8E%B0%E7%B1%BB%E5%8A%A8%E6%80%81%E6%B3%A8%E5%85%A5.html
 https://apidocs.cn/blog/backend/java/Spring%E6%89%AB%E6%8F%8F%E6%9F%90%E4%B8%AA%E5%8C%85%E4%B8%8B%E5%B8%A6%E6%9C%89%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%B1%BB.html
 https://apidocs.cn/blog/backend/java/TableUndo_logDoesntExist.html
 https://apidocs.cn/blog/backend/java/ValidationUtils.html
