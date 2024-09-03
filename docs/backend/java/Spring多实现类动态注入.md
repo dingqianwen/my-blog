@@ -18,6 +18,17 @@ head:
 
 ### 使用说明
 
+引入依赖
+
+```xml
+
+<dependency>
+    <groupId>io.github.dingqianwen</groupId>
+    <artifactId>spring-dynamic-injection</artifactId>
+    <version>1.1</version>
+</dependency>
+```
+
 项目中需要动态切换实现类的属性增加`@DynamicInjection`注解即可，使用方式如同：`@Resource`或`@Autowired`
 
 ```java
