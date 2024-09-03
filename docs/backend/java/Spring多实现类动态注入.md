@@ -21,9 +21,8 @@ head:
 引入依赖
 
 ```xml
-
 <dependency>
-    <groupId>io.github.dingqianwen</groupId>
+    <groupId>com.dingqw</groupId>
     <artifactId>spring-dynamic-injection</artifactId>
     <version>1.1</version>
 </dependency>
