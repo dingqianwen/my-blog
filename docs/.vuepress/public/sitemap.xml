@@ -675,4 +675,9 @@
         <loc>https://apidocs.cn/blog/tools/Unicode.html</loc>
         <priority>1.00</priority>
     </url>
+
+    <url>
+        <loc>https://apidocs.cn/blog/tools/YML-Properties.html</loc>
+        <priority>1.00</priority>
+    </url>
 </urlset>

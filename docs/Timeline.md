@@ -903,6 +903,13 @@ head:
                "path": "/backend/java/Spring多实现类动态注入.md",
                "createTime": "2024-09-01T13:34:23.359Z"
             }
+         ],
+         "05": [
+            {
+               "title": "YML转为Properties",
+               "path": "/tools/YML-Properties.md",
+               "createTime": "2024-09-05T12:27:14.689Z"
+            }
          ]
       },
       "05": {
