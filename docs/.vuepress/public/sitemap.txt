@@ -127,6 +127,7 @@ https://apidocs.cn/blog/music/%E6%B8%90%E6%B8%90%E8%A2%AB%E4%BD%A0%E5%90%B8%E5%B
 https://apidocs.cn/blog/tools/AES.html
 https://apidocs.cn/blog/tools/BarCodeAndQrCode.html
 https://apidocs.cn/blog/tools/JsonFormat.html
+https://apidocs.cn/blog/tools/Properties-YML.html
 https://apidocs.cn/blog/tools/RSA.html
 https://apidocs.cn/blog/tools/Random.html
 https://apidocs.cn/blog/tools/ReadQrCode.html

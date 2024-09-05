@@ -1,11 +1,11 @@
 ---
 lang: zh-CN
-title: YML转为Properties
+title: Properties转为YML
 description: 页面的描述
 date: 2022-06-01 10:25:59
 head:
 
-  - [ meta, { name: keywords, content: 'YML转为Properties' } ]
+  - [ meta, { name: keywords, content: 'Properties转为YML' } ]
   - [ script, { src: '/js/js-yaml.min.js' } ]
   - [ script, { src: '/js/codemirror.min.js' } ]
   - [ link, { href: '/css/material.css', rel: 'stylesheet' } ]
@@ -13,20 +13,20 @@ head:
 
 ---
 
-# YML转为Properties
+# Properties转为YML
 
 <br>
 <br>
 <label class="yp">
-   <textarea placeholder="YML" id="ymlValue"></textarea>
+   <textarea placeholder="YML" id="propertiesValue"></textarea>
 </label>
 <br>
 <label class="yp">
-   <textarea placeholder="Properties" id="propertiesValue" readonly></textarea>
+   <textarea placeholder="Properties" id="ymlValue" readonly></textarea>
 </label>
 <br><br><br>
 <div>
-    <M-Button @click="toProperties()" class="oead-decrypt" :isLoading="toPropertiesBtnLoading" text="转换" type="primary"></M-Button>
+    <M-Button @click="toYml()" class="oead-decrypt" :isLoading="toYmlBtnLoading" text="转换" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
 </div>
@@ -40,7 +40,7 @@ export default {
     return {
         ymlValue: "",
         propertiesValue: "",
-        toPropertiesBtnLoading: false
+        toYmlBtnLoading: false
     };
   },
   mounted() {
@@ -93,16 +93,16 @@ export default {
             }
         };
     });
-    inputEditor = CodeMirror.fromTextArea(document.getElementById('ymlValue'), {
-        mode: "y",
+    inputEditor = CodeMirror.fromTextArea(document.getElementById('propertiesValue'), {
+        mode: "p",
         lineNumbers: false, 
         theme: "default",
         matchBrackets: true,
         indentWithTabs: true,
         smartIndent: true
     });
-    outputEditor = CodeMirror.fromTextArea(document.getElementById('propertiesValue'), {
-        mode: 'p',
+    outputEditor = CodeMirror.fromTextArea(document.getElementById('ymlValue'), {
+        mode: 'y',
         lineNumbers: false, 
         theme: "default",
         matchBrackets: true, 
@@ -111,19 +111,66 @@ export default {
     });
   },
   methods: {
-    toProperties() {
-       this.toPropertiesBtnLoading = true;
+    parseValue(value) {
+        if (value === 'true') return true;
+        if (value === 'false') return false;
+        if (!isNaN(value) && value.trim() !== ''){
+            return Number(value);
+        }
+        return value;
+    },
+    convertPropertiesToObject(propertiesStr) {
+       const obj = {};
+        propertiesStr.trim().split('\n').forEach(line => {
+             const eqIndex = line.indexOf('=');
+            if (eqIndex === -1) return;
+            const key = line.substring(0, eqIndex).trim();
+            let value = line.substring(eqIndex + 1).trim();
+            if (key && value !== undefined) {
+                let cleanedValue = value;
+                if (cleanedValue.startsWith("'") && cleanedValue.endsWith("'")) {
+                    cleanedValue = cleanedValue.slice(1, -1);
+                }
+                const keyParts = key.split(/[\.\[\]]+/).filter(Boolean);
+                let current = obj;
+                for (let i = 0; i < keyParts.length - 1; i++) {
+                    const part = keyParts[i];
+                    if (keyParts[i + 1] && !isNaN(keyParts[i + 1])) {
+                        if (!Array.isArray(current[part])) {
+                            current[part] = [];
+                        }
+                        current = current[part];
+                    } else {
+                        if (typeof current[part] !== 'object' || Array.isArray(current[part])) {
+                            current[part] = {};
+                        }
+                        current = current[part];
+                    }
+                }
+                const lastPart = keyParts[keyParts.length - 1];
+                if (!isNaN(lastPart)) {
+                    current[parseInt(lastPart, 10)] = this.parseValue(cleanedValue);
+                } else {
+                    current[lastPart] = this.parseValue(cleanedValue);
+                }
+            }
+        });
+        return obj;
+    },
+    toYml() {
+       this.toYmlBtnLoading = true;
        const output = outputEditor.getDoc();
        try {
             const input = inputEditor.getValue();
-            const yamlObject = jsyaml.load(input);
-            const properties = this.objectToProperties(yamlObject);
-            output.setValue(properties);
+            const yamlObject = jsyaml.dump(this.convertPropertiesToObject(input),{
+                lineWidth: -1
+            });
+            output.setValue(yamlObject);
         } catch (e) {
              $error("转换失败：" + e.message);
              output.setValue("");
         } finally {
-            this.toPropertiesBtnLoading = false;
+            this.toYmlBtnLoading = false;
         }
     },
     reset() {
@@ -131,33 +178,6 @@ export default {
          output.setValue("");
          const input = inputEditor.getDoc();
          input.setValue("");
-    },
-    objectToProperties(obj, prefix = '') {
-        let properties = '';
-        for (const key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                const value = obj[key];
-                const newKey = prefix ? `${prefix}.${key}` : key;
-                if (value === null || value === undefined) {
-                    properties += `${newKey} = ${value}\n`;
-                } else if (typeof value === 'object' && !Array.isArray(value)) {
-                    properties += this.objectToProperties(value, newKey);
-                } else if (Array.isArray(value)) {
-                    value.forEach((item, index) => {
-                        if (item === null || item === undefined) {
-                            properties += `${newKey}[${index}] = ${item}\n`;
-                        } else if (typeof item === 'object') {
-                            properties += this.objectToProperties(item, `${newKey}[${index}]`);
-                        } else {
-                            properties += `${newKey}[${index}] = ${item}\n`;
-                        }
-                    });
-                } else {
-                    properties += `${newKey} = ${value}\n`;
-                }
-            }
-        }
-        return properties;
     }
   }
 }

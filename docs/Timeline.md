@@ -904,6 +904,13 @@ head:
                "createTime": "2024-09-01T13:34:23.359Z"
             }
          ],
+         "06": [
+            {
+               "title": "Properties转为YML",
+               "path": "/tools/Properties-YML.md",
+               "createTime": "2024-09-05T16:34:29.557Z"
+            }
+         ],
          "05": [
             {
                "title": "YML转为Properties",

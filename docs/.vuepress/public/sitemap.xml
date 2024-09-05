@@ -647,6 +647,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/tools/Properties-YML.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/tools/RSA.html</loc>
         <priority>1.00</priority>
     </url>
