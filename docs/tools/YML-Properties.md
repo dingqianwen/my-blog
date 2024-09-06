@@ -18,7 +18,7 @@ head:
 <br>
 <br>
 <label class="yp">
-   <textarea placeholder="YML" id="ymlValue"></textarea>
+   <textarea placeholder="YML" id="ymlValue" ref="value"></textarea>
 </label>
 <br>
 <label class="yp">
@@ -46,6 +46,7 @@ export default {
     };
   },
   mounted() {
+    this.$refs.value.focus();
     CodeMirror.defineMode("p", function () {
         return {
             token: function (stream, state) {
@@ -196,6 +197,7 @@ export default {
         height: 200px;
         max-height: 400px;
         resize: vertical;
+        border-radius: 5px;
     }
     .yp .CodeMirror-line{
          color: var(--c-text) !important;
