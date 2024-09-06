@@ -86,11 +86,11 @@ export default {
                     stream.skipToEnd();
                     return null;
                 }
-                if (stream.match(/^:\s*(.*)/)) {
-                    return "string";
+                if (stream.match(/^- (\S+):(\S+)/)) {
+                    return null;
                 }
                 if (stream.match(/^[^\s]+/, true)) {
-                    return "string";
+                    return null;
                 }
                 stream.next();
                 return null;
