@@ -7,7 +7,7 @@ head:
 
 - [meta, {name: keywords, content: '生成二维码/条形码, 在线生成二维码/条形码'}]
 - [script, {src: '/js/JsBarcode.js'}]
-- [script, {src: '/js/arale-qrcode.js'}]
+- [script, {src: '/js/qrcode.min.js'}]
 
 ---
 
@@ -20,7 +20,8 @@ head:
 </label>
 <br v-show="autoView">
 <label style="width: 100%;text-align: center;display: block">
-    <svg id="code" v-show="autoView"></svg>
+    <div id="qrCode" v-show="qrView"></div>
+    <svg id="barCode" v-show="barView"></svg>
 </label>
 <br><br>
 <div>
@@ -38,7 +39,9 @@ export default {
   data(){
     return {
         text: null,
-        autoView: false
+        qrView: false,
+        barView: false,
+        autoView: false,
     };
   },
   methods: {
@@ -46,13 +49,24 @@ export default {
             if(!this.text){
                 return;
             }
-            new AraleQRCode({
-                "element" : "code",
-                "render": "svg",
-                "text": this.text,
-                "size": 150,
-                "background":"var(--c-bg)",
-                "foreground": "var(--c-text)"
+            this.qrView = true;
+            this.barView = false;
+            const qrcodeContainer = document.getElementById('qrCode');
+            qrcodeContainer.innerHTML = '';
+            QRCode.toString(this.text, {
+                type: 'svg',
+                width: 150,
+                height: 150,
+                color: {
+                    dark: '#303e4f', 
+                    light: '#ffffff'
+                }
+            }, function (err, url) {
+                if (err) {
+                    $error("二维码生成失败！");
+                    return;
+                }
+                qrcodeContainer.innerHTML = url;
             });
             this.autoView = true;
         },
@@ -65,12 +79,14 @@ export default {
                     $warning("条形码最大长度不支持超过20字符！");
                     return;
                 }
-                let barcode = JsBarcode("#code", this.text, {
+                this.qrView = false;
+                this.barView = true;
+                JsBarcode("#barCode", this.text, {
                                 displayValue: false,
-                                background : "var(--c-bg)",
-                                lineColor : "var(--c-text)",
-                                margin : 0,
-                                width: 1.2,
+                                background : "#ffffff",
+                                lineColor : "#303e4f",
+                                margin : 8,
+                                width: 1.4,
                                 height: 150
                               });
                  this.autoView = true;
@@ -85,9 +101,9 @@ export default {
             this.resetCode();
         },
         resetCode() {
+            this.qrView = false;
+            this.barView = false;
             this.autoView = false;
-            const code = document.getElementById("code");
-            code.width = code.width.toString();
         }
   },
   mounted() {
