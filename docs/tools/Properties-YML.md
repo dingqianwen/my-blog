@@ -173,8 +173,8 @@ export default {
             $('.copy').click();
             $success("已帮你复制到剪切板！");
         } catch (e) {
-             $error("转换失败：" + e.message);
-             output.setValue("");
+            $error("转换失败：" + e.message);
+            output.setValue("");
         } finally {
             this.toYmlBtnLoading = false;
         }
