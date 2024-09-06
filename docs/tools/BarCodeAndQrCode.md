@@ -57,9 +57,10 @@ export default {
                 type: 'svg',
                 width: 150,
                 height: 150,
+                margin : 0,
                 color: {
-                    dark: '#303e4f', 
-                    light: '#ffffff'
+                    light: '#000001',
+                    dark: '#000002',
                 }
             }, function (err, url) {
                 if (err) {
@@ -67,6 +68,16 @@ export default {
                     return;
                 }
                 qrcodeContainer.innerHTML = url;
+            });
+            const svgElement = document.getElementById('qrCode');
+            const pathElements = svgElement.querySelectorAll('path');
+            pathElements.forEach((path) => {
+              if (path.getAttribute('fill') === '#000001') {
+                path.setAttribute('fill', 'var(--c-bg)');
+              }
+              if (path.getAttribute('stroke') === '#000002') {
+                path.setAttribute('stroke', 'var(--c-text)');
+              }
             });
             this.autoView = true;
         },
@@ -83,9 +94,9 @@ export default {
                 this.barView = true;
                 JsBarcode("#barCode", this.text, {
                                 displayValue: false,
-                                background : "#ffffff",
-                                lineColor : "#303e4f",
-                                margin : 8,
+                                background : "var(--c-bg)",
+                                lineColor : "var(--c-text)",
+                                margin : 0,
                                 width: 1.4,
                                 height: 150
                               });
