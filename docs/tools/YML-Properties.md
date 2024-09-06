@@ -30,16 +30,18 @@ head:
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
 </div>
+<span class="copy" @click="copy()"></span>
 
 <script>
+
+import Clipboard from "clipboard";
+
 let inputEditor;
 let outputEditor;
 export default {
   name: 'YML-Properties',
   data(){
     return {
-        ymlValue: "",
-        propertiesValue: "",
         toPropertiesBtnLoading: false
     };
   },
@@ -119,9 +121,11 @@ export default {
             const yamlObject = jsyaml.load(input);
             const properties = this.objectToProperties(yamlObject);
             output.setValue(properties);
+            $('.copy').click();
+            $success("已帮你复制到剪切板！");
         } catch (e) {
-             $error("转换失败：" + e.message);
-             output.setValue("");
+            $error("转换失败：" + e.message);
+            output.setValue("");
         } finally {
             this.toPropertiesBtnLoading = false;
         }
@@ -158,6 +162,22 @@ export default {
             }
         }
         return properties;
+    },
+    copy(){
+        const output = outputEditor.getDoc();
+        let clipboard = new Clipboard('.copy', {
+          text:  () => {
+            return output.getValue();
+          },
+        });
+        clipboard.on('success', function () {
+          $success("复制成功！");
+          clipboard.destroy();
+        });
+        clipboard.on('error', function () {
+          $warning("不支持复制哦！");
+          clipboard.destroy();
+        });
     }
   }
 }
@@ -172,7 +192,8 @@ export default {
         font-family: monospace;
         font-size: 14px;
         padding: 0.5em;
-        min-height: 150px;
+        min-height: 60px;
+        height: 200px;
         max-height: 400px;
         resize: vertical;
     }

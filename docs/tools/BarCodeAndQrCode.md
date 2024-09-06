@@ -50,7 +50,7 @@ export default {
                 "element" : "code",
                 "render": "svg",
                 "text": this.text,
-                "size": 100,
+                "size": 150,
                 "background":"var(--c-bg)",
                 "foreground": "var(--c-text)"
             });
@@ -70,7 +70,8 @@ export default {
                                 background : "var(--c-bg)",
                                 lineColor : "var(--c-text)",
                                 margin : 0,
-                                width: 1.2
+                                width: 1.2,
+                                height: 150
                               });
                  this.autoView = true;
             } catch (e) {
