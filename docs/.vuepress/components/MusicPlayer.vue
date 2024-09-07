@@ -20,7 +20,7 @@
         </div>
         <div class="progress-bar-wrap">
           <div class="time">{{ formatTime(currentTime) }} / {{ formatTime(totalTime) }}</div>
-          <div  @click="progressClick" style="cursor: pointer;">
+          <div  @click="progressClick" @mousedown="progressStartDrag" ref="progressBarContainer" style="cursor: pointer;">
             <div class="progress-bar" :style="{width: progress}"></div>
           </div>
         </div>
@@ -159,7 +159,8 @@ export default {
       contextAudio: null,
       analyserAudio: null,
       switchPanel: true,
-      isLargeScreen: true
+      isLargeScreen: true,
+      isProgressDragging: false, // 进度条正在拖拽
     }
   },
   props: {
@@ -284,9 +285,37 @@ export default {
     }
   },
   methods: {
+    progressStartDrag(event) {
+      // 暂停播放
+      if(this.playing){
+        // 如果当前在播放中，标记拖摘完后继续播放
+        this.audio.pause()
+      }
+      this.isProgressDragging = true;
+      this.updateProgress(event);
+      document.addEventListener('mousemove', this.progressOnMouseMove);
+      document.addEventListener('mouseup', this.progressStopDrag);
+    },
+    progressOnMouseMove(event) {
+      if (this.isProgressDragging) {
+        this.updateProgress(event);
+      }
+    },
+    progressStopDrag() {
+      this.isProgressDragging = false;
+      document.removeEventListener('mousemove', this.progressOnMouseMove);
+      document.removeEventListener('mouseup', this.progressStopDrag);
+      if(this.playing){
+        // 继续播放
+        this.audio.play()
+      }
+    },
     progressClick(event) {
+      this.updateProgress(event);
+    },
+    updateProgress(event) {
       // 获取进度条容器的宽度和点击位置
-      const containerRect = event.currentTarget.getBoundingClientRect();
+      const containerRect = this.$refs.progressBarContainer.getBoundingClientRect();
       const clickX = event.clientX - containerRect.left;
       const containerWidth = containerRect.width;
       // 计算百分比
@@ -330,6 +359,7 @@ export default {
           // await ios 设备无法播放
           this.audio.play()
           // this.onLoadAudio()
+          this.setPlayingState(true)
         } catch (error) {
           this.setPlayingState(false)
         }
