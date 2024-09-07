@@ -167,6 +167,9 @@ export default {
        const output = outputEditor.getDoc();
        try {
             const input = inputEditor.getValue();
+            if(input) {
+                return;
+            }
             const yamlObject = jsyaml.dump(this.convertPropertiesToObject(input),{
                 lineWidth: -1
             });

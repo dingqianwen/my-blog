@@ -119,6 +119,9 @@ export default {
        const output = outputEditor.getDoc();
        try {
             const input = inputEditor.getValue();
+            if(!input) {
+                return;
+            }
             const yamlObject = jsyaml.load(input);
             const properties = this.objectToProperties(yamlObject);
             output.setValue(properties);

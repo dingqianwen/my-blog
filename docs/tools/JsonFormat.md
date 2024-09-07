@@ -14,7 +14,7 @@ head:
 
 # JSON格式化
 
-快来<a href="javascript:void(0);" @click="tryIt()">尝试一下</a>`{"code":3,"msg":"成功！","data":88}`
+快来<a href="javascript:void(0);" @click="tryIt()">点我尝试一下</a>`{"code":3,"msg":"成功！","data":88}`
 
 
 <br>
