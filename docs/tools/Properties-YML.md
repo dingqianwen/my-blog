@@ -17,12 +17,12 @@ head:
 
 <br>
 <br>
-<label class="yp" v-if="view">
-   <textarea placeholder="YML" id="propertiesValue" ref="value"></textarea>
+<label class="yp">
+   <textarea style="display: none" placeholder="YML" id="propertiesValue"></textarea>
 </label>
 <br>
-<label class="yp" v-if="view">
-   <textarea placeholder="Properties" id="ymlValue" readonly></textarea>
+<label class="yp">
+   <textarea style="display: none" placeholder="Properties" id="ymlValue" readonly></textarea>
 </label>
 <br><br><br>
 <div>
@@ -45,11 +45,9 @@ export default {
         ymlValue: "",
         propertiesValue: "",
         toYmlBtnLoading: false,
-        view : false
     };
   },
   mounted() {
-    this.$refs.value.focus();
     CodeMirror.defineMode("p", function () {
         return {
             token: function (stream, state) {
@@ -115,7 +113,6 @@ export default {
         indentWithTabs: true, 
         smartIndent: true, 
     });
-    this.view = true;
   },
   methods: {
     parseValue(value) {

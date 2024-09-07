@@ -19,7 +19,7 @@ head:
 
 <br>
 <label class="jf">
-   <textarea class="jf-textarea" id="jf-textarea" ref="value" placeholder="把数据粘贴此处"></textarea>
+   <textarea style="display: none" class="jf-textarea" id="jf-textarea" placeholder="把数据粘贴此处"></textarea>
 </label>
 <br><br>
 <div>
@@ -64,8 +64,6 @@ export default {
         }
   },
   mounted() {
-        this.$refs.value.focus();
-
         CodeMirror.defineMode("json", function(config, parserConfig) {
             function tokenBase(stream, state) {
                 if (stream.eatSpace()) return null;
