@@ -17,11 +17,11 @@ head:
 
 <br>
 <br>
-<label class="yp">
+<label class="yp" v-if="view">
    <textarea placeholder="YML" id="ymlValue" ref="value"></textarea>
 </label>
 <br>
-<label class="yp">
+<label class="yp" v-if="view">
    <textarea placeholder="Properties" id="propertiesValue" readonly></textarea>
 </label>
 <br><br><br>
@@ -42,7 +42,8 @@ export default {
   name: 'YML-Properties',
   data(){
     return {
-        toPropertiesBtnLoading: false
+        toPropertiesBtnLoading: false,
+        view: false
     };
   },
   mounted() {
@@ -112,6 +113,7 @@ export default {
         indentWithTabs: true, 
         smartIndent: true, 
     });
+    this.view = true;
   },
   methods: {
     toProperties() {

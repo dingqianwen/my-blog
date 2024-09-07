@@ -17,11 +17,11 @@ head:
 
 <br>
 <br>
-<label class="yp">
+<label class="yp" v-if="view">
    <textarea placeholder="YML" id="propertiesValue" ref="value"></textarea>
 </label>
 <br>
-<label class="yp">
+<label class="yp" v-if="view">
    <textarea placeholder="Properties" id="ymlValue" readonly></textarea>
 </label>
 <br><br><br>
@@ -44,7 +44,8 @@ export default {
     return {
         ymlValue: "",
         propertiesValue: "",
-        toYmlBtnLoading: false
+        toYmlBtnLoading: false,
+        view : false
     };
   },
   mounted() {
@@ -114,6 +115,7 @@ export default {
         indentWithTabs: true, 
         smartIndent: true, 
     });
+    this.view = true;
   },
   methods: {
     parseValue(value) {
@@ -167,7 +169,7 @@ export default {
        const output = outputEditor.getDoc();
        try {
             const input = inputEditor.getValue();
-            if(input) {
+            if(!input) {
                 return;
             }
             const yamlObject = jsyaml.dump(this.convertPropertiesToObject(input),{
