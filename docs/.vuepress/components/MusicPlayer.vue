@@ -20,7 +20,9 @@
         </div>
         <div class="progress-bar-wrap">
           <div class="time">{{ formatTime(currentTime) }} / {{ formatTime(totalTime) }}</div>
-          <div class="progress-bar" :style="{width: progress}"></div>
+          <div  @click="progressClick" style="cursor: pointer;">
+            <div class="progress-bar" :style="{width: progress}"></div>
+          </div>
         </div>
         <div class="control">
           <div :class="['btn', playing ? 'play' : 'pause']" @click.native="onClickSong" title="播放/暂停">
@@ -282,6 +284,18 @@ export default {
     }
   },
   methods: {
+    progressClick(event) {
+      // 获取进度条容器的宽度和点击位置
+      const containerRect = event.currentTarget.getBoundingClientRect();
+      const clickX = event.clientX - containerRect.left;
+      const containerWidth = containerRect.width;
+      // 计算百分比
+      const newPercentage = (clickX / containerWidth) * 100;
+      // 更新进度条的宽度和百分比
+      this.progress = `${newPercentage}%`;
+      this.currentTime = Math.round((newPercentage / 100) * this.totalTime);
+      this.$refs.audio.currentTime = this.currentTime;
+    },
     doSwitchPanel() {
       // 大屏模式下，不可点击
       if (this.isLargeScreen) {
