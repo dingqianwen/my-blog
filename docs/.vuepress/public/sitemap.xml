@@ -227,6 +227,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/java/指定时间范围，按照每日切分.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/java/架构师成长之路.html</loc>
         <priority>1.00</priority>
     </url>

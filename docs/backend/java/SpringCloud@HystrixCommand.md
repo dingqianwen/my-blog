@@ -142,15 +142,20 @@ import java.util.concurrent.Callable;
 public class CustomizedHystrixConcurrencyStrategy extends HystrixConcurrencyStrategy {
 
     public CustomizedHystrixConcurrencyStrategy() {
-        // HystrixPlugins.reset();
+        HystrixPlugins.reset();
         HystrixPlugins.getInstance().registerConcurrencyStrategy(this);
+        // 以上可以改为SPI方式注册
+        // `resources`目录下增加`META-INF.services`文件夹，
+        // 增加文件`com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy`
+        // 文件内容为此类的全类名称，例如：com.**.CustomizedHystrixConcurrencyStrategy
     }
 
     @Override
     public <T> Callable<T> wrapCallable(Callable<T> callable) {
         Map<String, String> map = MDC.getCopyOfContextMap();
-        // 传递其他信息
-        // ..
+        if (map == null) {
+            return callable;
+        }
         return () -> {
             try {
                 MDC.setContextMap(map);
