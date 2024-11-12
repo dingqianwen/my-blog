@@ -32,12 +32,16 @@
 
 .markdown-body .pl-c1,
 .markdown-body .pl-s .pl-v {
-    color: #005cc5;
+    color: #618dc0;
+}
+
+.markdown-body .pl-s .pl-v {
+    color: olive;
 }
 
 .markdown-body .pl-e,
 .markdown-body .pl-en {
-    color: #6f42c1;
+    color: #f08d49;
 }
 
 .markdown-body .pl-smi,
@@ -50,7 +54,7 @@
 }
 
 .markdown-body .pl-k {
-    color: #d73a49;
+    color: #d08cd2;
 }
 
 .markdown-body .pl-s,
@@ -61,7 +65,7 @@
 .markdown-body .pl-sr .pl-sre,
 .markdown-body .pl-sr .pl-sra {
     /*color: #032f62;*/
-    color: var(--c-text-lighter);
+    color: #7ec699;
 }
 
 .markdown-body .pl-v,
