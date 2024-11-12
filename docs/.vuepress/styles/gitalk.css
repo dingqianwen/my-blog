@@ -655,15 +655,16 @@
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: var(--c-tip-bg);
+    /*background-color: var(--c-tip-bg);*/
     border-radius: 3px;
     color: var(--c-text);
     transition: background-color var(--t-color), border-color var(--t-color);
+    border: dashed 1px var(--c-border);
 }
 
 .markdown-body pre code {
     display: inline;
-    max-width: auto;
+    /*max-width: auto;*/
     padding: 0;
     margin: 0;
     overflow: visible;
@@ -1045,7 +1046,7 @@
 }
 
 .gt-container .gt-user .gt-ico svg {
-    fill: inherit;
+    /*fill: inherit;*/
 }
 
 .gt-container .gt-user .is--poping .gt-ico svg {
