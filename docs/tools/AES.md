@@ -22,24 +22,25 @@ head:
 </label>
 <br>
 <label>
-   <input class="oead-input" style="resize: none;" placeholder="密钥" v-model="secretKey" type="password"/>
+   <input class="oead-input" style="resize: none;" placeholder="密钥" v-model="secretKey" type="text"/>
 </label>
 <br><br>
 <label>
-   <input class="oead-input" style="resize: none" placeholder="IV偏移量" v-model="iv" type="password"/>
+   <input class="oead-input" style="resize: none" placeholder="偏移量" v-model="iv" type="text"/>
 </label>
 <br><br><br>
 <div>
-    <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
-    &nbsp;&nbsp;
     <M-Button @click="encrypt()" class="oead-encrypt" :isLoading="encryptBtnLoading" text="加密" type="primary"></M-Button>
+    &nbsp;&nbsp;
+    <M-Button @click="decrypt()" class="oead-decrypt" :isLoading="decryptBtnLoading" text="解密" type="primary"></M-Button>
     &nbsp;&nbsp;
     <M-Button @click="reset()" text="重置"></M-Button>
 </div>
 <br>
 
-> 密钥不足`32`位、IV偏移量不足`16`位时前缀自动补充`0`；  
-> 加解密过程不会发出网络请求、不会存储相关密钥信息；
+> 密钥`16`、`24`、`32`位、偏移量`16`位；  
+> 默认使用`ECB`模式，如果输入偏移量，则使用`CBC`模式；  
+> 加解密过程不会发出网络请求、不会存储相关密钥信息；  
 
 <script>
 
@@ -77,17 +78,21 @@ export default {
         }
         this.decryptBtnLoading = true;
         let key = CryptoJS.enc.Utf8.parse(this.secretKey);
-        let iv = CryptoJS.enc.Utf8.parse(this.iv);
-      
-        let base64 = CryptoJS.enc.Base64.parse(this.ciphertext);
-        let src = CryptoJS.enc.Base64.stringify(base64);
-
-        const decrypt = CryptoJS.AES.decrypt(src, key, {
-          iv: iv,
-          mode: CryptoJS.mode.CBC,
-          padding: CryptoJS.pad.Pkcs7
-        });
-        this.plaintext = CryptoJS.enc.Utf8.stringify(decrypt).toString();
+        let decrypt;
+        if(this.iv) {
+            let iv = CryptoJS.enc.Utf8.parse(this.iv);
+            decrypt = CryptoJS.AES.decrypt(this.ciphertext, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+        }else {
+            decrypt = CryptoJS.AES.decrypt(this.ciphertext, key, {
+              mode: CryptoJS.mode.ECB,
+              padding: CryptoJS.pad.Pkcs7
+            });
+        }
+        this.plaintext = decrypt.toString(CryptoJS.enc.Utf8);
         this.decryptBtnLoading = false;
     },
     process() {
@@ -95,20 +100,16 @@ export default {
             $warning("密钥不能为空！");
             return false;
         }
-        if (!this.iv) {
-            $warning("IV偏移量不能为空！");
+        let skl = this.secretKey.length;
+        if(![16, 24, 32].includes(skl)) {
+            $warning("密钥错误，长度为16、24、32位！");
             return false;
         }
-        if(this.secretKey.length > 32) {
-            $warning("密钥过长，不可超过32位！");
-            return false;
-        }
-        if(this.iv.length > 16) {
-            $warning("IV偏移量过长，不可超过16位！");
-            return false;
-        }
-        if(this.iv.length < 16) {
-            this.iv = this.iv.padStart(16, '0');
+        if (this.iv) {
+            if(this.iv.length !== 16) {
+                $warning("IV偏移量错误，长度为16位！");
+                return false;
+            }   
         }
         return true;
     },
@@ -122,14 +123,22 @@ export default {
         }
         this.encryptBtnLoading = true;
         let key = CryptoJS.enc.Utf8.parse(this.secretKey);
-        let iv = CryptoJS.enc.Utf8.parse(this.iv);
-        let srcs = CryptoJS.enc.Utf8.parse(this.plaintext);
-        const encrypted = CryptoJS.AES.encrypt(srcs, key, {
-          iv: iv,
-          mode: CryptoJS.mode.CBC,
-          padding: CryptoJS.pad.Pkcs7,
-        });
-        this.ciphertext = CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
+        let srcs = this.plaintext;
+        let encrypted;
+        if(this.iv) {
+            let iv = CryptoJS.enc.Utf8.parse(this.iv);
+            encrypted = CryptoJS.AES.encrypt(srcs, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7,
+            });
+        }else {
+            encrypted = CryptoJS.AES.encrypt(srcs, key, {
+              mode: CryptoJS.mode.ECB,
+              padding: CryptoJS.pad.Pkcs7,
+            });
+        }
+        this.ciphertext = encrypted.toString();
         this.encryptBtnLoading = false;
     },
     reset() {
