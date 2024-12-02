@@ -18,11 +18,11 @@ head:
 <br>
 <br>
 <label class="yp">
-   <textarea style="display: none" placeholder="YML" id="propertiesValue"></textarea>
+   <textarea style="display: none" placeholder="Properties" id="propertiesValue"></textarea>
 </label>
 <br>
 <label class="yp">
-   <textarea style="display: none" placeholder="Properties" id="ymlValue" readonly></textarea>
+   <textarea style="display: none" placeholder="YML" id="ymlValue" readOnly="true"></textarea>
 </label>
 <br><br><br>
 <div>
@@ -112,6 +112,7 @@ export default {
         matchBrackets: true, 
         indentWithTabs: true, 
         smartIndent: true, 
+        readOnly: true
     });
   },
   methods: {

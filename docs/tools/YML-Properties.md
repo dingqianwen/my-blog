@@ -22,7 +22,7 @@ head:
 </label>
 <br>
 <label class="yp">
-   <textarea style="display: none" placeholder="Properties" id="propertiesValue" readonly></textarea>
+   <textarea style="display: none" placeholder="Properties" id="propertiesValue" readOnly="true"></textarea>
 </label>
 <br><br><br>
 <div>
@@ -110,6 +110,7 @@ export default {
         matchBrackets: true, 
         indentWithTabs: true, 
         smartIndent: true, 
+        readOnly: true
     });
   },
   methods: {
