@@ -677,6 +677,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/tools/TimestampDateConvert.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/tools/Transfer.html</loc>
         <priority>1.00</priority>
     </url>
