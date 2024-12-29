@@ -1,11 +1,11 @@
 ---
-lang: zh-CN   
-title: 时间戳日期互转   
-description: 页面的描述  
-date: 2022-06-01 10:25:59  
+lang: zh-CN
+title: 时间戳日期互转
+description: 页面的描述
+date: 2022-06-01 10:25:59
 head:
 
-- [meta, {name: keywords, content: '时间戳日期互转'}]
+  - [ meta, { name: keywords, content: '时间戳日期互转' } ]
 
 ---
 
@@ -54,8 +54,12 @@ export default {
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
         const seconds = String(date.getSeconds()).padStart(2, '0');
+        let result = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        if(date.getMilliseconds() === 0){
+            return result;
+        }
         const milliseconds = String(date.getMilliseconds()).padStart(3, '0');
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}:${milliseconds}`;
+        return `${result}:${milliseconds}`;
     },
     toDate() {
         if(!this.timestamp){
@@ -73,7 +77,12 @@ export default {
             $warning("日期不能为空！");
             return;
         }
-        this.timestamp = new Date(this.date).getTime();
+        let date = new Date(this.date);
+        if(isNaN(date.getTime())){
+            $warning("日期格式不正确！");
+            return;
+        }
+        this.timestamp = date.getTime();
     },
     reset() {
         this.timestamp = "";
