@@ -12,6 +12,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/big-data/可视化数据流引擎.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/c/51单片机-开关控制LED.html</loc>
         <priority>1.00</priority>
     </url>

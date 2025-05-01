@@ -104,6 +104,12 @@ module.exports = {
                 collapsible: true,
                 children: read("../backend/kuboard", {ignoreReadmeMd: true}),
             },
+            {
+                text: 'BigData',
+                // link: '/backend/kuboard/',
+                collapsible: true,
+                children: read("../backend/big-data", {ignoreReadmeMd: true}),
+            },
         ],
         "/front/": [
             {

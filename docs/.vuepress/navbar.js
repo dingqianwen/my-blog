@@ -52,6 +52,10 @@ module.exports = {
                     text: 'Kuboard',
                     link: '/backend/kuboard/',
                 },
+                {
+                    text: 'BigData',
+                    link: '/backend/big-data/',
+                },
             ],
         },
         {
