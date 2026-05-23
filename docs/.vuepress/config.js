@@ -2,7 +2,7 @@
 const {path} = require('@vuepress/utils')
 const {sidebar} = require('./sidebar')
 const {navbar} = require('./navbar')
-const {defaultTheme} = require('vuepress')
+const {defaultTheme, viteBundler} = require('vuepress')
 const {searchPlugin} = require('@vuepress/plugin-search')
 const {registerComponentsPlugin} = require('@vuepress/plugin-register-components')
 const {shikiPlugin} = require('@vuepress/plugin-shiki')
@@ -12,7 +12,26 @@ const {googleAnalyticsPlugin} = require('@vuepress/plugin-google-analytics')
 
 const {processPage} = require('./plugin/process')
 
+/** theme-default 仍用 @import，Sass 1.79+ 会告警；静默第三方依赖中的弃用提示 */
+const sassSilenceDeprecations = ['legacy-js-api', 'import', 'global-builtin', 'mixed-decls']
+
 module.exports = {
+    bundler: viteBundler({
+        viteOptions: {
+            css: {
+                preprocessorOptions: {
+                    scss: {
+                        silenceDeprecations: sassSilenceDeprecations,
+                        quietDeps: true,
+                    },
+                    sass: {
+                        silenceDeprecations: sassSilenceDeprecations,
+                        quietDeps: true,
+                    },
+                },
+            },
+        },
+    }),
     title: "My-Blog",
     base: "/blog/",
     description: '这是dingqw的博客🐮👃！我只要一步一步一步的往上爬，我要做“赵高“',
