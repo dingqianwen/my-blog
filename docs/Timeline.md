@@ -996,7 +996,7 @@ head:
             {
                "title": "同步任务无日志挂住：jcmd 定位 ResultSet.close 阻塞",
                "path": "/backend/java/同步任务无日志挂住-jcmd定位ResultSet.close阻塞.md",
-               "createTime": "2026-05-23T07:54:29.382Z"
+               "createTime": "2026-05-23T10:27:56.000Z"
             }
          ]
       }
