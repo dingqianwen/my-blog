@@ -36,7 +36,7 @@ type: cds
 - [使用JProfiler排查内存溢出问题](使用JProfiler排查内存溢出问题.md)  
 - [几行代码带你解读MyBatis框架的Mapper代理模式](几行代码带你解读MyBatis框架的Mapper代理模式.md)  
 - [发现了以元素process开头的无效内容](发现了以元素process开头的无效内容.md)  
-- [同步任务无日志卡死与 jcmd 线程 Dump 排查](同步任务无日志卡死与jcmd线程Dump排查.md)  
+- [同步任务无日志挂住：jcmd 定位 ResultSet.close 阻塞](同步任务无日志挂住-jcmd定位ResultSet.close阻塞.md)  
 - [${***}字符串表达式替换工具](字符串表达式替换工具.md)  
 - [指定时间范围，按照每日切分](指定时间范围，按照每日切分.md)  
 - [Java架构师成长之路-代码优化方案](架构师成长之路.md)  

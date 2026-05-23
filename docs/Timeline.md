@@ -994,8 +994,8 @@ head:
       "05": {
          "23": [
             {
-               "title": "同步任务无日志卡死与 jcmd 线程 Dump 排查",
-               "path": "/backend/java/同步任务无日志卡死与jcmd线程Dump排查.md",
+               "title": "同步任务无日志挂住：jcmd 定位 ResultSet.close 阻塞",
+               "path": "/backend/java/同步任务无日志挂住-jcmd定位ResultSet.close阻塞.md",
                "createTime": "2026-05-23T07:54:29.382Z"
             }
          ]

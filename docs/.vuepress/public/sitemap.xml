@@ -232,7 +232,7 @@
     </url>
 
     <url>
-        <loc>https://apidocs.cn/blog/backend/java/同步任务无日志卡死与jcmd线程Dump排查.html</loc>
+        <loc>https://apidocs.cn/blog/backend/java/同步任务无日志挂住-jcmd定位ResultSet.close阻塞.html</loc>
         <priority>1.00</priority>
     </url>
 
