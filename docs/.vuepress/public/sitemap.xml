@@ -232,6 +232,11 @@
     </url>
 
     <url>
+        <loc>https://apidocs.cn/blog/backend/java/同步任务无日志卡死与jcmd线程Dump排查.html</loc>
+        <priority>1.00</priority>
+    </url>
+
+    <url>
         <loc>https://apidocs.cn/blog/backend/java/字符串表达式替换工具.html</loc>
         <priority>1.00</priority>
     </url>

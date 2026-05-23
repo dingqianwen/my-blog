@@ -1,4 +1,6 @@
 const fs = require('fs')
+const path = require('path')
+const { execFileSync } = require('child_process')
 const rootDir = './docs'
 const tag = "type: cds";
 const timelineFilePath = "./docs/Timeline.md";
@@ -13,6 +15,45 @@ function Content(title, path, dir, fileName, createTime) {
     this.dir = dir
     this.fileName = fileName
     this.createTime = createTime
+}
+
+/**
+ * 取文件在 Git 中首次提交时间；无 Git 记录时回退文件 birthtime/mtime
+ *
+ * @param {string} filePath 文件路径（相对或绝对）
+ * @return {Date}
+ */
+function getGitFirstCommitTime(filePath) {
+    const absolutePath = path.resolve(filePath)
+    try {
+        const repoRoot = execFileSync('git', ['rev-parse', '--show-toplevel'], {
+            encoding: 'utf8',
+        }).trim()
+        const relativePath = path.relative(repoRoot, absolutePath)
+        if (!relativePath.startsWith('..')) {
+            const attempts = [
+                ['--follow', '--diff-filter=A', '--format=%aI', '-1', '--', relativePath],
+                ['--follow', '--reverse', '--format=%aI', '-1', '--', relativePath],
+            ]
+            for (const args of attempts) {
+                try {
+                    const iso = execFileSync('git', ['log', ...args], {
+                        cwd: repoRoot,
+                        encoding: 'utf8',
+                    }).trim()
+                    if (iso) {
+                        return new Date(iso)
+                    }
+                } catch (e) {
+                    // try next strategy
+                }
+            }
+        }
+    } catch (e) {
+        // fall through
+    }
+    const stat = fs.statSync(absolutePath)
+    return stat.birthtime && stat.birthtime.getTime() > 0 ? stat.birthtime : stat.mtime
 }
 
 function listDirectory(dir, callback) {
@@ -58,9 +99,9 @@ function writePageData(dir, f, fileName) {
             title = title.substr(0, title.length - 1);
         }
     }
-    // 注意这里有部分系统不支持birthtime
-    let {birthtime} = fs.statSync(f);
-    let content = new Content(title, f.replace(rootDir, ''), dir, fileName, birthtime);
+    // 优先 Git 首次提交时间，避免 birthtime 在迁移/解压后不准
+    let createTime = getGitFirstCommitTime(f);
+    let content = new Content(title, f.replace(rootDir, ''), dir, fileName, createTime);
     pageData.push(content)
 }
 
