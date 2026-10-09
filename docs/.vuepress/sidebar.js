@@ -111,7 +111,7 @@ module.exports = {
                 children: read("../backend/big-data", {ignoreReadmeMd: true}),
             },
             {
-                text: '规则平台',
+                text: 'RulePlatform',
                 collapsible: true,
                 children: read("../backend/rule-platform", {ignoreReadmeMd: true}),
             },

@@ -57,7 +57,7 @@ module.exports = {
                     link: '/backend/big-data/',
                 },
                 {
-                    text: '规则平台',
+                    text: 'RulePlatform',
                     link: '/backend/rule-platform/',
                 },
             ],

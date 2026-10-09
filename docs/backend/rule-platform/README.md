@@ -1,6 +1,6 @@
 ---
 lang: zh-CN
-title: 规则平台
+title: RulePlatform
 description: 规则平台相关
 type: cds
 ---
