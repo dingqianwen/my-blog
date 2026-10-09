@@ -996,7 +996,7 @@ head:
             {
                "title": "企业级可视化拖拽式业务规则与决策平台",
                "path": "/backend/rule-platform/企业级可视化拖拽式业务规则与决策平台.md",
-               "createTime": "2026-10-09T11:26:16.924Z"
+               "createTime": "2026-10-09T11:46:43.000Z"
             }
          ]
       },
