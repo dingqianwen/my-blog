@@ -110,6 +110,11 @@ module.exports = {
                 collapsible: true,
                 children: read("../backend/big-data", {ignoreReadmeMd: true}),
             },
+            {
+                text: '规则平台',
+                collapsible: true,
+                children: read("../backend/rule-platform", {ignoreReadmeMd: true}),
+            },
         ],
         "/front/": [
             {

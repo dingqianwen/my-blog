@@ -56,6 +56,10 @@ module.exports = {
                     text: 'BigData',
                     link: '/backend/big-data/',
                 },
+                {
+                    text: '规则平台',
+                    link: '/backend/rule-platform/',
+                },
             ],
         },
         {
