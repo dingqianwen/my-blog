@@ -11,7 +11,9 @@ head:
 
 # 自我简介
 
-技术专家，**精通前后端** 与数据工程相关技术，目前就职于北京。
+技术专家，**精通前后端** 与数据工程相关技术，但最擅长设计规则引擎（[可视化、拖拽式规则平台](https://ruleplatform.com)，[规则引擎](http://ruleengine.cn/doc/)，
+[企业级可视化、拖拽式业务规则与决策平台](https://gitee.com/link?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FY2j4KUvB03cOix3QCHYWLw)，
+[可视化、拖拽式规则引擎与 Jev 强强联合](https://gitee.com/link?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FjI0NSEQ2P6mDKZ3bSwixkA)），先就职于北京，目前在上海。
 
 身高：184 cm  
 体重：75 kg  
